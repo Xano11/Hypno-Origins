@@ -6,7 +6,5 @@
   "dataPacks": {
     "enabled": true,
     "additionalFolders": []
-  },
-  "appendSourceToPacks": true,
-  "loadResourcePackData": true
+  }
 }

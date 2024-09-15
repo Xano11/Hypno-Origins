@@ -6,7 +6,7 @@ hash = "ab42bb358391d0a4a93808f1824b0fcb6f35645c056de54bc0775c93c5708bb8"
 
 [[files]]
 file = "config/openloader/advanced_options.json"
-hash = "5e77ec4493bcb89e7bee5445f3aff826eca0003df0318c354645032c8cfce952"
+hash = "97c64147276f55cad728249dd77602661e2327fa178aeb8e0db12866df448211"
 
 [[files]]
 file = "config/openloader/data/angler1.zip"
