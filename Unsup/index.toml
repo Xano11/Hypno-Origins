@@ -5,6 +5,30 @@ file = "config/fwaystones/config.json5"
 hash = "ab42bb358391d0a4a93808f1824b0fcb6f35645c056de54bc0775c93c5708bb8"
 
 [[files]]
+file = "config/openloader/advanced_options.json"
+hash = "5e77ec4493bcb89e7bee5445f3aff826eca0003df0318c354645032c8cfce952"
+
+[[files]]
+file = "config/openloader/data/angler.zip"
+hash = "5cde89de2326644885757b1ca2a6766510253e9450606592ac69abf23bf41939"
+
+[[files]]
+file = "config/openloader/data/eelektross.zip"
+hash = "320fe52c560e6f3e0d56f41671e50a0ff177d20c2c9929df4752773aa03cd255"
+
+[[files]]
+file = "config/openloader/data/kalogero.zip"
+hash = "1bec9d0d56450d006e73f80dfd014c174dba01058501eaddbd38ec270baf09d0"
+
+[[files]]
+file = "config/openloader/data/voidsent.zip"
+hash = "a7a17d5a9571164881825dd48b7dc66ff3423248ebc5353b40c3c49b9d39a9a5"
+
+[[files]]
+file = "config/openloader/resources/pack1.0.zip"
+hash = "2f7c74aff2486bdc3836fc7a070bd7bea64ca3981c77dedcc7c3d0ec473d033f"
+
+[[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"
 hash = "7bf02df4cef951ee82bad9ac31a394c49217f2bd20a7bcf1eb224541d173e43d"
 
