@@ -5,6 +5,10 @@ file = "config/fwaystones/config.json5"
 hash = "ab42bb358391d0a4a93808f1824b0fcb6f35645c056de54bc0775c93c5708bb8"
 
 [[files]]
+file = "datapacks/angler.zip"
+hash = "2b5605033778a719d445ee0d32d6fd9474cb6fe6a92001e314d4936494f8fa49"
+
+[[files]]
 file = "mods/appleskin.pw.toml"
 hash = "af482cdaf7c5d9d5481e7cd789d98ebc17f47e4565a28af6c6365aef896d1404"
 metafile = true
