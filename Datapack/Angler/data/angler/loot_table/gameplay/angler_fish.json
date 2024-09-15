@@ -1,0 +1,73 @@
+{
+    "type": "minecraft:fishing",
+    "pools": [
+      {
+        "rolls": 2.0,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+            ],
+            "weight": 40,
+            "name": "minecraft:cod"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+            ],
+            "weight": 35,
+            "name": "minecraft:salmon"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+            ],
+            "weight": 10,
+            "name": "minecraft:tropical_fish"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+            ],
+            "weight": 10,
+            "name": "minecraft:pufferfish"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "function": "minecraft:set_components",
+                "components": {
+                  "minecraft:custom_name": "{\"text\":\"Angler's Treasure\",\"italic\":false,\"color\":\"dark_aqua\"}",
+                  "minecraft:lore": [
+                    "{\"text\":\"A truly rare item only real fishermen can use...\",\"italic\":false,\"color\":\"aqua\"}"
+                  ],
+                  "minecraft:enchantment_glint_override": true,
+                  "minecraft:custom_model_data": 1,
+                  "minecraft:custom_data": "{treasure_angler:1b}"
+                }
+              }
+            ],
+            "weight": 5,
+            "name": "minecraft:lime_dye"
+          }
+        ]
+      }
+    ]
+  }

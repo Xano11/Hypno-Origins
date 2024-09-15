@@ -1,0 +1,14 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+			{
+				"text": "This book resonates only with those close to the void.",
+				"color": "gray",
+				"italic": false
+			}
+		],
+		"mode": "replace_all"
+	}
+]

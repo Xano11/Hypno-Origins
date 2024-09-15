@@ -1,0 +1,113 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "kill @s"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "voidsent:dimension/portal_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:witch ~ ~1 ~ 0.1 0.1 0.1 0 4"
+        },
+        "interval": 1
+    },
+    "load": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "forceload query ~ ~",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "power revoke @s voidsent:nodes/node_load"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "forceload add ~ ~ ~ ~"
+            }
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "forceload remove ~ ~ ~ ~"
+        },
+        "execute_chosen_when_orb": false
+    },
+    "teleport": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 1.5,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute store result score @s PortalMarkers run data get entity @s UUID[1] 1"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "forceload add ~ ~ ~ ~"
+                        },
+                        {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:marker",
+                            "tag": "{Tags:[\"voidsent_marker\"]}",
+                            "entity_action": {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s PortalMarkers run data get entity @p UUID[1] 1"
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute in voidsent:void run tp @s 0 52 0"
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:armor_stand",
+                            "inverted": true
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

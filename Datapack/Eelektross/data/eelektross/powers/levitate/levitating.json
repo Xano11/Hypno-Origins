@@ -1,0 +1,203 @@
+{
+	"type": "origins:multiple",
+		
+	"delay_resource": {
+	  "type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"duration_resource": {
+	  "type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 3,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "hypno:textures/bars/eelektross/float_bar.png",
+            "bar_index": 0
+		},
+		"min_action": {
+        	"type": "origins:change_resource",
+    		"resource": "eelektross:levitate/levitating_delay_resource",
+    		"change": -3
+    	}
+	},
+
+	"delay_decrease":{
+		"type": "origins:action_over_time",
+    	"entity_action": {
+        	"type": "origins:change_resource",
+    		"resource": "eelektross:levitate/levitating_delay_resource",
+    		"change": -1
+    	},
+    	"interval": 1,
+    	"condition": {
+        	"type": "origins:resource",
+    		"resource": "eelektross:levitate/levitating_delay_resource",
+    		"comparison": ">",
+    		"compare_to": 0
+    	}
+	},
+
+	"duration_decrease": {
+		"type": "origins:action_over_time",
+    	"entity_action": {
+        	"type": "origins:change_resource",
+    		"resource": "eelektross:levitate/levitating_duration_resource",
+    		"change": -1
+    	},
+    	"interval": 20
+	},
+
+	"particles":{
+		"type": "origins:action_over_time",
+    	"entity_action": {
+        	"type": "origins:execute_command",
+    		"command": "function eelektross:particles"
+    	},
+    	"interval": 1,
+		"condition": {
+    		"type": "origins:or",
+    		"conditions": [
+        		{
+            		"type": "origins:resource",
+    				"resource": "eelektross:lightning/smite_charging_check",
+    				"comparison": "==",
+    				"compare_to": 1
+        		},
+        		{    
+					"type": "origins:and",
+    				"conditions": [
+        				{
+            				"type": "origins:resource",
+    						"resource": "eelektross:levitate/levitating_duration_resource",
+    						"comparison": ">",
+    						"compare_to": 0
+        				},
+        				{    
+            				"type": "origins:resource",
+    						"resource": "eelektross:levitate/levitating_delay_resource",
+    						"comparison": ">",
+    						"compare_to": 0
+        				}
+    				]
+    			}		
+    		]
+		}
+	},
+
+	"remove_power": {
+		"type": "origins:action_on_land",
+		"entity_action": {
+			"type": "origins:delay",
+    			"ticks": 1,
+    			"action": {
+					"type": "origins:remove_power",
+    				"power": "eelektross:levitate/levitating"
+			}
+		}
+	},
+
+	"hover_active": {
+		"type": "origins:active_self",
+    	"entity_action": {
+        	"type": "origins:and",
+        	"actions": [
+            {
+				"type": "origins:change_resource",
+    			"resource": "eelektross:levitate/levitating_delay_resource",
+    			"change": 3
+            },
+			{
+				"type": "origins:if_else",
+    			"condition": {
+        			"type": "origins:resource",
+    				"resource": "eelektross:levitate/levitating_delay_resource",
+    				"comparison": "==",
+    				"compare_to": 0
+    			},
+    			"if_action": {
+        			"type": "origins:add_velocity",
+    				"y": 0,
+					"set": false
+    			},
+    			"else_action": {
+        			"type": "origins:set_fall_distance",
+    				"fall_distance": 0
+    			}
+			}
+        ]
+    },
+    "cooldown": 3,
+	"condition": {
+    		"type": "origins:and",
+    		"conditions": [
+        	{
+            	"type": "origins:resource",
+    			"resource": "eelektross:levitate/levitating_duration_resource",
+    			"comparison": ">",
+    			"compare_to": 0
+        	},
+        	{    
+            	"type": "origins:resource",
+    			"resource": "eelektross:levitate/levitating_delay_resource",
+    			"comparison": "<",
+    			"compare_to": 3
+        	}
+    	]
+    },
+    "hud_render": {
+        "should_render": false
+    },
+    "key": {
+        "key": "key.jump",
+        "continuous": true
+    	}
+	},
+
+	"effect_no_velocity": {
+        "type": "origins:modify_falling",
+    	"velocity": -0.1,
+		"condition": {
+    		"type": "origins:or",
+    		"conditions": [
+        		{
+            		"type": "origins:resource",
+    				"resource": "eelektross:lightning/smite_charging_check",
+    				"comparison": "==",
+    				"compare_to": 1
+        		},
+        		{    
+            		"type": "origins:resource",
+            		"resource": "eelektross:levitate/levitating_delay_resource",
+            		"comparison": ">",
+            		"compare_to": 0
+        		}
+    		]
+		}
+	},
+
+	"nofall": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+    	}
+    },
+
+	"increased_air_speed": {
+		"type": "origins:modify_air_speed",
+    	"modifier": {
+        	"operation": "multiply_total_additive",
+        	"amount": 0.6
+    	}
+	},
+
+	"name": "LEVITATING",
+	"description": "HOLD SPACE TO FREEZE IN AIR"
+}

@@ -1,0 +1,6 @@
+summon minecraft:block_display ~ ~ ~ {Tags:["root_node"],Passengers: [{block_state: {Name: "minecraft:respawn_anchor", Properties: {charges: "0"}}, id: "minecraft:block_display", transformation: {left_rotation: [0.0f, 0.0f, 0.0f, 1.0f], right_rotation: [0.0f, 0.0f, 0.0f, 1.0f], scale: [0.5917061f, 0.56250024f, 0.6037225f], translation: [-0.29582712f, -0.10226563f, -0.30198234f]}}, {block_state: {Name: "minecraft:heavy_core", Properties: {waterlogged: "false"}}, id: "minecraft:block_display", transformation: {left_rotation: [0.0f, 0.0f, 0.0f, 1.0f], right_rotation: [0.0f, 0.0f, 0.0f, 1.0f], scale: [1.2227988f, 0.5625002f, 1.2576932f], translation: [-0.6125631f, 0.14593216f, -0.6308085f]}}], block_state: {Name: "minecraft:respawn_anchor", Properties: {charges: "4"}}, transformation: {left_rotation: [0.0f, 0.0f, 0.0f, 1.0f], right_rotation: [0.0f, 0.0f, 0.0f, 1.0f], scale: [0.5625f, 0.5625f, 0.5625f], translation: [-0.2812501f, 0.28125006f, -0.28125f]},}
+execute as @a[tag=assign_node] store result score @s voidsent_selected run data get entity @s UUID[0] 1
+execute at @a[tag=assign_node] store result score @s voidsent_node run data get entity @p UUID[0] 1
+ride @n[tag=root_node] mount @n[tag=node_main]
+tag @n[tag=root_node] add glowing_add
+execute as @n[tag=root_node] on passengers run tag @s add glowing_add

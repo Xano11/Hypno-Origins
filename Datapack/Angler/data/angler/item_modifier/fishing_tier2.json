@@ -1,0 +1,34 @@
+[
+    {
+        "function": "apoli:remove_power",
+        "power": "angler:fishing/tiers/lvl1",
+        "slot": "any"
+    },
+    {
+        "function": "apoli:add_power",
+        "power": "angler:fishing/tiers/lvl2",
+        "slot": "any",
+        "negative": false,
+        "hidden": true
+    },
+    {
+        "function": "minecraft:set_lore",
+        "entity": "this",
+        "lore": [
+            {
+                "text": "(TIER II)",
+                "color": "dark_aqua",
+                "italic": false
+            }
+        ],
+        "mode": "replace_all"
+    },
+    {
+        "function": "minecraft:set_enchantments",
+        "enchantments": {
+          "minecraft:lure": 2,
+          "minecraft:luck_of_the_sea": 1
+        },
+        "add": false
+    }
+]

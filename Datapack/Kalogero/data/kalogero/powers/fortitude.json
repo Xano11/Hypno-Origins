@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+    "healing": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": 0.25
+        }
+    },
+    "cardio":{
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.25
+        }
+    },
+    "name": "Fortitude",
+    "description": "You did alot of cardio in your free time, right?",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "§a§lFortitude §r§a🫁§r\n§7You receive §a+25%§7 healing from all sources and exhaust §a25%§7 less naturally.\n\n§7§lPassive Ability"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+	"powers": [
+		"kalogero:fists",
+		"kalogero:combo/trance",
+		"kalogero:meditate",
+		"kalogero:control",
+		"kalogero:fortitude",
+		"kalogero:dedicated",
+		"kalogero:lightweight",
+		"kalogero:vegetarian"
+	],
+	"icon": {
+		"id": "minecraft:netherite_sword",
+		"components": {
+			"minecraft:custom_model_data": 2
+		}
+	},
+	"order": 1,
+	"impact": 3,
+	"name": "Kalogero",
+	"description": "An ancient eradicated clan of fist-fighting prodigies, they are now tales of eld that continues to entertain the imagination of men."
+}

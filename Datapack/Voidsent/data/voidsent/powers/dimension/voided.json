@@ -1,0 +1,64 @@
+{
+    "type": "origins:multiple",
+    "attribute":{
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "voidsent_gravity",
+            "attribute": "minecraft:generic.gravity",
+            "amount": -0.8,
+            "operation": "add_multiplied_total"
+        }
+    },
+    "fallback": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute in voidsent:void run tp @s 0 51 0"
+                },
+                {
+                    "type": "origins:random_teleport",
+                    "area_width": 5,
+                    "area_height": 5,
+                    "success_action": {
+                        "type": "origins:spawn_particles",
+                        "particle": "minecraft:poof",
+                        "count": 8
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:in_block",
+            "block_condition": {
+                "type": "origins:height",
+                "comparison": "<=",
+                "compare_to": 0
+            }
+        }
+    },
+    "untouchable":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.9999
+        }
+    },
+    "left":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power revoke @s voidsent:dimension/voided"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "voidsent:void",
+            "inverted": true
+        }
+    },
+    "hidden": true
+}

@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"voidsent:displace",
+		"voidsent:nodes/ability",
+		"voidsent:dimension/gate",
+		"voidsent:accidental",
+		"voidsent:missing",
+		"voidsent:flimsy",
+		"voidsent:vanishing"
+	],
+	"icon": {
+		"id": "minecraft:heavy_core"
+	},
+	"order": 1,
+	"impact": 3,
+	"name": "Voidsent",
+	"description": "Beings such as the Voidsent are exceptions to the basic laws of physics."
+}

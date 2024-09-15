@@ -1,0 +1,235 @@
+{
+    "type": "origins:multiple",
+    "craft_wood": {
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:wooden_gauntlet",
+        "item_action":  {
+            "type": "origins:modify",
+            "modifier": "kalogero:kalogero/wooden_gauntlet_lore"
+        },
+        "result": {
+            "id": "minecraft:wooden_sword",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Wooden Gauntlet\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": {
+                    "Gauntlet": true
+                },
+                "minecraft:attribute_modifiers": [
+                    {
+                        "id": "kalogero:wooden_gauntlet",
+                        "type": "minecraft:generic.attack_damage",
+                        "amount": 0.5,
+                        "operation": "add_value",
+                        "slot": "hand"
+                    }
+                ]
+            }
+        }
+    },
+    "craft_stone": {
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:stone_gauntlet",
+        "item_action":  {
+            "type": "origins:modify",
+            "modifier": "kalogero:kalogero/stone_gauntlet_lore"
+        },
+        "result": {
+            "id": "minecraft:stone_sword",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Stone Gauntlet\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": {
+                    "Gauntlet": true
+                },
+                "minecraft:attribute_modifiers": [
+                    {
+                        "id": "kalogero:stone_gauntlet",
+                        "type": "minecraft:generic.attack_damage",
+                        "amount": 1.5,
+                        "operation": "add_value",
+                        "slot": "hand"
+                    }
+                ]
+            }
+        }
+    },
+    "craft_iron": {
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:iron_gauntlet",
+        "item_action":  {
+            "type": "origins:modify",
+            "modifier": "kalogero:kalogero/iron_gauntlet_lore"
+        },
+        "result": {
+            "id": "minecraft:iron_sword",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Iron Gauntlet\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": {
+                    "Gauntlet": true
+                },
+                "minecraft:attribute_modifiers": [
+                    {
+                        "id": "kalogero:iron_gauntlet",
+                        "type": "minecraft:generic.attack_damage",
+                        "amount": 2,
+                        "operation": "add_value",
+                        "slot": "hand"
+                    }
+                ]
+            }
+        }
+    },
+    "craft_golden": {
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:golden_gauntlet",
+        "item_action":  {
+            "type": "origins:modify",
+            "modifier": "kalogero:kalogero/golden_gauntlet_lore"
+        },
+        "result": {
+            "id": "minecraft:golden_sword",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Golden Gauntlet\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": {
+                    "Gauntlet": true
+                },
+                "minecraft:attribute_modifiers": [
+                    {
+                        "id": "kalogero:golden_gauntlet",
+                        "type": "minecraft:generic.attack_damage",
+                        "amount": 0.5,
+                        "operation": "add_value",
+                        "slot": "hand"
+                    }
+                ]
+            }
+        }
+    },
+    "craft_diamond": {
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:diamond_gauntlet",
+        "item_action":  {
+            "type": "origins:modify",
+            "modifier": "kalogero:kalogero/diamond_gauntlet_lore"
+        },
+        "result": {
+            "id": "minecraft:diamond_sword",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Diamond Gauntlet\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": {
+                    "Gauntlet": true
+                },
+                "minecraft:attribute_modifiers": [
+                    {
+                        "id": "kalogero:diamond_gauntlet",
+                        "type": "minecraft:generic.attack_damage",
+                        "amount": 3,
+                        "operation": "add_value",
+                        "slot": "hand"
+                    }
+                ]
+            }
+        }
+    },
+    "craft_netherite": {
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:netherite_gauntlet",
+        "item_action":  {
+            "type": "origins:modify",
+            "modifier": "kalogero:kalogero/netherite_gauntlet_lore"
+        },
+        "result": {
+            "id": "minecraft:netherite_sword",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Netherite Gauntlet\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": {
+                    "Gauntlet": true
+                },
+                "minecraft:attribute_modifiers": [
+                    {
+                        "id": "kalogero:netherite_gauntlet",
+                        "type": "minecraft:generic.attack_damage",
+                        "amount": 4,
+                        "operation": "add_value",
+                        "slot": "hand"
+                    }
+                ]
+            }
+        }
+    },
+    "fists_damage": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "kalogero:base_fists_damage",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 2,
+            "operation": "add_value"
+        }
+    },
+    "fists_reach": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "kalogero:base_fists_reach",
+            "attribute": "minecraft:player.entity_interaction_range",
+            "amount": -0.4,
+            "operation": "add_value"
+        }
+    },
+    "fists_crit": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "kalogero:base_fists_reach",
+            "attribute": "additionalentityattributes:player.critical_bonus_damage",
+            "amount": -1,
+            "operation": "add_multiplied_total"
+        }
+    },
+    "fists_sweep": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "kalogero:base_fists_reach",
+            "attribute": "minecraft:player.sweeping_damage_ratio",
+            "amount": -1,
+            "operation": "add_multiplied_total"
+        }
+    },
+    "name": "Fist Based",
+    "description": "You have immense innate strength and your fists are direct proof of that.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
+            "text": "§6§lFist-based ✊§r\n§7You were built for hand-to-hand combat and so, your fists deal §a+2§7 damage passively.\n\nIn return, your attack reach is reduced by §c-0.4§7 and your critical/sweeping hits deal §cno additional damage§r.\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§e§lGAUNTLET CRAFTING 🛠\n§r§7All gauntlets require a block of said material.",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "kalogero:wooden_gauntlet",
+                "pattern": [
+                    "   ",
+                    "aba",
+                    "   "
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:oak_planks"
+                    },
+                    "a": {
+                        "item": "minecraft:leather"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:stick"
+                }
+            }
+        }
+    ]
+}

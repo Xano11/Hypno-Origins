@@ -1,0 +1,117 @@
+{
+    "type": "origins:multiple",
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:witch ~ ~1 ~ 0.1 0.1 0.1 0 4"
+        },
+        "interval": 1
+    },
+    "teleport": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 1.5,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute at @e[type=minecraft:marker,tag=voidsent_marker] if score @n[type=minecraft:marker] PortalMarkers = @s PortalMarkers",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @e[type=minecraft:marker,tag=voidsent_marker] if score @n[type=minecraft:marker] PortalMarkers = @s PortalMarkers run tp @s ~ ~ ~"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=minecraft:marker,tag=voidsent_marker] if score @s PortalMarkers = @p PortalMarkers run kill @s"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "forceload remove ~ ~ ~ ~"
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute in minecraft:overworld run tp @s 0 400 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "effect give @s minecraft:slow_falling 300 0"
+                            }
+                        ]
+                    }
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:armor_stand",
+                            "inverted": true
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "entities": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@e",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "voidsent:dimension/voided",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s voidsent:dimension/voided"
+                    }
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:dimension",
+                            "dimension": "voidsent:void"
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

@@ -1,0 +1,238 @@
+{
+    "type": "origins:multiple",
+    "use": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:selector_action",
+                        "selector": "@n[type=fishing_bobber]",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:mount"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:add_velocity",
+                                        "z": 1.2,
+                                        "space": "velocity_horizontal_normalized"
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "angler:fishing/throw_cooldown2",
+                                                "change": 600
+                                            },
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "angler:fishing/tiers/lvl2_fall",
+                                                "change": 1
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:block.conduit.attack.target player @a ~ ~ ~ 2 2"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:riding",
+                                "inverted": true
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{angler:1b}"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "angler:fishing/throw_cooldown2",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "angler:fishing/throw_holding_key",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "cooldown": 1
+    },
+    "fall": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "fall_immune": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "angler:fishing/tiers/lvl2_fall",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "fall_effect": {
+        "type": "origins:modify_falling",
+        "velocity": 0.02,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "angler:fishing/tiers/lvl2_fall",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "stop_fall": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "angler:fishing/tiers/lvl2_fall",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0.05
+                }
+            ]
+        }
+    },
+    "kill_bobber": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:riding_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "kill @s"
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:fishing_bobber"
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{OnGround:1b}"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:riding_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:firework ~ ~ ~ 0.3 0.1 0.3 0.01 1"
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:fishing_bobber"
+                }
+            }
+        }
+    },
+    "upgrade": {
+        "type": "origins:item_on_item",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function angler:level_up"
+        },
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{angler:1b}"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "angler:fishing/tiers/lvl2",
+                    "slot": "any"
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{treasure_angler:1b}"
+        },
+        "on_item_action": {
+            "type": "origins:modify",
+            "modifier": "angler:fishing_tier3"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 3
+        }
+    },
+    "hidden": true
+}

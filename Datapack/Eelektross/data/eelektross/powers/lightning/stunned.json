@@ -1,0 +1,68 @@
+{
+	"type": "origins:multiple",
+
+	"duration_resource": {
+	  "type": "origins:resource",
+		"min": 0,
+		"max": 180,
+		"start_value": 180,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/bars/eelektross/stun_bar.png",
+            "bar_index": 0
+		},
+		"min_action": {
+        	"type": "origins:remove_power",
+    		"power": "eelektross:lightning/stunned"
+    	}
+	},
+
+	"duration_decrease": {
+		"type": "origins:action_over_time",
+    	"entity_action": {
+        	"type": "origins:change_resource",
+    		"resource": "eelektross:lightning/stunned_duration_resource",
+    		"change": -1
+    	},
+    	"interval": 1
+	},
+
+	"zap": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+            "actions": [
+                {
+					"type": "origins:add_velocity",
+    				"y": 0.25,
+					"x": 0,
+					"z": 0,
+					"set": true
+				},
+				{
+					"type": "origins:dismount"
+				},
+				{
+					"type": "origins:execute_command",
+    				"command": "particle minecraft:electric_spark ~ ~ ~ 0.2 1 0.2 0 10 normal"
+				},
+				{
+					"type": "origins:execute_command",
+    				"command": "particle dust{color:[0.91,0.68,0.19],scale:1} ~ ~ ~ 0.2 1 0.2 0 10 normal"
+				}
+			]
+		},
+		"interval": 15
+	},
+
+	"no_elytra": {
+		"type": "origins:prevent_elytra_flight",
+    	"entity_action": {
+        	"type": "origins:execute_command",
+        	"command": "tellraw @s {\"text\": \"S T U N N E D !\", \"color\": \"gold\"}"
+    	}
+	},
+
+	"name": "Stunned",
+	"description": "you no move"
+}

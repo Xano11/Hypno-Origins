@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "kalogero:diamond_gauntlet",
+    "pattern": [
+        "   ",
+        "aba",
+        "   "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:diamond_block"
+        },
+        "a": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "id": "minecraft:stick"
+    }
+}

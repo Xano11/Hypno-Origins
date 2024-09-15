@@ -1,0 +1,1 @@
+give @s fishing_rod[custom_name='["",{"text":"Angler\'s Rod","italic":false,"color":"dark_aqua"}]',lore=['["",{"text":"(TIER I)","italic":false,"color":"aqua"}]'],unbreakable={show_in_tooltip:false},enchantments={levels:{lure:1}},custom_model_data=1,custom_data={angler:1b},repair_cost=9999,]

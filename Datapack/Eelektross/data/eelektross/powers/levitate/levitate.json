@@ -1,0 +1,144 @@
+{
+	"type": "origins:multiple",
+		
+	"dash_charges": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 100,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "hypno:textures/bars/eelektross/edash_bar.png",
+            "bar_index": 0
+		}
+	},
+
+	"dash_recharge": {
+		"type": "origins:action_over_time",
+    	"entity_action": {
+        	"type": "origins:change_resource",
+    		"resource": "eelektross:levitate/levitate_dash_charges",
+    		"change": 2 
+    	},
+    	"interval": 8,
+		"condition": {
+    	"type": "origins:and",
+    		"conditions": [
+        		{
+            		"type": "origins:resource",
+    				"resource": "eelektross:levitate/levitate_dash_charges",
+    				"comparison": "<",
+    				"compare_to": 100
+        		},
+        		{      
+            		"type": "origins:power",
+    				"power": "eelektross:levitate/levitating",
+					"inverted": true
+        		}
+    		]
+		}
+	},
+	
+	"dash_recharge_water": {
+		"type": "origins:action_over_time",
+    	"entity_action": {
+			"type": "origins:and",
+        	"actions": [
+            		{
+						"type": "origins:change_resource",
+    					"resource": "eelektross:levitate/levitate_dash_charges",
+    					"change": 2
+            		},
+            		{
+                		"type": "origins:remove_power",
+    					"power": "eelektross:levitate/levitating"
+            		}
+        		]
+    		},
+    	"interval": 8,
+    	"condition": {
+    	"type": "origins:and",
+    		"conditions": [
+        		{
+            		"type": "origins:resource",
+    				"resource": "eelektross:levitate/levitate_dash_charges",
+    				"comparison": "<",
+    				"compare_to": 100
+        		},
+        		{      
+            		"type": "origins:fluid_height",
+					"fluid": "minecraft:water",
+					"comparison": ">",
+					"compare_to": 0
+        		}
+    		]
+		}
+	},
+
+	"dash_start": {
+		"type": "origins:active_self",
+    	"entity_action": {
+            	"type": "origins:and",
+    			"actions": [
+        			{
+						"type": "origins:add_velocity",
+    					"z": 2,
+						"space": "local"
+        			},
+        			{    
+						"type": "origins:change_resource",
+    					"resource": "eelektross:levitate/levitate_dash_charges",
+    					"change": -50 
+        			},
+					{
+						"type": "origins:grant_power",
+    					"power": "eelektross:levitate/levitating",
+    					"source": "eelektross:levitate"
+					},
+					{
+						"type": "origins:change_resource",
+    					"resource": "eelektross:levitate/levitating_duration_resource",
+    					"change": 4
+					},
+					{
+						"type": "origins:execute_command",
+    					"command": "playsound minecraft:ambient.underwater.exit player @s ~ ~ ~ 10 0.5"
+					},
+					{
+						"type": "origins:execute_command",
+    					"command": "playsound minecraft:entity.lightning_bolt.thunder player @s ~ ~ ~ 10 2"
+					}
+    			]
+        	},
+    	"cooldown": 20,
+    	"hud_render": {
+        	"should_render": false
+    	},
+		"condition": {
+    	"type": "origins:and",
+    		"conditions": [
+        		{
+            		"type": "origins:resource",
+    				"resource": "eelektross:levitate/levitate_dash_charges",
+    				"comparison": ">=",
+    				"compare_to": 50
+        		},
+        		{      
+            		"type": "origins:resource",
+    				"resource": "eelektross:lightning/smite_charging_check",
+    				"comparison": "==",
+    				"compare_to": 0
+        		}
+    		]
+		}
+	},
+	
+	"name": "Levitate",
+	"description": "Eelektross' can be found using there odd trait, Levitate to launch themselves in very unexplainable ways.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "§c§lLunge 🞽§r\n§7Leap forward gaining §r§eLevitating ↑§r§7.\n\n§r§eLevitating ↑§r§7 Gain the Ability to hold space and float, this effects duration can be reset by using §c§lLunge 🞽§r§7 again. You are also immune to fall damage and have doubled airspeed until touching the ground or entering water.\n\n§c🕕§r§7 Duration: §r§f3s§r§8\n§e⌛§r§7 Cooldown: §r§f20s, 10 in water§r\n\n§7§lActive Ability"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"eelektross:levitate/levitate",
+		"eelektross:lightning/smite",
+		"eelektross:ancestry",
+		"eelektross:creature_pray",
+		"eelektross:eel_eyes"
+	],
+	"icon": {
+        "id": "minecraft:redstone_torch",
+		"components": {
+            "minecraft:custom_model_data": 1
+        }
+    },
+	"order": 3,
+	"impact": 2,
+	"name": "Eelektross",
+	"description": "found commonly in the ocean, but it crawls ashore using its arms in order to hunt. It latches onto prey with its sucker mouth and shocks them with electricity from its fangs, before dragging them as it returns into the ocean."
+}

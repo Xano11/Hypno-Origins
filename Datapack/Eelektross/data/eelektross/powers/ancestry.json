@@ -1,0 +1,88 @@
+{
+	"type": "origins:multiple",
+		
+	"underwater": {
+	  "type": "origins:modify_break_speed",
+	  	"modifier": {
+			"operation": "multiply_total_additive",
+			"amount": 4
+	  	},
+	  	"condition": {
+			"type": "origins:and",
+				"conditions": [
+		  		{
+					"type": "origins:submerged_in",
+					"fluid": "minecraft:water"
+		  		},
+		  		{
+					"type": "origins:enchantment",
+					"enchantment": "minecraft:aqua_affinity",
+					"comparison": "==",
+					"compare_to": 0
+		  		}
+			]
+	  	}
+	},
+
+	"ungrounded": {
+	  	"type": "origins:modify_break_speed",
+	  	"modifier": {
+			"operation": "multiply_total_additive",
+			"amount": 4
+	  	},
+	  	"condition": {
+			"type": "origins:and",
+			"conditions": [
+		  		{
+					"type": "origins:fluid_height",
+					"fluid": "minecraft:water",
+					"comparison": ">",
+					"compare_to": 0
+		  		},
+		  		{
+					"type": "origins:on_block",
+					"inverted": true
+		  		}
+			]
+	 	}
+	},
+
+	"part_eel": {
+		"type": "origins:modify_type_tag",
+		"tag": "minecraft:aquatic"
+	},
+	
+	"swimspeed": {
+		"type": "origins:attribute",
+  		"modifier": {
+			"id": "eelektross:additional_water_speed",
+    		"attribute": "additionalentityattributes:generic.water_speed",
+    		"name": "Additional swim speed",
+    		"amount": 1,
+    		"operation": "ADD_MULTIPLIED_BASE"
+  		}
+	},
+
+	"nodrown": {
+		"type": "origins:action_over_time",
+    	"entity_action": {
+        	"type": "origins:gain_air",
+        	"value": 30
+    	},
+    	"interval": 20,
+    	"condition": {
+        	"type": "origins:submerged_in",
+			"fluid": "minecraft:water"
+    	}
+	},
+
+	"name": "Eel Ancestry",
+	"description": "Due to the Eelektross' close biological relation to Eels some traits carry through evolution.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/water_breathing.png",
+            "text": "§b§lAquatic 🐟§r§7\nGain Water Breathing, Aqua Affinity, 100% Increased Swim Speed, and you are a Aquatic Type Entity\n\n§7§lPassive Ability"
+        }
+    ]
+}

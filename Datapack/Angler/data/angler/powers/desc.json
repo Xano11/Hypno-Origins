@@ -1,0 +1,27 @@
+{
+    "type": "origins:simple",
+    "name": "Joust",
+    "description": "One swift swing of the SwordFish is enough to cut the howling wind around you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§b§lJoust 🐬§r\n§7While holding the §r§9Swordfish§r§7, quickly dash forward §r§a6§r§7 blocks at the cost of §r§7§o1/3§r§7 of the sword's durability.\n§7Using Joust through a target will §r§acancel§r§7 the cooldown.\nIf you Joust and attack a target simultaneously, the Swordfish will deal §r§a6§r§7 Damage.\n\n§6🕒§r§7 Windup: §r§f0.75s\n§e⌛§r§7 Cooldown: §r§f5s\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 and §r[",
+                {
+                    "keybind": "key.attack"
+                },
+                "]§7 with the Swordfish in hand to Dash!"
+            ]
+        }
+    ]
+}

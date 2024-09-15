@@ -1,0 +1,50 @@
+{
+    "type": "origins:multiple",
+    "unwieldy":{
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:shield"
+            }
+        },
+        "name": "Dedicated"
+    },
+    "other_damage": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "kalogero:other_damage",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": -0.9,
+            "operation": "add_multiplied_total"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:empty",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Gauntlet: 1b}",
+                        "inverted": true
+                    }
+                ]
+            }
+        }
+    },
+    "name": "Dedicated",
+    "description": "You have immense innate strength and your fists are direct proof of that.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/math/expression_divide.png",
+            "text": "§c§lDedicated ✊§r\n§7All items/tools/weapons outside of your raw fists and gauntlets deal §c-90%§7 damage.\nAdditionally, shields cannot be used.\n\n§7§lPassive Ability"
+        }
+    ]
+}

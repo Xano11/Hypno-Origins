@@ -1,0 +1,831 @@
+{
+    "type": "origins:multiple",
+    "nodes": {
+        "type": "origins:entity_set"
+    },
+    "display_glow": {
+        "type": "origins:entity_set"
+    },
+    "selected": {
+        "type": "origins:entity_set"
+    },
+    "select": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:raycast",
+                "distance": 192,
+                "block": false,
+                "entity": true,
+                "shape_type": "visual",
+                "fluid_handling": "none",
+                "hit_bientity_condition": {
+                    "type": "origins:in_entity_set",
+                    "set": "voidsent:nodes/ability_selected"
+                }
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.end_portal_frame.fill player @s ~ ~ ~ 1 1.2"
+                    },
+                    {
+                        "type": "origins:action_on_entity_set",
+                        "set": "voidsent:nodes/ability_selected",
+                        "bientity_action": {
+                            "type": "origins:remove_from_entity_set",
+                            "set": "voidsent:nodes/ability_selected"
+                        }
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:raycast",
+                "distance": 192,
+                "block": false,
+                "entity": true,
+                "shape_type": "visual",
+                "fluid_handling": "none",
+                "before_action": {
+                    "type": "origins:action_on_entity_set",
+                    "set": "voidsent:nodes/ability_selected",
+                    "bientity_action": {
+                        "type": "origins:remove_from_entity_set",
+                        "set": "voidsent:nodes/ability_selected"
+                    }
+                },
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:add_to_entity_set",
+                            "set": "voidsent:nodes/ability_selected"
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.end_portal_frame.fill player @s ~ ~ ~ 1 2"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute on vehicle run tag @s add selected_node"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute on vehicle on passengers if entity @s[type=block_display] on passengers run tag @s add selected_node"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:selector_action",
+                                "selector": "@e[tag=selected_node]",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_to_entity_set",
+                                            "set": "voidsent:nodes/ability_selected"
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s remove selected_node"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                "bientity_condition": {
+                    "type": "origins:in_entity_set",
+                    "set": "voidsent:nodes/ability_nodes"
+                },
+                "command_step": 0.25
+            }
+        },
+        "cooldown": 1,
+        "key": "key.use",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "inverted": true,
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{null_book:1b}"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "voidsent:displace_holding_key",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 192,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:in_entity_set",
+                        "set": "voidsent:nodes/ability_nodes"
+                    }
+                }
+            ]
+        }
+    },
+    "main": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "inverted": true,
+                "type": "origins:raycast",
+                "distance": 192,
+                "block": false,
+                "entity": true,
+                "shape_type": "visual",
+                "fluid_handling": "none",
+                "hit_bientity_condition": {
+                    "type": "origins:in_entity_set",
+                    "set": "voidsent:nodes/ability_nodes"
+                }
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s add assign_node"
+                    },
+                    {
+                        "type": "origins:raycast",
+                        "distance": 9,
+                        "block": true,
+                        "entity": false,
+                        "shape_type": "visual",
+                        "fluid_handling": "none",
+                        "hit_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:spawn_entity",
+                                    "entity_type": "minecraft:armor_stand",
+                                    "tag": "{NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"node_main\",\"node_placement\"],Passengers:[{id:\"minecraft:interaction\",NoGravity:1b,Silent:1b,width:1f,height:1f,Tags:[\"node_interaction\",\"node_set\"]}]}",
+                                    "entity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "function voidsent:abilities/display_node"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "power grant @s voidsent:nodes/node"
+                                            }
+                                        ]
+                                    },
+                                    "bientity_action": {
+                                        "type": "origins:add_to_entity_set",
+                                        "set": "voidsent:nodes/ability_nodes"
+                                    }
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=glowing_add]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_to_entity_set",
+                                                "set": "voidsent:nodes/ability_display_glow"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove glowing_add"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "miss_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:spawn_entity",
+                                    "entity_type": "minecraft:armor_stand",
+                                    "tag": "{NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"node_main\",\"node_placement\"],Passengers:[{id:\"minecraft:interaction\",NoGravity:1b,Silent:1b,width:1f,height:1f,Tags:[\"node_interaction\",\"node_set\"]}]}",
+                                    "entity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "function voidsent:abilities/display_node"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "power grant @s voidsent:nodes/node"
+                                            }
+                                        ]
+                                    },
+                                    "bientity_action": {
+                                        "type": "origins:add_to_entity_set",
+                                        "set": "voidsent:nodes/ability_nodes"
+                                    }
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=glowing_add]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_to_entity_set",
+                                                "set": "voidsent:nodes/ability_display_glow"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove glowing_add"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @n[tag=node_placement] ^ ^1.6 ^9"
+                                }
+                            ]
+                        },
+                        "command_step": 0.25,
+                        "command_at_hit": "summon marker ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Tags:[\"node_point\"]}",
+                        "command_along_ray_only_on_hit": false
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove assign_node"
+                    },
+                    {
+                        "type": "origins:selector_action",
+                        "selector": "@n[tag=node_set]",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:add_to_entity_set",
+                                    "set": "voidsent:nodes/ability_nodes"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s remove node_set"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function voidsent:abilities/node_placement"
+                    }
+                ]
+            }
+        },
+        "cooldown": 2,
+        "key": "key.use",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "voidsent:displace_holding_key",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "voidsent:displace_cooldown",
+                    "comparison": "==",
+                    "compare_to": 100
+                },
+                {
+                    "type": "origins:entity_set_size",
+                    "set": "voidsent:nodes/ability_nodes",
+                    "comparison": "<",
+                    "compare_to": 6
+                }
+            ]
+        }
+    },
+    "deactivation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_entity_set",
+                    "set": "voidsent:nodes/ability_selected",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "function voidsent:abilities/remove_node"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function voidsent:abilities/tp_particles"
+                }
+            ]
+        }
+    },
+    "deactivate_reset": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "voidsent:nodes/ability_deactivation",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "deactive": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "voidsent:nodes/ability_deactivation",
+            "change": 10
+        },
+        "cooldown": 1,
+        "key": "key.sneak",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_set_size",
+                    "set": "voidsent:nodes/ability_selected",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "voidsent:displace_holding_key",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "red": 0.4,
+        "blue": 0.7,
+        "green": 0.1,
+        "bientity_condition": {
+            "type": "origins:in_entity_set",
+            "set": "voidsent:nodes/ability_display_glow"
+        }
+    },
+    "selected_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "blue": 1,
+        "green": 1,
+        "bientity_condition": {
+            "type": "origins:in_entity_set",
+            "set": "voidsent:nodes/ability_selected"
+        }
+    },
+    "crosshair": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "hypno:kalogero/crosshair"
+        },
+        "condition": {
+            "type": "origins:raycast",
+            "distance": 192,
+            "block": false,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "hit_bientity_condition": {
+                "type": "origins:in_entity_set",
+                "set": "voidsent:nodes/ability_nodes"
+            }
+        }
+    },
+    "book": {
+        "type": "origins:modify_crafting",
+        "recipe": "voidsent:tome",
+        "result": {
+            "id": "minecraft:book",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Book of \",\"italic\":false},{\"text\":\"NULL\",\"italic\":false,\"bold\":true,\"color\":\"dark_purple\"}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:max_damage": 100,
+                "minecraft:damage": 1,
+                "minecraft:custom_data": {
+                    "null_book": true
+                },
+                "minecraft:enchantment_glint_override": true
+            }
+        },
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "voidsent:voidsent/tome"
+        }
+    },
+    "book_select": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "execute as @e[type=minecraft:armor_stand,tag=node_main,tag=!ignore_node] if score @s voidsent_node = @p voidsent_selected",
+                "comparison": ">=",
+                "compare_to": 1,
+                "inverted": true
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "mainhand",
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 1,
+                            "ignore_unbreaking": true
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.end_portal_frame.fill player @s ~ ~ ~ 1 2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s add voidsent_msg"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute as @e[type=minecraft:armor_stand,tag=node_main] if score @s voidsent_node = @p voidsent_selected run tag @s remove ignore_node"
+                    },
+                    {
+                        "type": "origins:action_on_entity_set",
+                        "set": "voidsent:nodes/ability_selected",
+                        "bientity_action": {
+                            "type": "origins:remove_from_entity_set",
+                            "set": "voidsent:nodes/ability_selected"
+                        }
+                    },
+                    {
+                        "type": "origins:selector_action",
+                        "selector": "@e[limit=1,sort=nearest,tag=!ignore_node,type=armor_stand]",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:add_to_entity_set",
+                                    "set": "voidsent:nodes/ability_selected"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "function voidsent:abilities/coords"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s add ignore_node"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute on passengers if entity @s[type=block_display] on passengers run tag @s add selected_node"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:selector_action",
+                                        "selector": "@e[tag=selected_node]",
+                                        "bientity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:add_to_entity_set",
+                                                    "set": "voidsent:nodes/ability_selected"
+                                                },
+                                                {
+                                                    "type": "origins:target_action",
+                                                    "action": {
+                                                        "type": "origins:execute_command",
+                                                        "command": "tag @s remove selected_node"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "voidsent:nodes/ability_nodes"
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove voidsent_msg"
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "mainhand",
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 1,
+                            "ignore_unbreaking": true
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.end_portal_frame.fill player @s ~ ~ ~ 1 2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s add voidsent_msg"
+                    },
+                    {
+                        "type": "origins:action_on_entity_set",
+                        "set": "voidsent:nodes/ability_selected",
+                        "bientity_action": {
+                            "type": "origins:remove_from_entity_set",
+                            "set": "voidsent:nodes/ability_selected"
+                        }
+                    },
+                    {
+                        "type": "origins:selector_action",
+                        "selector": "@e[limit=1,sort=nearest,tag=!ignore_node,type=armor_stand]",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:add_to_entity_set",
+                                    "set": "voidsent:nodes/ability_selected"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "function voidsent:abilities/coords"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s add ignore_node"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute on passengers if entity @s[type=block_display] on passengers run tag @s add selected_node"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:selector_action",
+                                        "selector": "@e[tag=selected_node]",
+                                        "bientity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:add_to_entity_set",
+                                                    "set": "voidsent:nodes/ability_selected"
+                                                },
+                                                {
+                                                    "type": "origins:target_action",
+                                                    "action": {
+                                                        "type": "origins:execute_command",
+                                                        "command": "tag @s remove selected_node"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "voidsent:nodes/ability_nodes"
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove voidsent_msg"
+                    }
+                ]
+            }
+        },
+        "cooldown": 1,
+        "key": "key.use",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:custom_data",
+                                "nbt": "{null_book:1b}"
+                            },
+                            {
+                                "type": "origins:durability",
+                                "comparison": ">",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:entity_set_size",
+                    "set": "voidsent:nodes/ability_nodes",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "book_unselect": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @s ~ ~ ~ 1 1.2"
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:action_on_entity_set",
+                    "set": "voidsent:nodes/ability_selected",
+                    "bientity_action": {
+                        "type": "origins:remove_from_entity_set",
+                        "set": "voidsent:nodes/ability_selected"
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": "key.attack",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:custom_data",
+                                "nbt": "{null_book:1b}"
+                            },
+                            {
+                                "type": "origins:durability",
+                                "comparison": ">",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:entity_set_size",
+                    "set": "voidsent:nodes/ability_selected",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "recharge_book":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{null_book:1b}"
+                },
+                {
+                    "type": "origins:durability",
+                    "comparison": "<",
+                    "compare_to": 100
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:ender_pearl"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:damage",
+            "amount": -35,
+            "ignore_unbreaking": true
+        }
+    },
+    "name": "Inner: Control",
+    "description": "Entering a state of total focus is imperative for great feats.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/triangle_up.png",
+            "text": "§e§lInner: Control §r§e👁§r\n§e§lCONTROL§7 is the energy required for §lUnleash: Control§r§7 and takes §e2m§7 to passively fully charge.\n\nWhilst holding the ability key, you charge §a12x§7 time quicker.\nWhilst actively charging, you §ccannot§7 move and you close your eyes; making you §cfully blind§7 and incapable of using items.\n\nIf §e§lCONTROL§7 is at max, you will be able to see all living entities glow within §e32§7 blocks.\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]§7 to enter a focusing state."
+            ]
+        }
+    ]
+}

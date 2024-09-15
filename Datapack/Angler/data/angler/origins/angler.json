@@ -1,0 +1,21 @@
+{
+	"powers": [
+		"angler:fishing/fishloot",
+		"angler:fishing/throw",
+		"angler:fishing/fishout",
+		"angler:sword/transfish",
+		"angler:desc",
+		"angler:pescivore",
+		"angler:health"
+	],
+	"icon": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:custom_model_data": 2
+		}
+	},
+	"order": 1,
+	"impact": 1,
+	"name": "Angler",
+	"description": "Oh! Didn't see ya there ya ol' sea dog. I was too busy catching the runner lacking."
+}

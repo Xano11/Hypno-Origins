@@ -1,0 +1,50 @@
+{
+	"type": "origins:multiple",
+		
+	"carnivore": {
+	  "type": "origins:prevent_item_use",
+    	"item_condition": {
+        	"type": "origins:and",
+        	"conditions": [
+            	{
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "origins:ignore_diet"
+                },
+                	"inverted": true
+            	},
+            	{
+                	"type": "origins:ingredient",
+                	"ingredient": {
+                    	"tag": "origins:meat"
+                	},
+                	"inverted": true
+            	},
+            	{
+                	"type": "origins:food"
+            	}
+        	]
+    	}
+	},
+
+	"less_health": {
+		"type": "origins:attribute",
+  		"modifier": {
+			"id": "eelektross:less_health",
+    		"attribute": "minecraft:generic.max_health",
+    		"name": "less_health",
+    		"amount": -4,
+    		"operation": "add_value"
+  		}
+	},
+
+	"name": "Natural Predator",
+	"description": "Prey animals fear what lies in the deep, swiftly striking land or sea.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "§4§lSwift Predator 🔪\n§r§7You have -2§r§c♥§r§7 and can only eat meat\n\n§r§7§lPassive Ability"
+        }
+    ]
+}

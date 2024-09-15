@@ -1,0 +1,356 @@
+{
+    "type": "origins:multiple",
+    "resting": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "effect clear @s minecraft:blindness"
+        } 
+    },
+    "control": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "hypno:textures/bars/kalogero/control.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "kalogero:control_duration",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "control_charging": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "kalogero:meditate_resting",
+                "comparison": "==",
+                "compare_to": 15
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "kalogero:meditate_control",
+                "change": 6
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "kalogero:meditate_control",
+                "change": 1
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_control",
+            "comparison": "<",
+            "compare_to": 2400
+        }
+    },
+    "holding_key": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "unheld_key": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:meditate_holding_key",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "release": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:meditate_resting",
+            "change": -3
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_holding_key",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "entering_rest": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:meditate_resting",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_holding_key",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "use": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:meditate_holding_key",
+            "change": 3,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:moving",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:control_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "blinded": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 1,
+        "duration_per_stack": 25,
+        "effect": {
+            "id": "minecraft:blindness",
+            "ambient": false,
+            "show_particles": false,
+            "show_icon": false
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_resting",
+            "comparison": ">=",
+            "compare_to": 12
+        }
+    },
+    "arms": {
+        "type": "origins:pose",
+        "arm_pose": "crossbow_charge",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_resting",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:trial_spawner_detection ~ ~1 ~ 0.3 0.3 0.3 0 1"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_resting",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
+    "eyes_closing0": {
+        "type": "origins:overlay",
+        "texture": "hypno:kalogero/eyes_closing0",
+        "strength": 0.85,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": ">",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": "<=",
+                    "compare_to": 5
+                }
+            ]
+        }
+    },
+    "eyes_closing1": {
+        "type": "origins:overlay",
+        "texture": "hypno:kalogero/eyes_closing1",
+        "strength": 0.85,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": ">",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": "<=",
+                    "compare_to": 10
+                }
+            ]
+        }
+    },
+    "eyes_closing2": {
+        "type": "origins:overlay",
+        "texture": "hypno:kalogero/eyes_closing2",
+        "strength": 0.85,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": ">",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": "<",
+                    "compare_to": 15
+                }
+            ]
+        }
+    },
+    "eyes_closed": {
+        "type": "origins:overlay",
+        "texture": "hypno:kalogero/eyes_closed",
+        "strength": 0.85,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_resting",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "compare_to": 32,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                       "type": "origins:living"
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.3,
+        "blue": 0.0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_control",
+                    "comparison": "==",
+                    "compare_to": 2400
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": "==",
+                    "compare_to": 15
+                }
+            ]
+        }
+    },
+    "no_items":{
+        "type": "origins:prevent_item_use",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_resting",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Inner: Control",
+    "description": "Entering a state of total focus is imperative for great feats.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/triangle_up.png",
+            "text": "§e§lInner: Control §r§e👁§r\n§e§lCONTROL§7 is the energy required for §lUnleash: Control§r§7 and takes §e2m§7 to passively fully charge.\n\nWhilst holding the ability key, you charge §a12x§7 time quicker.\nWhilst actively charging, you §ccannot§7 move and you close your eyes; making you §cfully blind§7 and incapable of using items.\n\nIf §e§lCONTROL§7 is at max, you will be able to see all living entities glow within §e32§7 blocks.\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]§7 to enter a focusing state."
+            ]
+        }
+    ]
+}

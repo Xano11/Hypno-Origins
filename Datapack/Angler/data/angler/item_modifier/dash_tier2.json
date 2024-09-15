@@ -1,0 +1,70 @@
+[
+    {
+        "function": "apoli:remove_power",
+        "power": "angler:sword/tiers/lvl1",
+        "slot": "any"
+    },
+    {
+        "function": "apoli:add_power",
+        "power": "angler:sword/tiers/lvl2",
+        "slot": "any",
+        "negative": false,
+        "hidden": true
+    },
+    {
+        "function": "minecraft:set_lore",
+        "entity": "this",
+        "lore": [
+            {
+                "text": ""
+            },
+            {
+                "text": "When in Main Hand:",
+                "color": "gray",
+                "italic": false
+            },
+            {
+                "text": " 4 Attack Damage",
+                "color": "aqua",
+                "italic": false
+            },
+            {
+                "text": " 1.3 Attack Speed",
+                "color": "aqua",
+                "italic": false
+            },
+            {
+                "text": "(TIER II)",
+                "color": "dark_aqua",
+                "italic": false
+            }
+        ],
+        "mode": "replace_all"
+    },
+    {
+        "function": "minecraft:set_attributes",
+        "modifiers": [
+            {
+                "id": "angler_atk_speed",
+                "attribute": "minecraft:generic.attack_speed",
+                "amount": -2.7,
+                "operation": "add_value",
+                "slot": "mainhand"
+            },
+            {
+                "id": "angler_attack",
+                "attribute": "minecraft:generic.attack_damage",
+                "amount": 3,
+                "operation": "add_value",
+                "slot": "mainhand"
+            }
+        ],
+        "replace": true
+    },
+    {
+        "function": "minecraft:toggle_tooltips",
+        "toggles": {
+            "minecraft:attribute_modifiers": false
+        }
+    }
+]

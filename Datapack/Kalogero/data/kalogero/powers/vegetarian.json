@@ -1,0 +1,44 @@
+{
+    "type": "origins:multiple",
+    "veggies": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "origins:ignore_diet"
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "origins:meat"
+                    }
+                },
+                {
+                    "type": "origins:food"
+                }
+            ]
+        },
+        "name": "Vegetarian"
+    },
+    "eating_speed":{
+        "type": "origins:modify_food",
+        "eat_ticks_modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 0.5
+        }
+    },
+    "name": "Slow Vegetarian",
+    "description": "You're not fun at family gatherings. You know it.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_triangle.png",
+            "text": "§c§lSlow Vegetarian §r§c🌿§r\n§7You are vegetarian and eat §c50%§7 slower.\n\n§7§lPassive Ability"
+        }
+    ]
+}

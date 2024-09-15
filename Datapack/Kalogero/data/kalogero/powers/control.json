@@ -1,0 +1,167 @@
+{
+    "type": "origins:multiple",
+    "exhausted": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "exhausting": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kalogero:control_exhausted",
+                    "change": -1
+                },
+                {
+                    "type": "origins:exhaust",
+                    "amount": 1.2
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:control_exhausted",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "kalogero:control_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:control_exhausted",
+            "change": 60,
+            "operation": "set"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function kalogero:abilities/control_main"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:control_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "activation": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function kalogero:abilities/control_use"
+        },
+        "cooldown": 1,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_control",
+                    "comparison": "==",
+                    "compare_to": 2400
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "kalogero:meditate_resting",
+                    "comparison": "==",
+                    "compare_to": 15
+                }
+            ]
+        }
+    },
+    "air_speed":{
+        "type":"apoli:modify_air_speed",
+        "modifier": {
+            "amount": 0.3,
+            "operation": "multiply_base_multiplicative"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:control_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "kalogero:control_speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": 0.6,
+            "operation": "add_multiplied_base"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:control_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "step_height": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "kalogero:control_speed",
+            "attribute": "minecraft:generic.step_height",
+            "amount": 1,
+            "operation": "add_value"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:control_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Unleash: Control",
+    "description": "Adversaries are just another match for your embers.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/arrow_up.png",
+            "text": "§6§lUnleash: Control §r§6🌟§r\n§7With full §e§lCONTROL§7, you can activate the §eFLOW 🌌§7 state.\n\n§eFLOW 🌌§7\nFor §e15s§7, you have §a+1§7 step height, §a+60%§7 speed and §a+30%§7 air speed.\nAdditionally, \"lag\" hits now deals 2 true damage and deals +30% knockback.\n\nWhen exiting Flow state, you lose the equivalent of full saturation. §8(if your saturation happened to be maxed, you'd lose all of it)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]§7 and press §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 to enter the Flow state."
+            ]
+        }
+    ]
+}

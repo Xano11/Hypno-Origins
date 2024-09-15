@@ -1,0 +1,9 @@
+[
+    {
+        "function": "apoli:add_power",
+        "power": "angler:sword/tiers/lvl1",
+        "slot": "any",
+        "negative": false,
+        "hidden" : true
+    }
+]

@@ -1,0 +1,33 @@
+{
+    "type": "origins:multiple",
+    "chorus": {
+        "type": "origins:modify_food",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~1 ~ 0.2 0.3 0.2 1 10"
+                },
+                {
+                    "type": "origins:random_teleport",
+                    "area_width": 4,
+                    "area_height": 4,
+                    "success_action": {
+                        "type": "origins:execute_command",
+                        "command": "function voidsent:abilities/vanish"
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Accidental Displacement",
+    "description": "You're not fun at family gatherings. You know it.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_left.png",
+            "text": "§c§lAccidental Displacement §r§c↔§r\n§7Every food you consume has the same teleportation effect as §dchorus fruit§7.\n\n§7§lPassive Ability"
+        }
+    ]
+}

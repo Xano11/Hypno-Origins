@@ -1,0 +1,13 @@
+name = "Hypno:Origins"
+author = "XaNo11"
+version = "1.21"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "36097476fbad692eeee07610db052d3d1dc5bdfd8ac3917b50a5324782f04a5f"
+
+[versions]
+fabric = "0.16.5"
+minecraft = "1.21"

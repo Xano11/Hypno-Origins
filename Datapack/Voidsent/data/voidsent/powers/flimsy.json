@@ -1,0 +1,25 @@
+{
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:modify_damage_dealt",
+        "modifiers": [
+            {
+                "operation": "add_base_early",
+                "amount": -3.0
+            },
+            {
+                "operation": "min_total",
+                "amount": 1.0
+            }
+        ]
+    },
+    "name": "Flimsy Muscles",
+    "description": "Your body is partly atrophied due to your constant manipulation of void energy.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_triangle.png",
+            "text": "§c§lFlimsy §r§c🩼§r\n§7You deal §c-3§7 damage \n§8(down to a minimum of 1)\n\n§7§lPassive Ability"
+        }
+    ]
+}

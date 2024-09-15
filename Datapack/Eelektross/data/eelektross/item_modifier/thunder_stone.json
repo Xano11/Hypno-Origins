@@ -1,0 +1,19 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+			{
+				"text": "Protects user from",
+                "italic": false,
+                "color": "gray"
+			},
+			{
+				"text": "[TAZE ⚡]",
+				"color": "yellow",
+				"italic": false
+			}
+		],
+		"mode": "replace_all"
+	}
+]

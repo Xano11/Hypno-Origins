@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "kalogero:netherite_gauntlet",
+    "pattern": [
+        "   ",
+        "aba",
+        "   "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:netherite_block"
+        },
+        "a": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "id": "minecraft:stick"
+    }
+}

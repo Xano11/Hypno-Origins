@@ -1,0 +1,147 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 3,
+        "hud_render": {
+            "should_render": true
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.breeze.hurt player @a ~ ~ ~ 1 1.6"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:actor_condition",
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "kalogero:control_duration",
+                                                    "comparison": ">",
+                                                    "compare_to": 0
+                                                }
+                                            },
+                                            "if_action": {
+                                                "type": "origins:add_velocity",
+                                                "z": 2.2,
+                                                "y": 0.14,
+                                                "set": true
+                                            },
+                                            "else_action": {
+                                                "type": "origins:add_velocity",
+                                                "z": 1.5,
+                                                "y": 0.1,
+                                                "set": true
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:actor_condition",
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "kalogero:control_duration",
+                                                    "comparison": ">",
+                                                    "compare_to": 0
+                                                }
+                                            },
+                                            "if_action": {
+                                                "type": "origins:damage",
+                                                "amount": 2,
+                                                "damage_type": "kalogero:sparks"
+                                            },
+                                            "else_action": {
+                                                "type": "origins:damage",
+                                                "amount": 1,
+                                                "damage_type": "kalogero:sparks"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:remove_from_entity_set",
+                                            "set": "kalogero:combo/trance_targets"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function kalogero:abilities/second_impact"
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "kalogero:combo/trance_targets"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s kalogero:combo/impact"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:combo/impact_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/impact_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "model": {
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 0.2,
+        "blue": 0.2,
+        "alpha": 1
+    },
+    "velocity": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "amount": -0.9,
+            "operation": "multiply_total_multiplicative"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/impact_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "hidden": true
+}

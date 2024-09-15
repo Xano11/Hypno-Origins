@@ -1,0 +1,262 @@
+{
+    "type": "origins:multiple",
+    "cooldown1": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "hypno:textures/bars/angler/angler.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "angler:sword/transfish_cooldown1",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown2": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 90,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "hypno:textures/bars/angler/angler.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "angler:sword/transfish_cooldown2",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown3": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 80,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "hypno:textures/bars/angler/angler.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "angler:sword/transfish_cooldown3",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown4": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "hypno:textures/bars/angler/angler.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "angler:sword/transfish_cooldown4",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "angler:sword/transfish_cooldown1",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "angler:sword/transfish_cooldown2",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "angler:sword/transfish_cooldown3",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "angler:sword/transfish_cooldown4",
+                    "change": -1
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "keepitems": {
+        "type": "origins:keep_inventory",
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{swordfish:1b}"
+        }
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function angler:transfish"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "angler:fish"
+                        }
+                    },
+                    {
+                        "type": "origins:amount",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "cooldown": 4
+    },
+    "less_damage": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:custom_data",
+                "nbt": "{swordfish:1b}",
+                "inverted": true
+            }
+        },
+        "modifiers": [
+            {
+                "operation": "add_base_early",
+                "value": -1
+            },
+            {
+                "operation": "min_total",
+                "value": 1
+            }
+        ]
+    },
+    "damage_water": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:diamond_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:custom_data",
+                                "nbt": "{swordfish:1b}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "modifier": {
+            "name": "More damage",
+            "operation": "add_base_early",
+            "value": 2
+        }
+    },
+    "repair": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{swordfish:1b}"
+                },
+                {
+                    "type": "origins:durability",
+                    "comparison": "<",
+                    "compare_to": 1561
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "angler:fish"
+                    }
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:merge_nbt",
+            "nbt": "{Damage:0}"
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.anvil.use player @a ~ ~ ~ 1 1.2"
+        }
+    },
+    "name": "Profishiency",
+    "description": "With enough energy, any fish can become a fierce weapon of war in your hands.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/angler/swordfish.png",
+            "text": "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7 on a cooldown.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3§r§8 (+2 in Water)\n§e⌛§r§7 Cooldown: §r§f45s\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Turn any fish into a weapon of war with %s§7!"
+        }
+    ]
+}

@@ -1,0 +1,301 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "kalogero:combo/trance_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "breaking_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:combo/trance_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "breaking_duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:combo/trance_breaking_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_breaking_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "activation": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function kalogero:abilities/trance"
+        },
+        "cooldown": 600,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "kalogero:combo/trance_duration",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:meditate_resting",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "overlay":{
+        "type": "origins:overlay",
+        "texture": "origins:phantomize_overlay",
+        "strength": 0.05,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "combo": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function kalogero:abilities/combo"
+                },
+                {
+                    "type": "origins:exhaust",
+                    "amount": 1.5
+                }
+            ]
+        },
+        "cooldown": 5,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "combo_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "combo_timer_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:combo/trance_combo_timer",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_combo_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "targets": {
+        "type": "origins:entity_set"
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_entity_set",
+                    "set": "kalogero:combo/trance_targets"
+                },
+                {
+                    "type": "origins:can_see"
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.2,
+        "blue": 0.0
+    },
+    "crosshair": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "hypno:kalogero/crosshair"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_combo_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_to_entity_set",
+                    "set": "kalogero:combo/trance_targets"
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s kalogero:combo/impact"
+                    }
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "set": true
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_combo_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "break": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "kalogero:combo/trance_breaking_duration",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "kalogero:combo/trance_breaking_duration",
+                "change": 60,
+                "operation": "set"
+            }
+        },
+        "block_condition": {
+            "type": "origins:hardness",
+            "comparison": ">=",
+            "compare_to": 0.1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_combo_timer",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "only_when_harvested": false
+    },
+    "reset_break": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kalogero:combo/trance_breaking_duration",
+            "change": 0,
+            "operation": "set"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_breaking_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "only_when_harvested": false
+    },
+    "speedbreak": {
+        "type": "origins:modify_break_speed",
+        "block_condition": {
+            "type": "origins:hardness",
+            "comparison": ">=",
+            "compare_to": 0.1
+        },
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 3
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_breaking_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Impact-lag",
+    "description": "\"Whilst in the zone, Kalogeros are said to create sonic-boom level punches.\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_circle.png",
+            "text": "§4§lImpact-lag §r§4💢§r\n§7Using the ability will grant \"§4DOUBLE TROUBLE 💢§7\" for §e10s§7.\n\n§4DOUBLE TROUBLE 💢§7\nPressing the ability will create a small window of §e0.15s§7 where hitting an entity will cause them to freeze for §e0.2s§7, take 1 true damage and create \"lag\" knockback; allowing for openings.\n§8(Every separate punch requires heavy exhaustion cost)\n\n§7If you break a block during the short window of time, the next block you break will have §a+200%§7 mining efficiency.\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Press §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 to activate Double Trouble.\n Press again to trigger each punch."
+            ]
+        }
+    ]
+}

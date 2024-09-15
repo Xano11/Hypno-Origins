@@ -1,0 +1,444 @@
+{
+	"type": "origins:multiple",
+	"charge_level": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 35,
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "eelektross:lightning/smite_charge_level",
+					"change": 0,
+					"operation": "set"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "eelektross:lightning/smite_smite_cooldown",
+					"change": -600
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 0.6 2"
+				},
+				{
+					"type": "origins:area_of_effect",
+					"radius": 16,
+					"shape": "sphere",
+					"bientity_action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:execute_command",
+							"command": "function eelektross:strike"
+						}
+					},
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:living"
+								},
+								{
+									"type": "origins:inventory",
+									"process_mode": "items",
+									"item_condition": {
+										"type": "origins:custom_data",
+										"nbt": "{Thunder_stone:1b}"
+									},
+									"comparison": ">",
+									"compare_to": 0,
+									"inverted": true
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	},
+	"charge_level_up": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"change": 1
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"charging_check": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1
+	},
+	"charging_pose": {
+		"type": "origins:pose",
+		"arm_pose": "throw_spear",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"charging_glow_tier_1": {
+		"type": "origins:entity_glow",
+		"bientity_condition": {
+			"type": "origins:distance",
+			"comparison": "<=",
+			"compare_to": 8
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		},
+		"use_teams": false,
+		"red": 1.0,
+		"green": 1.0,
+		"blue": 0.0
+	},
+	"charging_glow_tier_2": {
+		"type": "origins:entity_glow",
+		"bientity_condition": {
+			"type": "origins:distance",
+			"comparison": "<=",
+			"compare_to": 16
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 30
+		},
+		"use_teams": false,
+		"red": 1.0,
+		"green": 1.0,
+		"blue": 0.0
+	},
+	"charging_particles": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:exhaust",
+					"amount": 0.2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "function eelektross:channel"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "eelektross:lightning/smite_charge_level",
+						"comparison": ">",
+						"compare_to": 30
+					},
+					"if_action": {
+						"type": "origins:area_of_effect",
+						"radius": 16,
+						"shape": "sphere",
+						"bientity_action": {
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "function eelektross:cloud"
+							}
+						},
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:living"
+							}
+						}
+					},
+					"else_action": {
+						"type": "origins:area_of_effect",
+						"radius": 8,
+						"shape": "sphere",
+						"bientity_action": {
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "function eelektross:cloud"
+							}
+						},
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:living"
+							}
+						}
+					}
+				}
+			]
+		},
+		"interval": 3,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"charging_no_move": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"id": "eelektross:charging_slow_move",
+			"attribute": "minecraft:generic.movement_speed",
+			"name": "while charging slow",
+			"amount": -0.25,
+			"operation": "ADD_MULTIPLIED_TOTAL"
+		},
+		"tick_rate": 2,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"charging_no_jump": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"id": "eelektross:charging_no_jump",
+			"attribute": "minecraft:generic.jump_strength",
+			"name": "while charging cannot jump",
+			"amount": -1,
+			"operation": "ADD_MULTIPLIED_TOTAL"
+		},
+		"tick_rate": 2,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"charging_no_swim": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"id": "eelektross:charging_no_water_speed",
+			"attribute": "additionalentityattributes:generic.water_speed",
+			"name": "while charging slow swim",
+			"amount": -0.25,
+			"operation": "ADD_MULTIPLIED_TOTAL"
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"charging_float_no_airspeed": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+			"operation": "multiply_total_multiplicative",
+			"amount": -0.25
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"smite_cooldown": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 600,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "hypno:textures/bars/eelektross/stun_bar.png",
+			"bar_index": 0,
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "eelektross:lightning/smite_charge_level",
+						"comparison": "==",
+						"compare_to": 0
+					},
+					{
+						"type": "origins:resource",
+						"resource": "eelektross:lightning/smite_cooldown",
+						"comparison": "<",
+						"compare_to": 600
+					}
+				]
+			}
+		}
+	},
+	"smite_cooldown_countdown": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "eelektross:lightning/smite_smite_cooldown",
+			"change": 1
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_smite_cooldown",
+			"comparison": "<",
+			"compare_to": 600
+		}
+	},
+	"everything": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "eelektross:lightning/smite_charge_level",
+				"comparison": "==",
+				"compare_to": 0
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:dismount"
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "eelektross:lightning/smite_charge_level",
+						"change": 1
+					}
+				]
+			},
+			"else_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "eelektross:lightning/smite_smite_cooldown",
+						"change": -600
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 0.6 2"
+					},
+					{
+						"type": "origins:area_of_effect",
+						"radius": 8,
+						"shape": "sphere",
+						"bientity_action": {
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "function eelektross:strike"
+							}
+						},
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:living"
+									},
+									{
+										"type": "origins:inventory",
+										"process_mode": "items",
+										"item_condition": {
+											"type": "origins:custom_data",
+											"nbt": "{Thunder_stone:1b}"
+										},
+										"comparison": ">",
+										"compare_to": 0,
+										"inverted": true
+									}
+								]
+							}
+						}
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "eelektross:lightning/smite_charge_level",
+						"change": 0,
+						"operation": "set"
+					}
+				]
+			}
+		},
+		"cooldown": 3,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:on_block"
+						},
+						{
+							"type": "origins:power",
+							"power": "eelektross:levitate/levitating"
+						},
+						{
+							"type": "origins:fluid_height",
+							"fluid": "minecraft:water",
+							"comparison": ">",
+							"compare_to": 0
+						}
+					]
+				},
+				{
+					"type": "origins:resource",
+					"resource": "eelektross:lightning/smite_smite_cooldown",
+					"comparison": "==",
+					"compare_to": 600
+				}
+			]
+		},
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": false
+		},
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"craft": {
+		"type": "apoli:modify_crafting",
+		"recipe": "eelektross:thunder_stone",
+		"item_action": {
+			"type": "origins:modify",
+			"modifier": "eelektross:thunder_stone"
+		},
+		"result": {
+			"id": "minecraft:gold_ingot",
+			"components": {
+				"minecraft:custom_name": "[\"\",{\"text\":\"Thunder Stone \",\"italic\":false},{\"text\":\"⚡\",\"italic\":false,\"color\":\"yellow\"}]",
+				"minecraft:custom_model_data": 1,
+				"minecraft:custom_data": {
+					"Thunder_stone": true
+				}
+			}
+		}
+	},
+	"name": "Thunderwave",
+	"description": "A storm begins to brew, clouds containing weak electric charges float above nearby entities. the range increases with cast time, once sparked lightning will strike down from all formed clouds. the lightning causes paralysis if it hits..",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/mob_effect/levitation.png",
+			"text": "§e§lSmite 🗲§r\n§7Create clouds above all entities within your §e§lSmite 🗲§r§7 range.\n\n§r§7Taze all entities hit, making them have small shocks 12 times over 9 seconds.\n\nThis ability can only be used in water, on the ground or in the air while levitate is active. This ability has a 1 second charge up before smiting. \n§e⌛§r§7 Cooldown: §r§f2m§r\n\n§7§lActive Ability"
+		}
+	]
+}
