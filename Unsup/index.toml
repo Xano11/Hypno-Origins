@@ -36,7 +36,7 @@ metafile = true
 
 [[files]]
 file = "mods/dataloader.pw.toml"
-hash = "ff49f4d955b64cd2c8162e5d4d08dfd600c5afc8ad7514a71c174a84fd4b294f"
+hash = "6a24ead27372fc4168c983fe31914c5daccc87b1097b201a4ca11e322f82e3c8"
 metafile = true
 
 [[files]]
