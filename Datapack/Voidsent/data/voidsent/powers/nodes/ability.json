@@ -808,13 +808,39 @@
             "ignore_unbreaking": true
         }
     },
-    "name": "Inner: Control",
-    "description": "Entering a state of total focus is imperative for great feats.",
+    "name": "Void: Nodes",
+    "description": "[placeholder]",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/community/silent/badge/shapes/triangle_up.png",
-            "text": "§e§lInner: Control §r§e👁§r\n§e§lCONTROL§7 is the energy required for §lUnleash: Control§r§7 and takes §e2m§7 to passively fully charge.\n\nWhilst holding the ability key, you charge §a12x§7 time quicker.\nWhilst actively charging, you §ccannot§7 move and you close your eyes; making you §cfully blind§7 and incapable of using items.\n\nIf §e§lCONTROL§7 is at max, you will be able to see all living entities glow within §e32§7 blocks.\n\n§7§lActive Ability"
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_square.png",
+            "text": "§d§lVoid: Nodes §r§d☀§r\nYou can create up to three nodes that allow you to change the origin point of DISPLACE\nTargets of DISPLACE (whether yourself or an entity) will be redirected to the node that is currently selected.\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/enchanted_book.png",
+            "prefix": "§7Use the book to remotely select a node regardless of distance!",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "voidsent:tome",
+                "pattern": [
+                    " o ",
+                    "obo",
+                    " o "
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:book"
+                    },
+                    "o": {
+                        "item": "minecraft:ender_pearl"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:book"
+                }
+            },
+            "suffix": "§8(This book has energy and can be recharged by putting an ender pearl over the book in your inventory)"
         },
         {
             "type": "origins:tooltip",
@@ -822,9 +848,17 @@
             "text": [
                 "§7Hold §r[",
                 {
-                    "keybind": "key.origins.secondary_active"
+                    "keybind": "key.origins.primary_active"
                 },
-                "]§7 to enter a focusing state."
+                "]§7 and press §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to create a node. Whist looking at a node, press the same key to select one!\n§8(To delete a node, select it and whilst holding §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§8, sneak twice quickly)"
             ]
         }
     ]
