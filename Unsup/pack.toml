@@ -1,12 +1,12 @@
 name = "Hypno:Origins"
 author = "XaNo11"
-version = "1.21"
+version = "1.0.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "36097476fbad692eeee07610db052d3d1dc5bdfd8ac3917b50a5324782f04a5f"
+hash = "31df63a6d805524b70cfb85d05c0e7744b0b70f69067791682912cdae2b42615"
 
 [versions]
 fabric = "0.16.5"

@@ -1,6 +1,14 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/fwaystones/config.json5"
+hash = "ab42bb358391d0a4a93808f1824b0fcb6f35645c056de54bc0775c93c5708bb8"
+
+[[files]]
+file = "config/metalbundles-server.toml"
+hash = "99ec718932117834091d1a868310cd457b4b9f2d8877231ab367c35492ce3c71"
+
+[[files]]
 file = "mods/appleskin.pw.toml"
 hash = "af482cdaf7c5d9d5481e7cd789d98ebc17f47e4565a28af6c6365aef896d1404"
 metafile = true
@@ -28,6 +36,11 @@ metafile = true
 [[files]]
 file = "mods/controlling.pw.toml"
 hash = "ed3d2b9957ff1b877d4dfc68209f6032238ce1eba6e85a3129009c92b0801e07"
+metafile = true
+
+[[files]]
+file = "mods/dataloader.pw.toml"
+hash = "ff49f4d955b64cd2c8162e5d4d08dfd600c5afc8ad7514a71c174a84fd4b294f"
 metafile = true
 
 [[files]]
@@ -118,6 +131,11 @@ metafile = true
 [[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "e256b952df1dfd9ba362ca7d7d176dd29434cb6721f14ee5c99995df94490465"
+metafile = true
+
+[[files]]
+file = "mods/resource-pack-overrides.pw.toml"
+hash = "b10c76812a129c445f9ff55b6fc467e40e3fa9a87e89b9b79fcee04ebe715abd"
 metafile = true
 
 [[files]]
