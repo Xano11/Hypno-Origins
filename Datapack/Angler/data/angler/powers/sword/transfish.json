@@ -10,10 +10,24 @@
             "bar_index": 1,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:sword/transfish_cooldown1",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:sword/transfish_cooldown1",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:sword/tiers/lvl1",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -27,10 +41,24 @@
             "bar_index": 1,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:sword/transfish_cooldown2",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:sword/transfish_cooldown2",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:sword/tiers/lvl2",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -44,10 +72,24 @@
             "bar_index": 1,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:sword/transfish_cooldown3",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:sword/transfish_cooldown3",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:sword/tiers/lvl3",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -61,10 +103,24 @@
             "bar_index": 1,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:sword/transfish_cooldown4",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:sword/transfish_cooldown4",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:sword/tiers/lvl4",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -153,11 +209,11 @@
         "modifiers": [
             {
                 "operation": "add_base_early",
-                "value": -1
+                "amount": -1
             },
             {
                 "operation": "min_total",
-                "value": 1
+                "amount": 1
             }
         ]
     },
@@ -194,9 +250,8 @@
             ]
         },
         "modifier": {
-            "name": "More damage",
             "operation": "add_base_early",
-            "value": 2
+            "amount": 2
         }
     },
     "repair": {
@@ -211,7 +266,7 @@
                 {
                     "type": "origins:durability",
                     "comparison": "<",
-                    "compare_to": 1561
+                    "compare_to": 600
                 }
             ]
         },
@@ -237,8 +292,9 @@
             "amount": 1
         },
         "on_item_action": {
-            "type": "origins:merge_nbt",
-            "nbt": "{Damage:0}"
+            "type": "origins:damage",
+            "amount": -300,
+            "ignore_unbreaking": true
         },
         "entity_action": {
             "type": "origins:execute_command",

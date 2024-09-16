@@ -165,15 +165,14 @@
         }
     },
     "winding_movement": {
-        "type": "origins:modify_velocity",
+        "type": "origins:conditioned_attribute",
         "modifier": {
-            "value": -0.4,
-            "operation": "multiply_total"
+            "id": "angler:winding3",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -0.6,
+            "operation": "add_multiplied_total"
         },
-        "axes": [
-            "x",
-            "z"
-        ],
+        "tick_rate": 1,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -185,28 +184,9 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown3",
-                    "comparison": "==",
+                    "resource": "angler:sword/tiers/lvl3_winding",
+                    "comparison": ">",
                     "compare_to": 0
-                },
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient": {
-                                    "item": "minecraft:diamond_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:custom_data",
-                                "nbt": "{swordfish:1b}"
-                            }
-                        ]
-                    }
                 }
             ]
         }
@@ -264,10 +244,19 @@
                     "change": -3
                 },
                 {
-                    "type": "origins:change_resource",
-                    "resource": "angler:sword/transfish_cooldown3",
-                    "change": 80,
-                    "operation": "set"
+                    "type": "origins:execute_command",
+                    "command": "function angler:dash_cd"
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:modify_item_cooldown",
+                        "modifier": {
+                            "operation": "set_total",
+                            "amount": 80
+                        }
+                    }
                 },
                 {
                     "type": "origins:raycast",
@@ -293,28 +282,12 @@
                     "type": "origins:selector_action",
                     "selector": "@e",
                     "bientity_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:actor_action",
-                                "action": {
-                                    "type": "origins:change_resource",
-                                    "resource": "angler:sword/transfish_cooldown3",
-                                    "change": -20
-                                }
-                            },
-                            {
-                                "type": "origins:actor_action",
-                                "action": {
-                                    "type": "origins:add_velocity",
-                                    "y": 0.25
-                                }
-                            },
-                            {
-                                "type": "origins:add_velocity",
-                                "z": 1
-                            }
-                        ]
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "angler:sword/transfish_cooldown2",
+                            "change": -20
+                        }
                     },
                     "bientity_condition": {
                         "type": "origins:target_condition",
@@ -335,8 +308,8 @@
                 },
                 {
                     "type": "origins:add_velocity",
-                    "space": "local",
-                    "z": 0.1
+                    "space": "local_horizontal",
+                    "z": 1
                 }
             ]
         },

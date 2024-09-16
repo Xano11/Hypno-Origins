@@ -31,9 +31,8 @@
                                         "type": "origins:and",
                                         "actions": [
                                             {
-                                                "type": "origins:change_resource",
-                                                "resource": "angler:fishing/throw_cooldown1",
-                                                "change": 700
+                                                "type": "origins:execute_command",
+                                                "command": "function angler:rod_cd"
                                             },
                                             {
                                                 "type": "origins:change_resource",

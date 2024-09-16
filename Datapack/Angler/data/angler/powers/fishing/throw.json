@@ -46,10 +46,24 @@
             "bar_index": 0,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:fishing/throw_cooldown1",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:fishing/throw_cooldown1",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:fishing/tiers/lvl1",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -63,10 +77,24 @@
             "bar_index": 0,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:fishing/throw_cooldown2",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:fishing/throw_cooldown2",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:fishing/tiers/lvl2",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -80,10 +108,24 @@
             "bar_index": 0,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:fishing/throw_cooldown3",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:fishing/throw_cooldown3",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:fishing/tiers/lvl3",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -97,14 +139,27 @@
             "bar_index": 0,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:resource",
-                "resource": "angler:fishing/throw_cooldown4",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "angler:fishing/throw_cooldown4",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "angler:fishing/tiers/lvl4",
+                            "slot": "any"
+                        }
+                    }
+                ]
             }
         }
     },
-
     "cooldown_down": {
         "type": "origins:action_over_time",
         "entity_action": {

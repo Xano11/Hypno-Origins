@@ -20,14 +20,9 @@
     "cooldown_down": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:fishing/fishout_cooldown",
-                    "change": -10
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "angler:fishing/fishout_cooldown",
+            "change": -10
         },
         "interval": 10
     },
