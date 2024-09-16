@@ -814,7 +814,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_square.png",
-            "text": "§d§lVoid: Nodes §r§d☀§r\nYou can create up to three nodes that allow you to change the origin point of DISPLACE\nTargets of DISPLACE (whether yourself or an entity) will be redirected to the node that is currently selected.\n\n§7§lActive Ability"
+            "text": "§d§lVoid: Nodes §r§d☀§r\n§7You can create up to §dthree§d nodes that allow you to change the origin point of §5DISPLACE§7\nTargets of §5DISPLACE§7 §8(whether yourself or an entity)§7 will be redirected to the node that is currently selected.\n\n§7§lActive Ability"
         },
         {
             "type": "origins:crafting_recipe",
