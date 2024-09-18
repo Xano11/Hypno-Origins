@@ -2,37 +2,50 @@
     "type": "origins:multiple",
     "rod": {
         "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "function angler:give_rod"
-                },
-                {
-                    "type": "origins:modify_inventory",
-                    "inventory_type": "inventory",
-                    "item_action": {
-                        "type": "origins:modify",
-                        "modifier": "angler:fishing_tier1"
-                    },
-                    "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:custom_data",
-                                "nbt": "{angler:1b}"
-                            },
-                            {
-                                "type": "origins:power_count",
-                                "slot": "any",
-                                "comparison": "==",
-                                "compare_to": 0
-                            }
-                        ]
-                    }
+        "entity_action_gained":  {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:inventory",
+                "process_mode": "items",
+                "comparison": "==",
+                "compare_to": 0,
+                "item_condition":  {
+                    "type": "origins:custom_data",
+                    "nbt": "{angler:1b}"
                 }
-            ]
+            },
+            "if_action":  {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function angler:give_rod"
+                    },
+                    {
+                        "type": "origins:modify_inventory",
+                        "inventory_type": "inventory",
+                        "item_action": {
+                            "type": "origins:modify",
+                            "modifier": "angler:fishing_rod_upgrade1"
+                        },
+                        "item_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:custom_data",
+                                    "nbt": "{angler:1b}"
+                                },
+                                {
+                                    "type": "origins:power_count",
+                                    "slot": "any",
+                                    "comparison": "==",
+                                    "compare_to": 0
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
         },
         "execute_chosen_when_orb": true
     },
@@ -59,7 +72,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:fishing/tiers/lvl1",
+                            "power": "angler:tiers/fishing_rod_tier1",
                             "slot": "any"
                         }
                     }
@@ -90,7 +103,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:fishing/tiers/lvl2",
+                            "power": "angler:tiers/fishing_rod_tier2",
                             "slot": "any"
                         }
                     }
@@ -121,7 +134,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:fishing/tiers/lvl3",
+                            "power": "angler:tiers/fishing_tier3",
                             "slot": "any"
                         }
                     }
@@ -152,7 +165,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:fishing/tiers/lvl4",
+                            "power": "angler:tiers/fishing_rod_tier4",
                             "slot": "any"
                         }
                     }

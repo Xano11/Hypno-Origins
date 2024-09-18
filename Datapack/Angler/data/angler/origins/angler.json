@@ -2,7 +2,7 @@
 	"powers": [
 		"angler:fishing/fishloot",
 		"angler:fishing/throw",
-		"angler:fishing/fishout",
+		"angler:tp/fishout",
 		"angler:sword/transfish",
 		"angler:desc",
 		"angler:pescivore",

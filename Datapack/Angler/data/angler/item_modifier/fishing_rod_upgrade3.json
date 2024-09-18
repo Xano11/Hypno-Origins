@@ -1,12 +1,12 @@
 [
     {
         "function": "apoli:remove_power",
-        "power": "angler:fishing/tiers/lvl2",
+        "power": "angler:tiers/fishing_rod_tier2",
         "slot": "any"
     },
     {
         "function": "apoli:add_power",
-        "power": "angler:fishing/tiers/lvl3",
+        "power": "angler:tiers/fishing_rod_tier3",
         "slot": "any",
         "negative": false,
         "hidden": true

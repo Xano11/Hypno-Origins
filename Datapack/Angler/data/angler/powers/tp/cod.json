@@ -30,7 +30,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power revoke @a angler:fishing/bait"
+                    "command": "power revoke @a angler:tp/bait"
                 },
                 {
                     "type": "origins:execute_command",
@@ -71,7 +71,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "angler:fishing/cod_duration",
+            "resource": "angler:tp/cod_duration",
             "change": -10
         },
         "interval": 10

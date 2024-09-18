@@ -1,1 +1,1 @@
-$power grant $(player_name) angler:fishing/bait
+$power grant $(player_name) angler:tp/bait

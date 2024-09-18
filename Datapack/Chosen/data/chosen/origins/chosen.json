@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"chosen:life",
+		"chosen:small",
+		"chosen:weak"
+	],
+	"icon": {
+		"id": "minecraft:campfire",
+		"components": {
+			"minecraft:custom_model_data": 1
+		}
+	},
+	"order": 1,
+	"impact": 2,
+	"name": "Chosen Undead",
+	"description": "Chosen Undead. Your fate is… to succeed the Great Lord Gwyn. So that you may link the Fire, cast away the Dark, and undo the curse of the Undead."
+}

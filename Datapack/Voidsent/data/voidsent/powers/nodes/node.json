@@ -86,5 +86,53 @@
         },
         "interval": 20
     },
+    "damage": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function voidsent:abilities/tp_particles"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function voidsent:abilities/remove_node"
+                }
+            ]
+        }
+    },
+    "break": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "execute on passengers if entity @s[tag=node_interaction] run function voidsent:abilities/interaction_hit"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:passenger",
+            "bientity_condition": {
+                "type": "origins:actor_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:interaction"
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if data entity @s attack",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
     "hidden": true
 }

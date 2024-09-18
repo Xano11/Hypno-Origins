@@ -10,13 +10,13 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown1",
+                    "resource": "angler:sword/transfish_cooldown3",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "comparison": "<",
                     "compare_to": 3
                 },
@@ -55,7 +55,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "angler:sword/tiers/lvl1_winding",
+            "resource": "angler:tiers/swordfish_tier3_winding",
             "change": -1
         },
         "interval": 1,
@@ -77,7 +77,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "angler:sword/tiers/lvl1_winding",
+                                "resource": "angler:tiers/swordfish_tier3_winding",
                                 "comparison": "==",
                                 "compare_to": 0
                             },
@@ -89,7 +89,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "angler:sword/tiers/lvl1_winding",
+                                "resource": "angler:tiers/swordfish_tier3_winding",
                                 "comparison": "==",
                                 "compare_to": 1
                             },
@@ -101,7 +101,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "angler:sword/tiers/lvl1_winding",
+                                "resource": "angler:tiers/swordfish_tier3_winding",
                                 "comparison": "==",
                                 "compare_to": 2
                             },
@@ -114,7 +114,7 @@
                 },
                 {
                     "type": "origins:change_resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "change": 1
                 }
             ]
@@ -132,13 +132,13 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "comparison": "<",
                     "compare_to": 3
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown1",
+                    "resource": "angler:sword/transfish_cooldown3",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -167,7 +167,7 @@
     "winding_movement": {
         "type": "origins:conditioned_attribute",
         "modifier": {
-            "id": "angler:winding1",
+            "id": "angler:winding3",
             "attribute": "minecraft:generic.movement_speed",
             "amount": -0.6,
             "operation": "add_multiplied_total"
@@ -178,13 +178,13 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "comparison": "<",
                     "compare_to": 3
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "comparison": ">",
                     "compare_to": 0
                 }
@@ -201,13 +201,13 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown1",
+                    "resource": "angler:sword/transfish_cooldown3",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "comparison": "==",
                     "compare_to": 3
                 },
@@ -240,7 +240,7 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "change": -3
                 },
                 {
@@ -254,7 +254,7 @@
                         "type": "origins:modify_item_cooldown",
                         "modifier": {
                             "operation": "set_total",
-                            "amount": 100
+                            "amount": 80
                         }
                     }
                 },
@@ -285,7 +285,7 @@
                         "type": "origins:actor_action",
                         "action": {
                             "type": "origins:change_resource",
-                            "resource": "angler:sword/transfish_cooldown1",
+                            "resource": "angler:sword/transfish_cooldown2",
                             "change": -20
                         }
                     },
@@ -308,8 +308,8 @@
                 },
                 {
                     "type": "origins:add_velocity",
-                    "z": 1,
-                    "space": "local_horizontal"
+                    "space": "local_horizontal",
+                    "z": 1
                 }
             ]
         },
@@ -324,13 +324,13 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/tiers/lvl1_winding",
+                    "resource": "angler:tiers/swordfish_tier3_winding",
                     "comparison": "==",
                     "compare_to": 3
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown1",
+                    "resource": "angler:sword/transfish_cooldown3",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -392,18 +392,20 @@
                 },
                 {
                     "type": "origins:has_power",
-                    "power": "angler:sword/tiers/lvl1",
+                    "power": "angler:tiers/swordfish_tier3",
                     "slot": "any"
                 }
             ]
         },
         "using_item_condition": {
-            "type": "origins:custom_data",
-            "nbt": "{treasure_angler:1b}"
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:heavy_core"
+            }
         },
         "on_item_action": {
             "type": "origins:modify",
-            "modifier": "angler:dash_tier2"
+            "modifier": "angler:swordfish_upgrade4"
         },
         "using_item_action": {
             "type": "origins:consume",

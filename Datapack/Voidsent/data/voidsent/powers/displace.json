@@ -81,7 +81,7 @@
                     "fluid_handling": "none",
                     "miss_action": {
                         "type": "origins:execute_command",
-                        "command": "particle minecraft:witch ^ ^1.6 ^9 0.1 0.1 0.1 0 3 force @a[tag=displace_indicator]"
+                        "command": "execute anchored eyes run particle minecraft:witch ^ ^ ^9 0.1 0.1 0.1 0 3 force @a[tag=displace_indicator]"
                     },
                     "command_at_hit": "particle minecraft:witch ~ ~ ~ 0.1 0.1 0.1 0 3 force @a[tag=displace_indicator]",
                     "command_step": 0.25,

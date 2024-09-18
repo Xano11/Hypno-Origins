@@ -36,7 +36,7 @@
                                             },
                                             {
                                                 "type": "origins:change_resource",
-                                                "resource": "angler:fishing/tiers/lvl4_fall",
+                                                "resource": "angler:tiers/fishing_rod_tier4_fall",
                                                 "change": 1
                                             },
                                             {
@@ -110,7 +110,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "angler:fishing/tiers/lvl4_fall",
+            "resource": "angler:tiers/fishing_rod_tier4_fall",
             "comparison": "==",
             "compare_to": 1
         }
@@ -121,7 +121,7 @@
         "take_fall_damage": false,
         "condition": {
             "type": "origins:resource",
-            "resource": "angler:fishing/tiers/lvl4_fall",
+            "resource": "angler:tiers/fishing_rod_tier4_fall",
             "comparison": "==",
             "compare_to": 1
         }
@@ -130,7 +130,7 @@
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:change_resource",
-            "resource": "angler:fishing/tiers/lvl4_fall",
+            "resource": "angler:tiers/fishing_rod_tier4_fall",
             "change": -1
         },
         "interval": 1,
@@ -176,6 +176,37 @@
                         }
                     ]
                 }
+            }
+        }
+    },
+    "luck_increase": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:gameplay/fishing": "angler:gameplay/angler_fishing_increase"
+        },
+        "priority": 1,
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition":{
+                            "type": "origins:custom_data",
+                            "nbt": "{angler:1b}"
+                        }
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "offhand",
+                        "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{angler:1b}"
+                    }
+                    }
+                ]
             }
         }
     },

@@ -23,7 +23,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:sword/tiers/lvl1",
+                            "power": "angler:tiers/swordfish_tier1",
                             "slot": "any"
                         }
                     }
@@ -54,7 +54,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:sword/tiers/lvl2",
+                            "power": "angler:tiers/swordfish_tier2",
                             "slot": "any"
                         }
                     }
@@ -85,7 +85,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:sword/tiers/lvl3",
+                            "power": "angler:tiers/swordfish_tier3",
                             "slot": "any"
                         }
                     }
@@ -116,7 +116,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:sword/tiers/lvl4",
+                            "power": "angler:tiers/swordfish_tier4",
                             "slot": "any"
                         }
                     }

@@ -21,7 +21,7 @@
                                     "type": "origins:target_action",
                                     "action": {
                                         "type": "origins:add_velocity",
-                                        "z": 1.4,
+                                        "z": 1,
                                         "space": "velocity_horizontal_normalized"
                                     }
                                 },
@@ -36,7 +36,7 @@
                                             },
                                             {
                                                 "type": "origins:change_resource",
-                                                "resource": "angler:fishing/tiers/lvl3_fall",
+                                                "resource": "angler:tiers/fishing_rod_tier1_fall",
                                                 "change": 1
                                             },
                                             {
@@ -72,7 +72,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:fishing/throw_cooldown3",
+                    "resource": "angler:fishing/throw_cooldown1",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -110,7 +110,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "angler:fishing/tiers/lvl3_fall",
+            "resource": "angler:tiers/fishing_rod_tier1_fall",
             "comparison": "==",
             "compare_to": 1
         }
@@ -121,7 +121,7 @@
         "take_fall_damage": false,
         "condition": {
             "type": "origins:resource",
-            "resource": "angler:fishing/tiers/lvl3_fall",
+            "resource": "angler:tiers/fishing_rod_tier1_fall",
             "comparison": "==",
             "compare_to": 1
         }
@@ -130,7 +130,7 @@
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:change_resource",
-            "resource": "angler:fishing/tiers/lvl3_fall",
+            "resource": "angler:tiers/fishing_rod_tier1_fall",
             "change": -1
         },
         "interval": 1,
@@ -215,20 +215,18 @@
                 },
                 {
                     "type": "origins:has_power",
-                    "power": "angler:fishing/tiers/lvl3",
+                    "power": "angler:tiers/fishing_rod_tier1",
                     "slot": "any"
                 }
             ]
         },
         "using_item_condition": {
-            "type": "origins:ingredient",
-            "ingredient": {
-                "item": "minecraft:heavy_core"
-            }
+            "type": "origins:custom_data",
+            "nbt": "{treasure_angler:1b}"
         },
         "on_item_action": {
             "type": "origins:modify",
-            "modifier": "angler:fishing_tier4"
+            "modifier": "angler:fishing_rod_upgrade2"
         },
         "using_item_action": {
             "type": "origins:consume",

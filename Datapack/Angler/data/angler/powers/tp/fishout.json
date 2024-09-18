@@ -11,7 +11,7 @@
             "bar_index": 16,
             "condition": {
                 "type": "origins:resource",
-                "resource": "angler:fishing/fishout_cooldown",
+                "resource": "angler:tp/fishout_cooldown",
                 "comparison": ">",
                 "compare_to": 0
             }
@@ -21,7 +21,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "angler:fishing/fishout_cooldown",
+            "resource": "angler:tp/fishout_cooldown",
             "change": -10
         },
         "interval": 10
@@ -55,7 +55,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "power grant @s angler:fishing/cod"
+                                                        "command": "power grant @s angler:tp/cod"
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
@@ -78,7 +78,7 @@
                                         },
                                         {
                                             "type": "origins:change_resource",
-                                            "resource": "angler:fishing/fishout_cooldown",
+                                            "resource": "angler:tp/fishout_cooldown",
                                             "change": 6000
                                         },
                                         {
@@ -145,7 +145,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:fishing/fishout_cooldown",
+                    "resource": "angler:tp/fishout_cooldown",
                     "comparison": "==",
                     "compare_to": 0
                 }

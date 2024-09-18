@@ -37,7 +37,7 @@
                                             },
                                             {
                                                 "type": "origins:change_resource",
-                                                "resource": "angler:fishing/tiers/lvl2_fall",
+                                                "resource": "angler:tiers/fishing_rod_tier2_fall",
                                                 "change": 1
                                             },
                                             {
@@ -111,7 +111,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "angler:fishing/tiers/lvl2_fall",
+            "resource": "angler:tiers/fishing_rod_tier2_fall",
             "comparison": "==",
             "compare_to": 1
         }
@@ -122,7 +122,7 @@
         "take_fall_damage": false,
         "condition": {
             "type": "origins:resource",
-            "resource": "angler:fishing/tiers/lvl2_fall",
+            "resource": "angler:tiers/fishing_rod_tier2_fall",
             "comparison": "==",
             "compare_to": 1
         }
@@ -131,7 +131,7 @@
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:change_resource",
-            "resource": "angler:fishing/tiers/lvl2_fall",
+            "resource": "angler:tiers/fishing_rod_tier2_fall",
             "change": -1
         },
         "interval": 1,
@@ -216,7 +216,7 @@
                 },
                 {
                     "type": "origins:has_power",
-                    "power": "angler:fishing/tiers/lvl2",
+                    "power": "angler:tiers/fishing_rod_tier2",
                     "slot": "any"
                 }
             ]
@@ -227,7 +227,7 @@
         },
         "on_item_action": {
             "type": "origins:modify",
-            "modifier": "angler:fishing_tier3"
+            "modifier": "angler:fishing_rod_upgrade3"
         },
         "using_item_action": {
             "type": "origins:consume",

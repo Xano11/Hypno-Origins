@@ -1,7 +1,7 @@
 [
     {
         "function": "apoli:add_power",
-        "power": "angler:fishing/tiers/lvl1",
+        "power": "angler:tiers/swordfish_tier1",
         "slot": "any",
         "negative": false,
         "hidden" : true

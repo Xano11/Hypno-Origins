@@ -282,7 +282,7 @@
                                 },
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "tp @n[tag=node_placement] ^ ^1.6 ^9"
+                                    "command": "execute anchored eyes run tp @n[tag=node_placement] ^ ^ ^9"
                                 }
                             ]
                         },

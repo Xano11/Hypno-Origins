@@ -1,12 +1,12 @@
 [
     {
         "function": "apoli:remove_power",
-        "power": "angler:sword/tiers/lvl2",
+        "power": "angler:tiers/swordfish_tier1",
         "slot": "any"
     },
     {
         "function": "apoli:add_power",
-        "power": "angler:sword/tiers/lvl3",
+        "power": "angler:tiers/swordfish_tier2",
         "slot": "any",
         "negative": false,
         "hidden": true
@@ -24,7 +24,7 @@
                 "italic": false
             },
             {
-                "text": " 5 Attack Damage",
+                "text": " 4 Attack Damage",
                 "color": "aqua",
                 "italic": false
             },
@@ -34,7 +34,7 @@
                 "italic": false
             },
             {
-                "text": "(TIER III)",
+                "text": "(TIER II)",
                 "color": "dark_aqua",
                 "italic": false
             }
@@ -54,7 +54,7 @@
             {
                 "id": "angler_attack",
                 "attribute": "minecraft:generic.attack_damage",
-                "amount": 4,
+                "amount": 3,
                 "operation": "add_value",
                 "slot": "mainhand"
             }
