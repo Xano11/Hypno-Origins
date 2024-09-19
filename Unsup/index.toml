@@ -25,8 +25,8 @@ file = "config/openloader/data/voidsent.zip"
 hash = "12d88939c831fee451d153fce28d682ba52e847eb82d5fbdef2f3289c6cf3064"
 
 [[files]]
-file = "config/openloader/resources/pack1.0.zip"
-hash = "2f7c74aff2486bdc3836fc7a070bd7bea64ca3981c77dedcc7c3d0ec473d033f"
+file = "config/openloader/resources/pack1.3.zip"
+hash = "a3b952c21567741a763b1ce9887fef843d06aa7f7f5ea0803edf8ca26ff93bfc"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"
