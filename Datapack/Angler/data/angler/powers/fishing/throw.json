@@ -134,7 +134,7 @@
                         "equipment_slot": "mainhand",
                         "item_condition": {
                             "type": "origins:has_power",
-                            "power": "angler:tiers/fishing_tier3",
+                            "power": "angler:tiers/fishing_rod_tier3",
                             "slot": "any"
                         }
                     }

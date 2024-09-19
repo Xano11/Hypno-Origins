@@ -1,7 +1,7 @@
 [
     {
         "function": "apoli:remove_power",
-        "power": "angler:tiers/fishing_rod_tier2",
+        "power": "angler:tiers/swordfish_tier2",
         "slot": "any"
     },
     {
