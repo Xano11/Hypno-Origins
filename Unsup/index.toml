@@ -9,10 +9,6 @@ file = "config/openloader/advanced_options.json"
 hash = "97c64147276f55cad728249dd77602661e2327fa178aeb8e0db12866df448211"
 
 [[files]]
-file = "config/openloader/data/angler.zip"
-hash = "5d367a06d0641bfa5663d3e07dc797a31d93b9ba53e155add752cc7765963aba"
-
-[[files]]
 file = "config/openloader/data/eelektross.zip"
 hash = "320fe52c560e6f3e0d56f41671e50a0ff177d20c2c9929df4752773aa03cd255"
 
