@@ -63,11 +63,6 @@ hash = "ed3d2b9957ff1b877d4dfc68209f6032238ce1eba6e85a3129009c92b0801e07"
 metafile = true
 
 [[files]]
-file = "mods/dataloader.pw.toml"
-hash = "6a24ead27372fc4168c983fe31914c5daccc87b1097b201a4ca11e322f82e3c8"
-metafile = true
-
-[[files]]
 file = "mods/easy-anvils.pw.toml"
 hash = "f26285c19f0186988f889a12593c510d186678646bc76c082a7be19ee29c67e5"
 metafile = true
