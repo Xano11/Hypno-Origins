@@ -1,0 +1,83 @@
+{
+    "type": "origins:multiple",
+    "craft_staff": {
+        "type": "origins:modify_crafting",
+        "recipe": "chosen:staff",
+        "result": {
+            "id": "minecraft:stick",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Sorceries' Staff\",\"italic\":false}]",
+                "minecraft:custom_model_data": 2,
+                "minecraft:rarity": "epic",
+                "minecraft:custom_data": {
+                    "Sorcery_Staff": true
+                }
+            }
+        }
+    },
+    "souls": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:custom_data",
+                    "nbt": "{Sorcery_Staff: 1b}"
+                }
+            }
+        }
+    },
+    "gain_soul":{
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "chosen:spells/staff_souls",
+            "change": 1
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Sorceries",
+    "description": "You have immense innate strength and your fists are direct proof of that.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
+            "text": "§9§lSorceries 🪄§r\n§7Using your handcrafted staff, you can do magic using special books in your offhand.\nAll Sorceries require souls and are acquired by killing entities.\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§e§lSTAFF CRAFTING 🛠\n§r§7Staves are crafted like this:.",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "chosen:staff",
+                "pattern": [
+                    " e ",
+                    " s ",
+                    " s "
+                ],
+                "key": {
+                    "e": {
+                        "item": "minecraft:enchanted_golden_apple"
+                    },
+                    "s":  {
+                        "item": "minecraft:stick"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:enchanted_golden_apple"
+                }
+            }
+        }
+    ]
+}

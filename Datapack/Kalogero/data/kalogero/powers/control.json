@@ -20,7 +20,7 @@
                 },
                 {
                     "type": "origins:exhaust",
-                    "amount": 1.2
+                    "amount": 0.8
                 }
             ]
         },
@@ -100,7 +100,7 @@
     "air_speed":{
         "type":"apoli:modify_air_speed",
         "modifier": {
-            "amount": 0.3,
+            "amount": 0.25,
             "operation": "multiply_base_multiplicative"
         },
         "condition": {
@@ -115,7 +115,7 @@
         "modifier": {
             "id": "kalogero:control_speed",
             "attribute": "minecraft:generic.movement_speed",
-            "amount": 0.6,
+            "amount": 0.5,
             "operation": "add_multiplied_base"
         },
         "condition": {
@@ -140,13 +140,25 @@
             "compare_to": 0
         }
     },
+    "no_speed": {
+        "type": "origins:effect_immunity",
+        "effects": [
+            "minecraft:speed"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:control_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "name": "Unleash: Control",
     "description": "Adversaries are just another match for your embers.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/arrow_up.png",
-            "text": "§6§lUnleash: Control §r§6🌟§r\n§7With full §e§lCONTROL§7, you can activate the §eFLOW 🌌§7 state.\n\n§eFLOW 🌌§7\nFor §e15s§7, you have §a+1§7 step height, §a+60%§7 speed and §a+30%§7 air speed.\nAdditionally, \"lag\" hits now deals 2 true damage and deals +30% knockback.\n\nWhen exiting Flow state, you lose the equivalent of full saturation. §8(if your saturation happened to be maxed, you'd lose all of it)\n\n§7§lActive Ability"
+            "sprite": "minecraft:textures/mob_effect/wind_charged.png",
+            "text": "§6§lUnleash: Control §r§6🌟§r\n§7With full §e§lCONTROL§7, you can activate the §eFLOW 🌌§7 state.\n\n§eFLOW 🌌§7\nFor §e15s§7, you have §a+1§7 step height, §a+50%§7 speed and §a+25%§7 air speed. §8(Speed is cleared and can't be applied during Flow)\n§7Additionally, \"lag\" hits now deals 2 true damage and deals +30% knockback.\n\nWhen exiting Flow state, you lose lots of saturation. §8(if your saturation happened to be maxed, you'd lose most of it)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",

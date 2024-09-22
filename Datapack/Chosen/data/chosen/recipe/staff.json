@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "chosen:staff",
+    "pattern": [
+        " e ",
+        " s ",
+        " s "
+    ],
+    "key": {
+        "e": {
+            "item": "minecraft:enchanted_golden_apple"
+        },
+        "s":  {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "id": "minecraft:enchanted_golden_apple"
+    }
+}

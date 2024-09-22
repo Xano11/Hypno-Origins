@@ -1,2 +1,2 @@
 # All scoreboards
-scoreboard objectives add dummy dummy
+scoreboard objectives add chosen_campfire dummy

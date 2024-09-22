@@ -10,8 +10,8 @@
         "start_value": 4,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 19
+            "sprite_location": "hypno:textures/bars/chosen/flasks.png",
+            "bar_index": 0
         }
     },
     "drink": {
@@ -33,6 +33,7 @@
         "hud_render": {
             "should_render": false
         },
+        "key": "key.origins.secondary_active",
         "condition": {
             "type": "origins:resource",
             "resource": "chosen:life_flasks",
@@ -150,12 +151,12 @@
         }
     },
     "name": "Life Flasks",
-    "description": "You stand tarnished at a 5'3",
+    "description": "You always have life in a bottle around your toolbelt",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
-            "text": "§c§lWeak Constitution §r§c💔§r\n§7You are 1.75 blocks tall.\n\n§7§lPassive Ability"
+            "sprite": "minecraft:textures/mob_effect/instant_health.png",
+            "text": "§6§lLife Flasks §r§6➕§r\n§7You cannot regenerate naturally so you have to rely onto your Life Flasks.\nConsuming one will grant you §afive hearts§7 back over a duration of §e1.6s§7.\n§8(You can have up to four life flasks at a time)\n\n§7§lActive Ability"
         }
     ]
 }

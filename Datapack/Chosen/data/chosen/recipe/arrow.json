@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "chosen:arrow",
+    "pattern": [
+        " a ",
+        "aba",
+        " a "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:book"
+        },
+        "a": {
+            "item": "minecraft:spectral_arrow"
+        }
+    },
+    "result": {
+        "id": "minecraft:book"
+    }
+}

@@ -1,0 +1,36 @@
+[
+    {
+        "function": "minecraft:set_enchantments",
+        "enchantments": {
+            "kalogero:blunt": 1
+        },
+        "add": true,
+        "conditions": [
+            {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "slots": {
+                        "weapon.mainhand": {
+                            "items": "#minecraft:swords",
+                            "components": {
+                                "minecraft:custom_data": "{Gauntlet:1b}"
+                            },
+                            "predicates": {
+                                "minecraft:enchantments": [
+                                    {
+                                        "enchantments": "kalogero:blunt",
+                                        "levels": {
+                                            "min": 0,
+                                            "max": 3
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+]
