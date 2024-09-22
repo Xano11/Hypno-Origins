@@ -9,24 +9,28 @@ file = "config/openloader/advanced_options.json"
 hash = "97c64147276f55cad728249dd77602661e2327fa178aeb8e0db12866df448211"
 
 [[files]]
-file = "config/openloader/data/angler1.2.zip"
-hash = "e728b2f23ee70baacc2179f74c317439bf048d814d7651a2993fe27726c0693a"
+file = "config/openloader/data/angler.zip"
+hash = "fac956b7c8558b3bb97cec82c6f68d1f8ca125950135d3204896e8569df1b6bf"
+
+[[files]]
+file = "config/openloader/data/chosen.zip"
+hash = "db4aa36824ccce25d91720cc316fb3ff9b7006ede301ae8327c183249b042323"
 
 [[files]]
 file = "config/openloader/data/eelektross.zip"
-hash = "320fe52c560e6f3e0d56f41671e50a0ff177d20c2c9929df4752773aa03cd255"
+hash = "0bd5b544cb460fae6cba8d2c4db0b447e4d726ea025feddb380188aceeb63890"
 
 [[files]]
 file = "config/openloader/data/kalogero.zip"
-hash = "1bec9d0d56450d006e73f80dfd014c174dba01058501eaddbd38ec270baf09d0"
+hash = "cae2223b267d4c4932f98a2bf3ab8b2117ced28a9df049b8d076b4239cee41a1"
 
 [[files]]
 file = "config/openloader/data/voidsent.zip"
-hash = "12d88939c831fee451d153fce28d682ba52e847eb82d5fbdef2f3289c6cf3064"
+hash = "f6cc9b204e6106f9e0a93139eeefcdaf9acb2db0accccddba8e85f7159f1c467"
 
 [[files]]
-file = "config/openloader/resources/pack1.4.zip"
-hash = "fa9006fc148d997e59710e051b3139e538bd7dc59eec6b3e4a9e5632d3e15443"
+file = "config/openloader/resources/pack1.6.zip"
+hash = "bccd63548f895fa02cace1a34c10e938e80353032996d10d0d521011c69e72e9"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"
@@ -148,6 +152,11 @@ hash = "d0311de4c47e48ba0c1769253c7bd8fd541ed81c60823c539116a963e58c9128"
 metafile = true
 
 [[files]]
+file = "mods/presencium.pw.toml"
+hash = "24a99700537b1a255fbe25fb1c1ed2c4e259938210ec65f435f69a09ef63c0fb"
+metafile = true
+
+[[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "e256b952df1dfd9ba362ca7d7d176dd29434cb6721f14ee5c99995df94490465"
 metafile = true
@@ -175,4 +184,9 @@ metafile = true
 [[files]]
 file = "mods/tool-trims.pw.toml"
 hash = "10617ea3b7c98cc38a57220ac9cd801bbbd99a76f56973040a330690f5782333"
+metafile = true
+
+[[files]]
+file = "mods/trimmable-tools.pw.toml"
+hash = "e89bff8ca3603e4860d46d4742c290efa1c7a239c586449982281714049dd7d2"
 metafile = true

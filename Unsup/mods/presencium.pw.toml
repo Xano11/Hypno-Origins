@@ -1,0 +1,13 @@
+name = "Presencium"
+filename = "presencium-3.0-snapshot.1-fabric.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/iNU1UQcw/versions/ehbaBsui/presencium-3.0-snapshot.1-fabric.jar"
+hash-format = "sha1"
+hash = "0600cd5599ca0456d68c4d639adc1645c7e78008"
+
+[update]
+[update.modrinth]
+mod-id = "iNU1UQcw"
+version = "ehbaBsui"
