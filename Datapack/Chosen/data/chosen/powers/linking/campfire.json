@@ -1,0 +1,39 @@
+{
+    "type": "origins:multiple",
+    "broken": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "kill @s"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:in_block",
+            "inverted": true,
+            "block_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:block",
+                                "block": "minecraft:soul_campfire"
+                            },
+                            {
+                                "type": "origins:block",
+                                "block": "minecraft:campfire"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:block_state",
+                        "property": "lit",
+                        "value": true
+                    }
+                ]
+            }
+        }
+    },
+    "hidden": true
+}

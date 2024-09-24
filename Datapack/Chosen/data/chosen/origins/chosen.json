@@ -1,7 +1,13 @@
 {
 	"powers": [
+		"chosen:roll",
 		"chosen:life",
+		"chosen:linking/camp",
+		"chosen:spells/staff",
+		"chosen:spells/book_badges",
+		"chosen:spells/homing",
 		"chosen:small",
+		"chosen:iron",
 		"chosen:weak"
 	],
 	"icon": {

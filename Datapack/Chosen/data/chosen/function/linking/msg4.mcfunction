@@ -1,0 +1,2 @@
+title @a title ["",{"text":"LINK","bold":true,"color":"gold"},{"text":"IN","bold":true,"color":"yellow"},{"text":"G SUCC","bold":true,"color":"gold"},{"text":"ES","bold":true,"color":"yellow"},{"text":"SFUL","bold":true,"color":"gold"}]
+playsound minecraft:entity.experience_orb.pickup player @a[tag=campfire_link] ~ ~ ~ 1 1.65

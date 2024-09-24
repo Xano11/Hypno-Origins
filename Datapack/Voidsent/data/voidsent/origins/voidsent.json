@@ -3,10 +3,10 @@
 		"voidsent:displace",
 		"voidsent:nodes/ability",
 		"voidsent:dimension/gate",
+		"voidsent:vanishing",
 		"voidsent:accidental",
 		"voidsent:missing",
-		"voidsent:flimsy",
-		"voidsent:vanishing"
+		"voidsent:flimsy"
 	],
 	"icon": {
 		"id": "minecraft:heavy_core"

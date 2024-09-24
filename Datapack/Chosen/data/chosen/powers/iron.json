@@ -1,0 +1,31 @@
+{
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "chosen_above_iron",
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "add_multiplied_total",
+            "amount": -0.9
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "chosen:above_iron"
+                }
+            }
+        }
+    },
+    "name": "Stuck in Iron",
+    "description": "Nothing like good old Iron.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
+            "text": "§c§lStuck in Iron §r§c🗡§r\n§7Any weapon that is made out of diamond/netherite deals §c-90%§7 damage.\n\n§7§lPassive Ability"
+        }
+    ]
+}

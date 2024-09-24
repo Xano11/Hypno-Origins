@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "chosen:weapon",
+    "pattern": [
+        " a ",
+        "aba",
+        " a "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:book"
+        },
+        "a": {
+            "tag": "minecraft:swords"
+        }
+    },
+    "result": {
+        "id": "minecraft:book"
+    }
+}

@@ -3,7 +3,7 @@
     "craft_wood": {
         "type": "origins:modify_crafting",
         "recipe": "kalogero:wooden_gauntlet",
-        "item_action":  {
+        "item_action": {
             "type": "origins:modify",
             "modifier": "kalogero:kalogero/wooden_gauntlet_lore"
         },
@@ -30,7 +30,7 @@
     "craft_stone": {
         "type": "origins:modify_crafting",
         "recipe": "kalogero:stone_gauntlet",
-        "item_action":  {
+        "item_action": {
             "type": "origins:modify",
             "modifier": "kalogero:kalogero/stone_gauntlet_lore"
         },
@@ -57,7 +57,7 @@
     "craft_iron": {
         "type": "origins:modify_crafting",
         "recipe": "kalogero:iron_gauntlet",
-        "item_action":  {
+        "item_action": {
             "type": "origins:modify",
             "modifier": "kalogero:kalogero/iron_gauntlet_lore"
         },
@@ -84,7 +84,7 @@
     "craft_golden": {
         "type": "origins:modify_crafting",
         "recipe": "kalogero:golden_gauntlet",
-        "item_action":  {
+        "item_action": {
             "type": "origins:modify",
             "modifier": "kalogero:kalogero/golden_gauntlet_lore"
         },
@@ -111,7 +111,7 @@
     "craft_diamond": {
         "type": "origins:modify_crafting",
         "recipe": "kalogero:diamond_gauntlet",
-        "item_action":  {
+        "item_action": {
             "type": "origins:modify",
             "modifier": "kalogero:kalogero/diamond_gauntlet_lore"
         },
@@ -138,7 +138,7 @@
     "craft_netherite": {
         "type": "origins:modify_crafting",
         "recipe": "kalogero:netherite_gauntlet",
-        "item_action":  {
+        "item_action": {
             "type": "origins:modify",
             "modifier": "kalogero:kalogero/netherite_gauntlet_lore"
         },
@@ -203,7 +203,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
+            "sprite": "hypno:textures/item/kalogero/gauntlet_icon.png",
             "text": "§6§lFist-based ✊§r\n§7You were built for hand-to-hand combat and so, your fists deal §a+2§7 damage passively.\n\nIn return, your attack reach is reduced by §c-0.4§7 and your critical/sweeping hits deal §cno additional damage§r.\n\n§7§lPassive Ability"
         },
         {

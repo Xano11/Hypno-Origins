@@ -1,0 +1,228 @@
+{
+    "type": "origins:multiple",
+    "no_beds":{
+        "type": "origins:prevent_sleep",
+        "message": "Kindle the flames instead...",
+        "set_spawn_point": false
+    },
+    "set": {
+        "type": "origins:entity_set",
+        "action_on_add": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "tag @s remove chosen_set"
+            }
+        }
+    },
+    "respawn":{
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "execute as @e[type=armor_stand,tag=chosen_campfire] if score @s chosen_campfire = @p chosen_campfire run tp @p @s"
+        }
+    },
+    "use": {
+        "type": "origins:action_on_block_use",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "chosen:linking/camp_using",
+            "change": 1,
+            "operation": "set"
+        },
+        "block_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:block",
+                            "block": "minecraft:soul_campfire"
+                        },
+                        {
+                            "type": "origins:block",
+                            "block": "minecraft:campfire"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:block_state",
+                    "property": "lit",
+                    "value": true
+                }
+            ]
+        },
+        "directions": [
+            "up",
+            "north",
+            "east",
+            "west",
+            "south"
+        ]
+    },
+    "using": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 80,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_entity_set",
+                    "set": "chosen:linking/camp_set",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "kill @s"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add campfire_link"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function chosen:linking/init"
+                },
+                {
+                    "type": "origins:raycast",
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "block_action": {
+                        "type": "origins:execute_command",
+                        "command": "function chosen:finish_campfire"
+                    },
+                    "command_step": 1
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@n[tag=chosen_set]",
+                    "bientity_action":  {
+                        "type": "origins:add_to_entity_set",
+                        "set": "chosen:linking/camp_set"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove campfire_link"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "chosen:life_flasks",
+                    "change": 4,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "chosen:linking/camp_using",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "using_tick": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "chosen:linking/camp_using",
+            "change": 0,
+            "operation": "set"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "block_action": {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:trial_spawner_detection ~ ~1 ~ 0.2 0.2 0.2 0 1"
+                    },
+                    "command_step": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "chosen:linking/camp_using",
+                    "change": 1
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "chosen:linking/camp_using",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:moving",
+                    "inverted": true,
+                    "horizontally": true,
+                    "vertically": false
+                },
+                {
+                    "type": "origins:raycast",
+                    "block_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:soul_campfire"
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:campfire"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:block_state",
+                                "property": "lit",
+                                "value": true
+                            }
+                        ]
+                    },
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none"
+                }
+            ]
+        }
+    },
+    "pose": {
+        "type": "origins:pose",
+        "arm_pose": "toot_horn",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "chosen:linking/camp_using",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Igniting the Flame",
+    "description": "Just like the flame you ignite, you never say your last word.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/campfire.png",
+            "text": "§6§lIgniting the Flame §r§6🔥§r\n§7You cannot sleep and instead use Campfires to rest.\nTo rest at a campfire, simply look at a lit campfire and interact with it.\nDuring the process, you must not move and must look at the campfire\n\nResting refills §lall§r§7 your Life Flasks.\n\n§7§lPassive Ability"
+        }
+    ]
+}

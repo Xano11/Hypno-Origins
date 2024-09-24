@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "chosen:homing",
+    "pattern": [
+        " a ",
+        "aba",
+        " a "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:book"
+        },
+        "a": {
+            "item": "minecraft:ghast_tear"
+        }
+    },
+    "result": {
+        "id": "minecraft:book"
+    }
+}

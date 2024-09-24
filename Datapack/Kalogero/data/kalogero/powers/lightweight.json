@@ -9,13 +9,22 @@
             "amount": -4
         }
     },
+    "toughness": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "kalogero:lightweight_toughness",
+            "attribute": "minecraft:generic.armor_toughness",
+            "operation": "add_value",
+            "amount": -2
+        }
+    },
     "name": "Lightweight-Build",
     "description": "To use armor without comprimising your agility and speed; you wear armor differently",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/icons/armor.png",
-            "text": "§c§lLightweight-Build §r§c⚜§r\n§7You passively have -4 armor.\n\n§7§lPassive Ability"
+            "text": "§c§lLightweight-Build §r§c⚜§r\n§7You passively have:\n§c-4§7 Armor\n§c-2§7 Armor Toughness\n\n§7§lPassive Ability"
         }
     ]
 }

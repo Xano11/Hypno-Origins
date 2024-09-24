@@ -1,0 +1,82 @@
+{
+    "type": "origins:simple",
+    "name": "§9[SPELLS]",
+    "description": "",
+    "badges": [
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§9§lHoming Souls §r§9⚈",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "chosen:homing",
+                "pattern": [
+                    " a ",
+                    "aba",
+                    " a "
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:book"
+                    },
+                    "a": {
+                        "item": "minecraft:ghast_tear"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:book"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§9§lSoul Arrow §r§9🏹",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "chosen:arrow",
+                "pattern": [
+                    " a ",
+                    "aba",
+                    " a "
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:book"
+                    },
+                    "a": {
+                        "item": "minecraft:spectral_arrow"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:book"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§9§lArcane Weapon §r§9🗡",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "chosen:weapon",
+                "pattern": [
+                    " a ",
+                    "aba",
+                    " a "
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:book"
+                    },
+                    "a": {
+                        "tag": "minecraft:swords"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:book"
+                }
+            }
+        }
+    ]
+}
