@@ -1,0 +1,46 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "scale": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:and",
+            "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:height 1.075 @s"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:width 1.075 @s"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale persist set true @s"
+            }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "scale reset @s"
+        }    
+    },
+    "airspeed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 0.15
+        } 
+    },
+    "groundspeed": {
+        "type": "origins:attribute",
+        "modifiers": [
+          {
+            "id": "zephyr_ground",
+            "attribute": "generic.movement_speed",
+            "amount": -0.05,
+            "operation": "add_multiplied_total"
+            }
+        ]
+    }
+}

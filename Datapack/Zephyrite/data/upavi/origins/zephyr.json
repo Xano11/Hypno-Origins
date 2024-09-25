@@ -1,0 +1,23 @@
+{
+	"powers": [
+		"upavi:nimbulic",
+		"upavi:wings",
+		"upavi:wind",
+		"upavi:manipulator",
+		"upavi:soar",
+		"upavi:compass",
+		"upavi:hollow",
+		"upavi:reliant",
+		"upavi:flight",
+		"upavi:tag",
+		"upavi:change",
+		"upavi:hidden"
+	],
+	"icon": {
+		"id": "minecraft:white_dye"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Zephyrite",
+	"description": "Partly made of the clouds, Zephyrite are a winged race that achieve long-distance flight by manipulating the wind."
+}

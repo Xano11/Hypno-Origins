@@ -1,0 +1,16 @@
+{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "id": "unreliant_damage",
+        "attribute": "minecraft:generic.attack_damage",
+        "operation": "add_multiplied_base",
+        "amount": -0.5
+    },
+    "tick_rate": 1,
+    "condition": {
+        "type": "origins:fall_flying",
+        "inverted": true
+    },
+    "name": "Uneven Footing",
+    "description": "Whilst on the ground, your attacks are less effective."
+}

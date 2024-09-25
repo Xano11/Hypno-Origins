@@ -1,0 +1,116 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "random": {
+        "type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:choice",
+			"actions": [
+				{
+					"element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "change": 0,
+                        "operation": "set"
+					},
+					"weight": 15
+				},
+				{
+					"element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "change": 1,
+                        "operation": "set"
+					},
+					"weight": 23
+				},
+				{
+					"element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "change": 2,
+                        "operation": "set"
+					},
+					"weight": 20
+				},
+				{
+					"element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "change": 3,
+                        "operation": "set"
+					},
+					"weight": 25
+				},
+				{
+					"element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "change": 4,
+                        "operation": "set"
+					},
+					"weight": 15
+				},
+				{
+					"element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "change": 5,
+                        "operation": "set"
+					},
+					"weight": 2
+				}
+			]
+		}
+    },
+    "crow": {
+        "type": "origins:elytra_flight", "render_elytra": true, "texture_location": "hypno:textures/item/zephyrite/crowelytra.png",
+        "condition": {
+            "type": "origins:resource", "resource": "*:*_resource", "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "standard": {
+        "type": "origins:elytra_flight", "render_elytra": true, "texture_location": "hypno:textures/item/zephyrite/standardelytra.png",
+        "condition": {
+            "type": "origins:resource", "resource": "*:*_resource", "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "owl": {
+        "type": "origins:elytra_flight", "render_elytra": true, "texture_location": "hypno:textures/item/zephyrite/owlelytra.png",
+        "condition": {
+            "type": "origins:resource", "resource": "*:*_resource", "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "white": {
+        "type": "origins:elytra_flight", "render_elytra": true, "texture_location": "hypno:textures/item/zephyrite/whiteelytra.png",
+        "condition": {
+            "type": "origins:resource", "resource": "*:*_resource", "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "swan": {
+        "type": "origins:elytra_flight", "render_elytra": true, "texture_location": "hypno:textures/item/zephyrite/swanelytra.png",
+        "condition": {
+            "type": "origins:resource", "resource": "*:*_resource", "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "moth": {
+        "type": "origins:elytra_flight", "render_elytra": true, "texture_location": "hypno:textures/item/zephyrite/mothelytra.png",
+        "condition": {
+            "type": "origins:resource", "resource": "*:*_resource", "comparison": "==",
+            "compare_to": 5
+        }
+    }
+}

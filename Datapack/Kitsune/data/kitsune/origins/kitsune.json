@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"kitsune:paws",
+		"kitsune:leap",
+		"kitsune:dash",
+		"kitsune:berries",
+		"kitsune:vulnerable",
+		"kitsune:heart"
+	],
+	"icon": {
+		"id": "minecraft:sweet_berries",
+		"components": {
+			"minecraft:custom_model_data": 1
+		}
+	},
+	"order": 1,
+	"impact": 1,
+	"name": "Kitsune",
+	"description": "You are one of the rare incarnations of the legendary Kitsune."
+}

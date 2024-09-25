@@ -156,7 +156,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/instant_health.png",
-            "text": "§6§lLife Flasks §r§6➕§r\n§7You cannot regenerate naturally so you have to rely onto your Life Flasks.\nConsuming one will grant you §afive hearts§7 back over a duration of §e1.6s§7.\n§8(You can have up to four life flasks at a time)\n\n§7§lActive Ability"
+            "text": "§6§lLife Flasks §r§6➕§r\n§7You cannot regenerate naturally so you have to rely onto your Life Flasks.\nConsuming one will grant you 5 §c❤§7 back over a short duration,\n\n§6💼§r§7 Capacity: §r§f4 flasks\n§e⌛§r§7 Drinking windup: §r§f1.6s\n§7§lActive Ability"
         }
     ]
 }

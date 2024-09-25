@@ -361,7 +361,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_circle.png",
-            "text": "§4§lImpact-lag §r§4💢§r\n§7Using the ability will grant \"§4DOUBLE TROUBLE 💢§7\" for §e10s§7.\n\n§4DOUBLE TROUBLE 💢§7\nPressing the ability will create a small window of §e0.15s§7 where hitting an entity will cause them to freeze for §e0.2s§7, take 1 true damage and create \"lag\" knockback; allowing for openings.\n§8(Every separate punch requires heavy exhaustion cost)\n\n§7If you break a block during the short window of time, the next block you break will have §a+200%§7 mining efficiency.\n\n§7§lActive Ability"
+            "text": "§4§lImpact-lag §r§4💢§r\n§7Using the ability will grant \"§4DOUBLE TROUBLE 💢§7\" for §e10s§7.\n\n§4DOUBLE TROUBLE 💢§7\nPressing the ability will create a small window of §e0.15s§7 where hitting an entity will cause them to freeze for §e0.2s§7, take 1 true damage and create \"lag\" knockback; allowing for openings.\n§8(Every separate punch requires heavy exhaustion cost)\n\n§7If you break a block during the short window of time, the next block you break will have §a+200%§7 mining efficiency.\n\n§c🕕§r§7 Duration: §r§f10s§r§8\n§e⌛§r§7 Cooldown: §r§f30s\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",

@@ -1,0 +1,50 @@
+{
+    "type": "origins:multiple",
+
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "hud_render": {
+            "should_render": true
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "kill @s"
+        }
+    },
+    "duration_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_duration",
+            "change": -1
+        },
+        "interval": 5
+    },
+    "action": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 3,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "y": 0.3,
+                        "z": -0.01,
+                        "x": 0.01
+                    }
+                },
+                {    
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~3.4 ~ .6 3 .6 0 3 normal"
+                }
+            ]
+        },
+        "interval": 1
+    }
+}

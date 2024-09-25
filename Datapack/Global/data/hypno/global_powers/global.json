@@ -1,0 +1,9 @@
+{
+    "entity_types": [
+        "minecraft:player"
+    ],
+    "powers": [
+        "hypno:prevent_recipe",
+        "hypno:tooltips"
+    ]
+}

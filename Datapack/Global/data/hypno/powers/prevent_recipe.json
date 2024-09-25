@@ -1,0 +1,160 @@
+{
+    "type": "origins:multiple",
+    "staff": {
+        "type": "origins:modify_crafting",
+        "recipe": "chosen:staff",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "chosen:chosen",
+            "layer": "origins:origin"
+        }
+    },
+    "homing": {
+        "type": "origins:modify_crafting",
+        "recipe": "chosen:homing",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "chosen:chosen",
+            "layer": "origins:origin"
+        }
+    },
+    "arrow": {
+        "type": "origins:modify_crafting",
+        "recipe": "chosen:arrow",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "chosen:chosen",
+            "layer": "origins:origin"
+        }
+    },
+    "weapon": {
+        "type": "origins:modify_crafting",
+        "recipe": "chosen:weapon",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "chosen:chosen",
+            "layer": "origins:origin"
+        }
+    },
+    "thunderstone": {
+        "type": "origins:modify_crafting",
+        "recipe": "eelektross:thunder_stone",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "eelektross:eelektross",
+            "layer": "origins:origin"
+        }
+    },
+    "wooden_gauntlet":{
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:wooden_gauntlet",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "kalogero:kalogero",
+            "layer": "origins:origin"
+        }
+    },
+    "stone_gauntlet":{
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:stone_gauntlet",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "kalogero:kalogero",
+            "layer": "origins:origin"
+        }
+    },
+    "iron_gauntlet":{
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:iron_gauntlet",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "kalogero:kalogero",
+            "layer": "origins:origin"
+        }
+    },
+    "golden_gauntlet":{
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:golden_gauntlet",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "kalogero:kalogero",
+            "layer": "origins:origin"
+        }
+    },
+    "diamond_gauntlet":{
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:diamond_gauntlet",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "kalogero:kalogero",
+            "layer": "origins:origin"
+        }
+    },
+    "netherite_gauntlet":{
+        "type": "origins:modify_crafting",
+        "recipe": "kalogero:netherite_gauntlet",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "kalogero:kalogero",
+            "layer": "origins:origin"
+        }
+    },
+    "tome":{
+        "type": "origins:modify_crafting",
+        "recipe": "voidsent:tome",
+        "result": {
+            "id": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "inverted": true,
+            "origin": "voidsent:voidsent",
+            "layer": "origins:origin"
+        }
+    },
+    "hidden": true
+}

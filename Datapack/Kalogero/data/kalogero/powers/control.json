@@ -158,7 +158,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/wind_charged.png",
-            "text": "§6§lUnleash: Control §r§6🌟§r\n§7With full §e§lCONTROL§7, you can activate the §eFLOW 🌌§7 state.\n\n§eFLOW 🌌§7\nFor §e15s§7, you have §a+1§7 step height, §a+50%§7 speed and §a+25%§7 air speed. §8(Speed is cleared and can't be applied during Flow)\n§7Additionally, \"lag\" hits now deals 2 true damage and deals +30% knockback.\n\nWhen exiting Flow state, you lose lots of saturation. §8(if your saturation happened to be maxed, you'd lose most of it)\n\n§7§lActive Ability"
+            "text": "§6§lUnleash: Control §r§6🌟§r\n§7With full §e§lCONTROL§7, you can activate the §eFLOW 🌌§7 state.\n\n§eFLOW 🌌§7\nFor §e15s§7, you have §a+1§7 step height, §a+50%§7 speed and §a+25%§7 air speed. §8(Speed is cleared and can't be applied during Flow)\n§7Additionally, \"lag\" hits now deals 2 true damage and deals +30% knockback.\n\nWhen exiting Flow state, you lose lots of saturation. §8(if your saturation happened to be maxed, you'd lose most of it)\n\n§c🕕§r§7 Duration: §r§f15s§r§8\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",

@@ -339,7 +339,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/levitation.png",
-            "text": "§e§lInner: Control §r§e👁§r\n§e§lCONTROL§7 is the energy required for §lUnleash: Control§r§7 and takes §e2m§7 to passively fully charge.\n\nWhilst holding the ability key, you charge §a12x§7 time quicker.\nWhilst actively charging, you §ccannot§7 move and you close your eyes; making you §cfully blind§7 and incapable of using items.\n\nIf §e§lCONTROL§7 is at max, you will be able to see all living entities glow within §e32§7 blocks.\n\n§7§lActive Ability"
+            "text": "§e§lInner: Control §r§e👁§r\nYou start meditating and accumulating §e§lCONTROL§7.\nWhilst actively charging, you §ccannot§7 move and you close your eyes; making you §cfully blind§7 and incapable of using items.\n\nIf §e§lCONTROL§7 is at max, you will be able to see all living entities glow within §e32§7 blocks.\n\n§e⌛§r§7 Passive §e§lCONTROL§7 gain: §r§f0.8%/s\n§e⌛§r§7 Meditating §e§lCONTROL§7 gain: §r§f5%/s\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",

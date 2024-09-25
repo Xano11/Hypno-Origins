@@ -476,7 +476,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lDodge Roll §r§b♾§r\n§7Roll grants a short burst of movement in the direction of the keys currently held.\nDuring the roll, you have invulnerability frames.\n\nCooldown is based on armor value:\n16+ ⛨: §c5s§7 CD\n10-15 ⛨: §e3.5s§7 CD\n10 ⛨ and below: §a2s§7 CD\n\n§7§lActive Ability"
+            "text": "§b§lDodge Roll §r§b♾§r\n§7Roll grants a short burst of movement in the direction of the keys currently held.\nDuring the roll, you have invulnerability frames.\n\nCooldown is based on armor value.\n\n§e⌛§r§7 Cooldown: §r§f2s (<=10 🔰) §7/ §f3.5s (11-15) 🔰) §7/ §f5s (>=16)\n§7§lActive Ability"
         }
     ]
 }

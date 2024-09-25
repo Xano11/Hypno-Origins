@@ -1,0 +1,431 @@
+{
+    "name": "Lofty Heights",
+    "description": "Natural updrafts will spawn whilst flying above y-100.",
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": [
+                "The ",{"text": "winds","color": "#abf2f5"}," are stronger above ",{"text": "y-100","color": "#abf2f5"},", which enhances your flight."
+            ]
+        }
+    ],
+    "airpockets": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:chance",
+            "success_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:delay",
+                        "ticks": 1,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @e[tag=Forth] upavi:forth"
+                        }
+                    },
+                    {    
+                "type": "origins:choice",
+                "actions": [
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^8 ^ ^44 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^2 ^ ^52 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^-6 ^3 ^35 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^-6 ^ ^52 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^5 ^12 ^44 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^-5 ^3 ^68 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^-7 ^2 ^39 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ^5 ^1 ^54 {NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"Forth\"]}"
+                        },
+                        "weight": 10
+                    }
+                ]
+                    }
+                ]
+            },
+            "chance": 0.5
+        },
+        "interval": 60,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_flying"
+                },
+                {      
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:height",
+                        "comparison": ">=",
+                        "compare_to": 100
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "soar": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.01,
+                    "z": 0.0025,
+                    "space": "local"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_flying"
+                },
+                {      
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:height",
+                        "comparison": ">=",
+                        "compare_to": 100
+                    }            
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "rid": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:fall_flying"
+        }
+    },
+    "ground": {
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "change": 10
+        }
+    },
+    "indicator": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\": \"You aren't soaring!\", \"color\": \"#b35552\"}"
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\": \"You are soaring!\", \"color\": \"#73c979\"}"
+        }
+    },
+    "change": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:height",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }   
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_indicator",
+                "change": 1
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_indicator",
+                "change": -1
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying"
+                }   
+            ]
+        }
+        
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "upavi:wings_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.03 0.062 0.09 1 ^1.25 ^0.5 ^0.75"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.03 0.062 0.09 1 ^-1.25 ^0.5 ^0.75"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "upavi:wings_resource",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.2 0.22 0.24 1 ^1.25 ^0.5 ^0.75"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.2 0.22 0.24 1 ^-1.25 ^0.5 ^0.75"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "upavi:wings_resource",
+                        "comparison": "==",
+                        "compare_to": 2
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.27 0.235 0.188 1 ^1.25 ^0.5 ^0.75"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.27 0.235 0.188 1 ^-1.25 ^0.5 ^0.75"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "upavi:wings_resource",
+                        "comparison": "==",
+                        "compare_to": 3
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.62 0.55 0.47 1 ^1.25 ^0.5 ^0.75"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.62 0.55 0.47 1 ^-1.25 ^0.5 ^0.75"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "upavi:wings_resource",
+                        "comparison": "==",
+                        "compare_to": 4
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 1 1 1 1 ^1.25 ^0.5 ^0.75"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 1 1 1 1 ^-1.25 ^0.5 ^0.75"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "upavi:wings_resource",
+                        "comparison": "==",
+                        "compare_to": 5
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.35 0.47 0.25 1 ^1.25 ^0.5 ^0.75"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 0.35 0.47 0.25 1 ^-1.25 ^0.5 ^0.75"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 3,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_flying"
+                },
+                {      
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:height",
+                        "comparison": ">=",
+                        "compare_to": 100
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "netherflight": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.01,
+                    "z": 0.0025,
+                    "space": "local"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
+            ]
+        }
+    }
+}

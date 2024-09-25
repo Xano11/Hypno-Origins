@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+    "no_toughness": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "kitsune_no_toughness",
+            "attribute": "minecraft:generic.armor_toughness",
+            "operation": "add_multiplied_total",
+            "amount": -1
+        }
+    },
+    "hurt": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:damage",
+            "amount": 1,
+            "damage_type": "kitsune:brittle"
+        },
+        "damage_condition": { 
+            "type": "origins:type",
+            "damage_type": "kitsune:brittle",
+            "inverted": true
+        },
+        "cooldown": 10
+    },
+    "name": "Vulnerable",
+    "description": "Frail flesh implies weaker constitution.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+        }
+    ]
+}

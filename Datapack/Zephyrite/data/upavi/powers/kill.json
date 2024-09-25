@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 5,
+        "hud_render": {
+            "should_render": true
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "kill @s"
+        }
+    },
+    "duration_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_duration",
+            "change": -1
+        },
+        "interval": 1
+    }
+}

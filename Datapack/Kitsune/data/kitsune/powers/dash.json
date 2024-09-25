@@ -1,0 +1,312 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 20,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 3
+        }
+    },
+    "drain_cooldown": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:dash_cooldown",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "forward_held": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "back_held": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "left_held": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "right_held": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "forward_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_forward_held",
+                    "change": 2,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_back_held",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.forward",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "back_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_back_held",
+                    "change": 2,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_forward_held",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.back",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "left_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_left_held",
+                    "change": 2,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_right_held",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.left",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "right_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_right_held",
+                    "change": 2,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_left_held",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.right",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "drain_keys": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function kitsune:key_drain"
+        },
+        "interval": 1
+    },
+    "roll": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:exhaust",
+                    "amount": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_timer",
+                    "change": 2,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.breeze.land player @a ~ ~ ~ 1 0.85"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:dash_cooldown",
+                    "change": 20,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "x": 0,
+                    "z": 0,
+                    "set": true,
+                    "space": "local_horizontal_normalized"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "kitsune:dash_forward_held",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "z": 0.4,
+                        "space": "local_horizontal_normalized"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "kitsune:dash_back_held",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "z": -0.4,
+                        "space": "local_horizontal_normalized"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "kitsune:dash_left_held",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "x": 0.4,
+                        "space": "local_horizontal_normalized"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "kitsune:dash_right_held",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "x": -0.4,
+                        "space": "local_horizontal_normalized"
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:dash_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "drain_timer": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:dash_timer",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:dash_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "roll_invuln": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:dash_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Dash",
+    "description": "Rolling away from your problems has never been easier.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§b§lDodge Roll §r§b♾§r\n§7Roll grants a short burst of movement in the direction of the keys currently held.\nDuring the roll, you have invulnerability frames.\n\nCooldown is based on armor value.\n\n§e⌛§r§7 Cooldown: §r§f2s (<=10 🔰) §7/ §f3.5s (11-15) 🔰) §7/ §f5s (>=16)\n§7§lActive Ability"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:firework_rocket"
+        }
+    },
+    "condition": {
+        "type": "origins:fall_flying"
+    },
+    "name": "Impractical Methods",
+    "description": "You are unable to use fireworks to boost your flight."
+}

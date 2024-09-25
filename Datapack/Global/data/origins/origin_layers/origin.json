@@ -1,0 +1,14 @@
+{
+	"replace": true,
+	"order": 1,
+	"loading_priority": 1,
+	"origins": [
+		"angler:angler",
+		"chosen:chosen",
+		"eelektross:eelektross",
+		"kalogero:kalogero",
+		"kitsune:kitsune",
+		"voidsent:voidsent",
+		"upavi:zephyr"
+	]
+}

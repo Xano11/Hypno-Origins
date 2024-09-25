@@ -37,6 +37,11 @@
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/fishing_rod.png",
             "text": "§3§lAngler's Rod 🎣§r\n§7You spawn in with an §r§aUnbreakable§r\n§7fishing rod that even returns on death.\n§7When catching fish, you have §r§a4x§r§7 the normal yield.\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/angler/treasure.png",
+            "text": "§e§lDeep Treasure 🌟§r\n§7Whilst fishing, you have a small chance to catch an Angler's Treasure!\nThis is used for upgrading your main tools.\n\n§7§lPassive Ability"
         }
     ]
 }

@@ -1,0 +1,292 @@
+{
+    "name": "True North",
+    "description": "Right-clicking whilst holding a compass will inform you which direction you are facing.",
+    "type": "origins:multiple",
+    "active": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:area_of_effect",
+                "radius": 10,
+                "shape": "sphere",
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+
+                            {    
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                          "type": "origins:nbt",
+                                            "nbt": "{Tags:['N']}"
+                                        },
+                                        "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"North\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['NE']}"
+                                          },
+                                          "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"Northeast\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['NW']}"
+                                          },
+                                          "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"Northwest\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['E']}"
+                                          },
+                                          "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"East\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['W']}"
+                                          },
+                                          "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"West\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['SE']}"
+                                          },
+                                          "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"Southeast\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['S']}"
+                                          },
+                                          "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"South\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['SW']}"
+                                          },
+                                          "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "title @s actionbar {\"text\":\"Southwest\",\"color\": \"white\"}"
+                                                }
+                                            },
+                                            "include_actor": false
+                                          }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:relative_rotation",
+                    "actor_rotation": "head",
+                    "target_rotation": "body",
+                    "comparison": "<=",
+                    "compare_to": -0.925,
+                    "axes": [
+                        "x",
+                        "z"
+                    ]
+                }
+            }
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:compass"
+                }            
+            }
+        }
+    },
+    "armorstands": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function upavi:summon"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.note_block.hat"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=N] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=NE] upavi:kill"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=NW] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=S] upavi:kill"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=SE] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=SW] upavi:kill"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=W] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=E] upavi:kill"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:compass"
+                }            
+            }
+        }
+    },
+    "badges": []
+}

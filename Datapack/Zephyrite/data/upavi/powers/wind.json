@@ -1,0 +1,991 @@
+{
+    "type": "origins:multiple",
+    "name": "Squaller",
+    "description": "The wind takes on a natural direction, which will impact your flying.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": [
+                "You can determine which direction the ",{"text": "wind","color": "#abf2f5"}," is blowing with [",
+                {
+                    "keybind": "key.origins.secondary_active", "color": "#abf2f5"
+                },
+                "]."
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/triangle_up.png",
+            "text": [
+                "Every few minutes, you can redirect the direction of the ",{"text": "wind","color": "#abf2f5"}," with [",
+                {
+                    "keybind": "key.origins.primary_active", "color": "#abf2f5"
+                },
+                "]. You must be midair to do this."
+            ]
+        }
+    ],
+"direction": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 7,
+        "hud_render": {
+            "should_render": false
+        },
+        "start_value": 6
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6000,
+        "start_value": 6000,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 7,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 6,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 5,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 4,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 3,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 2,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 1,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:area_of_effect",
+                                "radius": 50,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_direction",
+                                                "change": 0,
+                                                "operation": "set"
+                                            },
+                                            {    
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_timer",
+                                                "change": 6000
+                                            }
+                                        ]
+                                    }
+                                },
+                                "include_actor": true
+                            },
+                            "weight": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:choice",
+            "actions": [
+                {
+                    "element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "change": -5
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {    
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "change": -3
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "change": -1
+                    },
+                    "weight": 20
+                }
+            ]
+        },
+        "interval": 1  
+    },
+    "activating": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "z": 0.15,
+            "space": "local"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.jump"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:fall_flying",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:gamemode",
+                    "gamemode": "survival" 
+                }
+            ]
+        }
+    },
+    "title0": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"Southwest\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "title1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"South\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "title2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"Southeast\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "title3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"West\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "title4": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"East\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "title5": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"Northwest\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 5
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "title6": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"North\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "title7": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"Northeast\",\"color\": \"#abf2f5\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "inform": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:item.armor.equip_elytra"
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"Southwest\",\"color\": \"#abf2f5\"}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"South\",\"color\": \"#abf2f5\"}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"Southeast\",\"color\": \"#abf2f5\"}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"West\",\"color\": \"#abf2f5\"}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"East\",\"color\": \"#abf2f5\"}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 5
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"Northwest\",\"color\": \"#abf2f5\"}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 6
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"North\",\"color\": \"#abf2f5\"}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_direction",
+                                "comparison": "==",
+                                "compare_to": 7
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"Northeast\",\"color\": \"#abf2f5\"}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether",
+            "inverted": true
+        }
+    },
+    "netherinform": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.phantom.bite"
+                },
+                {    
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar {\"text\":\"No Wind!\",\"color\": \"red\"}"
+                }
+            ]
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
+    "southwest": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "x": -0.005,
+            "z": 0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "south": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "z": 0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "southeast": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "x": 0.005,
+            "z": 0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "west": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "x": -0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "east": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "x": 0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "northwest": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "x": -0.005,
+            "z": -0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 5
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "north": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "z": -0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "northeast": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "x": 0.005,
+            "z": -0.005
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_direction",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {      
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:fluid",
+                        "fluid_condition": {
+                            "type": "origins:empty"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    }
+}

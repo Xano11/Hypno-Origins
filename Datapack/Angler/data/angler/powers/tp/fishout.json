@@ -217,12 +217,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/cod.png",
-            "text": "§9§lHunter Bait 🐟§r\n§7Whilst your fishing hook is in water, you can send a §r§ateleport request§r§7 to all hunters.\n§7Only §r§7§oone Hunter§r§7 can accept the notification.\n\n§6🕒§r§7 Windup: §r§f8s\n§e⌛§r§7 Cooldown: §r§f5m\n\n§7§lActive Ability"
+            "text": "§9§lHunter Bait 🐟§r\n§7Whilst your fishing hook is in water, you can send a §r§ateleport request§r§7.\n§7To select a player, hold a nametag with the targeted player's name in your offhand!\n\n§6🕒§r§7 Windup: §r§f8s\n§e⌛§r§7 Cooldown: §r§f5m\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "§7Hook a teammate with %s§7 !"
+            "text": "§7Hook a player with %s§7 !"
         }
     ]
 }

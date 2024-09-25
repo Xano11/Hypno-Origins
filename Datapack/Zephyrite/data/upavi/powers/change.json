@@ -1,0 +1,428 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "active": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:area_of_effect",
+                "radius": 10,
+                "shape": "sphere",
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+
+                            {    
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                          "type": "origins:nbt",
+                                            "nbt": "{Tags:['N']}"
+                                        },
+                                        "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 50,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:change_resource",
+                                                            "resource": "upavi:wind_direction",
+                                                            "change": 6,
+                                                            "operation": "set"
+                                                        },
+                                                        {    
+                                                            "type": "origins:change_resource",
+                                                            "resource": "upavi:wind_timer",
+                                                            "change": 6000
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "include_actor": true
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['NE']}"
+                                          },
+                                          "action": {
+                                              "type": "origins:area_of_effect",
+                                              "radius": 50,
+                                              "shape": "sphere",
+                                              "bientity_action": {
+                                                  "type": "origins:target_action",
+                                                  "action": {
+                                                      "type": "origins:and",
+                                                      "actions": [
+                                                          {
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_direction",
+                                                              "change": 7,
+                                                              "operation": "set"
+                                                          },
+                                                          {    
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_timer",
+                                                              "change": 6000
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              "include_actor": true
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['NW']}"
+                                          },
+                                          "action": {
+                                              "type": "origins:area_of_effect",
+                                              "radius": 50,
+                                              "shape": "sphere",
+                                              "bientity_action": {
+                                                  "type": "origins:target_action",
+                                                  "action": {
+                                                      "type": "origins:and",
+                                                      "actions": [
+                                                          {
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_direction",
+                                                              "change": 5,
+                                                              "operation": "set"
+                                                          },
+                                                          {    
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_timer",
+                                                              "change": 6000
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              "include_actor": true
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['E']}"
+                                          },
+                                          "action": {
+                                              "type": "origins:area_of_effect",
+                                              "radius": 50,
+                                              "shape": "sphere",
+                                              "bientity_action": {
+                                                  "type": "origins:target_action",
+                                                  "action": {
+                                                      "type": "origins:and",
+                                                      "actions": [
+                                                          {
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_direction",
+                                                              "change": 4,
+                                                              "operation": "set"
+                                                          },
+                                                          {    
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_timer",
+                                                              "change": 6000
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              "include_actor": true
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['W']}"
+                                          },
+                                          "action": {
+                                              "type": "origins:area_of_effect",
+                                              "radius": 50,
+                                              "shape": "sphere",
+                                              "bientity_action": {
+                                                  "type": "origins:target_action",
+                                                  "action": {
+                                                      "type": "origins:and",
+                                                      "actions": [
+                                                          {
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_direction",
+                                                              "change": 3,
+                                                              "operation": "set"
+                                                          },
+                                                          {    
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_timer",
+                                                              "change": 6000
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              "include_actor": true
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['SE']}"
+                                          },
+                                          "action": {
+                                              "type": "origins:area_of_effect",
+                                              "radius": 50,
+                                              "shape": "sphere",
+                                              "bientity_action": {
+                                                  "type": "origins:target_action",
+                                                  "action": {
+                                                      "type": "origins:and",
+                                                      "actions": [
+                                                          {
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_direction",
+                                                              "change": 2,
+                                                              "operation": "set"
+                                                          },
+                                                          {    
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_timer",
+                                                              "change": 6000
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              "include_actor": true
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['S']}"
+                                          },
+                                          "action": {
+                                              "type": "origins:area_of_effect",
+                                              "radius": 50,
+                                              "shape": "sphere",
+                                              "bientity_action": {
+                                                  "type": "origins:target_action",
+                                                  "action": {
+                                                      "type": "origins:and",
+                                                      "actions": [
+                                                          {
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_direction",
+                                                              "change": 1,
+                                                              "operation": "set"
+                                                          },
+                                                          {    
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_timer",
+                                                              "change": 6000
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              "include_actor": true
+                                          }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:nbt",
+                                              "nbt": "{Tags:['SW']}"
+                                          },
+                                          "action": {
+                                              "type": "origins:area_of_effect",
+                                              "radius": 50,
+                                              "shape": "sphere",
+                                              "bientity_action": {
+                                                  "type": "origins:target_action",
+                                                  "action": {
+                                                      "type": "origins:and",
+                                                      "actions": [
+                                                          {
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_direction",
+                                                              "change": 0,
+                                                              "operation": "set"
+                                                          },
+                                                          {    
+                                                              "type": "origins:change_resource",
+                                                              "resource": "upavi:wind_timer",
+                                                              "change": 6000
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              "include_actor": true
+                                          }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:relative_rotation",
+                    "actor_rotation": "head",
+                    "target_rotation": "body",
+                    "comparison": "<=",
+                    "compare_to": -0.925,
+                    "axes": [
+                        "x",
+                        "z"
+                    ]
+                }
+            }
+        },
+        "cooldown": 6000,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 23
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "armorstands": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function upavi:summon"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.phantom.flap"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=N] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=NE] upavi:kill"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=NW] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=S] upavi:kill"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=SE] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=SW] upavi:kill"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=W] upavi:kill"
+                            },
+                            {    
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[tag=E] upavi:kill"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 6000,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "nether": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.phantom.bite"
+                },
+                {    
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar {\"text\":\"No Wind!\",\"color\": \"red\"}"
+                }
+            ]
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
+            ]
+        }
+    }
+}

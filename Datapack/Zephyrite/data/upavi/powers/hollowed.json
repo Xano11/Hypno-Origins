@@ -1,0 +1,139 @@
+{
+    "type": "origins:multiple",
+    "1": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+              "id": "hollowed_armor1",
+              "attribute": "generic.armor",
+              "amount": -0.1,
+              "operation": "add_multiplied_base"
+            },
+            {
+              "id": "hollowed_toughness1",
+              "attribute": "generic.armor_toughness",
+              "amount": -0.2,
+              "operation": "add_multiplied_base"
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "item_condition": {
+                "type": "origins:custom_data",
+                "nbt": "{Hollow: 1b}"
+            },
+            "slots": [
+                "armor.head",
+                "armor.chest",
+                "armor.legs",
+                "armor.feet"
+            ],
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "2": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+              "id": "hollowed_armor2",
+              "attribute": "generic.armor",
+              "amount": -0.2,
+              "operation": "add_multiplied_base"
+            },
+            {
+              "id": "hollowed_toughness2",
+              "attribute": "generic.armor_toughness",
+              "amount": -0.4,
+              "operation": "add_multiplied_base"
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "item_condition": {
+                "type": "origins:custom_data",
+                "nbt": "{Hollow: 1b}"
+            },
+            "slots": [
+                "armor.head",
+                "armor.chest",
+                "armor.legs",
+                "armor.feet"
+            ],
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "3": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+              "id": "hollowed_armor3",
+              "attribute": "generic.armor",
+              "amount": -0.3,
+              "operation": "add_multiplied_base"
+            },
+            {
+              "id": "hollowed_toughness3",
+              "attribute": "generic.armor_toughness",
+              "amount": -0.6,
+              "operation": "add_multiplied_base"
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "item_condition": {
+                "type": "origins:custom_data",
+                "nbt": "{Hollow: 1b}"
+            },
+            "slots": [
+                "armor.head",
+                "armor.chest",
+                "armor.legs",
+                "armor.feet"
+            ],
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "4": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+              "id": "hollowed_armor4",
+              "attribute": "generic.armor",
+              "amount": -0.4,
+              "operation": "add_multiplied_base"
+            },
+            {
+              "id": "hollowed_toughness4",
+              "attribute": "generic.armor_toughness",
+              "amount": -0.8,
+              "operation": "add_multiplied_base"
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "item_condition": {
+                "type": "origins:custom_data",
+                "nbt": "{Hollow: 1b}"
+            },
+            "slots": [
+                "armor.head",
+                "armor.chest",
+                "armor.legs",
+                "armor.feet"
+            ],
+            "comparison": "==",
+            "compare_to": 4
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "origins:multiple",
+    "zephyrite_hollowed": {
+        "type": "origins:tooltip",
+        "item_condition":  {      
+            "type": "origins:custom_data",
+            "nbt": "{Hollow:1b}"
+        },
+        "text": "§6Hollowed ✂"
+    },
+    "hidden": true
+}

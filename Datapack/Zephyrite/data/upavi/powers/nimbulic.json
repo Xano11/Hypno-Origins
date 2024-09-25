@@ -1,0 +1,49 @@
+{
+	"type": "origins:multiple",
+	"name": "Feathered Flight",
+	"description": "You have natural wings, along with a resistance to velocity-based damage.",
+	"falldmg": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:or",
+			"inverted": false,
+			"conditions": [
+				{
+					"type": "origins:type",
+					"damage_type": "minecraft:fall"
+				},
+				{
+					"type": "origins:type",
+					"damage_type": "minecraft:fly_into_wall"
+				}
+			]
+		},
+		"modifier": {
+			"operation": "multiply_base_multiplicative",
+			"amount": -0.75
+		}
+	},
+	"fallheight": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"condition": {
+			"type": "origins:fall_distance",
+			"comparison": "<",
+			"compare_to": 6
+		}
+	},
+	"shaking": {
+		"type": "origins:shaking",
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:height",
+				"comparison": "<=",
+				"compare_to": 50
+			}
+		}
+	}
+}
