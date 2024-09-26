@@ -1,0 +1,7 @@
+[
+    {
+        "function": "apoli:remove_power",
+        "power": "upavi:hollowed",
+        "slot": "armor"
+    }
+]

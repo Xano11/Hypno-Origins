@@ -1,0 +1,137 @@
+{
+    "type": "origins:multiple",
+    "delay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0
+    },
+    "delay_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:jockey_delay",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "ride": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "kitsune:jockey_attacked",
+                            "comparison": "==",
+                            "compare_to": 0
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "kitsune:jockey_delay",
+                                    "change": 4,
+                                    "operation": "set"
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.horse.saddle player @a ~ ~ ~ 1 1",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:mount"
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tellraw @s {\"text\":\"Can't mount right now!\",\"italic\":true}",
+                            "permission_level": 4
+                        }
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:player"
+            }
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
+        ],
+        "condition": {
+            "type": "origins:sneaking"
+        }
+    },
+    "dismount": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.sneak"
+        },
+        "cooldown": 1,
+        "entity_action": {
+            "type": "origins:dismount"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:jockey_delay",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "attacked_trigger":{
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:jockey_attacked",
+            "change": 50,
+            "operation": "set"
+        },
+        "cooldown": 5
+    },
+    "attacked": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 0
+    },
+    "attacked_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:jockey_attacked",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "name": "Jockey",
+    "description": "Paws said to be unmatched; Your moves are truly legendary.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+        }
+    ]
+}

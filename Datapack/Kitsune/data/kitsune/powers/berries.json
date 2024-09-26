@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "trusted":{
+    "trusted": {
         "type": "origins:entity_set"
     },
     "pet_fox": {
@@ -89,8 +89,8 @@
             "amount": -0.25
         },
         "food_modifier": {
-            "operation": "add_base_early",
-            "amount": 2.0
+            "operation": "multiply_base_multiplicative",
+            "amount": 1
         },
         "saturation_modifier": {
             "operation": "multiply_base_multiplicative",
@@ -102,6 +102,206 @@
         "block_condition": {
             "type": "origins:block",
             "block": "minecraft:sweet_berry_bush"
+        }
+    },
+    "laced_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0
+    },
+    "laced_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:berries_laced_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:berries_laced_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "craft_laced": {
+        "type": "origins:modify_crafting",
+        "recipe": "kitsune:laced_berry",
+        "result": {
+            "id": "minecraft:sweet_berries",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Laced Berries\",\"italic\":false}]",
+                "minecraft:max_stack_size": 16,
+                "minecraft:food": {
+                    "nutrition": 2,
+                    "saturation": 0.4,
+                    "can_always_eat": true
+                },
+                "minecraft:rarity": "uncommon",
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": {
+                    "Laced": true
+                }
+            }
+        }
+    },
+    "eat_laced": {
+        "type": "origins:modify_food",
+        "item_action": {
+            "type": "origins:modify_item_cooldown",
+            "modifier": {
+                "operation": "set_total",
+                "amount": 60
+            }
+        },
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{Laced: 1b}"
+        },
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:berries_laced_duration",
+            "change": 200,
+            "operation": "set"
+        }
+    },
+    "laced_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "kitsune_laced_speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_value",
+            "amount": 0.015
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:berries_laced_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "craft_very": {
+        "type": "origins:modify_crafting",
+        "recipe": "kitsune:very_berry",
+        "result": {
+            "id": "minecraft:sweet_berries",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Very Berry Berries\",\"italic\":false}]",
+                "minecraft:max_stack_size": 16,
+                "minecraft:food": {
+                    "nutrition": 4,
+                    "saturation": 1.6,
+                    "can_always_eat": true
+                },
+                "minecraft:rarity": "rare",
+                "minecraft:custom_model_data": 2,
+                "minecraft:custom_data": {
+                    "Very": true
+                }
+            }
+        }
+    },
+    "eat_very": {
+        "type": "origins:modify_food",
+        "item_action": {
+            "type": "origins:modify_item_cooldown",
+            "modifier": {
+                "operation": "set_total",
+                "amount": 60
+            }
+        },
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{Very: 1b}"
+        }
+    },
+    "spectral_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0
+    },
+    "spectral_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "kitsune:berries_spectral_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:berries_spectral_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "craft_spectral": {
+        "type": "origins:modify_crafting",
+        "recipe": "kitsune:spectral_berry",
+        "result": {
+            "id": "minecraft:sweet_berries",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Spectral Berries\",\"italic\":false}]",
+                "minecraft:max_stack_size": 16,
+                "minecraft:food": {
+                    "nutrition": 2,
+                    "saturation": 0.4,
+                    "can_always_eat": true
+                },
+                "minecraft:rarity": "uncommon",
+                "minecraft:custom_model_data": 3,
+                "minecraft:custom_data": {
+                    "Spectral": true
+                }
+            }
+        }
+    },
+    "eat_spectral": {
+        "type": "origins:modify_food",
+        "item_action": {
+            "type": "origins:modify_item_cooldown",
+            "modifier": {
+                "operation": "set_total",
+                "amount": 60
+            }
+        },
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{Spectral: 1b}"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:berries_spectral_duration",
+                    "change": 200,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "id": "minecraft:slow_falling",
+                        "duration": 200,
+                        "amplifier": 0
+                    }
+                }
+            ]
+        }
+    },
+    "spectral_air": {
+        "type": "origins:attribute_modify_transfer",
+        "class": "modify_air_speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "multiplier": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:berries_spectral_duration",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "name": "BERRY, VERY BERRY :333",

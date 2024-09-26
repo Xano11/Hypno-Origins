@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "kitsune:spectral_berry",
+    "pattern": [
+        " o ",
+        "obo",
+        " o "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:sweet_berries"
+        },
+        "o": {
+            "item": "minecraft:ghast_tear"
+        }
+    },
+    "result": {
+        "id": "minecraft:sweet_berries"
+    }
+}

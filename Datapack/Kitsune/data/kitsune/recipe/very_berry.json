@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "kitsune:very_berry",
+    "pattern": [
+        "sbs",
+        "bgb",
+        "sbs"
+    ],
+    "key": {
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+        "b": {
+            "item": "minecraft:glow_berries"
+        }, 
+        "s": {
+            "item": "minecraft:sweet_berries"
+        }
+    },
+    "result": {
+        "id": "minecraft:sweet_berries"
+    }
+}

@@ -6,7 +6,17 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/info.png",
             "text": [
-                "Use ",{"text": "shears","color": "#abf2f5"}," with item on item in order to ",{"text": "hollow","color": "#abf2f5"}," it. Although, this lowers defense."
+                "Use ",
+                {
+                    "text": "shears",
+                    "color": "#abf2f5"
+                },
+                " with item on item in order to ",
+                {
+                    "text": "hollow",
+                    "color": "#abf2f5"
+                },
+                " it. Although, this lowers defense."
             ]
         }
     ],
@@ -22,9 +32,10 @@
                         "tag": "upavi:armor"
                     }
                 },
-                {      
-                    "type": "origins:custom_data",
-                    "nbt": "{Hollow:1b}",
+                {
+                    "type": "origins:has_power",
+                    "power": "upavi:hollowed",
+                    "slot": "armor",
                     "inverted": true
                 }
             ]
@@ -38,9 +49,10 @@
                         "tag": "upavi:armor"
                     }
                 },
-                {      
-                    "type": "origins:custom_data",
-                    "nbt": "{Hollow:1b}",
+                {
+                    "type": "origins:has_power",
+                    "power": "upavi:hollowed",
+                    "slot": "armor",
                     "inverted": true
                 }
             ]
@@ -54,9 +66,10 @@
                         "tag": "upavi:armor"
                     }
                 },
-                {      
-                    "type": "origins:custom_data",
-                    "nbt": "{Hollow:1b}",
+                {
+                    "type": "origins:has_power",
+                    "power": "upavi:hollowed",
+                    "slot": "armor",
                     "inverted": true
                 }
             ]
@@ -70,9 +83,10 @@
                         "tag": "upavi:armor"
                     }
                 },
-                {      
-                    "type": "origins:custom_data",
-                    "nbt": "{Hollow:1b}",
+                {
+                    "type": "origins:has_power",
+                    "power": "upavi:hollowed",
+                    "slot": "armor",
                     "inverted": true
                 }
             ]
@@ -82,20 +96,10 @@
     "make": {
         "type": "origins:item_on_item",
         "on_item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:custom_data",
-                    "nbt": "{Hollow:1b}",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:ingredient",
-                    "ingredient": {
-                        "tag": "upavi:armor"
-                    }
-                }
-            ]
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "upavi:armor"
+            }
         },
         "using_item_condition": {
             "type": "origins:and",
@@ -106,7 +110,7 @@
                         "item": "minecraft:shears"
                     }
                 },
-                {      
+                {
                     "type": "origins:amount",
                     "comparison": ">=",
                     "compare_to": 1
@@ -119,20 +123,32 @@
             "ignore_unbreaking": false
         },
         "on_item_action": {
-            "type": "origins:modify",
-            "modifier": "upavi:items/hollowed"
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
+            },
+            "if_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/unhollowed"
+            },
+            "else_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/hollowed"
+            }
         },
         "entity_action": {
             "type": "origins:and",
             "actions": [
-            {
-                "type": "origins:execute_command",
-                "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
-            },
-            {
-                "type": "origins:play_sound",
-                "sound": "minecraft:entity.sheep.shear"
-            }
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.sheep.shear"
+                }
             ]
         }
     }

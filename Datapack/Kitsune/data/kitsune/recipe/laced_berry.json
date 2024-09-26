@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "kitsune:laced_berry",
+    "pattern": [
+        "ooo",
+        "obo",
+        "ooo"
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:sweet_berries"
+        },
+        "o": {
+            "item": "minecraft:sugar"
+        }
+    },
+    "result": {
+        "id": "minecraft:sweet_berries"
+    }
+}

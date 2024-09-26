@@ -2,9 +2,10 @@
     "type": "origins:multiple",
     "zephyrite_hollowed": {
         "type": "origins:tooltip",
-        "item_condition":  {      
-            "type": "origins:custom_data",
-            "nbt": "{Hollow:1b}"
+        "item_condition": {
+            "type": "origins:has_power",
+            "power": "upavi:hollowed",
+            "slot": "armor"
         },
         "text": "§6Hollowed ✂"
     },

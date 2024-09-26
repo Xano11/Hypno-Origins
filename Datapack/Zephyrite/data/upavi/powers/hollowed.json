@@ -21,8 +21,9 @@
             "type": "origins:inventory",
             "process_mode": "items",
             "item_condition": {
-                "type": "origins:custom_data",
-                "nbt": "{Hollow: 1b}"
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
             },
             "slots": [
                 "armor.head",
@@ -55,8 +56,9 @@
             "type": "origins:inventory",
             "process_mode": "items",
             "item_condition": {
-                "type": "origins:custom_data",
-                "nbt": "{Hollow: 1b}"
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
             },
             "slots": [
                 "armor.head",
@@ -89,8 +91,9 @@
             "type": "origins:inventory",
             "process_mode": "items",
             "item_condition": {
-                "type": "origins:custom_data",
-                "nbt": "{Hollow: 1b}"
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
             },
             "slots": [
                 "armor.head",
@@ -123,8 +126,9 @@
             "type": "origins:inventory",
             "process_mode": "items",
             "item_condition": {
-                "type": "origins:custom_data",
-                "nbt": "{Hollow: 1b}"
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
             },
             "slots": [
                 "armor.head",

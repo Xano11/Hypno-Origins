@@ -180,7 +180,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.breeze.land player @a ~ ~ ~ 1 0.85"
+                    "command": "playsound minecraft:entity.horse.saddle player @a ~ ~ ~ 1 2"
                 },
                 {
                     "type": "origins:change_resource",
@@ -204,9 +204,24 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:add_velocity",
-                        "z": 0.4,
-                        "space": "local_horizontal_normalized"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 1,
+                                "space": "local_horizontal_normalized"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 2,
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "space": "local_horizontal_normalized",
+                                    "set": true,
+                                    "z": 0.4
+                                }
+                            }
+                        ]
                     }
                 },
                 {
@@ -218,9 +233,24 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:add_velocity",
-                        "z": -0.4,
-                        "space": "local_horizontal_normalized"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": -1,
+                                "space": "local_horizontal_normalized"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 2,
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "space": "local_horizontal_normalized",
+                                    "set": true,
+                                    "z": -0.4
+                                }
+                            }
+                        ]
                     }
                 },
                 {
@@ -232,9 +262,24 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:add_velocity",
-                        "x": 0.4,
-                        "space": "local_horizontal_normalized"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "x": 1,
+                                "space": "local_horizontal_normalized"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 2,
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "space": "local_horizontal_normalized",
+                                    "set": true,
+                                    "x": 0.4
+                                }
+                            }
+                        ]
                     }
                 },
                 {
@@ -246,9 +291,24 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:add_velocity",
-                        "x": -0.4,
-                        "space": "local_horizontal_normalized"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "x": -1,
+                                "space": "local_horizontal_normalized"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 2,
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "space": "local_horizontal_normalized",
+                                    "set": true,
+                                    "x": -0.4
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -301,12 +361,12 @@
         }
     },
     "name": "Dash",
-    "description": "Rolling away from your problems has never been easier.",
+    "description": "Dash away like a cunning fox.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lDodge Roll §r§b♾§r\n§7Roll grants a short burst of movement in the direction of the keys currently held.\nDuring the roll, you have invulnerability frames.\n\nCooldown is based on armor value.\n\n§e⌛§r§7 Cooldown: §r§f2s (<=10 🔰) §7/ §f3.5s (11-15) 🔰) §7/ §f5s (>=16)\n§7§lActive Ability"
+            "text": "§b§lDash §r§b♾§r\n§7Roll grants a short burst of movement in the direction of the keys currently held.\nDuring the roll, you have invulnerability frames.\n\nCooldown is based on armor value.\n\n§e⌛§r§7 Cooldown: §r§f2s (<=10 🔰) §7/ §f3.5s (11-15) 🔰) §7/ §f5s (>=16)\n§7§lActive Ability"
         }
     ]
 }

@@ -1,5 +1,11 @@
 {
     "type": "origins:multiple",
+    "bonus": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -8,8 +14,13 @@
                 {
                     "type": "origins:add_velocity",
                     "z": 1,
-                    "y": 0.1,
+                    "y": 0.2,
                     "space": "local"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function kitsune:leap",
+                    "permission_level": 4
                 }
             ]
         },
@@ -17,6 +28,45 @@
         "key": "key.origins.primary_active",
         "hud_render": {
             "should_render": true
+        }
+    },
+    "landing": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function kitsune:leap_land",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "kitsune:leap_bonus",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "bonus_dmg":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "additionalentityattributes:player.critical_bonus_damage",
+            "operation": "add_value",
+            "amount": 0.5,
+            "id": "kitsune_bonus_crit"
+        },
+        "tick_rate": 1,
+        "condition":  {
+            "type": "origins:resource",
+            "resource": "kitsune:leap_bonus",
+            "comparison": "==",
+            "compare_to": 1
         }
     },
     "name": "Leap",

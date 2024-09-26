@@ -1,6 +1,9 @@
 [
     {
-        "function": "minecraft:set_custom_data",
-        "tag": "{Hollow:1b}"
+        "function": "apoli:add_power",
+        "power": "upavi:hollowed",
+        "slot": "armor",
+        "negative": false,
+        "hidden": true
     }
 ]
