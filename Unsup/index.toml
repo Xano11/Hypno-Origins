@@ -9,28 +9,40 @@ file = "config/openloader/advanced_options.json"
 hash = "97c64147276f55cad728249dd77602661e2327fa178aeb8e0db12866df448211"
 
 [[files]]
-file = "config/openloader/data/angler.zip"
-hash = "fac956b7c8558b3bb97cec82c6f68d1f8ca125950135d3204896e8569df1b6bf"
+file = "config/openloader/data/angler_0.20.zip"
+hash = "1936e700001e48f61ece9470c170e24ed68dc41261d54dfdc2227c415defb896"
 
 [[files]]
-file = "config/openloader/data/chosen.zip"
-hash = "db4aa36824ccce25d91720cc316fb3ff9b7006ede301ae8327c183249b042323"
+file = "config/openloader/data/chosen_0.20.zip"
+hash = "e7b939289e96aa3838e720329af7c9ecf03890be9756ae4010853a38865d6af2"
 
 [[files]]
-file = "config/openloader/data/eelektross.zip"
-hash = "0bd5b544cb460fae6cba8d2c4db0b447e4d726ea025feddb380188aceeb63890"
+file = "config/openloader/data/eelektross_0.20.zip"
+hash = "88fcb98ad348d89d07d30e5a1e42638aa9fe7da9e3cce2b866c3b9bae81d657b"
 
 [[files]]
-file = "config/openloader/data/kalogero.zip"
-hash = "cae2223b267d4c4932f98a2bf3ab8b2117ced28a9df049b8d076b4239cee41a1"
+file = "config/openloader/data/global_0.20.zip"
+hash = "95c2687ee952f74b633fc591034be2f57e09b81cb47a2ad73045f1af318f4796"
 
 [[files]]
-file = "config/openloader/data/voidsent.zip"
-hash = "f6cc9b204e6106f9e0a93139eeefcdaf9acb2db0accccddba8e85f7159f1c467"
+file = "config/openloader/data/kalogero_0.20.zip"
+hash = "74e07075a194d7ff969acd0bde0cd97a978ff94dd319d9cb238c81cba8485418"
 
 [[files]]
-file = "config/openloader/resources/pack1.6.zip"
-hash = "bccd63548f895fa02cace1a34c10e938e80353032996d10d0d521011c69e72e9"
+file = "config/openloader/data/kitsune_0.20.zip"
+hash = "7d89661d39d8de41a8f70ea50af530e6ca42e8edfae8a2e2074bad871ffc8c1f"
+
+[[files]]
+file = "config/openloader/data/voidsent_0.20.zip"
+hash = "dbf65997fc01092f6b7d6f1f54b9580fe9462575f9323a6106ae1fee09493ae6"
+
+[[files]]
+file = "config/openloader/data/zephyrite0.20.zip"
+hash = "c832656ff0e1428a8ed84e5d85466ab40e6bce56dfaa1fe786e521f8399d654c"
+
+[[files]]
+file = "config/openloader/resources/pack1.7.zip"
+hash = "91d3fec45881f56517e4abaf58dd0df863db8faf2defd1c416c4e29418a1d799"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"
@@ -39,6 +51,11 @@ hash = "7bf02df4cef951ee82bad9ac31a394c49217f2bd20a7bcf1eb224541d173e43d"
 [[files]]
 file = "mods/appleskin.pw.toml"
 hash = "af482cdaf7c5d9d5481e7cd789d98ebc17f47e4565a28af6c6365aef896d1404"
+metafile = true
+
+[[files]]
+file = "mods/architectury-api.pw.toml"
+hash = "417b7af3c7cb5f2681960349d3fa118733cbce5d260fadddd792abb24e52fbdc"
 metafile = true
 
 [[files]]
@@ -92,6 +109,16 @@ hash = "7cdbe7c6e3f5d4f81a432cc67eea10a43105d759d60d12f733bdc8569b6c74e1"
 metafile = true
 
 [[files]]
+file = "mods/fastconfigapi.pw.toml"
+hash = "2ed42891500675982fc62dd94e7e12cfb9213d80fe8e7e11cbcab4d71b90fcb1"
+metafile = true
+
+[[files]]
+file = "mods/fastquit.pw.toml"
+hash = "7004d6d04c19eaa92fda0b47ac70b7c85987c47cc1431313014c5e9367679173"
+metafile = true
+
+[[files]]
 file = "mods/ferrite-core.pw.toml"
 hash = "078c828454d8a361baae372b5ee3dc33e5f3573fa19bdac8589b38da9dbc5c03"
 metafile = true
@@ -112,6 +139,11 @@ hash = "4ee72fa3b6d91ccec6ec3420396db368dc5097350ee2bb909af3a65f0446c9d5"
 metafile = true
 
 [[files]]
+file = "mods/labelling-containers.pw.toml"
+hash = "f0854a2ec3608beb21182437d136ce43e524dc3b288f622e0489d42f06422cf8"
+metafile = true
+
+[[files]]
 file = "mods/lithium.pw.toml"
 hash = "f004eac1859218b35a865698a68000b21806709f02b54b2a2ef55ff04a793328"
 metafile = true
@@ -127,6 +159,11 @@ hash = "e2cc568688c5bcd0e41235681bc34c5c9849f214f65b43324bc25022d9ad8c80"
 metafile = true
 
 [[files]]
+file = "mods/modernfix.pw.toml"
+hash = "ebbaf07d4e04f172081d5f4bec47837ae1008c5a6dbedc32f7ba471dd3d004cd"
+metafile = true
+
+[[files]]
 file = "mods/modmenu.pw.toml"
 hash = "2b8ce9ab97a35059a79d59d540687385d25956c519ce1728fbcfb13fae93a328"
 metafile = true
@@ -134,6 +171,11 @@ metafile = true
 [[files]]
 file = "mods/more-armor-trims.pw.toml"
 hash = "dab1de6dc48d5a0d699ee839d45f01aa1dbfe26979dd40bba92cc409e2fe614e"
+metafile = true
+
+[[files]]
+file = "mods/moreculling.pw.toml"
+hash = "7d1a2009e73a857e56c3c14ef809fa4624c0ac53a3760dd337aa09a7f2bc1dca"
 metafile = true
 
 [[files]]
@@ -157,6 +199,11 @@ hash = "24a99700537b1a255fbe25fb1c1ed2c4e259938210ec65f435f69a09ef63c0fb"
 metafile = true
 
 [[files]]
+file = "mods/puzzle.pw.toml"
+hash = "2390452b633288cbfff659123a0948fe00829c09df625a3e988857b60a40f1b4"
+metafile = true
+
+[[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "e256b952df1dfd9ba362ca7d7d176dd29434cb6721f14ee5c99995df94490465"
 metafile = true
@@ -169,6 +216,11 @@ metafile = true
 [[files]]
 file = "mods/searchables.pw.toml"
 hash = "0a80692da4b6afda0ecb78d0fbddcbbdf22c87b969673a46b8df7abec88377dc"
+metafile = true
+
+[[files]]
+file = "mods/signed-paintings.pw.toml"
+hash = "2ae6e96a2f6857ea9ae96182800405c7e10f401b729ebca36876a86c4aa3f8f2"
 metafile = true
 
 [[files]]
