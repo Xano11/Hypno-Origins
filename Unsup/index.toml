@@ -109,9 +109,8 @@ hash = "7cdbe7c6e3f5d4f81a432cc67eea10a43105d759d60d12f733bdc8569b6c74e1"
 metafile = true
 
 [[files]]
-file = "mods/fastconfigapi.pw.toml"
-hash = "6a0d36103e2fc0efd3150e63d6c785337f1a6246ced504be348488b2b50628f2"
-metafile = true
+file = "mods/fastconfigapi-2.0.6.jar"
+hash = "72e9374408e677a2479316768790071f93a98d9ac67a52d1bda7bfd49ea98e0c"
 
 [[files]]
 file = "mods/fastquit.pw.toml"
