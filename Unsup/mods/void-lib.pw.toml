@@ -1,0 +1,13 @@
+name = "Void Lib"
+filename = "void_lib-1.1.5.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Z7Z0JsCA/versions/lJ88nCRx/void_lib-1.1.5.jar"
+hash-format = "sha1"
+hash = "3b3155c2a7e8c7472151589cf3b403f1bf0c8b15"
+
+[update]
+[update.modrinth]
+mod-id = "Z7Z0JsCA"
+version = "lJ88nCRx"

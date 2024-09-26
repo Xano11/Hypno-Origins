@@ -242,3 +242,8 @@ metafile = true
 file = "mods/trimmable-tools.pw.toml"
 hash = "e89bff8ca3603e4860d46d4742c290efa1c7a239c586449982281714049dd7d2"
 metafile = true
+
+[[files]]
+file = "mods/void-lib.pw.toml"
+hash = "01be410aa060274b6013c218c3e9a962bbf40e6b21c47dfc269126fee320221b"
+metafile = true
