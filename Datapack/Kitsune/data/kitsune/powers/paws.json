@@ -29,12 +29,12 @@
         }
     },
     "name": "Pacing Paws",
-    "description": "Paws said to be unmatched; Your moves are truly legendary`.",
+    "description": "Paws said to be unmatched; Your moves are truly... legendary :D.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+            "text": "§l§lPacing Paws §r§l🌫§r\n§7- You have §a+40%§7 movement speed.\n- §a40%§7 of your movement speed is converted to your air speed.\n- You are §aimmune§7 to fall damage.\n\n§7§lPassive Ability"
         }
     ]
 }

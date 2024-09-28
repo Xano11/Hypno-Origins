@@ -23,13 +23,13 @@
         },
         "cooldown": 10
     },
-    "name": "Vulnerable",
-    "description": "Frail flesh implies weaker constitution.",
+    "name": "Kitsune's Curse",
+    "description": "A malefic curse took hold of your body a long time ago.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "§c§lVulnerable §r§c🎀§r\n§7You §ccannot§7 gain armor toughness.\nAdditionally, taking §lany§r§7 damage adds +1 §etrue§7 damage additionally.\n\n§7§lPassive Ability"
         }
     ]
 }

@@ -69,13 +69,25 @@
             "compare_to": 1
         }
     },
-    "name": "Leap",
-    "description": "Paws said to be unmatched; Your moves are truly legendary.",
+    "crosshair": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "hypno:kitsune/crosshair"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kitsune:leap_bonus",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "name": "Perfected Pounce",
+    "description": "Foxes are well known for their deadly pounce.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+            "sprite": "minecraft:textures/mob_effect/slow_falling.png",
+            "text": "§f§lPerfected Pounce §r§f☠§r\n§7You can pounce in whichever direction you're looking.\nIf you land a critical on your way down, your hit deals §a+50%§7 damage\n§8(landing resets the multiplier)\n\n§7§lActive Ability"
         }
     ]
 }

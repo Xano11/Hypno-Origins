@@ -1,6 +1,4 @@
 {
-    "name": "Dash Jump",
-    "description": "§a❀§r  You gain a double jump and dash at the same time.",
     "type": "origins:multiple",
     "double": {
         "type": "origins:resource",
@@ -211,5 +209,14 @@
         "condition": {
             "type": "origins:on_block"
         }
-    }
+    },
+    "name": "Bouncing Back",
+    "description": "Your godlike movement isn't limited to the horizontal axis",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "§b§lBouncing Back §r§b🆙§r\n§7You can double-jump.\nWhilst sneaking, the double jump is redirected where you're looking.\n§8(Double jump resets upon landing)\n\n§7§lActive Ability"
+        }
+    ]
 }

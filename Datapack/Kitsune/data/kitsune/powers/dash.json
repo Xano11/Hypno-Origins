@@ -365,8 +365,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lDash §r§b♾§r\n§7Roll grants a short burst of movement in the direction of the keys currently held.\nDuring the roll, you have invulnerability frames.\n\nCooldown is based on armor value.\n\n§e⌛§r§7 Cooldown: §r§f2s (<=10 🔰) §7/ §f3.5s (11-15) 🔰) §7/ §f5s (>=16)\n§7§lActive Ability"
+            "sprite": "minecraft:textures/mob_effect/wind_charged.png",
+            "text": "§b§lDash §r§b♾§r\n§7You have access to a dash on a low cooldown.\nYour dash is omnidirectional, therefore, its motion is based on your current movement input.\n§8(Additonally, the dash \"sets\" motion, which means it can slow you down if you're motion is too high)\n§7§lActive Ability"
         }
     ]
 }

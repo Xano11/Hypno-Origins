@@ -52,7 +52,7 @@
         "item_condition": {
             "type": "origins:ingredient",
             "ingredient": {
-                "item": "minecraft:sweet_berries"
+                "tag": "kitsune:berries"
             }
         },
         "hands": [
@@ -72,7 +72,7 @@
         "item_condition": {
             "type": "origins:ingredient",
             "ingredient": {
-                "item": "minecraft:sweet_berries"
+                "tag": "kitsune:berries"
             }
         }
     },
@@ -81,7 +81,7 @@
         "item_condition": {
             "type": "origins:ingredient",
             "ingredient": {
-                "item": "minecraft:sweet_berries"
+                "tag": "kitsune:berries"
             }
         },
         "eat_ticks_modifier": {
@@ -132,7 +132,7 @@
             "id": "minecraft:sweet_berries",
             "components": {
                 "minecraft:custom_name": "[{\"text\":\"Laced Berries\",\"italic\":false}]",
-                "minecraft:max_stack_size": 16,
+                "minecraft:max_stack_size": 8,
                 "minecraft:food": {
                     "nutrition": 2,
                     "saturation": 0.4,
@@ -245,7 +245,7 @@
             "id": "minecraft:sweet_berries",
             "components": {
                 "minecraft:custom_name": "[{\"text\":\"Spectral Berries\",\"italic\":false}]",
-                "minecraft:max_stack_size": 16,
+                "minecraft:max_stack_size": 8,
                 "minecraft:food": {
                     "nutrition": 2,
                     "saturation": 0.4,
@@ -304,13 +304,18 @@
             "compare_to": 0
         }
     },
-    "name": "BERRY, VERY BERRY :333",
-    "description": "Frail flesh implies weaker constitution.",
+    "name": "VERY BERRY :333",
+    "description": "I LOV BERRIES SO MUCH!11!1!1",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+            "sprite": "minecraft:textures/item/sweet_berries.png",
+            "text": "§a§lVery Berry §r§a🍓§r\n§7All berries are eaten §a25%§7 quicker and grant §a2x§7 food/saturation!\nAdditionally, you can craft special berries §8(refer to badges underneath)\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/kitsune/fox_face.png",
+            "text": "§6§lFox Friend! §r§6🦊§r\n§7Feeding sweet berries to a fox will instantly make them trust you!\n\n§7§lPassive Ability"
         }
     ]
 }

@@ -1,0 +1,88 @@
+{
+    "type": "origins:simple",
+    "name": "§6[BERRIES]",
+    "description": "",
+    "badges": [
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§e§lVery Berries",
+            "sprite": "hypno:textures/item/kitsune/very_berries.png",
+            "suffix": "§a2x§7 food/saturation\n§8(Max stack: 16)",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "kitsune:very_berry",
+                "pattern": [
+                    "sbs",
+                    "bgb",
+                    "sbs"
+                ],
+                "key": {
+                    "g": {
+                        "item": "minecraft:gold_ingot"
+                    },
+                    "b": {
+                        "item": "minecraft:glow_berries"
+                    }, 
+                    "s": {
+                        "item": "minecraft:sweet_berries"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:sweet_berries"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§b§lLaced Berries",
+            "sprite": "hypno:textures/item/kitsune/laced_berries.png",
+            "suffix": "§a+15%§7 speed for 10s\n§8(Max stack: 8)",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "kitsune:laced_berry",
+                "pattern": [
+                    "ooo",
+                    "obo",
+                    "ooo"
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:sweet_berries"
+                    },
+                    "o": {
+                        "item": "minecraft:sugar"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:sweet_berries"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§f§lSpectral Berries",
+            "sprite": "hypno:textures/item/kitsune/spectral_berries.png",
+            "suffix": "§7Converts §a100%§7 of your movement speed and grants slow falling for 10s\n§8(Max stack: 8)",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "kitsune:spectral_berry",
+                "pattern": [
+                    " o ",
+                    "obo",
+                    " o "
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:sweet_berries"
+                    },
+                    "o": {
+                        "item": "minecraft:ghast_tear"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:sweet_berries"
+                }
+            }
+        }
+    ]
+}

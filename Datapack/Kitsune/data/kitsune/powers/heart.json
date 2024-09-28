@@ -16,13 +16,13 @@
             "inverted": true
         }
     },
-    "name": "Unstable Heartrate",
-    "description": "Frail flesh implies weaker constitution.",
+    "name": "Weak of Heart",
+    "description": "Curse or not, your heart is quite fragile.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+            "sprite": "minecraft:textures/mob_effect/instant_damage.png",
+            "text": "§c§lWeak of Heart §r§c💔§r\n§7You have §c-4 ❤§r§7 permanently.\n\n§7§lPassive Ability"
         }
     ]
 }

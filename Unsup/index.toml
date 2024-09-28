@@ -25,12 +25,12 @@ file = "config/openloader/data/global_0.20.zip"
 hash = "95c2687ee952f74b633fc591034be2f57e09b81cb47a2ad73045f1af318f4796"
 
 [[files]]
-file = "config/openloader/data/kalogero_0.20.zip"
-hash = "74e07075a194d7ff969acd0bde0cd97a978ff94dd319d9cb238c81cba8485418"
+file = "config/openloader/data/kalogero_0.21.zip"
+hash = "e1d572236d1ee97c84c437a09d08ab9e450e749623e3e202ce79abc9eed4d7ea"
 
 [[files]]
-file = "config/openloader/data/kitsune_0.20.zip"
-hash = "7d89661d39d8de41a8f70ea50af530e6ca42e8edfae8a2e2074bad871ffc8c1f"
+file = "config/openloader/data/kitsune_0.21.zip"
+hash = "6f08e052c1bcbde36c05e5634d81ce6492ac971917a3898b05d57ce98c6c1150"
 
 [[files]]
 file = "config/openloader/data/voidsent_0.20.zip"
@@ -41,8 +41,8 @@ file = "config/openloader/data/zephyrite0.20.zip"
 hash = "c832656ff0e1428a8ed84e5d85466ab40e6bce56dfaa1fe786e521f8399d654c"
 
 [[files]]
-file = "config/openloader/resources/pack1.7.zip"
-hash = "91d3fec45881f56517e4abaf58dd0df863db8faf2defd1c416c4e29418a1d799"
+file = "config/openloader/resources/pack1.8.zip"
+hash = "543d5494e834a1c2da6f4415cdc6e2d9d799be519e9f29288e9b08fd4e2eeaba"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"

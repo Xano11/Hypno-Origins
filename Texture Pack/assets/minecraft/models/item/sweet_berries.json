@@ -1,0 +1,26 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+      "layer0": "minecraft:item/sweet_berries"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 1
+            },
+            "model": "hypno:item/kitsune/laced_berries"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "hypno:item/kitsune/very_berries"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 3
+            },
+            "model": "hypno:item/kitsune/spectral_berries"
+        }
+    ]
+  }

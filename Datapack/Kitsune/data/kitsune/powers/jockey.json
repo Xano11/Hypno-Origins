@@ -126,12 +126,12 @@
         "interval": 1
     },
     "name": "Jockey",
-    "description": "Paws said to be unmatched; Your moves are truly legendary.",
+    "description": "NOW BRING ME TO THE EDGE OF THE WORLD, MORTAL >:D",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§b§lPacing Paws §r§c🌫§r\n§7You have §c-2 ❤§r§7 permanently.\n\n§7§lPassive Ability"
+            "sprite": "minecraft:textures/item/saddle.png",
+            "text": "§6§lJockey §r§6🐎§r\n§7Whilst sneaking, you can interact with a player to ride them. §8(Mainhand must be empty)\n§7Taking damage will dismount you.\n\n§7§lPassive Ability"
         }
     ]
 }
