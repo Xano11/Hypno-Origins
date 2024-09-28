@@ -139,7 +139,7 @@ metafile = true
 
 [[files]]
 file = "mods/labelling-containers.pw.toml"
-hash = "f0854a2ec3608beb21182437d136ce43e524dc3b288f622e0489d42f06422cf8"
+hash = "d42c1f3ceea44653901e0c78138fd3753a55e2eb837f9663c67aafb0799dbcce"
 metafile = true
 
 [[files]]
