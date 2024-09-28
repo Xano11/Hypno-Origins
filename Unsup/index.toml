@@ -29,8 +29,8 @@ file = "config/openloader/data/kalogero_0.21.zip"
 hash = "e1d572236d1ee97c84c437a09d08ab9e450e749623e3e202ce79abc9eed4d7ea"
 
 [[files]]
-file = "config/openloader/data/kitsune_0.21.zip"
-hash = "6f08e052c1bcbde36c05e5634d81ce6492ac971917a3898b05d57ce98c6c1150"
+file = "config/openloader/data/kitsune_0.22.zip"
+hash = "f2ba8c365cc118fd21eea2825c79dea4fa5bce2602143158f2fcd49222edaf77"
 
 [[files]]
 file = "config/openloader/data/voidsent_0.20.zip"

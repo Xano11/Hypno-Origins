@@ -7,7 +7,7 @@
             "type": "origins:crafting_recipe",
             "prefix": "§e§lVery Berries",
             "sprite": "hypno:textures/item/kitsune/very_berries.png",
-            "suffix": "§a2x§7 food/saturation\n§8(Max stack: 16)",
+            "suffix": "§a2.5x§7 food, 4x Saturation\n§8(Max stack: 16)",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "kitsune:very_berry",

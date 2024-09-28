@@ -1,365 +1,672 @@
 {
-    "type": "origins:multiple",
-    "cooldown": {
+	"type": "origins:multiple",
+	"back": {
         "type": "origins:resource",
         "min": 0,
-        "max": 20,
-        "start_value": 0,
+        "max": 3,
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 3
+            "should_render": false
         }
     },
-    "drain_cooldown": {
+    "backdecay": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "kitsune:dash_cooldown",
-            "change": -1
-        },
-        "interval": 1
-    },
-    "forward_held": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 2,
-        "start_value": 0
-    },
-    "back_held": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 2,
-        "start_value": 0
-    },
-    "left_held": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 2,
-        "start_value": 0
-    },
-    "right_held": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 2,
-        "start_value": 0
-    },
-    "forward_key": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_forward_held",
-                    "change": 2,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_back_held",
-                    "change": 0,
-                    "operation": "set"
-                }
-            ]
-        },
-        "cooldown": 1,
-        "key": {
-            "key": "key.forward",
-            "continuous": true
-        },
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "back_key": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_back_held",
-                    "change": 2,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_forward_held",
-                    "change": 0,
-                    "operation": "set"
-                }
-            ]
-        },
-        "cooldown": 1,
-        "key": {
-            "key": "key.back",
-            "continuous": true
-        },
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "left_key": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_left_held",
-                    "change": 2,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_right_held",
-                    "change": 0,
-                    "operation": "set"
-                }
-            ]
-        },
-        "cooldown": 1,
-        "key": {
-            "key": "key.left",
-            "continuous": true
-        },
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "right_key": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_right_held",
-                    "change": 2,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_left_held",
-                    "change": 0,
-                    "operation": "set"
-                }
-            ]
-        },
-        "cooldown": 1,
-        "key": {
-            "key": "key.right",
-            "continuous": true
-        },
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "drain_keys": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "function kitsune:key_drain"
-        },
-        "interval": 1
-    },
-    "roll": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:exhaust",
-                    "amount": 1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_timer",
-                    "change": 2,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.horse.saddle player @a ~ ~ ~ 1 2"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "kitsune:dash_cooldown",
-                    "change": 20,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:add_velocity",
-                    "x": 0,
-                    "z": 0,
-                    "set": true,
-                    "space": "local_horizontal_normalized"
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "kitsune:dash_forward_held",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:add_velocity",
-                                "z": 1,
-                                "space": "local_horizontal_normalized"
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 2,
-                                "action": {
-                                    "type": "origins:add_velocity",
-                                    "space": "local_horizontal_normalized",
-                                    "set": true,
-                                    "z": 0.4
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "kitsune:dash_back_held",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:add_velocity",
-                                "z": -1,
-                                "space": "local_horizontal_normalized"
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 2,
-                                "action": {
-                                    "type": "origins:add_velocity",
-                                    "space": "local_horizontal_normalized",
-                                    "set": true,
-                                    "z": -0.4
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "kitsune:dash_left_held",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:add_velocity",
-                                "x": 1,
-                                "space": "local_horizontal_normalized"
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 2,
-                                "action": {
-                                    "type": "origins:add_velocity",
-                                    "space": "local_horizontal_normalized",
-                                    "set": true,
-                                    "x": 0.4
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "kitsune:dash_right_held",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:add_velocity",
-                                "x": -1,
-                                "space": "local_horizontal_normalized"
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 2,
-                                "action": {
-                                    "type": "origins:add_velocity",
-                                    "space": "local_horizontal_normalized",
-                                    "set": true,
-                                    "x": -0.4
-                                }
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "cooldown": 1,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "kitsune:dash_cooldown",
-            "comparison": "==",
-            "compare_to": 0
-        },
-        "key": {
-            "key": "key.origins.secondary_active"
-        },
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "timer": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 2,
-        "start_value": 0
-    },
-    "drain_timer": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "kitsune:dash_timer",
+            "resource": "*:*_back",
             "change": -1
         },
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "kitsune:dash_timer",
+            "resource": "*:*_back",
             "comparison": ">",
             "compare_to": 0
         }
     },
-    "roll_invuln": {
+    "backkey": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_back",
+            "change": 2
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.back",
+            "continuous": true
+        }
+    },
+	
+	"right": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "rightdecay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_right",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_right",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "rightkey": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_right",
+            "change": 2
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.right",
+            "continuous": true
+        }
+    },
+	
+	"forward": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "forwarddecay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_forward",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_forward",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "forwardkey": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_forward",
+            "change": 2
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.forward",
+            "continuous": true
+        }
+    },
+	
+	"left": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "leftdecay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_left",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_left",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "leftkey": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_left",
+            "change": 2
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.left",
+            "continuous": true
+        }
+    },
+
+	"iframes": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "invuln": {
         "type": "origins:invulnerability",
         "damage_condition": {
-            "type": "origins:attacker"
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "kitsune:dash_timer",
+            "resource": "*:*_iframes",
             "comparison": ">",
             "compare_to": 0
         }
     },
+
+    "iframes_color":{
+        "type": "origins:model_color",
+        "red": 1,
+        "green": 0.92,
+        "blue": 0.92,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_iframes",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+
+    "iframes_decay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_iframes",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_iframes",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+
+	"dash": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type":"origins:and",
+			"actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "entity.shulker.shoot",
+                    "pitch": 3.4,
+                    "volume": 0.4
+                },
+                {
+					"type": "origins:execute_command",
+					"command": "execute at @s run particle minecraft:cloud ~ ~1 ~ 0.1 0.2 0.1 0.16 6 force",
+					"permission_level": 4
+				},
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_iframes",
+                    "change": 2,
+                    "operation": "set"
+                },
+				{
+					"type": "origins:delay",
+					"ticks": 2,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "execute at @s run particle minecraft:cloud ~ ~0.5 ~ 0.1 0.2 0.1 0.1 3 force",
+						"permission_level": 4
+					}
+				},
+				{
+					"type":"origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_right",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_left",
+										"comparison": "<",
+										"compare_to": 2
+									},
+								{
+										"type": "origins:resource",
+										"resource": "*:*_back",
+										"comparison": "<",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"z": 1
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"z": 0.4,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_right",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_left",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_forward",
+										"comparison": "<",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"z": -1
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"z": -0.4,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_right",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_forward",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_back",
+										"comparison": "<",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"x": 1
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"x": 0.4,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_forward",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_left",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_back",
+										"comparison": "<",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"x": -1
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"x": -0.4,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_forward",
+										"comparison": ">",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_right",
+										"comparison": ">",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_left",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_back",
+										"comparison": "<",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"z": 0.7,
+										"x": -0.7
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"z": 0.28,
+											"x": -0.28,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_forward",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_right",
+										"comparison": ">",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_left",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_back",
+										"comparison": ">",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"z": -0.7,
+										"x": -0.7
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"z": -0.28,
+											"x": -0.28,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_forward",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_right",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_left",
+										"comparison": ">",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_back",
+										"comparison": ">",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"z": -0.7,
+										"x": 0.7
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"z": -0.28,
+											"x": 0.28,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "*:*_forward",
+										"comparison": ">",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_right",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_left",
+										"comparison": ">",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "*:*_back",
+										"comparison": "<",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:add_velocity",
+										"space": "local_horizontal_normalized",
+										"z": 0.7,
+										"x": 0.7
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 2,
+										"action": {
+											"type": "origins:add_velocity",
+											"space": "local_horizontal_normalized",
+											"set": true,
+											"z": 0.28,
+											"x": 0.28,
+											"y": -0.03
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:set_fall_distance",
+					"fall_distance": 0
+				}
+			]
+		},
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": true
+		},
+		"cooldown": 14,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 23
+		}
+	},
     "name": "Dash",
     "description": "Dash away like a cunning fox.",
     "badges": [

@@ -94,7 +94,7 @@
         },
         "saturation_modifier": {
             "operation": "multiply_base_multiplicative",
-            "amount": 1
+            "amount": 2
         }
     },
     "berry_immune": {
@@ -191,8 +191,8 @@
                 "minecraft:custom_name": "[{\"text\":\"Very Berry Berries\",\"italic\":false}]",
                 "minecraft:max_stack_size": 16,
                 "minecraft:food": {
-                    "nutrition": 4,
-                    "saturation": 1.6,
+                    "nutrition": 5,
+                    "saturation": 2,
                     "can_always_eat": true
                 },
                 "minecraft:rarity": "rare",
@@ -201,20 +201,6 @@
                     "Very": true
                 }
             }
-        }
-    },
-    "eat_very": {
-        "type": "origins:modify_food",
-        "item_action": {
-            "type": "origins:modify_item_cooldown",
-            "modifier": {
-                "operation": "set_total",
-                "amount": 60
-            }
-        },
-        "item_condition": {
-            "type": "origins:custom_data",
-            "nbt": "{Very: 1b}"
         }
     },
     "spectral_duration": {
@@ -304,13 +290,33 @@
             "compare_to": 0
         }
     },
+    "prevent_placing_berries": {
+        "type": "origins:prevent_block_place",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{Laced: 1b}"
+                },
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{Very: 1b}"
+                },
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{Spectral: 1b}"
+                }
+            ]
+        }
+    },
     "name": "VERY BERRY :333",
     "description": "I LOV BERRIES SO MUCH!11!1!1",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/sweet_berries.png",
-            "text": "§a§lVery Berry §r§a🍓§r\n§7All berries are eaten §a25%§7 quicker and grant §a2x§7 food/saturation!\nAdditionally, you can craft special berries §8(refer to badges underneath)\n\n§7§lPassive Ability"
+            "text": "§a§lVery Berry §r§a🍓§r\n§7All berries are eaten §a25%§7 quicker and grant §a2x§7 food / §a3x§7 saturation!\nAdditionally, you can craft special berries §8(refer to badges underneath)\n\n§7§lPassive Ability"
         },
         {
             "type": "origins:tooltip",
