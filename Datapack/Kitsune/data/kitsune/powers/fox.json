@@ -1,0 +1,58 @@
+{
+    "type": "origins:multiple",
+    "no_move": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "function kitsune:sit_fox"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "function kitsune:unsit_fox"
+        },
+        "execute_chosen_when_orb": false
+    },
+    "damaged": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power revoke @s kitsune:fox"
+        },
+        "cooldown": 1
+    },
+    "look": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute facing entity @p eyes run tp @s ~ ~ ~ ~ ~20"
+        },
+        "condition": {
+            "type":"origins:entity_in_radius",
+            "shape": "sphere",
+            "radius": 12,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:player"
+                }
+            }
+        },
+        "interval": 1
+    },
+    "block_underneath": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power revoke @s kitsune:fox"
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if block ~ ~-1 ~ #minecraft:replaceable",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

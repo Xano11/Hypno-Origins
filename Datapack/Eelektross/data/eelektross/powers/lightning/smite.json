@@ -1,63 +1,21 @@
 {
 	"type": "origins:multiple",
+	"tag": {
+		"type": "origins:action_on_callback",
+		"entity_action_gained": {
+			"type": "origins:execute_command",
+			"command": "tag @s add lightning_indicator"
+		},
+		"entity_action_lost": {
+			"type": "origins:execute_command",
+			"command": "tag @s remove lightning_indicator"
+		},
+		"execute_chosen_when_orb": false
+	},
 	"charge_level": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 35,
-		"max_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "eelektross:lightning/smite_charge_level",
-					"change": 0,
-					"operation": "set"
-				},
-				{
-					"type": "origins:change_resource",
-					"resource": "eelektross:lightning/smite_smite_cooldown",
-					"change": -600
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 0.6 2"
-				},
-				{
-					"type": "origins:area_of_effect",
-					"radius": 16,
-					"shape": "sphere",
-					"bientity_action": {
-						"type": "origins:target_action",
-						"action": {
-							"type": "origins:execute_command",
-							"command": "function eelektross:strike"
-						}
-					},
-					"bientity_condition": {
-						"type": "origins:target_condition",
-						"condition": {
-							"type": "origins:and",
-							"conditions": [
-								{
-									"type": "origins:living"
-								},
-								{
-									"type": "origins:inventory",
-									"process_mode": "items",
-									"item_condition": {
-										"type": "origins:custom_data",
-										"nbt": "{Thunder_stone:1b}"
-									},
-									"comparison": ">",
-									"compare_to": 0,
-									"inverted": true
-								}
-							]
-						}
-					}
-				}
-			]
-		}
+		"max": 35
 	},
 	"charge_level_up": {
 		"type": "origins:action_over_time",
@@ -298,17 +256,32 @@
 			"compare_to": 600
 		}
 	},
-	"everything": {
+	"holding": {
 		"type": "origins:active_self",
 		"entity_action": {
 			"type": "origins:if_else",
 			"condition": {
 				"type": "origins:resource",
 				"resource": "eelektross:lightning/smite_charge_level",
-				"comparison": "==",
+				"comparison": ">",
 				"compare_to": 0
 			},
 			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "eelektross:lightning/smite_charge_level",
+						"change": 0,
+						"operation": "set"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:block.copper.break player @a ~ ~ ~ 1 0.5"
+					}
+				]
+			},
+			"else_action": {
 				"type": "origins:and",
 				"actions": [
 					{
@@ -320,8 +293,71 @@
 						"change": 1
 					}
 				]
+			}
+		},
+		"cooldown": 3,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:empty"
+					}
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:empty"
+					}
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:on_block"
+						},
+						{
+							"type": "origins:power",
+							"power": "eelektross:levitate/levitating"
+						},
+						{
+							"type": "origins:fluid_height",
+							"fluid": "minecraft:water",
+							"comparison": ">",
+							"compare_to": 0
+						}
+					]
+				},
+				{
+					"type": "origins:resource",
+					"resource": "eelektross:lightning/smite_smite_cooldown",
+					"comparison": "==",
+					"compare_to": 600
+				}
+			]
+		},
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": false
+		},
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"discharge": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "eelektross:lightning/smite_charge_level",
+				"comparison": "<",
+				"compare_to": 35
 			},
-			"else_action": {
+			"if_action": {
 				"type": "origins:and",
 				"actions": [
 					{
@@ -374,44 +410,158 @@
 						"operation": "set"
 					}
 				]
+			},
+			"else_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "eelektross:lightning/smite_charge_level",
+						"change": 0,
+						"operation": "set"
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "eelektross:lightning/smite_smite_cooldown",
+						"change": -600
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 0.6 2"
+					},
+					{
+						"type": "origins:area_of_effect",
+						"radius": 16,
+						"shape": "sphere",
+						"bientity_action": {
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:execute_command",
+								"command": "function eelektross:strike"
+							}
+						},
+						"bientity_condition": {
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:living"
+									},
+									{
+										"type": "origins:inventory",
+										"process_mode": "items",
+										"item_condition": {
+											"type": "origins:custom_data",
+											"nbt": "{Thunder_stone:1b}"
+										},
+										"comparison": ">",
+										"compare_to": 0,
+										"inverted": true
+									}
+								]
+							}
+						}
+					}
+				]
 			}
 		},
-		"cooldown": 3,
+		"cooldown": 1,
 		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:or",
-					"conditions": [
-						{
-							"type": "origins:on_block"
-						},
-						{
-							"type": "origins:power",
-							"power": "eelektross:levitate/levitating"
-						},
-						{
-							"type": "origins:fluid_height",
-							"fluid": "minecraft:water",
-							"comparison": ">",
-							"compare_to": 0
-						}
-					]
-				},
-				{
-					"type": "origins:resource",
-					"resource": "eelektross:lightning/smite_smite_cooldown",
-					"comparison": "==",
-					"compare_to": 600
-				}
-			]
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": ">",
+			"compare_to": 0
 		},
 		"key": {
-			"key": "key.origins.secondary_active",
-			"continuous": false
+			"key": "key.attack"
 		},
 		"hud_render": {
 			"should_render": false
+		}
+	},
+	"lightning": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "eelektross:lightning/smite_charge_level",
+					"change": 0,
+					"operation": "set"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "eelektross:lightning/smite_smite_cooldown",
+					"change": -600
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 0.6 2"
+				},
+				{
+					"type": "origins:raycast",
+					"distance": 20,
+					"entity": true,
+					"block": true,
+					"shape_type": "visual",
+					"fluid_handling": "none",
+					"miss_action": {
+						"type": "origins:execute_command",
+						"command": "execute anchored eyes run summon armor_stand ^ ^ ^20 {Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"lightning_eelektross\"]}"
+					},
+					"command_at_hit": "summon armor_stand ~ ~ ~ {Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"lightning_eelektross\"]}",
+					"command_step": 0.25,
+					"command_along_ray_only_on_hit": false
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "power grant @n[tag=lightning_eelektross] eelektross:lightning/thunder"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @n[tag=lightning_eelektross] remove lightning_eelektross"
+				}
+			]
+		},
+		"cooldown": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": "==",
+			"compare_to": 35
+		},
+		"key": {
+			"key": "key.use"
+		},
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"particle_aiming": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:raycast",
+			"distance": 20,
+			"entity": false,
+			"block": true,
+			"shape_type": "visual",
+			"fluid_handling": "none",
+			"miss_action": {
+				"type": "origins:execute_command",
+				"command": "execute anchored eyes run particle minecraft:end_rod ^ ^ ^20 0.1 0.1 0.1 0 3 force @a[tag=lightning_indicator]"
+			},
+			"command_at_hit": "particle minecraft:end_rod ~ ~ ~ 0.1 0.1 0.1 0 3 force @a[tag=lightning_indicator]",
+			"command_step": 0.25,
+			"command_along_ray_only_on_hit": false
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "eelektross:lightning/smite_charge_level",
+			"comparison": "==",
+			"compare_to": 35
 		}
 	},
 	"craft": {

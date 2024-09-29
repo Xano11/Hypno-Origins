@@ -62,7 +62,7 @@
             "type": "origins:crafting_recipe",
             "prefix": "§f§lSpectral Berries",
             "sprite": "hypno:textures/item/kitsune/spectral_berries.png",
-            "suffix": "§7Converts §a100%§7 of your movement speed and grants slow falling for 10s\n§8(Max stack: 8)",
+            "suffix": "§7Converts §a100%§7 of your movement speed into air speed and grants slow falling for 10s\n§8(Max stack: 8)",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "kitsune:spectral_berry",

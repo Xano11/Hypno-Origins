@@ -133,6 +133,7 @@
             "amount": 1,
             "operation": "add_value"
         },
+        "tick_rate": 1,
         "condition": {
             "type": "origins:resource",
             "resource": "kalogero:control_duration",

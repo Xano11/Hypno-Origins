@@ -17,7 +17,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @s angler:sword/hit"
+                    "command": "power revoke @s angler:sword/hit"
                 }
             ]
         }

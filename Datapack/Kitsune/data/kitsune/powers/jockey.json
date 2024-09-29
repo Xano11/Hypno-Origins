@@ -1,20 +1,5 @@
 {
     "type": "origins:multiple",
-    "delay": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 4,
-        "start_value": 0
-    },
-    "delay_tick": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "kitsune:jockey_delay",
-            "change": -1
-        },
-        "interval": 1
-    },
     "ride": {
         "type": "origins:action_on_entity_use",
         "bientity_action": {
@@ -79,36 +64,25 @@
         },
         "hands": [
             "main_hand"
-        ],
-        "condition": {
-            "type": "origins:sneaking"
-        }
+        ]
     },
-    "dismount": {
-        "type": "origins:active_self",
-        "key": {
-            "key": "key.sneak"
-        },
-        "cooldown": 1,
-        "entity_action": {
-            "type": "origins:dismount"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "kitsune:jockey_delay",
-            "comparison": "==",
-            "compare_to": 0
-        }
-    },
-    "attacked_trigger":{
+    "attacked_trigger": {
         "type": "origins:action_when_damage_taken",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "kitsune:jockey_attacked",
-            "change": 50,
-            "operation": "set"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "kitsune:jockey_attacked",
+                    "change": 50,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:dismount"
+                }
+            ]
         },
-        "cooldown": 5
+        "cooldown": 1
     },
     "attacked": {
         "type": "origins:resource",

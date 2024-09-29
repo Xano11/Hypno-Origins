@@ -4,6 +4,7 @@
     ],
     "powers": [
         "hypno:prevent_recipe",
-        "hypno:tooltips"
+        "hypno:tooltips",
+        "hypno:zephyrite"
     ]
 }

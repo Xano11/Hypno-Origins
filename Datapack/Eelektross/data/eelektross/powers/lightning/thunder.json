@@ -1,0 +1,56 @@
+{
+    "type": "origins:multiple",
+    "scoreboard_set": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify storage eelektross:lightning distance set value 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s lightning_eelektross 35"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": false
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon lightning_bolt"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "eelektross:lightning/thunder_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function eelektross:lightning_particles with storage eelektross:lightning"
+        },
+        "interval": 1
+    }
+}

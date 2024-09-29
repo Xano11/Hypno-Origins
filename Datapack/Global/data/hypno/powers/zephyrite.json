@@ -1,0 +1,273 @@
+{
+    "type": "origins:multiple",
+    "repair_chain": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "upavi:chain"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:chain"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
+            },
+            "if_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/unhollowed"
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.smithing_table.use",
+                    "pitch": 2.5
+                }
+            ]
+        }
+    },
+    "repair_iron": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "upavi:iron"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
+            },
+            "if_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/unhollowed"
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.smithing_table.use",
+                    "pitch": 2.5
+                }
+            ]
+        }
+    },
+    "repair_gold": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "upavi:gold"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:gold_ingot"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
+            },
+            "if_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/unhollowed"
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.smithing_table.use",
+                    "pitch": 2.5
+                }
+            ]
+        }
+    },
+    "repair_diamond": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "upavi:diamond"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
+            },
+            "if_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/unhollowed"
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.smithing_table.use",
+                    "pitch": 2.5
+                }
+            ]
+        }
+    },
+    "repair_netherite": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "upavi:netherite"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_scrap"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
+            },
+            "if_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/unhollowed"
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.smithing_table.use",
+                    "pitch": 2.5
+                }
+            ]
+        }
+    },
+    "repair_turtle": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:turtle_helmet"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:turtle_scute"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:has_power",
+                "power": "upavi:hollowed",
+                "slot": "armor"
+            },
+            "if_action": {
+                "type": "origins:modify",
+                "modifier": "upavi:items/unhollowed"
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0.9 0.9 1 1 ~ ~1 ~ 0.5 0.5 0.5 0 3 force"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.smithing_table.use",
+                    "pitch": 2.5
+                }
+            ]
+        }
+    }
+}

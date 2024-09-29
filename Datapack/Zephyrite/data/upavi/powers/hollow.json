@@ -127,13 +127,10 @@
             "condition": {
                 "type": "origins:has_power",
                 "power": "upavi:hollowed",
+                "inverted": true,
                 "slot": "armor"
             },
             "if_action": {
-                "type": "origins:modify",
-                "modifier": "upavi:items/unhollowed"
-            },
-            "else_action": {
                 "type": "origins:modify",
                 "modifier": "upavi:items/hollowed"
             }

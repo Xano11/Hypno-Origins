@@ -470,6 +470,22 @@
             "compare_to": 0
         }
     },
+    "step_height": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "chosen_step_height",
+            "attribute": "minecraft:generic.step_height",
+            "amount": 1,
+            "operation": "add_value"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "chosen:roll_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "name": "Dodge Roll",
     "description": "Rolling away from your problems has never been easier.",
     "badges": [
