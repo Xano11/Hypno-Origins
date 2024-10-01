@@ -17,28 +17,32 @@ file = "config/openloader/data/chosen_0.20.zip"
 hash = "e7b939289e96aa3838e720329af7c9ecf03890be9756ae4010853a38865d6af2"
 
 [[files]]
-file = "config/openloader/data/eelektross_0.20.zip"
-hash = "88fcb98ad348d89d07d30e5a1e42638aa9fe7da9e3cce2b866c3b9bae81d657b"
+file = "config/openloader/data/crow_0.20.zip"
+hash = "360ca21cbe970d5380585e8704bc3eed4b79da1e418508279c3aa1b1c644ac8b"
+
+[[files]]
+file = "config/openloader/data/eelektross_0.21.zip"
+hash = "844ee29561f8ead2427bbecfae61f67331e7b721bbb9a942798dd6f6346bf215"
 
 [[files]]
 file = "config/openloader/data/global_0.20.zip"
 hash = "95c2687ee952f74b633fc591034be2f57e09b81cb47a2ad73045f1af318f4796"
 
 [[files]]
-file = "config/openloader/data/kalogero_0.21.zip"
-hash = "e1d572236d1ee97c84c437a09d08ab9e450e749623e3e202ce79abc9eed4d7ea"
+file = "config/openloader/data/kalogero_0.22.zip"
+hash = "07526d7d386bda2a83b54645436407214e8e4f96bb90a17fb18d7a521cc3d9a2"
 
 [[files]]
-file = "config/openloader/data/kitsune_0.22.zip"
-hash = "f2ba8c365cc118fd21eea2825c79dea4fa5bce2602143158f2fcd49222edaf77"
+file = "config/openloader/data/kitsune_0.23.zip"
+hash = "cfcf4ce9135177d959baa6d12be9bb95348c8ce9654035709fddc9b001f70cad"
 
 [[files]]
 file = "config/openloader/data/voidsent_0.20.zip"
 hash = "dbf65997fc01092f6b7d6f1f54b9580fe9462575f9323a6106ae1fee09493ae6"
 
 [[files]]
-file = "config/openloader/data/zephyrite0.20.zip"
-hash = "c832656ff0e1428a8ed84e5d85466ab40e6bce56dfaa1fe786e521f8399d654c"
+file = "config/openloader/data/zephyrite_0.21.zip"
+hash = "5c93c59163c55f07bd3fee29f2980c4158939a37e4fcee5c19fd2c0c8f2cbc7b"
 
 [[files]]
 file = "config/openloader/resources/pack1.8.zip"
@@ -101,6 +105,11 @@ metafile = true
 [[files]]
 file = "mods/ebe.pw.toml"
 hash = "e6eff4533154c7715f8a1fbc8c8b9c940e63b5878f6ce39e7ffef050a8da202f"
+metafile = true
+
+[[files]]
+file = "mods/emi.pw.toml"
+hash = "6b0efa6d411faf50dedc9326b9991eea204455e5f39c35a41b8dd3a7513f543c"
 metafile = true
 
 [[files]]

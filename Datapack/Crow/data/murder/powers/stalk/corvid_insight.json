@@ -1,0 +1,146 @@
+{
+    "type": "origins:multiple",
+    "power_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 15,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:remove_from_entity_set",
+                            "set": "murder:stalk/corvi_aspectum_stalked"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "murder:stalk/corvi_aspectum_stalked"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s murder:stalk/corvid_insight"
+                }
+            ]
+        }
+    },
+    "power_duration_decrease": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "murder:stalk/corvid_insight_power_duration",
+            "change": -1
+        },
+        "interval": 20
+    },
+    "stalked": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "decay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "decay_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "murder:stalk/corvid_insight_decay",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "stalked_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "murder:stalk/corvid_insight_stalked",
+            "change": -8
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "murder:stalk/corvid_insight_decay",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "glowin_stalked": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type":"origins:distance",
+                    "compare_to": 128,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:in_entity_set",
+                    "set": "murder:stalk/corvi_aspectum_stalked"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "murder:stalk/corvid_insight_stalked",
+            "comparison": "==",
+            "compare_to": 120
+        },
+        "use_teams": false,
+        "red": 0.4,
+        "green": 0.16,
+        "blue": 0.16
+    },
+    "glowing": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type":"origins:distance",
+                    "compare_to": 128,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:in_entity_set",
+                    "set": "murder:stalk/corvi_aspectum_stalked"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "murder:stalk/corvid_insight_stalked",
+            "comparison": "<",
+            "compare_to": 120
+        },
+        "use_teams": false,
+        "red": 0.31,
+        "green": 0.09,
+        "blue": 0.09
+    },
+    "name": "👀",
+    "description": "You can feel a dark gaze watching over you."
+}

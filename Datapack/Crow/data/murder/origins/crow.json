@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"murder:ornis",
+		"murder:cornu_marsupium",
+		"murder:stalk/corvi_aspectum",
+		"murder:victu",
+		"murder:passive_aggressor/passivum_aggressorem",
+		"murder:parva_mentula"
+	],
+	"icon": {
+        "id": "minecraft:beetroot_seeds",
+		"components": {
+            "minecraft:custom_model_data": 1
+        }
+    },
+	"order": 10,
+	"impact": 1,
+	"name": "Crow",
+	"description": "Draped in night’s shadow, with feathers black as a starless sky. Its eyes, like dark gems, glint with ancient knowing. When it caws, the sound is harsh, a grim echo upon the wind, as if bearing ill tidings. It moves with cunning, a shadow in daylight, feared and revered alike—a harbinger of death’s silent approach."
+}

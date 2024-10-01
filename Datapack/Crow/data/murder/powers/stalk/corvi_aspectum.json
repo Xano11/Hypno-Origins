@@ -1,0 +1,200 @@
+{
+    "type": "origins:multiple",
+    "stalked": {
+        "type": "origins:entity_set"
+    },
+    "ray_cast": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 64,
+            "block": true,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:add_to_entity_set",
+                        "set": "murder:stalk/corvi_aspectum_stalked"
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "function murder:corvi_stalk"
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "function murder:corvi_stalked"
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove corvi_particles"
+                        }
+                    }
+                ]
+            },
+            "command_step": 1,
+            "command_along_ray_only_on_hit": false
+        },
+        "interval": 5
+    },
+    "hold_book": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function murder:particles with entity @s SelectedItem.components.minecraft:custom_data"
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:book"
+                }
+            }
+        }
+    },
+    "book": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 129,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type":"origins:entity_type",
+                                            "entity_type": "minecraft:player"
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "murder:stalk/corvid_insight_stalked",
+                                            "comparison": "==",
+                                            "compare_to": 120
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:in_entity_set",
+                                "set": "murder:stalk/corvi_aspectum_stalked"
+                            }
+                        ]
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function murder:stalked"
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function murder:give_book with storage murder:contract"
+                                }
+                            }
+                        ]
+                    },
+                    "command_step": 1
+                }
+            ]
+        },
+        "cooldown": 2,
+        "key": "key.use",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:book"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 128,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type":"origins:entity_type",
+                                            "entity_type": "minecraft:player"
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "murder:stalk/corvid_insight_stalked",
+                                            "comparison": "==",
+                                            "compare_to": 120
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:in_entity_set",
+                                "set": "murder:stalk/corvi_aspectum_stalked"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Corvi Aspectum",
+    "description": "The gaze of a crow, dark and piercing, like a shadow o’er the soul. 'Tis as though the very eye of night dost peer into thine heart, cold and unblinking. Its look, sharp as a dagger's point, seems to whisper of things unsaid, of secrets buried deep, and of fates unwritten yet feared. There be a weight in such a stare, as though time itself doth pause, and in that moment, thou art laid bare before a creature both ancient and knowing. It lingers, like a specter of ill omen, a harbinger of truths thou dar'st not confront, and yet thou art drawn to it, as if the very air were thine undoing.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/night_vision.png",
+            "text": "§c§lStalk 👀§r§7\nYou passively mark entities you look at, granting them glowing that only you can see.\nThe mark lasts 15 seconds and is passively refreshed when looked at by a Crow.\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/crow/contract.png",
+            "text": "§4§lUnconsented Contract 📖§r§7\nStalking a player continuously for 30s allows for a Contract.\nWhilst holding a book, press right-click whilst looking at the player to form the contract.\n\nWhilst holding a contract in hand, the binded player's position is revealed by a beacon of particles.\n\n§7§lPassive Ability"
+        }
+    ]
+}

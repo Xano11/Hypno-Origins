@@ -59,5 +59,24 @@
             "compare_to": 0
         }
     },
+    {
+        "type": "origins:selector_action",
+        "selector": "@a",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "bear:home/home_range_cooldown",
+                "change": 3600
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:invert",
+            "condition": {
+                "type": "origins:in_entity_set",
+                "set": "bear:home/home_range_home_limit"
+            }
+        }
+    }
     "hidden": true
 }

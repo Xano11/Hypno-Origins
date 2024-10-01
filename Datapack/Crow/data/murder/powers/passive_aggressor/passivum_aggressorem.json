@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+    
+    "noticed": {
+        "type": "origins:attacker_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:grant_power",
+                    "power": "murder:passive_aggressor/payback",
+                    "source": "murder:passive_aggressor/payback"
+                },
+                {    
+                    "type": "origins:change_resource",
+                    "resource": "murder:passive_aggressor/payback_power_duration",
+                    "change": 5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.iron_xylophone player @a[tag=crow] ~ ~ ~ 0.6 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:trial_spawner_detection ~ ~1 ~ 0.2 0.5 0.2 0.0001 10 normal @a[tag=crow]"
+                }
+            ]
+        },
+        "cooldown": 5
+    },
+
+    "name": "Cornu Marsupium",
+    "description": "Doth wield its spite with subtle craft. It caws as if to mock, yet when accused, feigns innocence, leaving thee to question thy own mind. It steals not boldly, but with sly hands, and when pursued, it lingers just out of reach, taunting with a gaze sharper than any blade. In passive defiance, it makes thee thy own tormentor, turning patience to unrest with but a glance or a fleeting shadow.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "§4§lPayback 🔪§r§7\nWhen hit by a entity, grant them Payback Strike. \n\n§4§lPayback Strike🔪§r§7\nFor the next 5 seconds, The Crow's next hit will deal 15% more damage and remove the effect.\n\n§7§lPassive Ability"
+        }
+    ]
+}

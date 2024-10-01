@@ -1,0 +1,133 @@
+{
+    "type": "origins:multiple",
+    
+    "size": {
+		"type": "origins:action_on_callback",
+		"entity_action_respawned": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:width 0.5 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:height 0.45 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add crow"
+				}
+			]  
+		},
+		"entity_action_gained": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:width 0.5 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:height 0.45 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add crow"
+				}
+			]
+		},
+		"entity_action_lost": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:width 1 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:height 1 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove crow"
+				}
+			]
+		}
+	},
+
+	"health": {
+        "type": "origins:attribute",
+  		"modifier": {
+			"id": "murder:small_small_small_small_man_with_tiny_tiny_tiny_pp",
+    		"attribute": "minecraft:generic.max_health",
+    		"name": "half max hp",
+    		"amount": -10,
+    		"operation": "add_value"
+  		}
+    },
+	
+	"no_shield": {
+		"type": "origins:prevent_item_use",
+  		"item_condition": {
+    		"type": "origins:ingredient",
+    		"ingredient": {
+      			"tag": "origins:shields"
+    		}
+  		}
+	},
+
+	"less_armor": {
+        "type": "origins:attribute",
+  		"modifier": {
+			"id": "murder:less_armor_because_lil_bitch",
+    		"attribute": "minecraft:generic.armor",
+    		"name": "20% less armor",
+    		"amount": -0.20,
+    		"operation": "ADD_MULTIPLIED_TOTAL"
+  		}
+    },
+
+	"less_damage": {
+		"type": "origins:modify_damage_dealt",
+		"bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:power",
+    			"power": "murder:passive_aggressor/payback",
+				"inverted": true
+            }
+        },
+		"modifier": {
+            "name": "passive less damage",
+            "amount": -0.15,
+            "operation": "multiply_total_multiplicative"
+        }
+	},
+	
+	"blindness": {
+		"type": "origins:target_action_on_hit",
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"id": "minecraft:blindness",
+				"amplifier": 1,
+				"duration": 40
+			}
+		},
+		"cooldown": 10,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+    "name": "Parva Mentula",
+    "description": "Thou art a feathered sprite, light of wing and quick of heart! Thy frame, delicate and dainty, flits through the air as a whisper on the breeze, swift and silent, yet full of life. Thou art a tiny minstrel, whose song doth pierce the morning's veil, and thy plumage, though modest, doth gleam like the first blush of dawn. In thee, Nature hath fashioned a creature both frail and fleet, a humble jewel of the heavens, bearing with thee the promise of day's gentle beginning.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/infested.png",
+            "text": "§d§lTiny 🐜§r§7\nYou are half the size of a regular player, too small to hold a shield upright, 20% less armor points, -5§r§c♥§r and deal 15% less damage but apply blindness.\n\n§7§lPassive Ability"
+        }
+    ]
+}

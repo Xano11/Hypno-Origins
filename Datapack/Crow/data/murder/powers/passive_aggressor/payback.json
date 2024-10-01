@@ -1,0 +1,68 @@
+{
+    "type": "origins:multiple",
+
+    "power_duration": {
+    "type": "origins:resource",
+    "min": 0,
+    "max": 5,
+    "start_value": 5,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:remove_power",
+            "power": "*:*"
+        }
+    },
+
+    "power_duration_decrease": {
+		"type": "origins:action_over_time",
+    	"entity_action": {
+        	"type": "origins:change_resource",
+    		"resource": "murder:passive_aggressor/payback_power_duration",
+    		"change": -1
+    	},
+    	"interval": 20
+	},
+
+    "glowing": {
+	    "type": "origins:self_glow",
+        "entity_condition": {
+            "type": "origins:origin",
+            "origin": "murder:crow",
+            "layer": "origins:origin"
+        },
+        "use_teams": false,
+            "red": 1,
+            "green": 0.647,
+            "blue": 0.0
+    },
+
+    "damage_bonus": {
+        "type": "origins:modify_damage_taken",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "murder:crow",
+                "layer": "origins:origin"
+            }
+        },
+        "self_action": {
+            "type": "origins:remove_power",
+            "power": "*:*"
+        },
+        "attacker_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.note_block.iron_xylophone player @a[tag=crow] ~ ~ ~ 1 1.4 1"
+        },
+        "modifier": {
+            "name": "payback",
+            "amount": 0.15,
+            "operation": "multiply_total_multiplicative"
+        }
+    },
+
+    "name": "🔪",
+    "description": "PAYBACK IN BLOOD AND GLORY - CAW CAW~"
+}
