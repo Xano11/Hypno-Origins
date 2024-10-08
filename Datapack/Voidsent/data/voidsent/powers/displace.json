@@ -292,11 +292,15 @@
                                         {
                                             "type": "origins:inventory",
                                             "process_mode": "items",
+                                            "slots": [
+                                                "weapon.mainhand",
+                                                "weapon.mainhand"
+                                            ],
                                             "item_condition": {
                                                 "type": "origins:custom_data",
                                                 "nbt": "{null_book:1b}"
                                             },
-                                            "comparison": ">",
+                                            "comparison": "==",
                                             "compare_to": 0
                                         }
                                     ]

@@ -113,6 +113,24 @@
             "compare_to": 0
         }
     },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:voidsent/traveling",
+        "strength": 0.8,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "voidsent:dimension/gate_windup",
+            "comparison": ">",
+            "compare_to": 0
+        }  
+    },
     "interrupt_ticking": {
         "type": "origins:action_over_time",
         "entity_action": {

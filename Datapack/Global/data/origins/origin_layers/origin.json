@@ -4,6 +4,8 @@
 	"loading_priority": 1,
 	"origins": [
 		"angler:angler",
+		"bear:bear",
+		"clown:clown",
 		"chosen:chosen",
 		"murder:crow",
 		"eelektross:eelektross",

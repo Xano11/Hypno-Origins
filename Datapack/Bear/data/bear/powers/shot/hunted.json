@@ -1,0 +1,51 @@
+{
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_projectile"
+        },
+        "condition": {
+            "type": "origins:using_item",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:shield"
+                }
+            },
+            "inverted": true
+        },
+        "modifier": {
+            "name": "Weak to projectiles",
+            "operation": "multiply_base_multiplicative",
+            "amount": 0.5
+        },
+        "self_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:power",
+                "power": "bear:shot/bleeding"
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "bear:shot/bleeding_duration",
+                "change": 60
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "power grant @s bear:shot/bleeding"
+            }
+        }
+    },
+
+    "name": "Bear: Hunted",
+    "description": "other people no to fond of bear, bear scary fair enough, but sometimes bear gets extreme hatred for no no reason, people shoot bear, shoot hurt bear, ouchie.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "when bear shot, bear hurt more{50% more arrow damage}, bear also bleed, true damage hurt badder than normal damage."
+        }
+    ]
+}

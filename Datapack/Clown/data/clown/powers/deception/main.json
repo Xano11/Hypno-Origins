@@ -1,0 +1,381 @@
+{
+    "type": "origins:multiple",
+    "dummy": {
+        "type": "origins:entity_set"
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add deception_indicator"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove deception_indicator"
+        },
+        "execute_chosen_when_orb": false
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 240,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 12,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "clown:deception/main_cooldown",
+                        "comparison": "<",
+                        "compare_to": 240
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "clown:deception/main_duration",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            }
+        }
+    },
+    "cooldown_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "clown:deception/main_cooldown",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:deception/main_cooldown",
+            "comparison": "<",
+            "compare_to": 240
+        }
+    },
+    "holding_key": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "unheld_key": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "clown:deception/main_holding_key",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "clown:deception/main_holding_key",
+                    "change": 3,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 7,
+                    "entity": false,
+                    "block": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "miss_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute anchored eyes run particle minecraft:enchanted_hit ^ ^ ^7 0.1 0.1 0.1 0 3 force @a[tag=deception_indicator]"
+                    },
+                    "command_at_hit": "particle minecraft:enchanted_hit ~ ~ ~ 0.1 0.1 0.1 0 3 force @a[tag=deception_indicator]",
+                    "command_step": 0.25,
+                    "command_along_ray_only_on_hit": false
+                }
+            ]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:deception/main_cooldown",
+            "comparison": "==",
+            "compare_to": 240
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "use_main": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 7,
+            "block": true,
+            "entity": false,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "before_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:set_fall_distance",
+                        "fall_distance": 0
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function clown:deception_start"
+                    },
+                    {
+                        "type": "origins:selector_action",
+                        "selector": "@n[tag=deception]",
+                        "bientity_action": {
+                            "type": "origins:add_to_entity_set",
+                            "set": "clown:deception/main_dummy"
+                        }
+                    }
+                ]
+            },
+            "miss_action": {
+                "type": "origins:execute_command",
+                "command": "function clown:deception_main"
+            },
+            "hit_action": {
+                "type": "origins:execute_command",
+                "command": "function clown:deception_main"
+            },
+            "command_along_ray": "tp @n[tag=deception_tp] ~ ~ ~",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": false
+        },
+        "cooldown": 1,
+        "key": "key.attack",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "clown:deception/main_holding_key",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "clown:deception/main_cooldown",
+                    "comparison": "==",
+                    "compare_to": 240
+                }
+            ]
+        }
+    },
+    "use_secondary": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function clown:deception_start"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@n[tag=deception]",
+                    "bientity_action": {
+                        "type": "origins:add_to_entity_set",
+                        "set": "clown:deception/main_dummy"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function clown:deception_main"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": "key.use",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "clown:deception/main_holding_key",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "clown:deception/main_cooldown",
+                    "comparison": "==",
+                    "compare_to": 240
+                }
+            ]
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function clown:deception_end"
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 12,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "clown:deception/main_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "duration_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "clown:deception/main_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:deception/main_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "unrender_other": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "held_item",
+            "elytra"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:deception/main_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:deception/main_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_value",
+            "amount": 0.08,
+            "id": "clown_deception_speed"
+        },
+        "tick_rate": 2,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:deception/main_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "cancel": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "clown:deception/main_duration",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:action_on_entity_set",
+                        "set": "clown:deception/main_dummy",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function clown:deception_dummy_end"
+                                    },
+                                    {
+                                        "type": "origins:modify_death_ticks",
+                                        "modifier": {
+                                            "operation": "set_total",
+                                            "amount": 20
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:deception/main_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Trick: Deception",
+    "description": "YOU'D BE SURPRISED HOW EASY YOUR FEEBLE MIND CAN BE TRICKED!1!!1!",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "§9§lDeception §r§9🎃§r\n§7Deception teleports you forward and leaves a decoy behind.\nAs long as the decoy is present, you are invisible and move 80% quicker.\n\nThe decoy attracts nearby mobs and can be destroyed.\n\n§c🕕§r§7 Decoy duration: §r§f5s\n§e⌛§r§7 Cooldown: §r§f12s\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 and press §r[",
+                {
+                    "keybind": "key.attack"
+                },
+                "]§7 to teleport and leave a decoy!\nPress §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 instead to only leave a decoy!"
+            ]
+        }
+    ]
+}

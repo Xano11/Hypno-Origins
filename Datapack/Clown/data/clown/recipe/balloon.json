@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "clown:balloon",
+    "pattern": [
+        "aaa",
+        "aba",
+        "aaa"
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:wind_charge"
+        },
+        "a": {
+            "item": "minecraft:red_wool"
+        }
+    },
+    "result": {
+        "id": "minecraft:wind_charge"
+    }
+}

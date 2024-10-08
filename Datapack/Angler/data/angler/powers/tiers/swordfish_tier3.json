@@ -10,7 +10,7 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown3",
+                    "resource": "angler:sword/transfish_cooldown",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -61,7 +61,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "angler:fishing/throw_holding_key",
+            "resource": "angler:description_holding_key",
             "comparison": "==",
             "compare_to": 0
         }
@@ -138,7 +138,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown3",
+                    "resource": "angler:sword/transfish_cooldown",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -201,7 +201,7 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown3",
+                    "resource": "angler:sword/transfish_cooldown",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -245,7 +245,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "function angler:dash_cd"
+                    "command": "resource set @s angler:sword/transfish_cooldown 90"
                 },
                 {
                     "type": "origins:equipped_item_action",
@@ -254,7 +254,7 @@
                         "type": "origins:modify_item_cooldown",
                         "modifier": {
                             "operation": "set_total",
-                            "amount": 80
+                            "amount": 90
                         }
                     }
                 },
@@ -277,25 +277,6 @@
                     },
                     "command_step": 0.5,
                     "command_along_ray": "function angler:dash"
-                },
-                {
-                    "type": "origins:selector_action",
-                    "selector": "@e",
-                    "bientity_action": {
-                        "type": "origins:actor_action",
-                        "action": {
-                            "type": "origins:change_resource",
-                            "resource": "angler:sword/transfish_cooldown2",
-                            "change": -20
-                        }
-                    },
-                    "bientity_condition": {
-                        "type": "origins:target_condition",
-                        "condition": {
-                            "type": "origins:power",
-                            "power": "angler:sword/hit"
-                        }
-                    }
                 },
                 {
                     "type": "origins:execute_command",
@@ -330,7 +311,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:sword/transfish_cooldown3",
+                    "resource": "angler:sword/transfish_cooldown",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -397,11 +378,9 @@
                 }
             ]
         },
-        "using_item_condition": {
-            "type": "origins:ingredient",
-            "ingredient": {
-                "item": "minecraft:heavy_core"
-            }
+        "using_item_condition": { 
+            "type": "origins:custom_data",
+            "nbt": "{legendary_pufferfish:1b}"
         },
         "on_item_action": {
             "type": "origins:modify",

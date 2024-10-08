@@ -31,10 +31,28 @@
         },
         "interval": 10
     },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add drenched"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove drenched"
+        }
+    },
     "slow_fall": {
         "type": "origins:modify_falling",
         "velocity": 0.04,
         "take_fall_damage": false
+    },
+    "model":{
+        "type": "origins:model_color",
+        "blue": 1,
+        "red": 0.5,
+        "green": 0.5,
+        "alpha": 1
     },
     "hidden": true
 }

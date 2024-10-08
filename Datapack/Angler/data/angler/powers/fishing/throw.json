@@ -2,19 +2,19 @@
     "type": "origins:multiple",
     "rod": {
         "type": "origins:action_on_callback",
-        "entity_action_gained":  {
+        "entity_action_gained": {
             "type": "origins:if_else",
             "condition": {
                 "type": "origins:inventory",
                 "process_mode": "items",
                 "comparison": "==",
                 "compare_to": 0,
-                "item_condition":  {
+                "item_condition": {
                     "type": "origins:custom_data",
                     "nbt": "{angler:1b}"
                 }
             },
-            "if_action":  {
+            "if_action": {
                 "type": "origins:and",
                 "actions": [
                     {
@@ -49,199 +49,31 @@
         },
         "execute_chosen_when_orb": true
     },
-    "cooldown1": {
+    "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 700,
+        "max": 400,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
             "bar_index": 0,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:fishing/throw_cooldown1",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/fishing_rod_tier1",
-                            "slot": "any"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "cooldown2": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "bar_index": 0,
-            "sprite_location": "hypno:textures/bars/angler/angler.png",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:fishing/throw_cooldown2",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/fishing_rod_tier2",
-                            "slot": "any"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "cooldown3": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 500,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "bar_index": 0,
-            "sprite_location": "hypno:textures/bars/angler/angler.png",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:fishing/throw_cooldown3",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/fishing_rod_tier3",
-                            "slot": "any"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "cooldown4": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 300,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "bar_index": 0,
-            "sprite_location": "hypno:textures/bars/angler/angler.png",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:fishing/throw_cooldown4",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/fishing_rod_tier4",
-                            "slot": "any"
-                        }
-                    }
-                ]
+                "type": "origins:resource",
+                "resource": "angler:fishing/throw_cooldown",
+                "comparison": ">",
+                "compare_to": 0
             }
         }
     },
     "cooldown_down": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:fishing/throw_cooldown1",
-                    "change": -1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:fishing/throw_cooldown2",
-                    "change": -1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:fishing/throw_cooldown3",
-                    "change": -1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:fishing/throw_cooldown4",
-                    "change": -1
-                }
-            ]
-        },
-        "interval": 1
-    },
-    "keepitems": {
-        "type": "origins:keep_inventory",
-        "item_condition": {
-            "type": "origins:custom_data",
-            "nbt": "{angler:1b}"
-        }
-    },
-    "holding_key": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 3,
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "unheld_key": {
-        "type": "origins:action_over_time",
-        "entity_action": {
             "type": "origins:change_resource",
-            "resource": "angler:fishing/throw_holding_key",
+            "resource": "angler:fishing/throw_cooldown",
             "change": -1
         },
         "interval": 1
-    },
-    "hold": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "angler:fishing/throw_holding_key",
-            "change": 3,
-            "operation": "set"
-        },
-        "cooldown": 1,
-        "key": {
-            "key": "key.origins.primary_active",
-            "continuous": true
-        },
-        "hud_render": {
-            "should_render": false
-        }
     },
     "name": "Hook Surfing",
     "description": "You've learned all the tricks the fishing rod holds. The only thing holding you back is the brittle fishing rod's line.",
@@ -249,7 +81,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§b§lHook Surf ↪§r\n§7Send out and §r§aride§r§7 your fishing bobber, dashing forward.\n§aNegates§r§7 fall damage when you land.\n\n§e⌛§r§7 Cooldown: §r§f35s §7/ §f30s §7/ §f25s §7/ 15s§r§8 (After landing.)\n\n§7§lActive Ability"
+            "text": "§b§lHook Surf ↪§r\n§7Send out and §r§aride§r§7 your fishing bobber, dashing forward.\n§aNegates§r§7 fall damage when you land.\n\n§e⌛§r§7 Cooldown: §f20s §7§r§8\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",

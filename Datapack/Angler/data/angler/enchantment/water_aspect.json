@@ -16,15 +16,38 @@
         "mainhand"
     ],
     "effects": {
-        "minecraft:armor_effectiveness": [
+        "minecraft:damage": [
             {
                 "effect": {
                     "type": "minecraft:add",
                     "value": {
                         "type": "minecraft:linear",
-                        "base": -0.10,
-                        "per_level_above_first": -0.10
+                        "base": 1,
+                        "per_level_above_first": 1
                     }
+                },
+                "requirements": {
+                    "condition": "minecraft:any_of",
+                    "terms": [
+                        {
+                            "condition": "minecraft:entity_properties",
+                            "entity": "this",
+                            "predicate": {
+                                "nbt": "{Tags:[\"drenched\"]}"
+                            }
+                        },
+                        {
+                            "condition": "minecraft:entity_properties",
+                            "entity": "this",
+                            "predicate": {
+                                "location": {
+                                    "fluid": {
+                                        "fluids": "#minecraft:water"
+                                    }
+                                }
+                            }
+                        }
+                    ]
                 }
             }
         ]

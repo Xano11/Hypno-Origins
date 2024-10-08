@@ -1,0 +1,1 @@
+item replace entity @s armor.head with snowball[max_stack_size=1,custom_name='"Comedy"',rarity="epic",custom_model_data=1,custom_data={Manic:1b},enchantments={levels:{"clown:manic":1}}] 1

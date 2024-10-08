@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "clown:kevinometer",
+    "pattern": [
+        " a ",
+        "aba",
+        " a "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:carrot"
+        },
+        "a": {
+            "item": "minecraft:gold_block"
+        }
+    },
+    "result": {
+        "id": "minecraft:carrot"
+    }
+}

@@ -27,7 +27,8 @@
         "function": "minecraft:set_enchantments",
         "enchantments": {
           "minecraft:lure": 5,
-          "minecraft:luck_of_the_sea": 4
+          "minecraft:luck_of_the_sea": 4,
+          "angler:treasure": 1
         },
         "add": false
     }

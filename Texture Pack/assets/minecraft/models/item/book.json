@@ -9,6 +9,12 @@
                 "custom_model_data": 1
             },
             "model": "hypno:item/crow/contract"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2 
+            },
+            "model": "hypno:item/voidsent/null_book"
         }
     ]
 }

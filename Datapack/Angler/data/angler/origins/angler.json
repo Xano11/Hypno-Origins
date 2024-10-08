@@ -4,9 +4,9 @@
 		"angler:fishing/throw",
 		"angler:tp/fishout",
 		"angler:sword/transfish",
-		"angler:desc",
-		"angler:pescivore",
-		"angler:health"
+		"angler:description",
+		"angler:health",
+		"angler:pescivore"
 	],
 	"icon": {
 		"id": "minecraft:diamond_sword",

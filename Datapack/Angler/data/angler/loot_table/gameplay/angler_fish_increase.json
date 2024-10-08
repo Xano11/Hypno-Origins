@@ -66,6 +66,44 @@
           ],
           "weight": 5,
           "name": "minecraft:lime_dye"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": "{\"text\":\"Legendary Pufferfish\",\"italic\":false,\"color\":\"gold\"}",
+                "minecraft:lore": [
+                  "{\"text\":\"A legendary pufferfish said to sharpen the blades of the sea...\",\"italic\":false,\"color\":\"gray\"}"
+                ],
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": "{legendary_pufferfish:1b}"
+              }
+            }
+          ],
+          "weight": 1,
+          "name": "minecraft:pufferfish"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": "{\"text\":\"Legendary Salmon\",\"italic\":false,\"color\":\"red\"}",
+                "minecraft:lore": [
+                  "{\"text\":\"The ol' salmon. Said to bring luck to any fishermen.\",\"italic\":false,\"color\":\"gray\"}"
+                ],
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:custom_model_data": 1,
+                "minecraft:custom_data": "{legendary_salmon:1b}"
+              }
+            }
+          ],
+          "weight": 1,
+          "name": "minecraft:salmon"
         }
       ]
     }

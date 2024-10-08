@@ -1,0 +1,68 @@
+{
+    "type": "origins:multiple",
+    "luck": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:gameplay/fishing": "angler:gameplay/treasure_enchant"
+        }
+    },
+    "remove_enchant":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:enchantment",
+                    "enchantment": "angler:treasure",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            },
+            "if_action": {
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "mainhand",
+                "action": {
+                    "type": "origins:modify",
+                    "modifier": "angler:remove_treasure"
+                }
+            },
+            "else_action": {
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "offhand",
+                "action": {
+                    "type": "origins:modify",
+                    "modifier": "angler:remove_treasure"
+                }
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:enchantment",
+                        "enchantment": "angler:treasure",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:enchantment",
+                        "enchantment": "angler:treasure",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

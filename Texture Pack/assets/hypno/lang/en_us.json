@@ -1,6 +1,12 @@
 {
     "death.attack.sparks": "%s met the sparks of red",
     "death.attack.sparks.player": "%s met %s\\'s sparks of red",
+
+
     "death.attack.dash": "%s was dashed away",
-    "death.attack.dash.player": "%s met %s\\'s dash"
+    "death.attack.dash.player": "%s met %s\\'s dash",
+
+    "death.attack.sorcery": "%s died to sophisticated spells",
+    "death.attack.sorcery.player": "%s met %s\\'s sophisticated spells"
+
 }

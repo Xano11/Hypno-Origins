@@ -11,8 +11,8 @@
         "max": 10,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-            "bar_index": 16
+            "sprite_location": "hypno:textures/bars/crow/crow_bar.png",
+            "bar_index": 0
         }
     },
     "flap_resource_recharge": {

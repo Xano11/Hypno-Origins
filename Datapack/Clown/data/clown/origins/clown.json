@@ -1,0 +1,21 @@
+{
+	"powers": [
+		"clown:absurd/tools",
+		"clown:deception/main",
+		"clown:delirium",
+		"clown:kevin/main",
+		"clown:escapism",
+		"clown:insanity",
+		"clown:unstable"
+	],
+	"icon": {
+		"id": "minecraft:snowball",
+		"components": {
+			"minecraft:custom_model_data": 3
+		}
+	},
+	"order": 1,
+	"impact": 2,
+	"name": "Clown",
+	"description": "Often thought to be the human, the clown's psyche comes mostly from the mask stuck on their face."
+}

@@ -460,9 +460,9 @@
             "id": "minecraft:book",
             "components": {
                 "minecraft:custom_name": "[{\"text\":\"Book of \",\"italic\":false},{\"text\":\"NULL\",\"italic\":false,\"bold\":true,\"color\":\"dark_purple\"}]",
-                "minecraft:custom_model_data": 1,
                 "minecraft:max_damage": 100,
                 "minecraft:damage": 1,
+                "minecraft:custom_model_data": 2,
                 "minecraft:custom_data": {
                     "null_book": true
                 },

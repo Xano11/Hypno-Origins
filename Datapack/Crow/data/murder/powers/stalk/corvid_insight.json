@@ -110,9 +110,9 @@
             "compare_to": 120
         },
         "use_teams": false,
-        "red": 0.4,
-        "green": 0.16,
-        "blue": 0.16
+        "red": 0.65,
+        "green": 0,
+        "blue": 1
     },
     "glowing": {
         "type": "origins:self_glow",
@@ -137,9 +137,9 @@
             "compare_to": 120
         },
         "use_teams": false,
-        "red": 0.31,
-        "green": 0.09,
-        "blue": 0.09
+        "red": 0.34,
+        "green": 0,
+        "blue": 0.46
     },
     "name": "👀",
     "description": "You can feel a dark gaze watching over you."

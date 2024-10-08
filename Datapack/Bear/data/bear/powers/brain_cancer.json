@@ -1,0 +1,21 @@
+{
+	"type": "origins:multiple",
+
+    "less_experiance":{
+        "type": "origins:modify_xp_gain",
+        "modifier": {
+            "operation": "multiply_total_additive",
+            "amount": -0.5
+        }
+    },
+
+	"name": "Bear: Smart Brain",
+	"description": "bear smart, bear know dirt, bear know mud. bear no food. though bear don't know magic, magic scare bear, bearware for a bear scare.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "bear gain 50% less experiance, bear don't like magic, magic scare bear greatly, bear learn eventually to overcome fear, bear keep safe, bear is saftey."
+        }
+    ]
+}

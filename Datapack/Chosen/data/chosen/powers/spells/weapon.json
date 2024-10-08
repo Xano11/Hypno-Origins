@@ -1,0 +1,121 @@
+{
+    "type": "origins:multiple",
+    "craft_weapon": {
+        "type": "origins:modify_crafting",
+        "recipe": "chosen:weapon",
+        "result": {
+            "id": "minecraft:book",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"SORCERY: Soul Weapon\",\"italic\":false}]",
+                "minecraft:rarity": "rare",
+                "minecraft:custom_data": {
+                    "Chosen_Book": true,
+                    "Weapon": true
+                }
+            }
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0
+    },
+    "drain_duration": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "chosen:spells/weapon_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "use": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:exhaust",
+                    "amount": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function chosen:weapon/use"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "chosen:spells/staff_souls",
+                    "comparison": ">=",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "chosen:spells/soul_arrow_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Sorcery_Staff: 1b}"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Weapon: 1b}"
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "magic_hits": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:damage",
+                    "amount": 1,
+                    "damage_type": "chosen:sorcery"
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function chosen:homing/hit"
+                    }
+                }
+            ]
+        },
+        "cooldown": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "chosen:spells/weapon_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "hidden": true
+}

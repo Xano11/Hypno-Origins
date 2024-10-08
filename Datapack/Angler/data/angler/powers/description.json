@@ -1,0 +1,82 @@
+{
+    "type": "origins:multiple",
+    "invulnerability":{
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "angler:dash"
+        }
+    },
+    "keep_sword": {
+        "type": "origins:keep_inventory",
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{swordfish:1b}"
+        }
+    },
+    "keep_rod": {
+        "type": "origins:keep_inventory",
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{angler:1b}"
+        }
+    },
+    "holding_key": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "unheld_key": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "angler:description_holding_key",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "hold": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "angler:description_holding_key",
+            "change": 3,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Joust",
+    "description": "One swift swing of the SwordFish is enough to cut the howling wind around you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§b§lJoust 🐬§r\n§7While holding the §r§9Swordfish§r§7, quickly dash forward.\n§7Using Joust through a target will §r§arefund§r§7 part of the cooldown and deal 1 §ftrue§f damage to entities hit.\n\n§6🕒§r§7 Windup: §r§f0.75s\n§e⌛§r§7 Cooldown: §f4s\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 and §r[",
+                {
+                    "keybind": "key.attack"
+                },
+                "]§7 with the Swordfish in hand to Dash!"
+            ]
+        }
+    ]
+}

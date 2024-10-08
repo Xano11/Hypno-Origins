@@ -1,0 +1,491 @@
+{
+    "type": "origins:multiple",
+    "pose": {
+        "type": "origins:pose",
+        "arm_pose": "throw_spear"
+    },
+    "fall_damage": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.8
+        }
+    },
+    "float": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.gravity",
+            "operation": "add_multiplied_total",
+            "amount": -1.4,
+            "id": "clown_float"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Balloon:1b}"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Balloon:1b}"
+                    }
+                }
+            ]
+        }
+    },
+    "durability1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:custom_data",
+                    "nbt": "{Balloon:1b}"
+                }
+            },
+            "if_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            },
+            "else_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "offhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:fall_distance",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "durability2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:custom_data",
+                    "nbt": "{Balloon:1b}"
+                }
+            },
+            "if_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            },
+            "else_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "offhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            }
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:fall_distance",
+            "comparison": ">=",
+            "compare_to": 8
+        }
+    },
+    "durability3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:custom_data",
+                    "nbt": "{Balloon:1b}"
+                }
+            },
+            "if_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            },
+            "else_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "offhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            }
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:fall_distance",
+            "comparison": ">=",
+            "compare_to": 16
+        }
+    },
+    "durability4": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:custom_data",
+                    "nbt": "{Balloon:1b}"
+                }
+            },
+            "if_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            },
+            "else_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "offhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beehive.exit player @a ~ ~ ~ 2 1.8"
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            }
+        },
+        "interval": 2,
+        "condition": {
+            "type": "origins:fall_distance",
+            "comparison": ">=",
+            "compare_to": 32
+        }
+    },
+    "two_ballons": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": true
+                    }
+                }
+            ]
+        },
+        "interval": 4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Balloon:1b}"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Balloon:1b}"
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

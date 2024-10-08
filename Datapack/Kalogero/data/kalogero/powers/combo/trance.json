@@ -98,6 +98,24 @@
             "compare_to": 0
         }
     },
+    "trance": {
+        "type": "origins:overlay",
+        "texture": "hypno:kalogero/trance",
+        "strength": 0.6,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "kalogero:combo/trance_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "combo": {
         "type": "origins:active_self",
         "entity_action": {

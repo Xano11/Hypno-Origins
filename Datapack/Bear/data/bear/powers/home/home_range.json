@@ -1,0 +1,288 @@
+{
+    "type": "origins:multiple",
+    "home_limit": {
+        "type": "origins:entity_set"
+    },
+    "throw": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:entity_set_size",
+                        "set": "bear:home/home_range_home_limit",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add home_creating",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:fire_projectile",
+                                "entity_type": "minecraft:armor_stand",
+                                "divergence": 0,
+                                "count": 1,
+                                "speed": 0,
+                                "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"homerange\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Passengers:[{id:\"minecraft:item_display\",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.8f,0f],scale:[0.2f,0.2f,0.2f]},item:{id:\"minecraft:honey_block\",count:1}},{id:\"minecraft:item_display\",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.55f,0f],scale:[0.15f,0.06f,0.15f]},item:{id:\"minecraft:oak_planks\",count:1}},{id:\"minecraft:item_display\",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.59f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:white_stained_glass\",count:1}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.8f,0f],scale:[0.35f,0.35f,0.35f]},item:{id:\"minecraft:white_stained_glass\",count:1}}]}",
+                                "projectile_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:selector_action",
+                                            "selector": "@p[tag=home_creating]",
+                                            "bientity_action": {
+                                                "type": "origins:invert",
+                                                "action": {
+                                                    "type": "origins:add_to_entity_set",
+                                                    "set": "bear:home/home_range_home_limit"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s bear:home/home_ranger",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "forceload add ~ ~ ~ ~",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove home_creating",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.nether_wart.plant player @a ~ ~ ~ 3 0.8"
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:action_on_entity_set",
+                        "set": "bear:home/home_range_home_limit",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:change_resource",
+                                        "resource": "bear:home/home_ranger_resource",
+                                        "change": -3
+                                    }
+                                },
+                                {
+                                    "type": "origins:remove_from_entity_set",
+                                    "set": "bear:home/home_range_home_limit"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "bear:home/home_range_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "speed_boost": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "bear:bearmovementspeed",
+            "attribute": "minecraft:generic.movement_speed",
+            "name": "the honey compels you speed",
+            "amount": 0.25,
+            "operation": "ADD_MULTIPLIED_TOTAL"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:entity_in_radius",
+            "radius": 60,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "bear:home/home_ranger"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:armor_stand"
+                        }
+                    ]
+                }
+            },
+            "shape": "sphere"
+        }
+    },
+    "air_speed_boost": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": 0.25
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:entity_in_radius",
+            "radius": 60,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "bear:home/home_ranger"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:armor_stand"
+                        }
+                    ]
+                }
+            },
+            "shape": "sphere"
+        }
+    },
+    "attack_speed_boost": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "bear:bearmovementspeed",
+            "attribute": "minecraft:generic.attack_speed",
+            "name": "the honey compels you attack",
+            "amount": 0.40,
+            "operation": "ADD_MULTIPLIED_TOTAL"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:entity_in_radius",
+            "radius": 60,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:power",
+                            "power": "bear:home/home_ranger"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:armor_stand"
+                        }
+                    ]
+                }
+            },
+            "shape": "sphere"
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 180,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "hypno:textures/bars/bear/bear_bar.png",
+			"bar_index": 1,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "bear:home/home_range_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "bear:home/home_range_cooldown",
+            "change": -1
+        },
+        "interval": 20
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "origins:phantomize_overlay",
+        "strength": 0.2,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:entity_in_radius",
+            "radius": 60,
+            "shape": "sphere",
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">=",
+                    "compare_to": 50
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power",
+                                "power": "bear:home/home_ranger"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:armor_stand"
+                            }
+                            ]
+                        }
+                    }
+                ]    
+            }
+        }    
+    },
+    "name": "Bear: Home Ranges",
+    "description": "bear stay close to home, home safe, home enjoy bear, bear enjoy home, bear mark home with bear print, bear print symobize peace and strength, roar, bear protect bear home, bear home move sometimes, bear don't complain bear stay happy.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Primary: bear set bear home, bear get fast attack and fast move{40% attack speed, 25% movement and airspeed} when near home, home break if bear 60 blocks away from home, bear must wait time before new home make avalible{3 minute CD}."
+        }
+    ]
+}

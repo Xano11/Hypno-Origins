@@ -6,6 +6,7 @@
         {
             "type": "origins:crafting_recipe",
             "prefix": "§9§lHoming Souls §r§9⚈",
+            "suffix": "§7Summon five homing orbs that follow the target and deal §e2§7 magic damage each on hit.\n§8(COST: 5 souls)",
             "sprite": "origins:textures/gui/badge/info.png",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
@@ -31,6 +32,7 @@
         {
             "type": "origins:crafting_recipe",
             "prefix": "§9§lSoul Arrow §r§9🏹",
+            "suffix": "§7Shoot forward a soul arrow that deals §e10§7 magic damage.\n§8(COST: 5 souls)",
             "sprite": "origins:textures/gui/badge/info.png",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
@@ -56,6 +58,7 @@
         {
             "type": "origins:crafting_recipe",
             "prefix": "§9§lArcane Weapon §r§9🗡",
+            "suffix": "§7All damage dealt does +1 magic damage for 10s.\n§8(COST: 15 souls)",
             "sprite": "origins:textures/gui/badge/info.png",
             "recipe": {
                 "type": "minecraft:crafting_shaped",

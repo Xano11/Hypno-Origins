@@ -1,0 +1,117 @@
+{
+    "type": "origins:multiple",
+    "craft_balloon": {
+        "type": "origins:modify_crafting",
+        "recipe": "clown:balloon",
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "clown:balloon"
+        },
+        "result": {
+            "id": "minecraft:feather",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Clown\\'s Balloon\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:max_damage": 60,
+                "minecraft:max_stack_size": 1,
+                "minecraft:custom_data": {
+                    "Balloon": true
+                },
+                "minecraft:attribute_modifiers": [
+                    {
+                        "id": "clown:balloon_gravity",
+                        "type": "minecraft:generic.gravity",
+                        "amount": -0.8,
+                        "operation": "add_multiplied_base",
+                        "slot": "hand"
+                    },
+                    {
+                        "id": "clown:balloon_safe_fall",
+                        "type": "minecraft:generic.safe_fall_distance",
+                        "amount": 3,
+                        "operation": "add_multiplied_base",
+                        "slot": "hand"
+                    }
+                ]
+            }
+        }
+    },
+    "craft_kevinometer": {
+        "type": "origins:modify_crafting",
+        "recipe": "clown:kevinometer",
+        "result": {
+            "id": "minecraft:carrot",
+            "components": {
+                "!minecraft:food": {},
+                "minecraft:custom_name": "[{\"text\":\"Kevin-O-Meter\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:max_stack_size": 1,
+                "minecraft:custom_data": {
+                    "Kevin-O-Meter": true,
+                    "Readied_Pig": true
+                }
+            }
+        }
+    },
+    "name": "Absurdism",
+    "description": "TOOLS OR TOYS, EVERYTHING ABIDES MY CRAZY IDEATIONS",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/clown/comedy_icon.png",
+            "text": "§6§lAbsurdism 🤡§r\n§7You can craft special tools!\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§c§lBalloon 🎈\n§r§7",
+            "sprite": "minecraft:textures/block/red_wool.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "clown:balloon",
+                "pattern": [
+                    "aaa",
+                    "aba",
+                    "aaa"
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:wind_charge"
+                    },
+                    "a": {
+                        "item": "minecraft:red_wool"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:wind_charge"
+                }
+            },
+            "suffix": "§7The balloon reduces the user's gravity by 80% when held in hand."
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§c§lKevin-o-meter 🛠\n§r§7",
+            "sprite": "minecraft:textures/item/carrot.png",
+            "recipe": { 
+                "type": "minecraft:crafting_shaped",
+                "id": "clown:kevinometer",
+                "pattern": [
+                    " a ",
+                    "aba",
+                    " a "
+                ],
+                "key": {
+                    "b": {
+                        "item": "minecraft:carrot"
+                    },
+                    "a": {
+                        "item": "minecraft:gold_block"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:carrot"
+                }
+            },
+             "suffix": "§7Required to summon kevin."
+        }
+    ]
+}

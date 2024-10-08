@@ -1,0 +1,7 @@
+[
+    {
+        "function": "apoli:remove_power",
+        "power": "angler:fishing/treasure",
+        "slot": "any"
+    }
+]

@@ -13,7 +13,7 @@
                     {
                         "type": "origins:equipped_item",
                         "equipment_slot": "mainhand",
-                        "item_condition":{
+                        "item_condition": {
                             "type": "origins:custom_data",
                             "nbt": "{angler:1b}"
                         }
@@ -22,12 +22,75 @@
                         "type": "origins:equipped_item",
                         "equipment_slot": "offhand",
                         "item_condition": {
-                        "type": "origins:custom_data",
-                        "nbt": "{angler:1b}"
-                    }
+                            "type": "origins:custom_data",
+                            "nbt": "{angler:1b}"
+                        }
                     }
                 ]
             }
+        }
+    },
+    "water_aspect": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:book"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{legendary_pufferfish:1b}"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "result": {
+            "id": "minecraft:enchanted_book",
+            "components": {
+                "minecraft:custom_data": {
+                    "Water_Aspect": true
+                },
+                "minecraft:stored_enchantments": {
+                    "angler:water_aspect": 1
+                }
+            }
+        }
+    },
+    "treasure": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{angler:1b}",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:fishing_rod"
+                    }
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{legendary_salmon:1b}"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "result_item_action": {
+            "type": "origins:modify",
+            "modifier": "angler:apply_treasure"
         }
     },
     "name": "Fisher of Legends",

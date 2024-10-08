@@ -1,0 +1,74 @@
+{
+	"type": "origins:multiple",
+
+    "rawmeat_berries_buff":{
+        "type": "origins:modify_food",
+        "item_condition":  {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "bear:diet"
+            }
+        },
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "add_base_early",
+            "amount": 4.0
+        },
+        "saturation_modifier": {
+            "name": "Increased saturation points",
+            "operation": "add_base_early",
+            "amount": 4
+        }
+    },
+
+    "honey_bottle_buff":{
+        "type": "origins:modify_food",
+        "item_condition":  {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:honey_bottle"
+            }
+        },
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "add_base_early",
+            "amount": 2.0
+        },
+        "saturation_modifier": {
+            "name": "Increased saturation points",
+            "operation": "add_base_early",
+            "amount": 4
+        }
+    },
+
+	"rawmeat_berries_nerf":{
+        "type": "origins:modify_food",
+        "item_condition":  {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "bear:diet"
+            },
+			"inverted": true
+        },
+        "food_modifier": {
+            "name": "decreased food points",
+            "operation": "add_base_early",
+            "amount": -4.0
+        },
+        "saturation_modifier": {
+            "name": "decreased saturation points",
+            "operation": "add_base_early",
+            "amount": -0.2
+        }
+    },
+
+	"name": "Bear: Enjoyable Food",
+	"description": "bear enjoy meat raw and berries plenty, bear eat food more, food make bear very happy.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "bear gain +4 food when eating bear food, bear food raw meat, honey and berries but bear no no like other foods, bear get -4 from everything else, bear simple, yet bear picky."
+        }
+    ]
+}

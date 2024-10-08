@@ -1,0 +1,252 @@
+{
+    "type": "origins:multiple",
+    "use_main": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function clown:delirium_start"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:escapism_cooldown",
+            "comparison": "==",
+            "compare_to": 6000
+        },
+        "cooldown": 3000,
+        "key": "key.origins.secondary_active",
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 19,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "clown:delirium_duration",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "clown:escapism_cooldown",
+                        "comparison": "==",
+                        "compare_to": 6000
+                    }
+                ]
+            }
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function clown:delirium_end"
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 19,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "clown:delirium_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "duration_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "clown:delirium_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function clown:delirium_particles"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "base_overlay": {
+        "type": "origins:overlay",
+        "texture": "origins:phantomize_overlay",
+        "strength": 0.08,
+        "red": 0.0,
+        "green": 0.4,
+        "blue": 0.64,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "main_overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:clown/delirium",
+        "strength": 0.6,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death": {
+        "type": "origins:prevent_death",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_value",
+            "amount": -0.04,
+            "id": "clown_delirium_speed"
+        },
+        "tick_rate": 2,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "eepy": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "eepy_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "clown:delirium_eepy",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_eepy",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "eep": {
+        "type": "origins:pose",
+        "entity_pose": "sleeping",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_eepy",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "cant_move": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_multiplied_total",
+            "amount": -1,
+            "id": "clown_eeps"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_eepy",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "eep_no_air": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_eepy",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "eepy_jumps": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_eepy",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Trick: Delirium",
+    "description": "The face can only reveal one facet of someone's psyche; something miniscule when compared to it's whole",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/clown/tragedy_icon.png",
+            "text": "§b§lDelirium §r§b👹§r\n§7Activating the ability grants §bDELIRIUM 👹§7 for 10s\n\n§bDELIRIUM 👹§7\nYou are slowed by 40% but you are unable to die.\nAfter the duration ends, you fall unconscious for 3s; making you vulnerable.\n\n§b🕕§r§7 Duration: §r§f10s\n§e⌛§r§7 Cooldown: §r§f2m30s\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Press §r[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]§7 to go into Delirium!"
+            ]
+        }
+    ]
+}

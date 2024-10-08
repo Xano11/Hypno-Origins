@@ -1,0 +1,96 @@
+{
+    "type": "origins:multiple",
+    "protection": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:protection",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.5
+        }
+    },
+    "projectile_protection": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:projectile_protection",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.5
+        }
+    },
+    "fire_protection": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:fire_protection",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.5
+        }
+    },
+    "blast_protection": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:blast_protection",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.5
+        }
+    },
+    "water_protection": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "origins:water_protection",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.5
+        }
+    },
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "minecraft:protection",
+                    "comparison": ">=",
+                    "compare_to": 1,
+                    "use_modifications": false
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "minecraft:projectile_protection",
+                    "comparison": ">=",
+                    "compare_to": 1,
+                    "use_modifications": false
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "minecraft:fire_protection",
+                    "comparison": ">=",
+                    "compare_to": 1,
+                    "use_modifications": false
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "minecraft:blast_protection",
+                    "comparison": ">=",
+                    "compare_to": 1,
+                    "use_modifications": false
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "origins:water_protection",
+                    "comparison": ">=",
+                    "compare_to": 1,
+                    "use_modifications": false
+                }
+            ]
+        },
+        "text": "§l§4(PROTECTION: UNSTABLE)"
+    },
+    "name": "Psyche: Unstable",
+    "description": "WHY CAN'T IT MAKE SENSE?!?",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/darkness.png",
+            "text": "§c§lUnstable §r§c🧠§r\n§7All protection enchantments §8(Projectile Protection, Blast Protection, etc)§7 are reduced by §chalf§7.\n\n§7§lPassive Ability"
+        }
+    ]
+}

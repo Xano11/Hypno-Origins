@@ -1,0 +1,166 @@
+{
+    "type": "origins:multiple",
+    "targets": {
+        "type": "origins:entity_set"
+    },
+    "vanish": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function clown:deception_dummy_end"
+                },
+                {
+                    "type": "origins:modify_death_ticks",
+                    "modifier": {
+                        "operation": "set_total",
+                        "amount": 20
+                    }
+                }
+            ]
+        }
+    },
+    "vanish_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "clown:deception/dummy_vanish",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "dying": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:selector_action",
+                        "selector": "@a",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "clown:deception/main_duration",
+                                "change": 0,
+                                "operation": "set"
+                            }
+                        },
+                        "bientity_condition": {
+                            "type": "origins:invert",
+                            "condition": {
+                                "type": "origins:in_entity_set",
+                                "set": "clown:deception/main_dummy"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function clown:deception_dummy_end"
+                    },
+                    {
+                        "type": "origins:modify_death_ticks",
+                        "modifier": {
+                            "operation": "set_total",
+                            "amount": 20
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:ominous_spawning ~ ~ ~ 0.05 0.05 0.05 0.5 3"
+        },
+        "interval": 1
+    },
+    "bait": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 24,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:add_to_entity_set",
+                        "set": "clown:deception/dummy_targets"
+                    },
+                    {
+                        "type": "origins:damage",
+                        "amount": 0.00001,
+                        "damage_type": "clown:deception"
+                    }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:armor_stand",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:player",
+                                    "inverted": true
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:in_entity_set",
+                        "set": "clown:deception/dummy_targets",
+                        "inverted": true
+                    }
+                ]
+            }
+        },
+        "interval": 1
+    },
+    "shulker_head": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "shulker_head"
+        ]
+    },
+    "invisibility":{
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "collision":{
+        "type": "origins:prevent_entity_collision"
+    },
+    "damaged":{
+        "type": "origins:modify_damage_taken",
+        "self_action": {
+            "type": "origins:execute_command",
+            "command": "function clown:deception_hit"
+        },
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": 3
+        }
+    },
+    "hidden": true
+}

@@ -1,0 +1,88 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 120,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "kill @s"
+        }
+    },
+    "duration_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "chosen:spells/arrow_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 1,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "hit_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 2,
+                        "shape": "sphere",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:damage",
+                                    "amount": 10,
+                                    "damage_type": "chosen:sorcery"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "function chosen:homing/hit"
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @s"
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:invert",
+                                    "condition": {
+                                        "type": "origins:in_entity_set",
+                                        "set": "chosen:spells/soul_arrow_owned",
+                                        "inverted": true
+                                    }
+                                },
+                                {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:living"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "command_at_hit": "particle minecraft:soul_fire_flame ~ ~ ~ 0 0 0 0.08 20 force @a",
+                    "command_along_ray": "function chosen:arrow/moving",
+                    "command_step": 0.3,
+                    "command_along_ray_only_on_hit": false
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

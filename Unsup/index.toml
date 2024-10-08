@@ -9,16 +9,24 @@ file = "config/openloader/advanced_options.json"
 hash = "97c64147276f55cad728249dd77602661e2327fa178aeb8e0db12866df448211"
 
 [[files]]
-file = "config/openloader/data/angler_0.20.zip"
-hash = "1936e700001e48f61ece9470c170e24ed68dc41261d54dfdc2227c415defb896"
+file = "config/openloader/data/angler_0.21.zip"
+hash = "c01e71b23ece1101fdb5d9b831feaf1bac969270a74148ede453ae36656257bc"
 
 [[files]]
-file = "config/openloader/data/chosen_0.20.zip"
-hash = "e7b939289e96aa3838e720329af7c9ecf03890be9756ae4010853a38865d6af2"
+file = "config/openloader/data/bear_0.20.zip"
+hash = "d0b4e9f183a08875e63921542a3b325a18b2af35ae8bd36d07eb852c5cae62d3"
 
 [[files]]
-file = "config/openloader/data/crow_0.20.zip"
-hash = "360ca21cbe970d5380585e8704bc3eed4b79da1e418508279c3aa1b1c644ac8b"
+file = "config/openloader/data/chosen_0.21.zip"
+hash = "7e2f8ef91dede379fd555093e29e9b135bbf12cc1d2ce1b5b88137763a713687"
+
+[[files]]
+file = "config/openloader/data/clown_0.20.zip"
+hash = "65c1e10899b1ff539054f6d76eb27f5f3581550d8d0d77d7d6e78edfa801990b"
+
+[[files]]
+file = "config/openloader/data/crow_0.21.zip"
+hash = "a48f95166eff024ab0a696b5ff7a51d66d2332fa6cfda0ec9620a10f331d5d10"
 
 [[files]]
 file = "config/openloader/data/eelektross_0.21.zip"
@@ -26,27 +34,27 @@ hash = "844ee29561f8ead2427bbecfae61f67331e7b721bbb9a942798dd6f6346bf215"
 
 [[files]]
 file = "config/openloader/data/global_0.23.zip"
-hash = "7ee94e277eb4c14c9992974184c5baf53efb2246bd46fccd88d067057789d646"
+hash = "306c693289edefe3b455eff4037a8f5ee6877305323f621e108bf0aed8171bb5"
 
 [[files]]
-file = "config/openloader/data/kalogero_0.22.zip"
-hash = "07526d7d386bda2a83b54645436407214e8e4f96bb90a17fb18d7a521cc3d9a2"
+file = "config/openloader/data/kalogero_0.23.zip"
+hash = "285da563386d48c449dbff570e5a2c178156ab4a6cbe1791ead7993db85558f6"
 
 [[files]]
 file = "config/openloader/data/kitsune_0.23.zip"
 hash = "cfcf4ce9135177d959baa6d12be9bb95348c8ce9654035709fddc9b001f70cad"
 
 [[files]]
-file = "config/openloader/data/voidsent_0.20.zip"
-hash = "dbf65997fc01092f6b7d6f1f54b9580fe9462575f9323a6106ae1fee09493ae6"
+file = "config/openloader/data/voidsent_0.21.zip"
+hash = "a8e25ecdc2542badc8d2e99ceb7998c03818e245f85c42a42743189543bf68f6"
 
 [[files]]
 file = "config/openloader/data/zephyrite_0.21.zip"
 hash = "5c93c59163c55f07bd3fee29f2980c4158939a37e4fcee5c19fd2c0c8f2cbc7b"
 
 [[files]]
-file = "config/openloader/resources/pack2.0.zip"
-hash = "49076c670869fd782cfb0f00c4eb08d0d3bcb0216ac9182d5018f75cd2cd33df"
+file = "config/openloader/resources/pack2.5.zip"
+hash = "c199ad43e7f9366ffae2f614ec122bf8d115419d444b0ebdbb560c4f89bfbe9e"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"

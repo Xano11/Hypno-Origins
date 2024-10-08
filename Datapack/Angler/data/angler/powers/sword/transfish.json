@@ -1,37 +1,6 @@
 {
     "type": "origins:multiple",
-    "cooldown1": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 100,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "bar_index": 1,
-            "sprite_location": "hypno:textures/bars/angler/angler.png",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:sword/transfish_cooldown1",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/swordfish_tier1",
-                            "slot": "any"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "cooldown2": {
+    "cooldown": {
         "type": "origins:resource",
         "min": 0,
         "max": 90,
@@ -41,124 +10,21 @@
             "bar_index": 1,
             "sprite_location": "hypno:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:sword/transfish_cooldown2",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/swordfish_tier2",
-                            "slot": "any"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "cooldown3": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 80,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "bar_index": 1,
-            "sprite_location": "hypno:textures/bars/angler/angler.png",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:sword/transfish_cooldown3",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/swordfish_tier3",
-                            "slot": "any"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "cooldown4": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 60,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "bar_index": 1,
-            "sprite_location": "hypno:textures/bars/angler/angler.png",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "angler:sword/transfish_cooldown4",
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:has_power",
-                            "power": "angler:tiers/swordfish_tier4",
-                            "slot": "any"
-                        }
-                    }
-                ]
+                "type": "origins:resource",
+                "resource": "angler:sword/transfish_cooldown",
+                "comparison": ">",
+                "compare_to": 0
             }
         }
     },
     "cooldown_down": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:sword/transfish_cooldown1",
-                    "change": -1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:sword/transfish_cooldown2",
-                    "change": -1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:sword/transfish_cooldown3",
-                    "change": -1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "angler:sword/transfish_cooldown4",
-                    "change": -1
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "angler:sword/transfish_cooldown",
+            "change": -1
         },
         "interval": 1
-    },
-    "keepitems": {
-        "type": "origins:keep_inventory",
-        "item_condition": {
-            "type": "origins:custom_data",
-            "nbt": "{swordfish:1b}"
-        }
     },
     "activate": {
         "type": "origins:active_self",
@@ -307,7 +173,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "hypno:textures/item/angler/swordfish.png",
-            "text": "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3 §7/ §f4 §7/ §f5 §7/ §f7§r§8 (+2 in Water)\n§7§lActive Ability"
+            "text": "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3 §7/ §f5 §7/ §f7 §7/ §f8§r§8 (+2 in Water)\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
@@ -315,9 +181,15 @@
             "text": "§e§lDeep Treasure 🌟§r\n§7Using an Angler's treasure, you can upgrade your swordfish!\nThis increases the Swordfish's damage and reduces the dash cooldown.\n\n§7§lPassive Ability"
         },
         {
-            "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "§7Turn any fish into a weapon of war with %s§7!"
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": [
+                "§7Turn any fish into a weapon of war with§r [",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7!"
+            ]
         }
     ]
 }

@@ -24,7 +24,7 @@
                 "italic": false
             },
             {
-                "text": " 4 Attack Damage",
+                "text": " 5 Attack Damage",
                 "color": "aqua",
                 "italic": false
             },
@@ -54,12 +54,19 @@
             {
                 "id": "angler_attack",
                 "attribute": "minecraft:generic.attack_damage",
-                "amount": 3,
+                "amount": 4,
                 "operation": "add_value",
                 "slot": "mainhand"
             }
         ],
         "replace": true
+    },
+    {
+        "function": "minecraft:set_enchantments",
+        "enchantments": {
+            "minecraft:looting": 1,
+            "angler:water_aspect": 1
+        }
     },
     {
         "function": "minecraft:toggle_tooltips",

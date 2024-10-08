@@ -32,7 +32,7 @@
                                         "actions": [
                                             {
                                                 "type": "origins:execute_command",
-                                                "command": "function angler:rod_cd"
+                                                "command": "resource set @s angler:fishing/throw_cooldown 500"
                                             },
                                             {
                                                 "type": "origins:change_resource",
@@ -72,13 +72,13 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:fishing/throw_cooldown4",
+                    "resource": "angler:fishing/throw_cooldown",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "angler:fishing/throw_holding_key",
+                    "resource": "angler:description_holding_key",
                     "comparison": ">",
                     "compare_to": 0
                 }

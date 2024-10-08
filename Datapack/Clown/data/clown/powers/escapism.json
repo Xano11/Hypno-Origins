@@ -1,0 +1,91 @@
+{
+    "type": "origins:multiple",
+    "mask": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "function clown:equip_mask"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.head with minecraft:air"
+        },
+        "execute_chosen_when_orb": false
+    },
+    "keep_mask":{
+        "type": "origins:keep_inventory",
+        "slots": [
+            39
+        ]
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6000,
+        "start_value": 6000,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 19,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "clown:escapism_cooldown",
+                "comparison": "<",
+                "compare_to": 6000
+            }
+        }
+    },
+    "cooldown_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "clown:escapism_cooldown",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:escapism_cooldown",
+            "comparison": "<",
+            "compare_to": 6000
+        }
+    },
+    "death":{
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function clown:escapism"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:escapism_cooldown",
+            "comparison": "==",
+            "compare_to": 6000
+        }
+    },
+    "health":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "add_value",
+            "amount": -10,
+            "id": "clown:escapism_health"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:escapism_cooldown",
+            "comparison": "<",
+            "compare_to": 6000
+        }
+    },
+    "name": "Psyche: Escapism",
+    "description": "IM GONNA GO FUCKING FERAL!!!",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/invisibility.png",
+            "text": "§e§lEscapism §r§e🎭§r\n§7You are forced to wear a mask that provides no armor.\nAdditionally, dying will trigger §eEscapism 🎭§7.\n\n§eEscapism 🎭§7\nYou are healed to full health but you lose half of your maximum health until the ability's cooldown is fully refreshed.\n§8(You cannot use Deception whilst Escapism is on cooldown)\n\n§e⌛§r§7 Cooldown: §r§f5m\n§7§lPassive Ability"
+        }
+    ]
+}

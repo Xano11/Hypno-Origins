@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"bear:home/home_range",
+		"bear:fishing",
+		"bear:diet",
+		"bear:brain_cancer",
+		"bear:shot/hunted"
+	],
+	"icon": {
+        "id": "minecraft:honey_bottle",
+		"components": {
+            "minecraft:custom_model_data": 1
+        }
+    },
+	"order": 3,
+	"impact": 1,
+	"name": "Bear",
+	"description": "Bear: Protocol \njust act natural bear"
+}

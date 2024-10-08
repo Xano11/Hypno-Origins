@@ -1,0 +1,16 @@
+[
+    {
+        "function": "apoli:add_power",
+        "power": "angler:fishing/treasure",
+        "slot": "any",
+        "negative": false,
+        "hidden" : true
+    },
+    {
+        "function": "minecraft:set_enchantments",
+        "enchantments": {
+            "angler:treasure": 1
+        },
+        "add": true
+    }
+]

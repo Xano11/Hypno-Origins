@@ -187,9 +187,9 @@
 
     "iframes_color":{
         "type": "origins:model_color",
-        "red": 1,
-        "green": 0.92,
-        "blue": 0.92,
+        "red": 0.96,
+        "green": 0.8,
+        "blue": 0.8,
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_iframes",

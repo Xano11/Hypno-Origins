@@ -1,0 +1,462 @@
+{
+    "type": "origins:multiple",
+    "fuel": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "hypno:textures/bars/clown/kevin_fuel.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:raycast",
+                        "block": false,
+                        "entity": true,
+                        "shape_type": "visual",
+                        "fluid_handling": "none",
+                        "hit_bientity_condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "clown:kevin/main_kevins"
+                        }
+                    },
+                    {
+                        "type": "origins:riding",
+                        "bientity_condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "clown:kevin/main_kevins"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "kevins": {
+        "type": "origins:entity_set",
+        "action_on_remove": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function clown:pig_disappear"
+                    },
+                    {
+                        "type": "origins:modify_death_ticks",
+                        "modifier": {
+                            "operation": "set_total",
+                            "amount": 20
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "summon": {
+        "type": "origins:action_on_block_use",
+        "block_action": {
+            "type": "origins:offset",
+            "action": {
+                "type": "origins:spawn_entity",
+                "entity_type": "minecraft:pig",
+                "tag": "{DeathLootTable:\"minecraft:empty\",CanPickUpLoot:0b,Tags:[\"kevin\"],CustomName:'\"kevin\"'}",
+                "entity_action": {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s clown:kevin/pig"
+                }
+            },
+            "y": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_entity_set",
+                    "set": "clown:kevin/main_kevins",
+                    "bientity_action": {
+                        "type": "origins:remove_from_entity_set",
+                        "set": "clown:kevin/main_kevins"
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@n[tag=kevin]",
+                    "bientity_action": {
+                        "type": "origins:add_to_entity_set",
+                        "set": "clown:kevin/main_kevins"
+                    }
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{Kevin-O-Meter:1b}"
+        },
+        "block_condition": {
+            "type": "origins:movement_blocking"
+        },
+        "usage_phases": [
+            "block"
+        ],
+        "directions": [
+            "up"
+        ]
+    },
+    "desummon": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function clown:pig_disappear"
+                    },
+                    {
+                        "type": "origins:modify_death_ticks",
+                        "modifier": {
+                            "operation": "set_total",
+                            "amount": 20
+                        }
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:in_entity_set",
+            "set": "clown:kevin/main_kevins"
+        },
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{Kevin-O-Meter:1b}"
+        },
+        "hands": [
+            "main_hand",
+            "off_hand"
+        ],
+        "condition": {
+            "type": "origins:sneaking"
+        }
+    },
+    "ride": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:mount"
+        },
+        "bientity_condition": {
+            "type": "origins:in_entity_set",
+            "set": "clown:kevin/main_kevins"
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
+        ]
+    },
+    "feed_fuel": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "clown:kevin/main_fuel",
+                        "change": 40
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function clown:pig_fuel"
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:in_entity_set",
+            "set": "clown:kevin/main_kevins"
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:wind_charge"
+            }
+        },
+        "held_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "hands": [
+            "main_hand",
+            "off_hand"
+        ]
+    },
+    "readied_pig": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:merge_custom_data",
+                        "nbt": "{Readied_Pig: 1b}"
+                    },
+                    {
+                        "type": "origins:modify",
+                        "modifier": "clown:kevinometer_readied"
+                    }
+                ]
+            },
+            "item_condition": {
+                "type": "origins:custom_data",
+                "nbt": "{Kevin-O-Meter:1b}"
+            }
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:entity_set_size",
+            "set": "clown:kevin/main_kevins",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "unreadied_pig": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:merge_custom_data",
+                        "nbt": "{Readied_Pig: 0b}"
+                    },
+                    {
+                        "type": "origins:modify",
+                        "modifier": "clown:kevinometer_unreadied"
+                    }
+                ]
+            },
+            "item_condition": {
+                "type": "origins:custom_data",
+                "nbt": "{Kevin-O-Meter:1b}"
+            }
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:entity_set_size",
+            "set": "clown:kevin/main_kevins",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "flying": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "clown:kevin/main_fuel",
+                "comparison": ">",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:if_else_list",
+                "actions": [
+                    {
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "clown:kevin/main_tier",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        "action": {
+                            "type": "origins:riding_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute rotated as @p anchored eyes if block ^ ^ ^0.3 #minecraft:replaceable anchored feet run tp @s ^ ^ ^0.3 ~ ~"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "clown:kevin/main_tier",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        "action": {
+                            "type": "origins:riding_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute rotated as @p anchored eyes if block ^ ^ ^0.45 #minecraft:replaceable anchored feet run tp @s ^ ^ ^0.45 ~ ~"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "clown:kevin/main_tier",
+                            "comparison": "==",
+                            "compare_to": 2
+                        },
+                        "action": {
+                            "type": "origins:riding_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute rotated as @p anchored eyes if block ^ ^ ^0.6 #minecraft:replaceable anchored feet run tp @s ^ ^ ^0.6 ~ ~"
+                            }
+                        }
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:riding_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"selector\":\"kevin is out of gas.\"}"
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:smoke ~ ~ ~ 0.3 0.1 0.3 0.03 3"
+                    }
+                ]
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.forward",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:in_entity_set",
+                "set": "clown:kevin/main_kevins"
+            }
+        }
+    },
+    "fuel_cost": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:riding_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.05 0.2 0 3 force @a"
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "clown:kevin/main_fuel",
+                    "change": -1
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:in_entity_set",
+                "set": "clown:kevin/main_kevins"
+            }
+        }
+    },
+    "level_up": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "clown:kevin/main_tier",
+                        "change": 1
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function clown:pig_level_up"
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_entity_set",
+                    "set": "clown:kevin/main_kevins"
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "clown:kevin/main_tier",
+                        "comparison": "<",
+                        "compare_to": 2
+                    }
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:enchanted_golden_apple"
+            }
+        },
+        "held_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "hands": [
+            "main_hand",
+            "off_hand"
+        ]
+    },
+    "tier": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Pet: kevin",
+    "description": "KEVIN!!1!!1!",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/wind_charged.png",
+            "text": "§e§lkevin §r§e🐖§r\n§7Using the §eKevin-O-Meter§7, you can summon the flying pig: kevin.\nkevin needs to be \"fueled\" to fly and this requires wind charges §8(10% per wind charge)§7.\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/golden_apple.png",
+            "text": "§e§lUPGRADES UPGRADES (oink oink) §r§e🐖§r\n§7You can feed Kevin enchanted golden apples.\nDoing so will increase his speed (§a+50%§7) permanently.\n§8(This can be done twice)\n\n§7§lPassive Ability"
+        }
+    ]
+}

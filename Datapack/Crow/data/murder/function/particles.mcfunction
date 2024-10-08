@@ -1,1 +1,1 @@
-$execute at $(Name) run particle dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[0.4,0.16,0.16],scale:3} ~ ~ ~ 1 60 1 1 100 force @s
+$execute at $(Name) run particle dust_color_transition{from_color:[0.65,0.0,1.0],to_color:[0.34,0.0,0.46],scale:3} ~ ~ ~ 1 60 1 1 100 force @s

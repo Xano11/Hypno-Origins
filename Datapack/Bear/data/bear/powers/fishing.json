@@ -1,0 +1,136 @@
+{
+	"type": "origins:multiple",
+		
+	"fishing_charge": {
+        "type": "origins:resource",
+            "min": 0,
+            "max": 100,
+			"start_value": 0,
+            "hud_render": {
+            	"should_render": true,
+				"sprite_location": "hypno:textures/bars/bear/bear_bar.png",
+				"bar_index": 0,
+				"condition": {
+				"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:biome",
+							"condition": {
+								"type": "origins:in_tag",
+								"tag": "minecraft:water_on_map_outlines"
+							}
+						},
+						{
+							"type": "origins:fluid_height",
+							"fluid": "minecraft:water",
+							"comparison": ">",
+							"compare_to": 0.0
+						}
+					]
+				}
+        	},
+		"max_action": {
+        	"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+    				"resource": "bear:fishing_fishing_charge",
+    				"change": -100
+				},
+				{
+					"type": "origins:execute_command",
+    				"command": "playsound minecraft:entity.axolotl.splash player @a ~ ~ ~ 1 0.5"
+				},
+				{
+					"type": "origins:execute_command",
+    				"command": "playsound minecraft:entity.experience_orb.pickup player @s ~ ~ ~ 0.5 2"
+				},
+				{    
+					"type": "origins:execute_command",
+    				"command": "loot spawn ~ ~ ~ fish bear:bear_fishing ~ ~ ~"
+				}
+			]
+    	}
+    },
+
+    "fishing_charge_charging": {
+		"type": "origins:action_over_time",
+    	"entity_action": {
+			"type": "origins:choice",
+    		"actions": [
+        			{
+            		"element": {
+                			"type": "origins:change_resource",
+    						"resource": "bear:fishing_fishing_charge",
+    						"change": 2
+            		},
+            		"weight": 8
+        			},
+        			{
+            			"element": {
+                			"type": "origins:change_resource",
+    						"resource": "bear:fishing_fishing_charge",
+    						"change": 5
+            			},
+            			"weight": 6
+        			},
+					{
+            			"element": {
+                			"type": "origins:change_resource",
+    						"resource": "bear:fishing_fishing_charge",
+    						"change": 7
+            			},
+            			"weight": 4
+        			},
+					{
+						"element": {
+								"type": "origins:change_resource",
+								"resource": "bear:fishing_fishing_charge",
+								"change": 10
+						},
+						"weight": 2
+					}
+    			]
+			},
+    	"interval": 10,
+		"condition": {
+    	"type": "origins:and",
+    		"conditions": [
+        		{
+					"type": "origins:biome",
+					"condition": {
+    					"type": "origins:in_tag",
+    					"tag": "minecraft:water_on_map_outlines"
+					}
+        		},
+                {
+                    "type": "origins:fluid_height",
+                	"fluid": "minecraft:water",
+                	"comparison": ">",
+                	"compare_to": 0.0
+                }
+    		]
+		}
+	},
+
+	"swimspeed": {
+		"type": "origins:attribute",
+  		"modifier": {
+			"id": "bear:additional_swim_speed",
+    		"attribute": "additionalentityattributes:generic.water_speed",
+    		"name": "Additional swim speed",
+    		"amount": 0.35,
+    		"operation": "ADD_MULTIPLIED_BASE"
+  		}
+	},
+
+	"name": "Bear: Fishing",
+	"description": "bear fish for bear food, bear eat fish- bear happy.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "bear find itself in river, bear find itself in ocean, bear find itself in swamp, bear dip in water, bear swim faster{35%}, bear catch fish, bear eat fish, HURRAH! "
+        }
+    ]
+}

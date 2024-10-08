@@ -14,6 +14,58 @@
         },
         "interval": 1
     },
+    "vanish": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function voidsent:abilities/tp_particles"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function voidsent:abilities/remove_node"
+                }
+            ]
+        }
+    },
+    "detect_vanish": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@a",
+            "bientity_action": {
+                "type": "origins:actor_action",
+                "action":  {
+                    "type": "origins:change_resource",
+                    "resource": "voidsent:nodes/node_vanish",
+                    "change": 30,
+                    "operation": "set"
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:invert",
+                "condition": {
+                    "type": "origins:in_entity_set",
+                    "set": "voidsent:nodes/ability_nodes"
+                }
+            }
+        },
+        "interval": 1
+    },
+    "no_owner": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "voidsent:nodes/node_vanish",
+            "change": -1
+        },
+        "interval": 1
+    },
     "load": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
