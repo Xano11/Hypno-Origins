@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"neon:enhanced",
+		"neon:cards",
+		"neon:gun",
+		"neon:demon",
+		"neon:hands"
+	],
+	"icon": {
+		"id": "minecraft:flint_and_steel",
+		"components": {
+			"minecraft:custom_model_data": 1
+		}
+	},
+	"order": 1,
+	"impact": 3,
+	"name": "Neon Rogue",
+	"description": "A forgotten member of the Neons, let free from sin to roam the surface again. Still bound to complete a task, the mask dawning their face calls forth the trials ahead."
+}

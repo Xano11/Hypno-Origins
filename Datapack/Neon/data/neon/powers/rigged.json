@@ -1,0 +1,21 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "neon_health",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -4,
+            "operation": "add_value"
+        }
+    },
+    "name": "Rigged Mask",
+    "description": "The mask, it haunts you. ready to blow at any moment, keep moving and everything will be fine.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "§4§lRigged Mask §r§4👺§r\n§7You are forced to wear a mask that can't be swapped.\nAdditionally, you permanently have -2 §4❤§7.\n\n§7§lPassive Ability"
+        }
+    ]
+}

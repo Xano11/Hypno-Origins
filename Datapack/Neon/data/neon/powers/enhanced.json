@@ -1,0 +1,34 @@
+{
+    "type": "origins:multiple",
+    "movement_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "neon:speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_value",
+            "amount": 0.02
+        }
+    },
+    "convert_air": {
+        "type": "origins:attribute_modify_transfer",
+        "class": "modify_air_speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "multiplier": 0
+    },
+    "invuln": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        }
+    },
+    "name": "Enhanced Endurance",
+    "description": "All these trials really put you into shape; them hips don't lie",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§l§lEnhanced Endurance §r§l🌫§r\n§7- You have §a+20%§7 movement speed.\n- All of your movement speed is converted to your air speed.\n- You are §aimmune§7 to fall damage.\n\n§7§lPassive Ability"
+        }
+    ]
+}

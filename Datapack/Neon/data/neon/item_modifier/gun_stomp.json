@@ -1,0 +1,26 @@
+[
+    {
+        "function": "minecraft:set_custom_model_data",
+        "value": 5
+    },
+    {
+        "function": "minecraft:set_custom_data",
+        "tag": "{Fist_Card:0b, Elevate_Card:0b, Purify_Card:0b, Godspeed_Card:0b, Stomp_Card:1b}"
+    },
+    {
+        "function": "minecraft:set_name",
+        "target": "custom_name",
+        "name": [
+            {
+                "text": "Neon's Gun ["
+            },
+            {
+                "text": "STOMP",
+                "color": "green"
+            },
+            {
+                "text": "]"
+            }
+        ]
+    }
+]

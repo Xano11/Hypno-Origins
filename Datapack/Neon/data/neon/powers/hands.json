@@ -1,0 +1,30 @@
+{
+    "type": "origins:multiple",
+    "shield":{
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "neon:prohibited"
+            }
+        }
+    },
+    "atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "neon_attack_speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "amount": -0.2,
+            "operation": "add_multiplied_total"
+        }
+    },
+    "name": "Hands Free",
+    "description": "§oWhy would I use this gladiator gear, I'm a modern man",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "§c§lHands Free §r§l❌§r\n§7You cannot use shields, crossbow and bows.\nAdditionally, your attack speed is reduced by §c20%§7.\n\n§7§lPassive Ability"
+        }
+    ]
+}

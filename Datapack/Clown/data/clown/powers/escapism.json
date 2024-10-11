@@ -12,7 +12,7 @@
         },
         "execute_chosen_when_orb": false
     },
-    "keep_mask":{
+    "keep_mask": {
         "type": "origins:keep_inventory",
         "slots": [
             39
@@ -50,20 +50,31 @@
             "compare_to": 6000
         }
     },
-    "death":{
+    "death": {
         "type": "origins:prevent_death",
         "entity_action": {
             "type": "origins:execute_command",
             "command": "function clown:escapism"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "clown:escapism_cooldown",
-            "comparison": "==",
-            "compare_to": 6000
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "clown:escapism_cooldown",
+                    "comparison": "==",
+                    "compare_to": 6000
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "clown:delirium_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
-    "health":{
+    "health": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.max_health",

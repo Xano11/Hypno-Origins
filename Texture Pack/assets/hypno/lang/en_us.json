@@ -7,6 +7,12 @@
     "death.attack.dash.player": "%s met %s\\'s dash",
 
     "death.attack.sorcery": "%s died to sophisticated spells",
-    "death.attack.sorcery.player": "%s met %s\\'s sophisticated spells"
+    "death.attack.sorcery.player": "%s met %s\\'s sophisticated spells",
+
+    "death.attack.bullet": "%s was shot to death",
+    "death.attack.bullet.player": "%s was shot to death by %s\\",
+
+    "death.attack.grenade": "%s didn't send the grenade back",
+    "death.attack.grenade.player": "%s didn't send %s\\'s grenade back\\"
 
 }

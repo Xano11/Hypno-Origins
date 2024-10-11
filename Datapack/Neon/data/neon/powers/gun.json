@@ -1,0 +1,553 @@
+{
+    "type": "origins:multiple",
+    "craft_gun": {
+        "type": "origins:modify_crafting",
+        "recipe": "neon:gun",
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "neon:gun_fist"
+        },
+        "result": {
+            "id": "minecraft:flint",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Neon's Gun\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:max_stack_size": 1,
+                "minecraft:custom_data": {
+                    "Neon_Gun": true,
+                    "Fist_Card": true
+                }
+            }
+        }
+    },
+    "pose": {
+        "type": "origins:pose",
+        "arm_pose": "spyglass",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Neon_Gun:1b}"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:custom_data",
+                        "nbt": "{Neon_Gun:1b}"
+                    }
+                }
+            ]
+        }
+    },
+    "fist": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:modify",
+                "modifier": "neon:gun_fist"
+            },
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Neon_Gun:1b}"
+                    },
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Fist_Card:1b}",
+                        "inverted": true
+                    }
+                ]
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "elevate": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:modify",
+                "modifier": "neon:gun_elevate"
+            },
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Neon_Gun:1b}"
+                    },
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Elevate_Card:1b}",
+                        "inverted": true
+                    }
+                ]
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "purify": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:modify",
+                "modifier": "neon:gun_purify"
+            },
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Neon_Gun:1b}"
+                    },
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Purify_Card:1b}",
+                        "inverted": true
+                    }
+                ]
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "godspeed": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:modify",
+                "modifier": "neon:gun_godspeed"
+            },
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Neon_Gun:1b}"
+                    },
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Godspeed_Card:1b}",
+                        "inverted": true
+                    }
+                ]
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "stomp": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "origins:modify",
+                "modifier": "neon:gun_stomp"
+            },
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Neon_Gun:1b}"
+                    },
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Stomp_Card:1b}",
+                        "inverted": true
+                    }
+                ]
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "elevate_shoot": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 24,
+            "block": true,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:damage",
+                        "amount": 3,
+                        "damage_type": "neon:bullet"
+                    },
+                    {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "damage_type": "neon:bullet_true"
+                    }
+                ]
+            },
+            "before_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:elevate_shoot"
+            },
+            "command_along_ray": "particle dust_color_transition{from_color:[0.0,0.0,0.0],to_color:[0.38,0.38,0.38],scale:0.2} ~ ~ ~ 0.05 0.05 0.05 1 3",
+            "command_step": 0.4,
+            "command_along_ray_only_on_hit": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_elevate",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 3,
+        "key": "key.use",
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "purify_shoot": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 24,
+            "block": true,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:damage",
+                "amount": 3,
+                "damage_type": "neon:bullet"
+            },
+            "before_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:purify_shoot"
+            },
+            "command_along_ray": "particle dust_color_transition{from_color:[0.0,0.0,0.0],to_color:[0.38,0.38,0.38],scale:0.22} ~ ~ ~ 0.05 0.05 0.05 1 3",
+            "command_step": 0.4,
+            "command_along_ray_only_on_hit": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_purify",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 2,
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "godspeed_shoot": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 92,
+            "block": true,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:damage",
+                        "amount": 9,
+                        "damage_type": "neon:bullet"
+                    },
+                    {
+                        "type": "origins:damage",
+                        "amount": 2,
+                        "damage_type": "neon:bullet_true"
+                    }
+                ]
+            },
+            "before_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:godspeed_shoot"
+            },
+            "command_along_ray": "particle dust_color_transition{from_color:[0.0,0.0,0.0],to_color:[0.38,0.38,0.38],scale:0.4} ~ ~ ~ 0.05 0.05 0.05 1 3",
+            "command_step": 0.4,
+            "command_along_ray_only_on_hit": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_godspeed",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 30,
+        "key": {
+            "key": "key.use"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "stomp_shoot": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 20,
+            "block": true,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 8
+                },
+                "if_action":  {
+                    "type": "origins:damage",
+                    "amount": 2,
+                    "damage_type": "neon:bullet"
+                },
+                "else_action":  {
+                    "type": "origins:damage",
+                    "amount": 1,
+                    "damage_type": "neon:bullet"
+                }
+            },
+            "before_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:stomp_shoot"
+            },
+            "command_along_ray": "particle dust_color_transition{from_color:[0.0,0.0,0.0],to_color:[0.38,0.38,0.38],scale:0.1} ~ ~ ~ 0.05 0.05 0.05 1 3",
+            "command_step": 0.4,
+            "command_along_ray_only_on_hit": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:custom_data",
+                                "nbt": "{Neon_Gun:1b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_stomp",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Card Shark",
+    "description": "All these trials really put you into shape; them hips don't lie",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "§e§lCard Shark §r§l🔫§r\n§7Your firearm adapts to your currently drawn card.\n§8(The \"+\" here designates §ltrue§r§8 damage)\n\n§eELEVATE§7\n§8(9 Ammo, Semi-Auto)\n§7Pistol deals 3(+1) damage per shot\n\n§5PURIFY§7\n§8(35 Ammo, Auto: 10 bullets/s)\n§7Machine Gun deals 2 damage per shot\n\n§9GODSPEED§8\n(4 Ammo, Semi-Auto, 1.5s delay)\n§7Sniper deals 9(+2) damage per shot\n\n§aSTOMP§8\n(30 Ammo, Auto: 20 bullets/s)\n§7Submachine Gun deals 2 damage upclose, 1 at 8+ blocks\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§e§lGUN CRAFT 🛠\n§r§7",
+            "sprite": "hypno:textures/item/neon/gun_2d.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "neon:gun",
+                "pattern": [
+                    "f  ",
+                    "gii",
+                    "s  "
+                ],
+                "key": {
+                    "s": {
+                        "item": "minecraft:stick"
+                    },
+                    "g": {
+                        "item": "minecraft:gunpowder"
+                    },
+                    "i": {
+                        "item": "minecraft:iron_ingot"
+                    },
+                    "f": {
+                        "item": "minecraft:flint"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:flint"
+                }
+            }
+        }
+    ]
+}

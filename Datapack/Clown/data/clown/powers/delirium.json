@@ -128,6 +128,51 @@
             "compare_to": 0
         }
     },
+    "constant_health": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:health",
+                "comparison": "<",
+                "compare_to": 10
+            },
+            "if_action":  {
+                "type": "origins:heal",
+                "amount": 1
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "health": {
+        "type": "origins:modify_damage_taken",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "clown:delirium_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": -1
+        }
+    },
     "death": {
         "type": "origins:prevent_death",
         "condition": {
@@ -168,6 +213,20 @@
             "type": "origins:change_resource",
             "resource": "clown:delirium_eepy",
             "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "clown:delirium_eepy",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "eepy_exhaust": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:exhaust",
+            "amount": 3
         },
         "interval": 1,
         "condition": {
@@ -235,7 +294,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "hypno:textures/item/clown/tragedy_icon.png",
-            "text": "§b§lDelirium §r§b👹§r\n§7Activating the ability grants §bDELIRIUM 👹§7 for 10s\n\n§bDELIRIUM 👹§7\nYou are slowed by 40% but you are unable to die.\nAfter the duration ends, you fall unconscious for 3s; making you vulnerable.\n\n§b🕕§r§7 Duration: §r§f10s\n§e⌛§r§7 Cooldown: §r§f2m30s\n§7§lActive Ability"
+            "text": "§b§lDelirium §r§b👹§r\n§7Activating the ability grants §bDELIRIUM 👹§7 for 10s\n\n§bDELIRIUM 👹§7\nYou are slowed by 40% but you are unable to drop below 50% health.\nAfter the duration ends, you fall unconscious for 3s; making you vulnerable and exhausting you massively.\n\n§b🕕§r§7 Duration: §r§f10s\n§e⌛§r§7 Cooldown: §r§f2m30s\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",

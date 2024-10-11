@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "neon:gun",
+    "pattern": [
+        "f  ",
+        "gii",
+        "s  "
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:gunpowder"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "f": {
+            "item": "minecraft:flint"
+        }
+    },
+    "result": {
+        "id": "minecraft:flint"
+    }
+}

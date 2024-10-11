@@ -1,0 +1,38 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+      "layer0": "minecraft:item/flint"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 1
+            },
+            "model": "hypno:item/neon/gun_fist"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "hypno:item/neon/gun_elevate"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 3
+            },
+            "model": "hypno:item/neon/gun_purify"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4
+            },
+            "model": "hypno:item/neon/gun_godspeed"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 5
+            },
+            "model": "hypno:item/neon/gun_stomp"
+        }
+    ]
+  }

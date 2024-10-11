@@ -1,0 +1,684 @@
+{
+    "type": "origins:multiple",
+    "card_type": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "autodraw": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function neon:draw"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_draw",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "fist_overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:neon/fist",
+        "strength": 1,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "fist_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "neon:fist_speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_value",
+            "amount": 0.04
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "draw": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function neon:draw"
+        },
+        "cooldown": 140,
+        "key": "key.origins.secondary_active",
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "hypno:textures/bars/neon/reload_bar.png"
+        }
+    },
+    "elevate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:on_block"
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "space": "local_horizontal_normalized",
+                        "z": 1.4,
+                        "set": true
+                    },
+                    "else_action": {
+                        "type": "origins:add_velocity",
+                        "space": "local_horizontal_normalized",
+                        "y": 1,
+                        "set": true
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function neon:elevate_dash"
+                }
+            ]
+        },
+        "cooldown": 4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_elevate",
+                    "comparison": ">=",
+                    "compare_to": 3
+                }
+            ]
+        },
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "bullets_elevate": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 9,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "hypno:textures/bars/neon/bullet_bar.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_card_type",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        },
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_draw",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:draw"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:fist_card"
+            }
+        }
+    },
+    "elevate_overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:neon/elevate",
+        "strength": 1,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "grenade_owner": {
+        "type": "origins:entity_set"
+    },
+    "purify": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "speed": 2,
+                    "tag": "{Silent:1b,Invulnerable:1b,Small:1b,Invisible:1b,Tags:[\"neon_grenade\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",view_range:100f,billboard:\"fixed\",Tags:[\"neon_grenade\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.4f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:fire_charge\",count:1}}]}",
+                    "projectile_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s neon:purify_grenade"
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@n[tag=neon_grenade]",
+                    "bientity_action": {
+                        "type": "origins:add_to_entity_set",
+                        "set": "neon:cards_grenade_owner",
+                        "time_limit": 65
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function neon:purify_grenade"
+                }
+            ]
+        },
+        "cooldown": 4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_purify",
+                    "comparison": ">=",
+                    "compare_to": 15
+                }
+            ]
+        },
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "bullets_purify": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 35,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "hypno:textures/bars/neon/bullet_bar.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_card_type",
+                "comparison": "==",
+                "compare_to": 2
+            }
+        },
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_draw",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:draw"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:fist_card"
+            }
+        }
+    },
+    "purify_overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:neon/purify",
+        "strength": 1,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "godspeed": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 10,
+            "block": true,
+            "entity": false,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "before_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:godspeed_tp"
+            },
+            "miss_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:godspeed_tp_end"
+            },
+            "hit_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:godspeed_tp_end"
+            },
+            "command_along_ray": "function neon:godspeed_tp_ray",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": false
+        },
+        "cooldown": 4,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_godspeed",
+                    "comparison": ">=",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 3
+                }
+            ]
+        }
+    },
+    "bullets_godspeed": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "hypno:textures/bars/neon/bullet_bar.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_card_type",
+                "comparison": "==",
+                "compare_to": 3
+            }
+        },
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_draw",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:draw"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:fist_card"
+            }
+        }
+    },
+    "godspeed_overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:neon/godspeed",
+        "strength": 1,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "stomp": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.1,
+                    "space": "local_horizontal_normalized"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function neon:stomp_levitate"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_stomp",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "stomp_used": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1
+    },
+    "stomp_key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0
+    },
+    "stomp_key_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "neon:cards_stomp_key_check",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "stomp_float": {
+        "type": "origins:modify_falling",
+        "velocity": 0.00001,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_stomp",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_stomp_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_stomp_used",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "stomp_falling": {
+        "type": "origins:modify_falling",
+        "velocity": 0.4,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_stomp",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_stomp_used",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "stomp_impact": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function neon:stomp_impact"
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:damage",
+                                "amount": 4,
+                                "damage_type": "neon:stomp"
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "y": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_stomp_used",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_bullets_stomp",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+        }
+    },
+    "bullets_stomp": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "hypno:textures/bars/neon/bullet_bar.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_card_type",
+                "comparison": "==",
+                "compare_to": 4
+            }
+        },
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_draw",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:draw"
+            }
+        }
+    },
+    "repick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "neon:cards_draw",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:draw"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "function neon:fist_card"
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_card_type",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_stomp_used",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "stomp_overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:neon/stomp",
+        "strength": 1,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_card_type",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "name": "Soul Cards",
+    "description": "This new world presents it self as a new challenge for judgement, the cards find your hand. The cards form a deck in this world, drawing and shuffling on there own to help you through the competition of life.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/neon/elevate_sprite.png",
+            "text": "§b§lSoul Cards §r§b♠§r\n\n§7You can draw a card that offers a movement ability every 7s.\nEach card has different amounts of bullets for your abilites/gun to use and once bullets are empty, you either auto-draw or go back to neutral.\n§eELEVATE§7\n§8(COST: 3 Ammo)\n§7Dash forward. If middair, you are launched upwards.\n\n§5PURIFY§7\n§8(COST: 15 Ammo)\n§7Throw a grenade that deals damage. The grenade deals no damage to you and pushes you away.\n\n§9GODSPEED§8\n(COST: 2 Ammo)\n§7Teleport 10 blocks forward; dealing damage to entities in your way.\n\n§aSTOMP§8\n(Cost: 20 Ammo/s)\n§7Float upwards; crashing down and dealing damage in an AOE once the Ammo bar is depleted.\n\n§7§lActive Ability"
+        }
+    ]
+}

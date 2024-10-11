@@ -1,0 +1,38 @@
+{
+    "type": "origins:multiple",
+    "food": {
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Decreased food points",
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.25
+        },
+        "saturation_modifier": {
+            "name": "Decreased food points",
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.25
+        }
+    },
+    "exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base_multiplicative",
+            "amount": 1
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether",
+            "inverted": true
+        }
+    },
+    "name": "Demon Time",
+    "description": "I haven't felt hunger in years, things change so fast.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "§c§lDemon Time §r§c😈§r\n§7Food offers §c-25%§7 food/saturation and you exhaust §c2x§7 quicker outside of the Nether.\n\n§7§lPassive Ability"
+        }
+    ]
+}

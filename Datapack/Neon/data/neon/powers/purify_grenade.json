@@ -1,0 +1,290 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:distance",
+                            "comparison": "<=",
+                            "compare_to": 2
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add neon_grenade_high"
+                            }
+                        },
+                        "else_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add neon_grenade_low"
+                            }
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:living"
+                                }
+                            },
+                            {
+                                "type": "origins:invert",
+                                "condition": {
+                                    "type": "origins:in_entity_set",
+                                    "set": "neon:cards_grenade_owner",
+                                    "inverted": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 2
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "neon:cards_grenade_owner"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=neon_grenade_high]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:damage",
+                                                "amount": 7,
+                                                "damage_type": "neon:grenade"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove neon_grenade_high"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=neon_grenade_low]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:damage",
+                                                "amount": 5,
+                                                "damage_type": "neon:grenade"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove neon_grenade_low"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "neon:cards_grenade_owner"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function neon:purify_explode"
+                }
+            ]
+        }
+    },
+    "duration_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "neon:purify_grenade_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "impact": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:distance",
+                            "comparison": "<=",
+                            "compare_to": 2
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add neon_grenade_high"
+                            }
+                        },
+                        "else_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add neon_grenade_low"
+                            }
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:living"
+                                }
+                            },
+                            {
+                                "type": "origins:invert",
+                                "condition": {
+                                    "type": "origins:in_entity_set",
+                                    "set": "neon:cards_grenade_owner",
+                                    "inverted": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 2
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "neon:cards_grenade_owner"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=neon_grenade_high]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:damage",
+                                                "amount": 7,
+                                                "damage_type": "neon:grenade"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove neon_grenade_high"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=neon_grenade_low]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:damage",
+                                                "amount": 5,
+                                                "damage_type": "neon:grenade"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove neon_grenade_low"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "neon:cards_grenade_owner"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function neon:purify_explode"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+    "hidden": true
+}
