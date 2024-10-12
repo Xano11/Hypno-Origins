@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"thallasion:tidal",
+		"thallasion:winged"
+	],
+	"icon": {
+		"id": "minecraft:glow_ink_sac",
+		"components": {
+			"minecraft:custom_model_data": 1
+		}
+	},
+	"order": 1,
+	"impact": 1,
+	"name": "Thallasion",
+	"description": "Shaper of currents; Weaver of waves, you are the guardian of the sea"
+}

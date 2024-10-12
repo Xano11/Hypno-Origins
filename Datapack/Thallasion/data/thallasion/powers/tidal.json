@@ -1,0 +1,101 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "thallasion:tidal_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function thallasion:tidal_end"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "thallasion:tidal_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:tidal_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "activation": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function thallasion:tidal_start"
+        },
+        "cooldown": 1200,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "thallasion:tidal_duration",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "trance": {
+        "type": "origins:overlay",
+        "texture": "hypno:kalogero/trance",
+        "strength": 0.6,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:tidal_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Tidal Awakening",
+    "description": "\"Whilst in the zone, Kalogeros are said to create sonic-boom level punches.\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_circle.png",
+            "text": "§4§lImpact-lag §r§4💢§r\n§7Using the ability will grant \"§4DOUBLE TROUBLE 💢§7\" for §e10s§7.\n\n§4DOUBLE TROUBLE 💢§7\nPressing the ability will create a small window of §e0.15s§7 where hitting an entity will cause them to freeze for §e0.2s§7, take 1 true damage and create \"lag\" knockback; allowing for openings.\n§8(Every separate punch requires heavy exhaustion cost)\n\n§7If you break a block during the short window of time, the next block you break will have §a+200%§7 mining efficiency.\n\n§c🕕§r§7 Duration: §r§f10s§r§8\n§e⌛§r§7 Cooldown: §r§f30s\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/enchanted_book.png",
+            "text": "§d§lBLUNT §r§d📚§r\n§7Whilst landing a blow from \"§4DOUBLE TROUBLE 💢§7\", there's a §e2%§7 chance your currently equipped gauntlet will level-up the enchantment: §lBlunt§r§7.\n\nBlunt acts the same as sharpness but additionally deals extra damage to armored targets. §8(Max level: IV)§r\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Press §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 to activate Double Trouble.\n Press again to trigger each punch."
+            ]
+        }
+    ]
+}

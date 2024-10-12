@@ -1,0 +1,57 @@
+{
+    "type": "origins:multiple",
+    "wings": {
+        "type": "origins:elytra_flight",
+        "render_elytra": true,
+        "texture_location": "hypno:textures/item/thallasion/wings.png"
+    },
+    "elytra_slowed": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "z": -0.02,
+            "space": "velocity"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "thallasion:tidal_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "ignore_water": {
+        "type": "origins:ignore_water",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_flying"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "thallasion:tidal_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "name": "Soul Cards",
+    "description": "This new world presents it self as a new challenge for judgement, the cards find your hand. The cards form a deck in this world, drawing and shuffling on there own to help you through the competition of life.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/neon/elevate_sprite.png",
+            "text": "§b§lSoul Cards §r§b♠§r\n\n§7You can draw a card that offers a movement ability every 7s.\nEach card has different amounts of bullets for your abilites/gun to use and once bullets are empty, you either auto-draw or go back to neutral.\n§eELEVATE§7\n§8(COST: 3 Ammo)\n§7Dash forward. If middair, you are launched upwards.\n\n§5PURIFY§7\n§8(COST: 15 Ammo)\n§7Throw a grenade that deals damage. The grenade deals no damage to you and pushes you away.\n\n§9GODSPEED§8\n(COST: 2 Ammo)\n§7Teleport 10 blocks forward; dealing damage to entities in your way.\n\n§aSTOMP§8\n(Cost: 20 Ammo/s)\n§7Float upwards; crashing down and dealing damage in an AOE once the Ammo bar is depleted.\n\n§7§lActive Ability"
+        }
+    ]
+}
