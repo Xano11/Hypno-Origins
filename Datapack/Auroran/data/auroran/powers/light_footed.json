@@ -1,0 +1,30 @@
+{
+	"type": "origins:multiple",
+	
+	"speed": {
+		"type": "origins:attribute",
+		"modifier": {
+			"id": "auroran:movespeed",
+			"attribute": "minecraft:generic.movement_speed",
+			"name": "Additional movement speed",
+			"amount": 0.2,
+			"operation": "ADD_MULTIPLIED_BASE"
+		}
+	},
+
+	"fall_damage":{
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+        }
+    },
+
+	"sculk_detection_no_no": {
+		"type": "origins:prevent_game_event",
+  		"event": "minecraft:step"
+	},
+
+	"name": "Light Footed",
+	"description": "You are naturally faster, your steps don't get detected by sculk sensors, and are immune to fall damage."
+}

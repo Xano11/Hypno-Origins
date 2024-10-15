@@ -1,0 +1,237 @@
+{
+	
+	"type": "origins:multiple",
+	
+	"duration": {
+		"type": "origins:resource",
+    	"min": 0,
+    	"max": 240,
+		"start_value": 240,
+    	"hud_render": {
+        	"should_render": true
+    	},
+    	"min_action": {
+        	"type": "origins:and",
+				"actions": [
+				{
+					"type": "origins:explode",
+					"power": 5,
+					"destruction_type": "keep",
+					"damage_self": false
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "entity.generic.explode",
+					"pitch": 0.6
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "explosion_emitter",
+					"count": 3,
+					"spread": {
+						"x": 1, 
+						"y": 1, 
+						"z": 1
+					}
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "end_rod",
+					"count": 30,
+					"speed": 1,
+					"spread": {
+						"x": 0, 
+						"y": 0, 
+						"z": 0
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "gamerule showDeathMessages false"
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "kill @s"
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "gamerule showDeathMessages true"
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:choice",
+						"actions": [
+							{
+								"element": {
+									"type": "origins:execute_command",
+									"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" solar flared\"}]"
+								},
+								"weight": 10
+							},
+							{
+								"element": {
+									"type": "origins:execute_command",
+									"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" glowed to bright\"}]"
+								},
+								"weight": 10
+							},
+							{
+								"element": {
+									"type": "origins:execute_command",
+									"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" couldn't handle the power\"}]"
+								},
+								"weight": 10
+							},
+							{
+								"element": {
+									"type": "origins:execute_command",
+									"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\"'s light burnt out\"}]"
+								},
+								"weight": 10
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:remove_power",
+    				"power": "*:*"
+				}
+			]
+    	}
+	},
+	 
+	"duration_drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "auroran:edible/star_powered_duration",
+			"change": -1
+		},
+		"interval": 10
+	},
+
+	"glow": {
+		"type": "origins:self_glow",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "auroran:edible/star_powered_duration",
+			"comparison": ">=",
+			"compare_to": 21
+		},
+		"use_teams": false,
+		"red": 1.0,
+		"green": 1.0,
+		"blue": 1.0
+	},
+
+	"glow_exploding": {
+		"type": "origins:self_glow",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "auroran:edible/star_powered_duration",
+			"comparison": "<=",
+			"compare_to": 20
+		},
+		"use_teams": false,
+		"red": 1.0,
+		"green": 0.1,
+		"blue": 0.1
+	},
+
+	"glow_exploding_tick": {
+		"type": "origins:self_glow",
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "auroran:edible/star_powered_duration",
+					"comparison": "==",
+					"compare_to": 15
+				},
+				{    
+					"type": "origins:resource",
+					"resource": "auroran:edible/star_powered_duration",
+					"comparison": "==",
+					"compare_to": 12
+				},
+				{
+					"type": "origins:resource",
+					"resource": "auroran:edible/star_powered_duration",
+					"comparison": "==",
+					"compare_to": 9
+				},
+				{
+					"type": "origins:resource",
+					"resource": "auroran:edible/star_powered_duration",
+					"comparison": "==",
+					"compare_to": 5
+				},
+				{
+					"type": "origins:resource",
+					"resource": "auroran:edible/star_powered_duration",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:resource",
+					"resource": "auroran:edible/star_powered_duration",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		},
+		"use_teams": false,
+		"red": 0,
+		"green": 0,
+		"blue": 0
+	},
+
+	"speed": {
+		"type": "origins:attribute",
+		"modifier": {
+			"id": "auroran:starpower_movespeed",
+			"attribute": "minecraft:generic.movement_speed",
+			"name": "Additional movement speed when on crack",
+			"amount": 0.4,
+			"operation": "ADD_MULTIPLIED_BASE"
+		}
+	},
+
+	"air_speed": {
+		"type": "origins:attribute_modify_transfer",
+  		"class": "modify_air_speed",
+  		"attribute": "minecraft:generic.movement_speed",
+  		"multiplier": 1
+	},
+
+	"defence": {
+		"type": "origins:modify_damage_taken",
+		"modifier": {
+			"name": "tank",
+			"amount": -0.2,
+			"operation": "multiply_total_multiplicative"
+		}
+	},
+
+	"damage": {
+		"type": "origins:attribute",
+		"modifier": {
+			"id": "auroran:starpower_damage",
+			"attribute": "minecraft:generic.attack_damage",
+			"name": "Additional attack damage",
+			"amount": 3,
+			"operation": "ADD_VALUE"
+		}
+	}
+}

@@ -1,6 +1,7 @@
 {
     "description": "Water Aspect",
     "supported_items": "#minecraft:enchantable/sword",
+    "exclusive_set": "minecraft:fire_aspect",
     "weight": 100,
     "max_level": 3,
     "min_cost": {

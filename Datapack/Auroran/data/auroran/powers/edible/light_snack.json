@@ -1,0 +1,144 @@
+{
+	
+	"type": "origins:multiple",
+	
+	"unspecified": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:food"
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {"tag": "auroran:can_eat"},
+					"inverted": true
+				}
+			]
+		},
+		"name": "Light-Satiated"
+	},
+
+	"food_tooltip": {
+		"type": "origins:tooltip",
+		"text": "\u00A77Edible (\u00A7aLight-Satiated\u00A77)",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "auroran:can_eat"
+			}
+		}
+	},
+
+	"ink": {
+		"type": "origins:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "glow_ink_sac"
+			}
+		},
+		"food_component": {
+			"nutrition": 2,
+			"saturation": 0.1,
+			"snack": true
+		},
+		"use_action": "eat"
+	},
+
+	"powder": {
+		"type": "origins:edible_item",
+		"item_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "glowstone_dust"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "prismarine_crystals"
+					}
+				}
+			]
+		},
+		"food_component": {
+			"nutrition": 4,
+			"saturation": 0.2
+		},
+		"use_action": "eat"
+	},
+
+	"block": {
+		"type": "origins:edible_item",
+		"item_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "glowstone"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "sea_lantern"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "shroomlight"
+					}
+				}
+			]
+		},
+		"food_component": {
+			"nutrition": 7,
+			"saturation": 0.25
+		},
+		"use_action": "eat",
+		"condition": {
+			"type": "origins:sneaking",
+			"inverted": true
+		}
+	},
+
+	"super_star": {
+		"type": "origins:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "nether_star"
+			}
+		},
+		"food_component": {
+			"nutrition": 10,
+			"saturation": 0.25,
+			"can_always_eat": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+				"actions": [
+				{
+					"type": "origins:grant_power",
+    				"power": "auroran:edible/star_powered",
+    				"source": "*:*"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "auroran:edible/star_powered_duration",
+					"change": 240
+				}
+			]
+		},
+		"use_action": "eat",
+		"consume_animation": "drink",
+		"sound": "block.amethyst_block.hit"
+	}
+}

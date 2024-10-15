@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"auroran:consistancy_of_light",
+		"auroran:light_footed",
+		"auroran:light_satiated",
+		"auroran:edible/light_snack",
+		"auroran:climate",
+		"auroran:fading_light"
+	],
+	"icon": {
+        "id": "minecraft:nether_star",
+		"components": {
+            "minecraft:custom_model_data": 1
+        }
+    },
+	"order": 0,
+	"impact": 2,
+	"name": "Auroran",
+	"description": "A race of celestial beings, Aurorans are well known for being quiet isolationists, commonly nomadic in nature. Despite their repulsion of other races, they are still kind and considerate, though one must wonder what these celestial beings must be hiding behind closed doors."
+}

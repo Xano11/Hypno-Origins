@@ -1,0 +1,12 @@
+{
+	"replace": false,
+	"values": [
+		"glow_ink_sac",
+		"glowstone_dust",
+		"prismarine_crystals",
+		"glowstone",
+		"sea_lantern",
+		"shroomlight",
+		"nether_star"
+	]
+}

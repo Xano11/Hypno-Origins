@@ -1,0 +1,128 @@
+{
+	"type": "origins:multiple",
+	
+	"state": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"perform": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_state",
+					"change": -1
+				},
+				{
+					"type": "origins:add_velocity",
+					"y": 0.4,
+					"set": true
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": 0.5,
+					"space": "local_horizontal"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "block.snow.place"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:on_block",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_state",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:fluid_height",
+					"fluid": "minecraft:water",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+		"key": {
+			"key": "key.jump"
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"restore": {
+		"type": "origins:action_on_land",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_state",
+			"change": 1
+		}
+	},
+
+	"leap": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+			{
+				"type": "origins:spawn_particles",
+				"particle": "end_rod",
+				"count": 20,
+				"speed": 0.2,
+				"spread": {"x": 0.5, "y": 0.0, "z": 0.5}
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "block.beacon.power_select"
+			},
+			{
+				"type": "origins:add_velocity",
+				"z": 1,
+				"space": "local"
+			},
+			{
+				"type": "origins:add_velocity",
+				"y": 0.2
+			},
+			{
+				"type": "origins:exhaust",
+				"amount": 0.6
+			}
+		]
+	},
+	"key": {
+		"key": "key.origins.primary_active"
+	},
+	"cooldown": 50,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 23
+		}
+	},
+
+	"passive_particles": {
+		"type": "origins:particle",
+		"particle": "end_rod",
+		"frequency": 7
+	},
+	
+	"name": "Consistancy of Light",
+	"description": "An auroran's body is light as a feather; You can double jump and dash to your light fades."
+}

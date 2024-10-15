@@ -1,0 +1,46 @@
+{
+	"type": "origins:multiple",
+
+	"sunfood": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:daytime"
+			},
+			"if_action": {
+				"type": "origins:feed",
+				"nutrition": 1,
+				"saturation": 0.1
+			},
+			"else_action": {
+				"type": "origins:feed",
+				"nutrition": 1,
+				"saturation": 0.05
+			}
+		},
+		"interval": 40,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:exposed_to_sky"
+				},
+				{
+					"type": "origins:in_rain",
+					"inverted": true
+				}
+			]
+		}
+	},
+
+	"daytime_regen": {
+		"type": "origins:disable_regen",
+		"condition": {
+			"type": "origins:exposed_to_sun"
+		}	
+	},
+	
+	"name": "Light-Satiated",
+	"description": "You consume light for food through a process called photovoltism. Direct sunlight or moonlight will feed you, though sunlight halts your regeneration. You can also eat glowing items like Glowstone and Prismarine."
+}

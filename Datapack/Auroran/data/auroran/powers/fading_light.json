@@ -1,0 +1,28 @@
+{
+	"type": "origins:multiple",
+	
+	"health": {
+		"type": "origins:attribute",
+		"modifier": {
+			"id": "auroran:less_health",
+			"attribute": "minecraft:generic.max_health",
+			"name": "less health",
+			"amount": -4,
+			"operation": "ADD_VALUE"
+		}
+	},
+
+	"toughness": {
+		"type": "origins:attribute",
+		"modifier": {
+			"id": "auroran:less_toughness",
+			"attribute": "minecraft:generic.armor_toughness",
+			"name": "less toughness",
+			"amount": -0.5,
+			"operation": "ADD_MULTIPLIED_TOTAL"
+		}
+	},
+
+	"name": "Fading Light",
+	"description": "You have 2 less hearts and 50% less armor toughness."
+}

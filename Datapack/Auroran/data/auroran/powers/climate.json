@@ -1,0 +1,34 @@
+{
+	
+	"type": "origins:multiple",
+
+	"weakness": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "add_base_early",
+			"amount": -4
+		},
+		"condition": {
+			"type": "origins:biome",
+			"condition": {
+				"type": "origins:temperature",
+				"comparison": ">=",
+				"compare_to": 2
+			}
+		}
+	},
+
+	"fire_damage": {
+		"type": "origins:modify_damage_taken",
+		"modifier": {
+			"operation": "multiply_base_multiplicative",
+			"amount": 3
+		},
+		"damage_condition": {
+			"type": "origins:fire"
+		}
+    },
+
+    "name": "Climate",
+    "description": "Your body is not meant for extreme heat. You are weakened in hot biomes, and take 4x damage from fire."
+}

@@ -134,6 +134,26 @@
             "should_render": false
         }
     },
+    "elevate_particles": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 8,
+        "start_value": 0
+    },
+    "elevate_particles_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function neon:elevate_particles"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "neon:cards_elevate_particles",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "bullets_elevate": {
         "type": "origins:resource",
         "min": 0,
@@ -555,6 +575,19 @@
                             }
                         ]
                     }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "neon:cards_draw",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "function neon:draw"
+                    }
                 }
             ]
         },
@@ -603,42 +636,27 @@
             }
         },
         "min_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:resource",
-                "resource": "neon:cards_draw",
-                "comparison": "==",
-                "compare_to": 0
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "function neon:draw"
-            }
+            "type": "origins:execute_command",
+            "command": "function neon:stomp_notif"
         }
     },
     "repick": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:resource",
-                "resource": "neon:cards_draw",
-                "comparison": "==",
-                "compare_to": 0
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "function neon:draw"
-            },
-            "else_action": {
-                "type": "origins:execute_command",
-                "command": "function neon:fist_card"
-            }
+            "type": "origins:execute_command",
+            "command": "function neon:fist_card"
         },
         "interval": 1,
         "condition": {
             "type": "origins:and",
             "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "neon:cards_draw",
+                    "comparison": "==",
+                    "inverted": true,
+                    "compare_to": 0
+                },
                 {
                     "type": "origins:resource",
                     "resource": "neon:cards_card_type",

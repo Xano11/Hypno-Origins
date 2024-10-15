@@ -150,6 +150,13 @@
             ]
         }
     },
+    "no_pots":{
+        "type": "origins:effect_immunity",
+        "effects": [
+            "minecraft:regeneration",
+            "minecraft:instant_health"
+        ]
+    },
     "name": "Life Flasks",
     "description": "You always have life in a bottle around your toolbelt",
     "badges": [
