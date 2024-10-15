@@ -5,5 +5,11 @@
         "slot": "any",
         "negative": false,
         "hidden" : true
+    },
+    {
+        "function": "minecraft:toggle_tooltips",
+        "toggles": {
+            "minecraft:attribute_modifiers": false
+        }
     }
 ]

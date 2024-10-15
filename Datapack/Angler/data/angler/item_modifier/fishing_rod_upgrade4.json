@@ -31,5 +31,11 @@
           "angler:treasure": 1
         },
         "add": false
+    },
+    {
+        "function": "minecraft:toggle_tooltips",
+        "toggles": {
+            "minecraft:attribute_modifiers": false
+        }
     }
 ]
