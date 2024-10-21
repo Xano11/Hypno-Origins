@@ -9,42 +9,9 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.guardian.death player @a ~ ~1 ~ 2 2",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute at @a[tag=bait] run particle minecraft:splash ~ ~1 ~ 0.5 0.5 0.5 0.1 100"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute at @a[tag=bait] run playsound minecraft:entity.cod.flop player @a ~ ~1 ~ 3 0.5"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tp @a[tag=bait] @s"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power revoke @a angler:tp/bait"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute on passengers run kill @s"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "kill @e[type=fishing_bobber,limit=1,sort=nearest]"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "kill @s"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function angler:kill_cod",
+            "permission_level": 4
         }
     },
     "cancel": {
@@ -54,7 +21,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers run kill @s"
+                    "command": "execute as @n[tag=aj.angler_cod.root] run function animated_java:angler_cod/remove/this"
                 },
                 {
                     "type": "origins:execute_command",
@@ -95,29 +62,19 @@
         },
         "interval": 40
     },
-    "rotation": {
+    "idle": {
         "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "tp @s ~ ~ ~ ~8 ~",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=fishout] Rotation[0]",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:splash ~ ~1 ~ 0.4 0.4 0.4 0.2 3",
-                    "permission_level": 4
-                }
-            ]
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "execute on passengers run function animated_java:angler_cod/animations/idle/play"
         },
-        "interval": 1
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "angler:tp/cod_duration",
+            "comparison": "==",
+            "compare_to": 120
+        }
     },
     "hidden": true
 }

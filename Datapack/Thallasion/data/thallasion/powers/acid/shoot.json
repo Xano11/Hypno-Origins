@@ -1,0 +1,204 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 21,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "thallasion:acid/shoot_cooldown",
+                "comparison": "<",
+                "compare_to": 140
+            }
+        }
+    },
+    "cooldown_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "thallasion:acid/shoot_cooldown",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:acid/shoot_cooldown",
+            "comparison": "<",
+            "compare_to": 140
+        }
+    },
+    "window": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "thallasion:acid/shoot_windup",
+            "change": 0,
+            "operation": "set"
+        }
+    },
+    "restart": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "thallasion:acid/shoot_window",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:acid/shoot_window",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 12,
+        "start_value": 0
+    },
+    "activation": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function thallasion:windup_breath"
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:acid/shoot_cooldown",
+            "comparison": "==",
+            "compare_to": 140
+        }
+    },
+    "shoot_main": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Small:1b,Invisible:1b,Tags:[\"thallasion_breath\"],DisabledSlots:4144959}",
+                    "speed": 1.7,
+                    "projectile_action": {
+                        "type": "origins:execute_command",
+                        "command": "function thallasion:acid_projectile"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function thallasion:acid_shoot"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": -2,
+                    "space": "local"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.attack"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:acid/shoot_windup",
+            "comparison": "==",
+            "compare_to": 12
+        }
+    },
+    "shoot_secondary": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Small:1b,Invisible:1b,Tags:[\"thallasion_breath\"],DisabledSlots:4144959}",
+                    "speed": 1.7,
+                    "projectile_action": {
+                        "type": "origins:execute_command",
+                        "command": "function thallasion:acid_projectile"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function thallasion:acid_shoot"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:acid/shoot_windup",
+            "comparison": "==",
+            "compare_to": 12
+        }
+    },
+    "crosshair_windup": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "hypno:thallasion/crosshair_main"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:acid/shoot_windup",
+            "comparison": "==",
+            "compare_to": 12
+        }
+    },
+    "name": "Acid Reflux",
+    "description": "\"goddamn, that chipotle wrap was something.\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_triangle.png",
+            "text": "§a§lAcid Reflux §r§a🎊§r\n§fYou spit acid forth\n§7Using the ability will shoot a ball of acid that applies §aREFLUX 🎊§r§7 on entities in a 5 block radius off the impact.\n\n§aREFLUX 🎊§r§7\nAfflics targeted entity with Slowness III, Oozing I and §c-25%§7 armor effectiveness.\n\n§c🕕§r§7 Acid Duration: §r§f5s§r§8\n§e⌛§r§7 Cooldown: §r§f7s\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]§7 to charge your acid.\nAfter 0.6s, press §r[",
+                {
+                    "keybind": "key.attack"
+                },
+                "]§7 to shoot acid and launch yourself backwards.\nPress §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 instead to shoot acid without launching yourself."
+            ]
+        }
+    ]
+}

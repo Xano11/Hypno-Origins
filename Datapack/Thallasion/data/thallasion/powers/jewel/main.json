@@ -1,0 +1,137 @@
+{
+    "type": "origins:multiple",
+    "abyssal_conduits": {
+        "type": "origins:entity_set"
+    },
+    "pearl_drop": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:chests/shipwreck_treasure": "thallasion:chests/shipwreck_treasure"
+        }
+    },
+    "use": {
+        "type": "origins:action_on_block_use",
+        "block_action": {
+            "type": "origins:spawn_entity",
+            "entity_type": "minecraft:armor_stand",
+            "tag": "{Silent:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,Tags:[\"abyssal_conduit\",\"link_conduit\"]}",
+            "entity_action": {
+                "type": "origins:execute_command",
+                "command": "function thallasion:setup_conduit"
+            }
+        },
+        "held_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{Abyssal_Pearl:1b}"
+        },
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:selector_action",
+                "selector": "@n[tag=link_conduit]",
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:add_to_entity_set",
+                            "set": "thallasion:jewel/main_abyssal_conduits"
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove link_conduit"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "block_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:conduit"
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute align xyz if entity @e[dy=0,dx=0,dz=0,tag=abyssal_conduit]",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:block_state",
+                    "property": "waterlogged",
+                    "value": true
+                }
+            ]
+        },
+        "usage_phases": [
+            "item"
+        ],
+        "directions": [
+            "up",
+            "north",
+            "east",
+            "west",
+            "south"
+        ]
+    },
+    "hit": {
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tag @s add conduit_target"
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:action_on_entity_set",
+                        "set": "thallasion:jewel/main_abyssal_conduits",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "function thallasion:conduit_targeted"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove conduit_target"
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:entity_set_size",
+            "set": "thallasion:jewel/main_abyssal_conduits",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Pearls of Ol'",
+    "description": "\"Pearls are precious to any that lay eyes onto them... but little do they know; they can't extract it's real value.\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/conduit_power.png",
+            "text": "§5§lPearls of Ol' §r§5🔘§r\n§fShipwreck treasure chests now contain special pearls.\n§7Whilst holding a pearl, interact with a conduit to create an §5Abyssal Conduit 🔘\n\nAbyssal Conduits 🔘\n§7These conduits grant an additional +40% swimming speed and heal half a heart per second.\n\n§7§lPassive Ability"
+        }
+    ]
+}

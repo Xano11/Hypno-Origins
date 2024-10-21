@@ -1,0 +1,319 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "thallasion_health",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -8,
+            "operation": "add_value"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:washed_state",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "tick_rate": 1
+    },
+    "exhaust":{
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 1.0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:washed_state",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "state": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "state_on": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "function thallasion:washed_on"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:air",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "thallasion:washed_state",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "state_off": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "function thallasion:washed_off"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:air",
+                    "comparison": "==",
+                    "compare_to": 300
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "thallasion:washed_state",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "model": {
+        "type": "origins:model_color",
+        "red": 0.8,
+        "green": 0.8,
+        "blue": 0.8,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:washed_state",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "armor_helmet": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "thallasion_armor1",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -0.2,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 2
+            }
+        },
+        "tick_rate": 1
+    },
+    "armor_chestplate": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "thallasion_armor2",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -0.2,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "chest",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 5
+            }
+        },
+        "tick_rate": 1
+    },
+    "armor_leggings": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "thallasion_armor3",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -0.2,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "legs",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 4
+            }
+        },
+        "tick_rate": 1
+    },
+    "armor_boots": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "thallasion_armor4",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -0.2,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "feet",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 1
+            }
+        },
+        "tick_rate": 1
+    },
+    "air_speed1":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.2
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 2
+            }
+        }
+    },
+    "air_speed2":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.2
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "chest",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 5
+            }
+        }
+    },
+    "air_speed3":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.2
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "legs",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 4
+            }
+        }
+    },
+    "air_speed4":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.2
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "feet",
+            "item_condition": {
+                "type": "origins:armor_value",
+                "comparison": ">",
+                "compare_to": 1
+            }
+        }
+    },
+    "tooltip_slow": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "tag": "minecraft:head_armor"
+                            }
+                        },
+                        {
+                            "type": "origins:armor_value",
+                            "comparison": ">",
+                            "compare_to": 2
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "tag": "minecraft:chest_armor"
+                            }
+                        },
+                        {
+                            "type": "origins:armor_value",
+                            "comparison": ">",
+                            "compare_to": 5
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "tag": "minecraft:leg_armor"
+                            }
+                        },
+                        {
+                            "type": "origins:armor_value",
+                            "comparison": ">",
+                            "compare_to": 4
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "tag": "minecraft:foot_armor"
+                            }
+                        },
+                        {
+                            "type": "origins:armor_value",
+                            "comparison": ">",
+                            "compare_to": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "text": "§l§4Washed§r§7: §c-20%§7 Speed"
+    },
+    "name": "Washed",
+    "description": "You belong to the sea and being on land isn't in your plans",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_circle.png",
+            "text": "§4§lWashed §r§4🤽§r\n§7Once you no oxygen left, you become weakened.\nYou lose 4 §l§c❤§r§7, exhaust 2x as much and now, each piece of armor higher than iron reduces movement by §c-20%§7.\nYou must reach max oxygen to remove the weakened state.\n\n§7§lPassive Ability"
+        }
+    ]
+}

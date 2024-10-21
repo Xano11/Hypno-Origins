@@ -1,0 +1,11 @@
+{
+    "name": "Cleavemaster",
+    "description": "In manners of terrain, you must learn to cut yourself from it. You must cut even your footprints from it, if need be. Have complete awareness of each crawling thing and each precious flower, each blade of sweet grass and each clod of bitter earth, each beating heart and each being that thrums with love, hope, and admiration. Only then are you qualified to be their annihilator.",
+    "powers": [
+        "cleavemaster:chant"
+    ],
+    "icon": {
+        "id": "minecraft:iron_sword"
+    },
+    "impact": 0
+}

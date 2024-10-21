@@ -2,7 +2,7 @@
     "description": "Treasure",
     "supported_items": "#minecraft:enchantable/fishing",
     "weight": 100,
-    "max_level": 3,
+    "max_level": 1,
     "min_cost": {
         "base": 1,
         "per_level_above_first": 1

@@ -82,7 +82,11 @@
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "execute on vehicle on passengers if entity @s[type=block_display] on passengers run tag @s add selected_node"
+                                        "command": "execute as @n[tag=aj.void_node.bone.heavy_core] run tag @s add selected_node"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute as @n[tag=aj.void_node.bone.crying_obsidian] run tag @s add selected_node"
                                     }
                                 ]
                             }
@@ -542,7 +546,11 @@
                                             },
                                             {
                                                 "type": "origins:execute_command",
-                                                "command": "execute on passengers if entity @s[type=block_display] on passengers run tag @s add selected_node"
+                                                "command": "execute as @n[tag=aj.void_node.bone.heavy_core] run tag @s add selected_node"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute as @n[tag=aj.void_node.bone.crying_obsidian] run tag @s add selected_node"
                                             }
                                         ]
                                     }
@@ -636,7 +644,11 @@
                                             },
                                             {
                                                 "type": "origins:execute_command",
-                                                "command": "execute on passengers if entity @s[type=block_display] on passengers run tag @s add selected_node"
+                                                "command": "execute as @n[tag=aj.void_node.bone.heavy_core] run tag @s add selected_node"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute as @n[tag=aj.void_node.bone.crying_obsidian] run tag @s add selected_node"
                                             }
                                         ]
                                     }

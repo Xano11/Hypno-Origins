@@ -1,0 +1,30 @@
+{
+    "type": "origins:action_on_hit",
+    "bientity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "function cleavemaster:vfx/slice"
+                }
+            },
+            {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "item",
+                    "count": 1,
+                    "speed": 0.15,
+                    "divergence": 360,
+                    "tag": "{Age:5960,PickupDelay:32767,Tags:[\"cleavemaster.splatter\"],Item:{id:\"minecraft:red_dye\",count:1}}"
+                }
+            }
+        ]
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": true
+    }
+}

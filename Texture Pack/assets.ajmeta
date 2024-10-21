@@ -1,0 +1,14 @@
+{
+	"abyssal_conduit": {
+		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
+	},
+	"angler_cod": {
+		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
+	},
+	"thallasion_acid": {
+		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
+	},
+	"void_node": {
+		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
+	}
+}

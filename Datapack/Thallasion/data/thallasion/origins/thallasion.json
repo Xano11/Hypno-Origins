@@ -1,8 +1,12 @@
 {
 	"powers": [
-		"thallasion:tidal",
+		"thallasion:aquatic",
 		"thallasion:winged",
-		"thallasion:titanic"
+		"thallasion:tidal",
+		"thallasion:acid/shoot",
+		"thallasion:jewel/main",
+		"thallasion:titanic",
+		"thallasion:washed"
 	],
 	"icon": {
 		"id": "minecraft:glow_ink_sac",

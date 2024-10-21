@@ -80,17 +80,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§b§lHook Surf ↪§r\n§7Send out and §r§aride§r§7 your fishing bobber, dashing forward.\n§aNegates§r§7 fall damage when you land.\n\n§e⌛§r§7 Cooldown: §f20s §7§r§8\n\n§7§lActive Ability"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "hypno:textures/item/angler/treasure.png",
-            "text": "§e§lDeep Treasure 🌟§r\n§7Using an Angler's treasure, you can upgrade your rod!\nThis increases it's momentum and reduces Hook Surfing's cooldown.\n\n§7§lPassive Ability"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "minecraft:textures/item/fishing_rod.png",
+            "sprite": "origins:textures/gui/badge/active.png",
             "text": [
                 "§7Hold §r[",
                 {
@@ -102,6 +92,11 @@
                 },
                 "]§7 to become one with the fishing bobber!\nRequires Angler's rod in hand."
             ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/fishing_rod.png",
+            "text": "§b§lHook Surf ↪§r\n§7Send out and §r§aride§r§7 your fishing bobber, dashing forward.\n§aNegates§r§7 fall damage when you land.\n\n§e⌛§r§7 Cooldown: §f20s §7§r§8\n\n§7§lActive Ability"
         }
     ]
 }

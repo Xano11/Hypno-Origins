@@ -1,0 +1,1 @@
+resource set @s thallasion:washed_state 0

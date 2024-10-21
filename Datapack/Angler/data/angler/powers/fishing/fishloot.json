@@ -93,7 +93,7 @@
             "modifier": "angler:apply_treasure"
         }
     },
-    "name": "Fisher of Legends",
+   "name": "Fisher of Legends",
     "description": "Legends say the Angler could feed an entire village by themselves...\nThey were right.",
     "badges": [
         {
@@ -104,7 +104,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "hypno:textures/item/angler/treasure.png",
-            "text": "§e§lDeep Treasure 🌟§r\n§7Whilst fishing, you have a small chance to catch an Angler's Treasure!\nThis is used for upgrading your main tools.\n\n§7§lPassive Ability"
+            "text": "§e§lDeep Treasure 🌟§r\n§7Whilst fishing, you have a small chance to catch §6[Rare Treasure]§7!\nThis is used for upgrading your main tools.\n\n§7§lPassive Ability"
         }
     ]
 }

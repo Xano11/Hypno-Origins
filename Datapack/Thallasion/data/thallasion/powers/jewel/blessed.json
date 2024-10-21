@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+    "remove_effect": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s thallasion:jewel/blessed"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:status_effect",
+            "effect": "minecraft:conduit_power",
+            "min_amplifier": 0,
+            "inverted": true
+        }
+    },
+    "swim": {
+        "type": "origins:modify_swim_speed",
+        "modifier": {
+            "id": "thallasion:conduit_swim_speed",
+            "operation": "add_multiplied_base",
+            "amount": 0.4
+        }
+    },
+    "hidden": true
+}

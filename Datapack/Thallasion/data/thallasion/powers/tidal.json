@@ -111,9 +111,9 @@
         "type": "origins:overlay",
         "texture": "hypno:thallasion/water_still",
         "strength": 0.5,
-        "red": 0.02,
-        "green": 0.02,
-        "blue": 1.0,
+        "red": 0.1,
+        "green": 0.4,
+        "blue": 0.6,
         "draw_mode": "texture",
         "draw_phase": "below_hud",
         "hide_with_hud": false,
@@ -141,8 +141,8 @@
         "texture": "hypno:thallasion/water_still",
         "strength": 0.4,
         "red": 0.1,
-        "green": 0.1,
-        "blue": 1.0,
+        "green": 0.4,
+        "blue": 0.6,
         "draw_mode": "texture",
         "draw_phase": "below_hud",
         "hide_with_hud": false,
@@ -170,8 +170,8 @@
         "texture": "hypno:thallasion/water_still",
         "strength": 0.3,
         "red": 0.1,
-        "green": 0.1,
-        "blue": 1.0,
+        "green": 0.4,
+        "blue": 0.6,
         "draw_mode": "texture",
         "draw_phase": "below_hud",
         "hide_with_hud": false,
@@ -199,8 +199,8 @@
         "texture": "hypno:thallasion/water_still",
         "strength": 0.2,
         "red": 0.1,
-        "green": 0.1,
-        "blue": 1.0,
+        "green": 0.4,
+        "blue": 0.6,
         "draw_mode": "texture",
         "draw_phase": "below_hud",
         "hide_with_hud": false,
@@ -228,8 +228,8 @@
         "texture": "hypno:thallasion/water_still",
         "strength": 0.1,
         "red": 0.1,
-        "green": 0.1,
-        "blue": 1.0,
+        "green": 0.4,
+        "blue": 0.6,
         "draw_mode": "texture",
         "draw_phase": "below_hud",
         "hide_with_hud": false,
@@ -254,10 +254,10 @@
     },
     "trance": {
         "type": "origins:overlay",
-        "texture": "hypno:kalogero/trance",
-        "strength": 0.6,
-        "red": 0.1,
-        "green": 0.5,
+        "texture": "hypno:thallasion/splash",
+        "strength": 0.4,
+        "red": 1.0,
+        "green": 1.0,
         "blue": 1.0,
         "draw_mode": "texture",
         "draw_phase": "below_hud",
@@ -370,27 +370,22 @@
         }
     },
     "name": "Tidal Awakening",
-    "description": "\"Whilst in the zone, Kalogeros are said to create sonic-boom level punches.\"",
+    "description": "\"O' the waves... I must let them break and shape me into my true form.\"",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_circle.png",
-            "text": "§4§lImpact-lag §r§4💢§r\n§7Using the ability will grant \"§4DOUBLE TROUBLE 💢§7\" for §e10s§7.\n\n§4DOUBLE TROUBLE 💢§7\nPressing the ability will create a small window of §e0.15s§7 where hitting an entity will cause them to freeze for §e0.2s§7, take 1 true damage and create \"lag\" knockback; allowing for openings.\n§8(Every separate punch requires heavy exhaustion cost)\n\n§7If you break a block during the short window of time, the next block you break will have §a+200%§7 mining efficiency.\n\n§c🕕§r§7 Duration: §r§f10s§r§8\n§e⌛§r§7 Cooldown: §r§f30s\n§7§lActive Ability"
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§b§lTidal Awakening §r§b🌊§r\n§fYou awaken your true form\n§7In this form, your wings go through water like air and you are slightly bigger.\nWhilst in this form, your wings become as strong as regular elytras; granting the ability §b\"Crashing Dive\"§7.\n\n§bCrashing Dive§7\nStaying in water for 1.5s will charge a dash that is used once coming out the water.\n§8(This can be triggered several times)\n\n§c🕕§r§7 Duration: §r§f45s§r§8\n§e⌛§r§7 Cooldown: §r§f1m\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/item/enchanted_book.png",
-            "text": "§d§lBLUNT §r§d📚§r\n§7Whilst landing a blow from \"§4DOUBLE TROUBLE 💢§7\", there's a §e2%§7 chance your currently equipped gauntlet will level-up the enchantment: §lBlunt§r§7.\n\nBlunt acts the same as sharpness but additionally deals extra damage to armored targets. §8(Max level: IV)§r\n\n§7§lPassive Ability"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/toggle.png",
+            "sprite": "origins:textures/gui/badge/active.png",
             "text": [
                 "§7Press §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "]§7 to activate Double Trouble.\n Press again to trigger each punch."
+                "]§7 to awaken into your true form."
             ]
         }
     ]

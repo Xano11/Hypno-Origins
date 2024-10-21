@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "invulnerability":{
+    "invulnerability": {
         "type": "origins:invulnerability",
         "damage_condition": {
             "type": "origins:type",
@@ -60,11 +60,6 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§b§lJoust 🐬§r\n§7While holding the §r§9Swordfish§r§7, quickly dash forward.\n§7Using Joust through a target will afflict them with Drenched, reducing their speed by 10% and making them vulnerable to Water Aspect.\n\n§6🕒§r§7 Windup: §r§f0.75s\n§e⌛§r§7 Cooldown: §f4s\n\n§7§lActive Ability"
-        },
-        {
-            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/active.png",
             "text": [
                 "§7Hold §r[",
@@ -77,6 +72,11 @@
                 },
                 "]§7 with the Swordfish in hand to Dash!"
             ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
+            "text": "§b§lJoust 🐬§r\n§7While holding the §r§9Swordfish§r§7, quickly dash forward.\n§7Using Joust through a target will §r§arefund§r§7 part of the cooldown and deal 1 §ftrue§f damage to entities hit.\n\n§6🕒§r§7 Windup: §r§f0.75s\n§e⌛§r§7 Cooldown: §f4.5s\n\n§7§lActive Ability"
         }
     ]
 }

@@ -1,0 +1,50 @@
+{
+    "type": "origins:multiple",
+    "res": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true
+        }
+    },
+    "vuln": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "cleavemaster:parry/parryresource_res",
+            "comparison": "!=",
+            "compare_to": 0
+        },
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "set_total"
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function cleavemaster:vfx/parry"
+                            },
+                            {
+                                "type": "origins:nothing"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.5,
+                    "client": true,
+                    "server": true
+                }
+            ]
+        }
+    }
+}

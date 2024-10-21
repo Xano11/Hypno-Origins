@@ -1,0 +1,87 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "kill @s"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "thallasion:acid/breath_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "explode": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 27,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s thallasion:acid/oozed"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "thallasion:thallasion",
+                            "layer": "origins:origin",
+                            "inverted": true
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function thallasion:acid_explode"
+                }
+            ]
+        }
+    },
+    "explode_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "thallasion:acid/breath_explode",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "thallasion:acid/breath_explode",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "function thallasion:acid_land"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+    "ignore_water": {
+        "type": "origins:ignore_water"
+    },
+    "hidden": true
+}

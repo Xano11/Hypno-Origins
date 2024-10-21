@@ -1,0 +1,63 @@
+{
+    "type": "origins:multiple",
+    "broken": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function thallasion:broken_conduit"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:in_block",
+            "inverted": true,
+            "block_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:block",
+                        "block": "minecraft:conduit"
+                    },
+                    {
+                        "type": "origins:block_state",
+                        "property": "waterlogged",
+                        "value": true
+                    }
+                ]
+            }
+        }
+    },
+    "effect": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 96,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:heal",
+                            "amount": 1
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "function thallasion:grant_blessed"
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:status_effect",
+                    "effect": "minecraft:conduit_power",
+                    "min_amplifier": 0
+                }
+            }
+        },
+        "interval": 20
+    },
+    "hidden": true
+}

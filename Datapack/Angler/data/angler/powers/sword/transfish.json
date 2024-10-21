@@ -172,16 +172,6 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "hypno:textures/item/angler/swordfish.png",
-            "text": "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3 §7/ §f5 §7/ §f7 §7/ §f8§r§8 (+2 in Water)\n§7§lActive Ability"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "hypno:textures/item/angler/treasure.png",
-            "text": "§e§lDeep Treasure 🌟§r\n§7Using an Angler's treasure, you can upgrade your swordfish!\nThis increases the Swordfish's damage and reduces the dash cooldown.\n\n§7§lPassive Ability"
-        },
-        {
-            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/active.png",
             "text": [
                 "§7Turn any fish into a weapon of war with§r [",
@@ -190,6 +180,11 @@
                 },
                 "]§7!"
             ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/angler/swordfish.png",
+            "text": "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3 §7/ §f5 §7/ §f7 §7/ §f9§r§8 (+2 in Water)\n§7§lActive Ability"
         }
     ]
 }

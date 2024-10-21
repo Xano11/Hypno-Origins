@@ -45,23 +45,10 @@
                                         {
                                             "type": "origins:spawn_entity",
                                             "entity_type": "minecraft:armor_stand",
-                                            "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"fishout\"],Passengers:[{id:\"minecraft:item_display\",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,6f,0f],scale:[4f,4f,4f]},item:{id:\"minecraft:cod\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
+                                            "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"fishout\"]}",
                                             "entity_action": {
-                                                "type": "origins:and",
-                                                "actions": [
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "ride @s mount @e[type=fishing_bobber,limit=1,sort=nearest]"
-                                                    },
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "power grant @s angler:tp/cod"
-                                                    },
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]"
-                                                    }
-                                                ]
+                                                "type": "origins:execute_command",
+                                                "command": "function angler:create_cod"
                                             }
                                         }
                                     ]

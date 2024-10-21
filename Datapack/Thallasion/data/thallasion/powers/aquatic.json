@@ -1,0 +1,81 @@
+{
+    "type": "origins:multiple",
+    "swim": {
+        "type": "origins:modify_swim_speed",
+        "modifier": {
+            "id": "thallasion:titanic_swim",
+            "operation": "add_multiplied_base",
+            "amount": 0.2
+        }
+    },
+    "tag": {
+        "type": "origins:modify_type_tag",
+        "tag": "minecraft:aquatic"
+    },
+    "breathing": {
+        "type": "origins:water_breathing"
+    },
+    "water_vision": {
+        "type": "origins:night_vision",
+        "strength": 0.6,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:submerged_in",
+                    "fluid": "minecraft:water"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "thallasion:tidal_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "tidal_vision": {
+        "type": "origins:night_vision",
+        "strength": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:submerged_in",
+                    "fluid": "minecraft:water"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "thallasion:tidal_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "immune_breathing": {
+        "type": "origins:effect_immunity",
+        "effects": [
+            "minecraft:water_breathing"
+        ]
+    },
+    "spawn_in_ocean": {
+        "type": "origins:modify_player_spawn",
+        "dimension": "minecraft:overworld",
+        "biome": "minecraft:ocean"
+    },
+    "name": "Aquatic",
+    "description": "Bubbles are born of your will to exist outside the waters you so adore",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/water_breathing.png",
+            "text": "§l§bAquatic §r§b🫧§r\n§7You are an aquatic being.\n\n- You can breathe in water but not on land\n- You swim §a20%§7 quicker naturally.\n- You take additional damage from Impaling.\n- You see better underwater\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/ominous_bottle.png",
+            "text": "§l§cChemical Dissonance §r§c❌§r\n§7Your body prevents Water Breathing to be used.\n\n§7§lPassive Ability"
+        }
+    ]
+}

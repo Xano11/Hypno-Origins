@@ -1,0 +1,22 @@
+{
+    "type": "origins:simple",
+    "name": "§6[Rare Treasure]",
+    "description": "",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/angler/treasure.png",
+            "text": "§bDeep Treasure§r\n§7Using an §bDeep Treasure§7, you can upgrade your §3Angler's Rod§7!\nThis increases the momentum of Hook Surfing.\n\n§7Using §bDeep Treasure§7, you can upgrade your §fSword§r§9Fish§7!\nThis increases the Swordfish's damage.\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/angler/salmon.png",
+            "text": "§cLegendary Salmon§r\n§7Using a §cLegendary Salmon§7, you can upgrade your §3Angler's Rod§7 to tier 4!\nThis increases numbers of drops you can roll.\n\n§7Using a §cLegendary Salmon§7 on any fishing rod, allows you to enchant it with treasure!\nThis add an extra drop you can roll while fishing.\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "hypno:textures/item/angler/pufferfish.png",
+            "text": "§6Legendary Pufferfish§r\n§7Using a §6Legendary Pufferfish§7, you can upgrade your §fSword§r§9Fish§7 to tier 4!\nThis deals more damage to entities in water or that are drenched.\n\n§7Using a §6Legendary Pufferfish§7, you can apply water aspect on a book!\nThis allows you to enchant any sword with water aspect.\n\n§7§lPassive Ability"
+        }
+    ]
+}

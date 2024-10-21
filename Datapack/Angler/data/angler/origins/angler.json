@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"angler:fishing/fishloot",
+		"angler:rare_finds",
 		"angler:fishing/throw",
 		"angler:tp/fishout",
 		"angler:sword/transfish",

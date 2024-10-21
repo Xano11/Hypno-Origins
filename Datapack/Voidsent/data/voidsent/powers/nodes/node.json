@@ -87,57 +87,6 @@
         },
         "execute_chosen_when_orb": false
     },
-    "rotating": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:resource",
-                "resource": "voidsent:nodes/node_spin",
-                "comparison": "==",
-                "compare_to": 0
-            },
-            "if_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:execute_command",
-                        "command": "execute on passengers run function voidsent:abilities/node_rotate1"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "execute on passengers on passengers run function voidsent:abilities/node_rotate1"
-                    },
-                    {
-                        "type": "origins:change_resource",
-                        "resource": "voidsent:nodes/node_spin",
-                        "change": 1,
-                        "operation": "set"
-                    }
-                ]
-            },
-            "else_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:execute_command",
-                        "command": "execute on passengers run function voidsent:abilities/node_rotate0"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "execute on passengers on passengers run function voidsent:abilities/node_rotate0"
-                    },
-                    {
-                        "type": "origins:change_resource",
-                        "resource": "voidsent:nodes/node_spin",
-                        "change": 0,
-                        "operation": "set"
-                    }
-                ]
-            }
-        },
-        "interval": 20
-    },
     "damage": {
         "type": "origins:resource",
         "min": 0,
