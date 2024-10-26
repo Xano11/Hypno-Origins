@@ -53,8 +53,8 @@ file = "config/openloader/data/neon_0.23.zip"
 hash = "ddfc70135c90f3a3f965e4e7e2a2499ebcbe248e0c2e4dcc80d854fcd59945c7"
 
 [[files]]
-file = "config/openloader/data/resonant_0.20.zip"
-hash = "6fac82954e0776ed3b9adf99be6a4d2f938167920a03139dc0093d3e855a8520"
+file = "config/openloader/data/resonant_0.21.zip"
+hash = "c5a81d254d49e63905d122846a42cf0da4054282c362a47e97b137cde11bd569"
 
 [[files]]
 file = "config/openloader/data/thallasion_0.20.zip"
@@ -69,8 +69,8 @@ file = "config/openloader/data/zephyrite_0.21.zip"
 hash = "5c93c59163c55f07bd3fee29f2980c4158939a37e4fcee5c19fd2c0c8f2cbc7b"
 
 [[files]]
-file = "config/openloader/resources/pack_0.41.zip"
-hash = "ebd349549a773821fac44daa88299cbbb48a7f39457ba369d5783cceb9dff056"
+file = "config/openloader/resources/pack_0.42.zip"
+hash = "9cb189ee15293c6cfab5b7aaa75f9cd8199f8f8b452ceb35f9961b48592152f5"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"

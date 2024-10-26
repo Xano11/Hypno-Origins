@@ -13,6 +13,12 @@
     "death.attack.bullet.player": "%s was shot to death by %s\\",
 
     "death.attack.grenade": "%s didn't send the grenade back",
-    "death.attack.grenade.player": "%s didn't send %s\\'s grenade back\\"
+    "death.attack.grenade.player": "%s didn't send %s\\'s grenade back\\",
+    
+    "death.attack.nail": "%s's soul was punctured deep",
+    "death.attack.nail.player": "%s's soul couldn't keep shape to %s\\'s nails\\",
+    
+    "death.attack.shifting_cue": "%s's soul was punctured deep",
+    "death.attack.shifting_cue.player": "%s died to %s\\'s soul-shattering hit\\"
 
 }
