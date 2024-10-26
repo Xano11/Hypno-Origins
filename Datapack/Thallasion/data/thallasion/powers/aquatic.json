@@ -62,7 +62,7 @@
     "spawn_in_ocean": {
         "type": "origins:modify_player_spawn",
         "dimension": "minecraft:overworld",
-        "biome": "minecraft:ocean"
+        "biome_tag": "minecraft:is_ocean"
     },
     "name": "Aquatic",
     "description": "Bubbles are born of your will to exist outside the waters you so adore",

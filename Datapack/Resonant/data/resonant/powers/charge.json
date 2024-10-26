@@ -1,0 +1,215 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0
+    },
+    "decay_cooldown": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:charge_cooldown",
+            "change": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:charge_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "interval": 1
+    },
+    "hold_key": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:charge_winding",
+            "change": 0,
+            "operation": "set"
+        }
+    },
+    "decay_key": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:charge_hold_key",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "holding": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function resonant:charge_holding"
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "resonant:charge_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "minecraft:pickaxes"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "winding": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 35,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.note_block.bass player @s ~ ~ ~ 1 0.8"
+        }
+    },
+    "cancel_hit": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:charge_winding",
+            "change": 0,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.attack"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:charge_winding",
+            "comparison": "<",
+            "compare_to": 35
+        }
+    },
+    "hit": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:charge_winding",
+            "comparison": "==",
+            "compare_to": 35
+        },
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "minecraft:player_attack"
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function resonant:charge_use"
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function resonant:charge_hit"
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "space": "local_horizontal",
+                                "y": 0.5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 1,
+                    "damage_type": "resonant:shifting_cue"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 1.8
+                }
+            ]
+        }
+    },
+    "crosshair": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "hypno:resonant/crosshair"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:charge_winding",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "crosshair_charged": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "hypno:resonant/crosshair_charged"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:charge_winding",
+            "comparison": "==",
+            "compare_to": 35
+        }
+    },
+    "name": "Shifting Cue",
+    "description": "Shifting energy into your pickaxe is quite strong even without the piercing input of your nails",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/absorption.png",
+            "text": "§b§lShifting Cue §r§b🎯§r\n§fHolding the ability, you start channeling energy into your pickaxe.\n§7Once fully charged, your next hit deals additional magic damage and stronger knockback.\n\n§e⌛§r§7 Windup: §r§f1.75s\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]§7 to channel energy into your pickaxe!"
+            ]
+        }
+    ]
+}

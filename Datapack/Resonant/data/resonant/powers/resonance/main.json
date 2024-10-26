@@ -1,0 +1,501 @@
+{
+    "type": "origins:multiple",
+    "nail_set": {
+        "type": "origins:entity_set"
+    },
+    "block_resonance_set": {
+        "type": "origins:entity_set"
+    },
+    "nails": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 9,
+        "start_value": 9,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 15
+        }
+    },
+    "recharge": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:resonance/main_nails",
+            "change": 1
+        },
+        "interval": 60,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:resonance/main_nails",
+            "comparison": "<",
+            "compare_to": 9
+        }
+    },
+    "double_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "resonant:resonance/main_nails",
+                "comparison": ">=",
+                "compare_to": 3
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "execute anchored eyes positioned ^ ^-0.3 ^1.5 rotated as @s run function resonant:summon_nails"
+            }
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "execute if entity @s[tag=!resonant_double] anchored eyes positioned ^ ^-0.3 ^1.5 rotated as @s run function resonant:summon_nail"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "double_check_decay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:resonance/main_double_check",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "create_nail": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:resonance/main_double_check",
+            "change": 4
+        },
+        "cooldown": 1,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "resonant:resonance/main_nails",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "inverted": true,
+                    "type": "origins:raycast",
+                    "distance": 1.5,
+                    "block": true,
+                    "entity": false,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:living"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "hit_nail": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:has_command_tag",
+                    "command_tag": "main_resonant_nail"
+                }
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add nail_hit"
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:riding_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "function resonant:hit_nails"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s remove nail_hit"
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=nail_set,type=#resonant:set_add]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_to_entity_set",
+                                                "set": "resonant:resonance/main_nail_set"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove nail_set"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add nail_hit"
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:riding_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "function resonant:hit_nail"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s remove nail_hit"
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[tag=nail_set,type=#resonant:set_add]",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_to_entity_set",
+                                                "set": "resonant:resonance/main_nail_set"
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove nail_set"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:has_command_tag",
+                "command_tag": "resonant_nail"
+            }
+        }
+    },
+    "trigger_pins": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=armor_stand,tag=resonant_nail]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:block_action_at",
+                                    "block_action": {
+                                        "type": "origins:area_of_effect",
+                                        "radius": 2,
+                                        "shape": "star",
+                                        "block_action": {
+                                            "type": "origins:execute_command",
+                                            "command": "execute unless entity @e[type=marker,tag=resonance_block,dx=0] unless block ~ ~ ~ #replaceable run function resonant:block_resonance"
+                                        },
+                                        "block_condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:movement_blocking"
+                                                },
+                                                {
+                                                    "type": "origins:block_state",
+                                                    "property": "facing",
+                                                    "inverted": true
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "function resonant:nail_explode"
+                                },
+                                {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 2.5,
+                                    "shape": "sphere",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_velocity",
+                                                "z": 0.8,
+                                                "y": 0.05
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s add nail_target"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "bientity_condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:living"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "function resonant:kill_nail"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:in_entity_set",
+                        "set": "resonant:resonance/main_nail_set"
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[tag=nail_target]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:equal",
+                                    "inverted": true
+                                },
+                                "if_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:damage",
+                                            "amount": 4,
+                                            "damage_type": "resonant:nail"
+                                        },
+                                        {
+                                            "type": "origins:damage",
+                                            "amount": 2,
+                                            "damage_type": "resonant:nail_true"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s remove nail_target"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=item_display,tag=resonance_block]",
+                    "bientity_action": {
+                        "type": "origins:add_to_entity_set",
+                        "set": "resonant:resonance/main_block_resonance_set"
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": "key.origins.secondary_active",
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:entity_set_size",
+            "set": "resonant:resonance/main_nail_set",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "origins:phantomize_overlay",
+        "strength": 0.05,
+        "red": 0.3,
+        "green": 0.7,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:raycast",
+            "block": false,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "hit_bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags: ['resonant_nail']}"
+                }
+            }
+        }
+    },
+    "trance": {
+        "type": "origins:overlay",
+        "texture": "hypno:kalogero/trance",
+        "strength": 0.6,
+        "red": 0,
+        "green": 0.3,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:raycast",
+            "block": false,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "hit_bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags: ['resonant_nail']}"
+                }
+            }
+        }
+    },
+    "resonance_break": {
+        "type": "origins:modify_break_speed",
+        "block_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute align xyz if entity @e[type=marker,tag=resonance_block,dx=0]",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:movement_blocking"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 0.4
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "blue": 0.9,
+        "green": 0.8,
+        "red": 0,
+        "bientity_condition": {
+            "type": "origins:in_entity_set",
+            "set": "resonant:resonance/main_nail_set"
+        },
+        "entity_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:item_display"
+        }
+    },
+    "glow_blocks": {
+        "type": "origins:entity_glow",
+        "blue": 0.9,
+        "green": 0.8,
+        "red": 0,
+        "bientity_condition": {
+            "type": "origins:in_entity_set",
+            "set": "resonant:resonance/main_block_resonance_set"
+        }
+    },
+    "name": "Resonance",
+    "description": "You were chosen by Resonance at birth; a priviliged gift bestowed unto those of your lineage",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/particle/sonic_boom_9.png",
+            "text": "§b§lResonance §l§b🌻§r\n§fYou can use Soul-infused nails in many ways.\n§7Once hit, they will start flying in the direction you're looking; dealing damage to all entities it passes through.\n\nUsing the other ability key, all nails that have been hit will explode, dealing damage in a small radius and pushing entities back. §8(You are immune to it's damage)\n\n§7Blocks hit by the explosion will be highlighted and become weakened; increasing the speed at which they break by 40% for 2.5s\n\n§b§l📌§r§7 Nails: §r§f9 Max§r§8\n§e⌛§r§7 Recharge: §r§f1/3s\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": [
+                "§7Press §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 to summon a Soul-infused nail in front of you.\nPress the key twice rapidly to summon three at once in a cone in front of you."
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/enchanted_book.png",
+            "text": "§e§lResonant §r§e⛏§r\n§7Your nail damage is §edirectly§7 affected by the \"Resonant\" enchantment.\n\nNo Resonant: 2.5 + §l1§r§7\nResonant I: 3.75 + §l1.5§r§7\nResonant II: 5 + §l2§r§7\nResonant III: 6.25 + §l2.5§r§7\n\n§8(§lbold§r§8 values indicates damage that bypasses armor)"
+        }
+    ]
+}

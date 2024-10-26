@@ -1,0 +1,3 @@
+summon item_display ~ ~ ~ {Tags:["resonance_block"],Passengers:[{id:"minecraft:marker",Tags:["resonance_block"]}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.99f,0.99f,0.99f]},item:{id:"minecraft:dirt",count:1}}
+execute as @n[type=item_display,tag=resonance_block] on passengers run scoreboard players set @s nail_resonance 50
+execute as @n[type=item_display,tag=resonance_block] run loot replace entity @s container.0 mine ~ ~ ~ minecraft:netherite_pickaxe[minecraft:enchantments={levels:{silk_touch:1}}]

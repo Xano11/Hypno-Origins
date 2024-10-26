@@ -1,3 +1,0 @@
-playsound hypno:slash master @a[distance=..30] ~ ~ ~ 2 1
-resource set @s cleavemaster:vfx/white_res 8
-tellraw @a[distance=..30] [{"color":"#FFFFFF","text":"<Cleavemaster> "},{"color":"#C2C2C2","text":"S"},{"color":"#AEAEAE","text":"A"},{"color":"#9B9B9B","text":"W"},{"color":"#878787","text":"B"},{"color":"#737373","text":"L"},{"color":"#878787","text":"A"},{"color":"#9B9B9B","text":"D"},{"color":"#C2C2C2","text":"E"}]

@@ -1,0 +1,52 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function resonant:kill_nail"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:resonance/nail_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "shot": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "moving": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 1,
+            "block": true,
+            "entity": false,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "hit_action": {
+                "type": "origins:execute_command",
+                "command": "function resonant:stop_nail"
+            },
+            "command_along_ray": "function resonant:moving_nail",
+            "command_step": 0.5
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:resonance/nail_shot",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "hidden": true
+}

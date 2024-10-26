@@ -1,0 +1,318 @@
+{
+    "type": "origins:multiple",
+    "looting1": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": 1
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "minecraft:fortune",
+                "comparison": "==",
+                "compare_to": 1,
+                "use_modifications": false
+            }
+        }
+    },
+    "looting2": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": 2
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "minecraft:fortune",
+                "comparison": "==",
+                "compare_to": 2,
+                "use_modifications": false
+            }
+        }
+    },
+    "looting3": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": 3
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "minecraft:fortune",
+                "comparison": "==",
+                "compare_to": 3,
+                "use_modifications": false
+            }
+        }
+    },
+    "weak_weapons": {
+        "type": "origins:modify_damage_dealt",
+        "modifiers": [
+            {
+                "operation": "multiply_base_multiplicative",
+                "amount": -0.75
+            },
+            {
+                "operation": "min_base",
+                "amount": 1
+            }
+        ],
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail_true",
+                    "inverted": true
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "inverted": true,
+                "ingredient": {
+                    "tag": "minecraft:pickaxes"
+                }
+            }
+        }
+    },
+    "no_resonance": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.5
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail"
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail_true"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "resonant:resonant",
+                "comparison": ">",
+                "compare_to": 0,
+                "inverted": true,
+                "use_modifications": false
+            }
+        }
+    },
+    "nail_resonance1": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.25
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail"
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail_true"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "resonant:resonant",
+                "comparison": "==",
+                "compare_to": 1,
+                "use_modifications": false
+            }
+        }
+    },
+    "nail_resonance3": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 0.25
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail"
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type": "resonant:nail_true"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "resonant:resonant",
+                "comparison": "==",
+                "compare_to": 3,
+                "use_modifications": false
+            }
+        }
+    },
+    "shifting_resonance1": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": 1
+        },
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "resonant:shifting_cue"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "resonant:resonant",
+                "comparison": "==",
+                "compare_to": 1,
+                "use_modifications": false
+            }
+        }
+    },
+    "shifting_resonance2": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": 1.5
+        },
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "resonant:shifting_cue"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "resonant:resonant",
+                "comparison": "==",
+                "compare_to": 2,
+                "use_modifications": false
+            }
+        }
+    },
+    "shifting_resonance3": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": 2
+        },
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "resonant:shifting_cue"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:enchantment",
+                "enchantment": "resonant:resonant",
+                "comparison": "==",
+                "compare_to": 3,
+                "use_modifications": false
+            }
+        }
+    },
+    "craft_book": {
+        "type": "origins:modify_crafting",
+        "recipe": "resonant:resonant_book",
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "resonant:chargeable_book"
+        },
+        "result": {
+            "id": "minecraft:enchanted_book",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Echoing Book\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:max_stack_size": 1,
+                "minecraft:max_damage": 500,
+                "minecraft:damage": 499,
+                "minecraft:enchantments":{
+                    "resonant:fake_mending": 1
+                },
+                "minecraft:custom_data": {
+                    "Chargeable_Book": true
+                }
+            }
+        }
+    },
+    "name": "Pitching Pick",
+    "description": "Pickaxes are built perfectly for the channeling of enhanced resonance.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/netherite_pickaxe.png",
+            "text": "§e§lPitching Pick §r§e⛏§r\n§7Any other weapons than pickaxes deal §c-75%§7 damage.\n\nPickaxes receive the following benefits:\n- Fortune also applies Looting of the same level.\n- The ability \"Shifting Cue\"\n- The enchantment \"Resonant\" (Refer to the next badge)\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "prefix": "§e§lResonant §r§e⛏\n§r§7Once crafted, the book must be repaired with experience to be usable.",
+            "sprite": "minecraft:textures/item/enchanted_book.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "resonant:resonant_book",
+                "pattern": [
+                    " o ",
+                    "obo",
+                    " o "
+                ],
+                "key": {
+                    "o": {
+                        "item": "minecraft:amethyst_shard"
+                    },
+                    "b": {
+                        "item": "minecraft:book"
+                    }
+                },
+                "result": {
+                    "id": "minecraft:book"
+                }
+            },
+            "suffix": "§e§lResonant §r§e⛏§r\n\n§7Resonant increases experience gain on mined blocks. §8(Max level: III)\n\n§8(Applicable on most tools)"
+        }
+    ]
+}

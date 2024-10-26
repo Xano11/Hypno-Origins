@@ -1,0 +1,30 @@
+{
+    "type": "origins:multiple",
+    "xp_bonus": {
+        "type": "origins:modify_xp_gain",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 0.5
+        }
+    },
+    "magic_damage":{
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "minecraft:magic"
+        },
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.4
+        }
+    },
+    "name": "Sorcerer",
+    "description": "\"You're innate ability for Resonance has it's secondary benefits, you know?\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/book.png",
+            "text": "§a§lSorcerer §r§a🧙§r\n§7You gain §a50%§7 more experience and take §a40%§7 less magic damage.\n\n§7§lPassive Ability"
+        }
+    ]
+}

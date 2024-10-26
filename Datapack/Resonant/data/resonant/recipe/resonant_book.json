@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "resonant:resonant_book",
+    "pattern": [
+        " o ",
+        "obo",
+        " o "
+    ],
+    "key": {
+        "o": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "b": {
+            "item": "minecraft:book"
+        }
+    },
+    "result": {
+        "id": "minecraft:book"
+    }
+}

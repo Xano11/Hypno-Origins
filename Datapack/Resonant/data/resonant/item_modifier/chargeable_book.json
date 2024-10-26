@@ -1,0 +1,25 @@
+[
+    {
+        "function": "minecraft:set_lore",
+        "entity": "this",
+        "lore": [
+            {
+                "text": "This book requires experience."
+            }
+        ],
+        "mode": "replace_all"
+    },
+    {
+        "function": "apoli:add_power",
+        "power": "resonant:book",
+        "slot": "any",
+        "negative": false,
+        "hidden": true
+    },
+    {
+        "function": "minecraft:toggle_tooltips",
+        "toggles": {
+            "minecraft:attribute_modifiers": false
+        }
+    }
+]

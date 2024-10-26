@@ -5,6 +5,12 @@
 	"angler_cod": {
 		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
 	},
+	"necron_domain": {
+		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
+	},
+	"resonant_nail": {
+		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
+	},
 	"thallasion_acid": {
 		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
 	},

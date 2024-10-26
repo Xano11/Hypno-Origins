@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"resonant:resonance/main",
+		"resonant:charge",
+		"resonant:pick",
+		"resonant:sorcerer",
+		"resonant:limits",
+		"resonant:dissonance"
+	],
+	"icon": {
+		"id": "minecraft:iron_nugget",
+		"components": {
+			"minecraft:custom_model_data": 1
+		}
+	},
+	"order": 1,
+	"impact": 2,
+	"name": "Resonant",
+	"description": "The mere existence of those born with Resonance indicates that the soul and the flesh aren't so different from one another."
+}

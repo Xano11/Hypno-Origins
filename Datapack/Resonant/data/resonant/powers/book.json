@@ -1,0 +1,29 @@
+{
+    "type": "origins:multiple",
+    "fully_charged": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:durability",
+                        "comparison": "==",
+                        "compare_to": 500
+                    },
+                    {
+                        "type": "origins:custom_data",
+                        "nbt": "{Chargeable_Book:1b}"
+                    }
+                ]
+            },
+            "item_action": {
+                "type": "origins:modify",
+                "modifier": "resonant:charged_book"
+            }
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

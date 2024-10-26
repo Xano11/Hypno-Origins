@@ -1,0 +1,3 @@
+execute if block ^ ^ ^1 #replaceable run tp ^ ^ ^1
+execute on passengers if entity @s[type=interaction] positioned ~-0.5 ~-0.1 ~-0.5 if entity @e[dx=0,type=!#resonant:unliving] as @e[dx=0,type=!#resonant:unliving] run tag @s add nail_target
+execute on passengers if entity @s[type=interaction] positioned ~-0.5 ~-0.1 ~-0.5 if entity @e[dx=0,type=!#resonant:unliving] on vehicle run power grant @s resonant:resonance/detect_hit

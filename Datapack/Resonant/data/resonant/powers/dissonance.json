@@ -1,0 +1,93 @@
+{
+    "type": "origins:multiple",
+    "amplifier": {
+        "type": "origins:modify_status_effect_amplifier",
+        "status_effects": [
+            "minecraft:absorption",
+            "minecraft:conduit_power",
+            "minecraft:dolphins_grace",
+            "minecraft:fire_resistance",
+            "minecraft:haste",
+            "minecraft:health_boost",
+            "minecraft:hero_of_the_village",
+            "minecraft:invisibility",
+            "minecraft:jump_boost",
+            "minecraft:luck",
+            "minecraft:night_vision",
+            "minecraft:raid_omen",
+            "minecraft:regeneration",
+            "minecraft:resistance",
+            "minecraft:saturation",
+            "minecraft:slow_falling",
+            "minecraft:speed",
+            "minecraft:strength",
+            "minecraft:water_breathing"
+        ],
+        "modifiers": [
+            {
+                "operation": "add_base_early",
+                "amount": -1
+            },
+            {
+                "operation": "min_base",
+                "amount": 0
+            }
+        ]
+    },
+    "duration": {
+        "type": "origins:modify_status_effect_duration",
+        "status_effects": [
+            "minecraft:absorption",
+            "minecraft:conduit_power",
+            "minecraft:dolphins_grace",
+            "minecraft:fire_resistance",
+            "minecraft:haste",
+            "minecraft:health_boost",
+            "minecraft:hero_of_the_village",
+            "minecraft:invisibility",
+            "minecraft:jump_boost",
+            "minecraft:luck",
+            "minecraft:night_vision",
+            "minecraft:raid_omen",
+            "minecraft:regeneration",
+            "minecraft:resistance",
+            "minecraft:saturation",
+            "minecraft:slow_falling",
+            "minecraft:speed",
+            "minecraft:strength",
+            "minecraft:water_breathing"
+        ],
+        "modifiers": [
+            {
+                "operation": "multiply_base_multiplicative",
+                "amount": -0.5
+            },
+            {
+                "operation": "min_base",
+                "amount": 1
+            }
+        ]
+    },
+    "exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": 2.0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "resonant:resonance/main_nails",
+            "comparison": "<",
+            "compare_to": 9
+        }
+    },
+    "name": "Dissonance",
+    "description": "When Resonance doesn't attune with other body functions, Dissonance wrecks the harmony.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "§4§lDissonance §r§4🫨§r\n§7All potion effects you obtain have their §lamplifier§r§7 reduced by 1 and their §lduration§r§7 split in half.\nAdditionally, you exhaust 3x more when your nails aren't full.\n\n§7§lPassive Ability"
+        }
+    ]
+}

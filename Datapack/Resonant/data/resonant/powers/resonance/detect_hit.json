@@ -1,0 +1,48 @@
+{
+    "type": "origins:action_on_callback",
+    "entity_action_gained": {
+        "type": "origins:selector_action",
+        "selector": "@a",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:selector_action",
+                "selector": "@e[tag=nail_target]",
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:damage",
+                            "amount": 5,
+                            "damage_type": "resonant:nail"
+                        },
+                        {
+                            "type": "origins:damage",
+                            "amount": 2,
+                            "damage_type": "resonant:nail_true"
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove nail_target"
+                            }
+                        }
+                    ]
+                },
+                "bientity_condition": {
+                    "type": "origins:equal",
+                    "inverted": true
+                }
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:invert",
+            "condition": {
+                "type": "origins:in_entity_set",
+                "set": "resonant:resonance/main_nail_set"
+            }
+        }
+    },
+    "hidden": true
+}
