@@ -1,0 +1,1 @@
+scoreboard players remove @s plushie_winding 1

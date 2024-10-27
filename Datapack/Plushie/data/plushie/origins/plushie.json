@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"plushie:paradox",
+		"plushie:voodoo/main"
+	],
+	"icon": {
+		"id": "minecraft:leather",
+		"components": {
+			"minecraft:custom_model_data": 1
+		}
+	},
+	"order": 1,
+	"impact": 1,
+	"name": "Wind-Up Plushie",
+	"description": "Something beyond life is animating your soul-less cotton filled body"
+}

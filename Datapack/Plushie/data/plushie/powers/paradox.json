@@ -1,0 +1,171 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "plushie_health",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -4,
+            "operation": "add_value"
+        }
+    },
+    "health1": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "plushie_health1",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -2,
+            "operation": "add_value"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_health_reduction",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "health2": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "plushie_health2",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -4,
+            "operation": "add_value"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_health_reduction",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "health3": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "plushie_health3",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -6,
+            "operation": "add_value"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_health_reduction",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "health4": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "plushie_health1",
+            "attribute": "minecraft:generic.max_health",
+            "amount": -8,
+            "operation": "add_value"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_health_reduction",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "health_reduction": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0
+    },
+    "death": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:drop_inventory"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function plushie:death/trigger_death"
+                }
+            ]
+        }
+    },
+    "death_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function plushie:death/timer_tick"
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:scoreboard",
+            "objective": "plushie_winding",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "head": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function plushie:death/head_rotate with storage plushie:head_rotation"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:scoreboard",
+            "objective": "plushie_winding",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death_movement": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "plushie_movement",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -1,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:scoreboard",
+            "objective": "plushie_winding",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
+        },
+        "condition": {
+            "type": "origins:scoreboard",
+            "objective": "plushie_winding",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death_jump": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
+        },
+        "condition": {
+            "type": "origins:scoreboard",
+            "objective": "plushie_winding",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Perplexing Plush Paradox",
+    "description": "Even when numbness fully takes over, something ethereal keeps you sentient",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/book.png",
+            "text": "§6§lPerplexing Plush Paradox §r§6🧸§r\n§7You gain §a50%§7 more experience and take §a40%§7 less magic damage.\n\n§7§lPassive Ability"
+        }
+    ]
+}
