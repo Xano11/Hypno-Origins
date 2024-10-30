@@ -3,8 +3,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 60,
-        "start_value": 60,
+        "max": 120,
+        "start_value": 120,
         "min_action": {
             "type": "origins:and",
             "actions": [
@@ -31,15 +31,17 @@
                                         "type": "origins:and",
                                         "actions": [
                                             {
-                                                "type": "origins:damage",
-                                                "damage_type": "plushie:voodoo",
-                                                "modifier": {
-                                                    "operation": "add_base_early",
-                                                    "amount": 0,
-                                                    "resource": "plushie:voodoo/voodooed_transfer_damage",
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:damage",
+                                                    "damage_type": "plushie:voodoo",
                                                     "modifier": {
-                                                        "operation": "multiply_total_multiplicative",
-                                                        "amount": -0.99
+                                                        "operation": "set_total",
+                                                        "resource": "plushie:voodoo/voodooed_transfer_damage",
+                                                        "modifier": {
+                                                            "operation": "multiply_total_multiplicative",
+                                                            "amount": -0.9
+                                                        }
                                                     }
                                                 }
                                             }
@@ -83,11 +85,91 @@
         },
         "interval": 1
     },
+    "prevent_fatal_voodoo": {
+        "type": "origins:prevent_death",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:type",
+                    "damage_type": "plushie:voodoo"
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type": "plushie:voodoo_true"
+                }
+            ]
+        }
+    },
     "transfer_damage": {
         "type": "origins:resource",
         "min": 0,
         "max": 200,
-        "start_value": 0
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "plushie:voodoo/voodooed_transfer_damage",
+                                            "comparison": ">",
+                                            "compare_to": 0
+                                        }
+                                    },
+                                    "if_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:damage",
+                                                    "damage_type": "plushie:voodoo",
+                                                    "modifier": {
+                                                        "operation": "set_total",
+                                                        "resource": "plushie:voodoo/voodooed_transfer_damage",
+                                                        "modifier": {
+                                                            "operation": "multiply_total_multiplicative",
+                                                            "amount": -0.9
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:remove_from_entity_set",
+                                    "set": "plushie:voodoo/main_voodooed"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_entity_set",
+                            "set": "plushie:voodoo/main_voodooed"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s plushie:voodoo/voodooed"
+                }
+            ]
+        }
     },
     "hidden": true
 }

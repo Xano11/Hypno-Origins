@@ -1,7 +1,10 @@
 {
 	"powers": [
 		"plushie:paradox",
-		"plushie:voodoo/main"
+		"plushie:voodoo/main",
+		"plushie:swipes",
+		"plushie:plushlike",
+		"plushie:cotton"
 	],
 	"icon": {
 		"id": "minecraft:leather",

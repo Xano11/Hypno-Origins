@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "plushie:cotton",
+    "pattern": [
+        " a ",
+        "aba",
+        " a "
+    ],
+    "key": {
+        "b": {
+            "tag": "minecraft:soul_fire_base_blocks"
+        },
+        "a": {
+            "tag": "minecraft:wool"
+        }
+    },
+    "result": {
+        "id": "minecraft:white_wool"
+    }
+}

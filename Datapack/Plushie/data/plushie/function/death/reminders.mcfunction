@@ -1,0 +1,15 @@
+#Death Reminders
+execute if entity @s[tag=plushie_soulslike] run return run title @s actionbar ["",{"text":"You died.","bold":true,"color":"gold"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_continue] run return run title @s actionbar ["",{"text":"Continue?","bold":true,"color":"green"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_cling] run return run title @s actionbar ["",{"text":"Cling on.","bold":true,"color":"white"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+
+#*sans noises*
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 12..15 run return run title @s actionbar ["",{"text":"...","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 11 run return run title @s actionbar ["",{"text":"so...","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 10 run return run title @s actionbar ["",{"text":"guess that's it, huh?","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 9 run return run title @s actionbar ["",{"text":"...","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 8 run return run title @s actionbar ["",{"text":"just...","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 7 run return run title @s actionbar ["",{"text":"don't say i didn't warn you.","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 6 run return run title @s actionbar ["",{"text":"welp.","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 5 run return run title @s actionbar ["",{"text":"i'm going to grillby's.","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]
+execute if entity @s[tag=plushie_underground] if score @s plushie_winding matches 1..4 run return run title @s actionbar ["",{"text":"papyrus, do you want anything?","color":"white","font":"hypno:comic"}," [",{"score":{"name":"@s","objective":"plushie_winding"}},"]"]

@@ -1,0 +1,67 @@
+{
+    "type": "origins:multiple",
+    "slow": {
+        "type": "origins:conditioned_attribute",
+        "tick_rate": 1,
+        "modifier": {
+            "id": "plushie_cotton",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -0.6,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "gravity": {
+        "type": "origins:conditioned_attribute",
+        "tick_rate": 1,
+        "modifier": {
+            "id": "plushie_gravity",
+            "attribute": "minecraft:generic.gravity",
+            "amount": -0.6,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "airspeed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.2
+        }
+    },
+    "ignore_water": {
+        "type": "origins:ignore_water"
+    },
+    "oxygen": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 300
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:air",
+            "comparison": "<",
+            "compare_to": 300
+        }
+    },
+    "name": "Soaked Cotton",
+    "description": "Shifting energy into your pickaxe is quite strong even without the piercing input of your nails",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/water_bucket.png",
+            "text": "§9§lSoaked Cotton §r§9🎯§r\n§fOnce in contact with water, You become §9Soaked 🌧§7\n\n§9Soaked 🌧\nYou are 60% slower and sink instead of swim.\n\n§7§lPassive Ability"
+        }
+    ]
+}

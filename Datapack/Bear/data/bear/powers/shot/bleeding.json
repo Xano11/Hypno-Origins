@@ -10,7 +10,7 @@
         },
         "min_action": {
             "type": "origins:execute_command",
-            "command": "power remove @s bear:shot/bleeding"
+            "command": "power revoke @s bear:shot/bleeding"
         }
     },
 

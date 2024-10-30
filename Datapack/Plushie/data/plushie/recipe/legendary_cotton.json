@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "plushie:legendary_cotton",
+    "pattern": [
+        " a ",
+        "aba",
+        " a "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:echo_shard"
+        },
+        "a": {
+            "tag": "minecraft:wool"
+        }
+    },
+    "result": {
+        "id": "minecraft:white_wool"
+    }
+}

@@ -75,6 +75,12 @@
         "max": 4,
         "start_value": 0
     },
+    "death_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0
+    },
     "death": {
         "type": "origins:prevent_death",
         "entity_action": {
@@ -112,14 +118,15 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:scoreboard",
-            "objective": "plushie_winding",
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
             "comparison": ">",
             "compare_to": 0
         }
     },
     "death_movement": {
         "type": "origins:conditioned_attribute",
+        "tick_rate": 1,
         "modifier": {
             "id": "plushie_movement",
             "attribute": "minecraft:generic.movement_speed",
@@ -127,8 +134,8 @@
             "operation": "add_multiplied_total"
         },
         "condition": {
-            "type": "origins:scoreboard",
-            "objective": "plushie_winding",
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
             "comparison": ">",
             "compare_to": 0
         }
@@ -140,8 +147,8 @@
             "amount": -1
         },
         "condition": {
-            "type": "origins:scoreboard",
-            "objective": "plushie_winding",
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
             "comparison": ">",
             "compare_to": 0
         }
@@ -153,10 +160,23 @@
             "amount": -1
         },
         "condition": {
-            "type": "origins:scoreboard",
-            "objective": "plushie_winding",
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
             "comparison": ">",
             "compare_to": 0
+        }
+    },
+    "death_invuln": {
+        "type": "origins:modify_damage_taken",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
         }
     },
     "name": "Perplexing Plush Paradox",
@@ -164,8 +184,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/item/book.png",
-            "text": "§6§lPerplexing Plush Paradox §r§6🧸§r\n§7You gain §a50%§7 more experience and take §a40%§7 less magic damage.\n\n§7§lPassive Ability"
+            "sprite": "minecraft:textures/item/totem_of_undying.png",
+            "text": "§6§lPerplexing Plush Paradox §r§6🧸§r\n§fYou cannot die.\n§7Instead, you become inactive for §e15s§7; preventing you from all actions and dropping your entire inventory nonetheless.\n\n§7§lPassive Ability"
         }
     ]
 }

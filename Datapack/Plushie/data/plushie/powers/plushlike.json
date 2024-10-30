@@ -1,0 +1,128 @@
+{
+    "type": "origins:multiple",
+    "natural_regen": {
+        "type": "origins:disable_regen"
+    },
+    "no_exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "No exhaustion",
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
+        }
+    },
+    "food": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:feed",
+            "nutrition": 20,
+            "saturation": 20
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:food_level",
+            "comparison": "<=",
+            "compare_to": 19
+        }
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "plushie:voodoo/main_toggle",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:heal",
+                "amount": 0.75
+            },
+            "else_action": {
+                "type": "origins:heal",
+                "amount": 0.5
+            }
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:relative_health",
+            "comparison": "<",
+            "compare_to": 1
+        }
+    },
+    "no_food": {
+        "type": "origins:prevent_item_use",
+        "name": "❌",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food"
+                },
+                {
+                    "type": "origins:custom_data",
+                    "inverted": true,
+                    "nbt": "{Plushie_Cottons: 1b}"
+                }
+            ]
+        }
+    },
+    "craft_cotton": {
+        "type": "origins:modify_crafting",
+        "recipe": "plushie:cotton",
+        "result": {
+            "id": "minecraft:black_dye",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Plushie Cotton\",\"italic\":false}]",
+                "minecraft:custom_model_data": 1,
+                "minecraft:max_stack_size": 8,
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:custom_data": {
+                    "Plushie_Cotton": true,
+                    "Plushie_Cottons": true
+                }
+            }
+        }
+    },
+    "craft_legendary_cotton": {
+        "type": "origins:modify_crafting",
+        "recipe": "plushie:legendary_cotton",
+        "result": {
+            "id": "minecraft:black_dye",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Legendary Plushie Cotton\",\"italic\":false}]",
+                "minecraft:custom_model_data": 2,
+                "minecraft:max_stack_size": 8,
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:custom_data": {
+                    "Legendary_Plushie_Cotton": true,
+                    "Plushie_Cottons": true
+                }
+            }
+        }
+    },
+    "eat_cottons": {
+        "type": "origins:edible_item",
+        "item_condition": {
+            "type": "origins:custom_data",
+            "nbt": "{Plushie_Cottons: 1b}"
+        },
+        "food_component": {
+            "nutrition": 0,
+            "saturation": 0,
+            "can_always_eat": true,
+            "eat_seconds": 3.2
+        },
+        "use_action": "eat"
+    },
+    "name": "Plushlike",
+    "description": "Your inanimate plushie shape puts to shame the cold reality of death",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/regeneration.png",
+            "text": "§a§lPlushlike 🐼§r§7\nYou do not require food and cannot heal naturally. Instead, you passively regenerate a heart every §r§esecond§r§7.\n\n§7§lPassive Ability"
+        }
+    ]
+}

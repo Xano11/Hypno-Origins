@@ -8,6 +8,20 @@
 	"necron_domain": {
 		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
 	},
+	"plushie_totem": {
+		"files": [
+			"assets/animated_java/models/empty.json",
+			"assets/animated_java/textures/item/plushie_totem/texture.png",
+			"assets/animated_java/textures/item/transparent.png",
+			"assets/animated_java/models/item/plushie_totem/default/leftleg.json",
+			"assets/animated_java/models/item/plushie_totem/default/rightleg.json",
+			"assets/animated_java/models/item/plushie_totem/default/leftarm.json",
+			"assets/animated_java/models/item/plushie_totem/default/rightarm.json",
+			"assets/animated_java/models/item/plushie_totem/default/body.json",
+			"assets/animated_java/models/item/plushie_totem/default/head.json",
+			"assets/animated_java/models/item/plushie_totem/default/crank.json"
+		]
+	},
 	"resonant_nail": {
 		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
 	},

@@ -78,7 +78,7 @@
                 "type": "origins:target_action",
                 "action": {
                     "type": "origins:execute_command",
-                    "command": "power remove @s kitsune:fox"
+                    "command": "power revoke @s kitsune:fox"
                 }
             },
             "else_action": {

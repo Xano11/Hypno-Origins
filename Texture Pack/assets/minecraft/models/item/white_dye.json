@@ -9,12 +9,55 @@
 				"custom_model_data": 1
 			},
 			"model": "animated_java:empty"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 2
+			},
+			"model": "animated_java:item/plushie_totem/default/leftleg"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 3
+			},
+			"model": "animated_java:item/plushie_totem/default/rightleg"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 4
+			},
+			"model": "animated_java:item/plushie_totem/default/leftarm"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 5
+			},
+			"model": "animated_java:item/plushie_totem/default/rightarm"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 6
+			},
+			"model": "animated_java:item/plushie_totem/default/body"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 7
+			},
+			"model": "animated_java:item/plushie_totem/default/head"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 8
+			},
+			"model": "animated_java:item/plushie_totem/default/crank"
 		}
 	],
 	"animated_java": {
 		"abyssal_conduit": [1],
 		"angler_cod": [],
 		"necron_domain": [],
+		"plushie_totem": [2, 3, 4, 5, 6, 7, 8],
 		"resonant_nail": [],
 		"thallasion_acid": [],
 		"void_node": []

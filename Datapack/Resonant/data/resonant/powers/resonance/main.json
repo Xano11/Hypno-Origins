@@ -83,6 +83,12 @@
             "type": "origins:and",
             "conditions": [
                 {
+                    "type": "origins:command",
+                    "command": "execute anchored eyes positioned ^ ^-0.3 ^1.5 unless entity @e[tag=resonant_nail,distance=..0.1]",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
                     "type": "origins:resource",
                     "resource": "resonant:resonance/main_nails",
                     "comparison": ">",
@@ -91,7 +97,7 @@
                 {
                     "inverted": true,
                     "type": "origins:raycast",
-                    "distance": 1.5,
+                    "distance": 1.6,
                     "block": true,
                     "entity": false,
                     "shape_type": "collider",
@@ -291,8 +297,17 @@
                                             {
                                                 "type": "origins:target_action",
                                                 "action": {
-                                                    "type": "origins:execute_command",
-                                                    "command": "tag @s add nail_target"
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "tag @s add nail_target"
+                                                        },
+                                                        {
+                                                            "type": "origins:set_fall_distance",
+                                                            "fall_distance": 0
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]

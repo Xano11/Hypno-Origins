@@ -3,101 +3,84 @@
     "voodooed": {
         "type": "origins:entity_set"
     },
-    "duration": {
+    "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 240,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 6,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "plushie:voodoo/main_cooldown",
+                "comparison": "<",
+                "compare_to": 100
+            }
+        }
+    },
+    "toggle": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
         "start_value": 0
     },
-    "duration_tick": {
+    "cooldown_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "plushie:voodoo/main_duration",
-            "change": -1
+            "resource": "plushie:voodoo/main_cooldown",
+            "change": 1
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "plushie:voodoo/main_duration",
-            "comparison": ">",
-            "compare_to": 0
+            "resource": "plushie:voodoo/main_cooldown",
+            "comparison": "<",
+            "compare_to": 100
         },
         "interval": 1
     },
-    "hold_key": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 3,
-        "start_value": 0,
-        "min_action": {
-            "type": "origins:change_resource",
-            "resource": "plushie:voodoo/main_winding",
-            "change": 0,
-            "operation": "set"
-        }
-    },
-    "decay_key": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "plushie:voodoo/main_hold_key",
-            "change": -1
-        },
-        "interval": 1
-    },
-    "holding": {
+    "use": {
         "type": "origins:active_self",
         "entity_action": {
-            "type": "origins:execute_command",
-            "command": "function plushie:voodoo/holding_key"
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "plushie:voodoo/main_toggle",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function plushie:voodoo/infuse"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "function plushie:voodoo/deinfuse"
+            }
         },
-        "cooldown": 1,
+        "cooldown": 4,
         "key": {
-            "key": "key.origins.primary_active",
-            "continuous": true
+            "key": "key.origins.primary_active"
         },
         "hud_render": {
             "should_render": false
         },
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "plushie:voodoo/main_duration",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        }
-    },
-    "winding": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 100,
-        "start_value": 0
-    },
-    "infused": {
-        "type": "origins:action_over_time",
-        "rising_action": {
-            "type": "origins:execute_command",
-            "command": "function plushie:voodoo/infused"
-        },
-        "interval": 1,
-        "condition": {
             "type": "origins:resource",
-            "resource": "plushie:voodoo/main_winding",
-            "comparison": ">=",
-            "compare_to": 20
+            "resource": "plushie:voodoo/main_cooldown",
+            "comparison": "==",
+            "compare_to": 100
         }
     },
     "hit": {
         "type": "origins:modify_damage_dealt",
         "condition": {
             "type": "origins:resource",
-            "resource": "plushie:voodoo/main_duration",
-            "comparison": ">",
-            "compare_to": 0
+            "resource": "plushie:voodoo/main_toggle",
+            "comparison": "==",
+            "compare_to": 1
         },
         "bientity_action": {
             "type": "origins:and",
@@ -117,13 +100,27 @@
                         "if_action": {
                             "type": "origins:change_resource",
                             "resource": "plushie:voodoo/voodooed_duration",
-                            "change": 60,
-                            "operation": "set"
+                            "change": 12
                         },
                         "else_action": {
                             "type": "origins:execute_command",
-                            "command": "power grant @s plushie:voodoo/voodooed"
+                            "command": "function plushie:voodoo/grant_voodooed"
                         }
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equal",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:living"
                     }
                 }
             ]
@@ -148,14 +145,72 @@
                             "command": "function plushie:voodoo/transfer"
                         }
                     }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:entity_set_size",
+                        "set": "plushie:voodoo/main_voodooed",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "scoreboard players set @s voodoo_damaged 0"
+                    }
                 }
             ]
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "plushie:voodoo/main_duration",
-            "comparison": ">",
-            "compare_to": 0
+            "resource": "plushie:voodoo/main_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "no_toughness": {
+        "type": "origins:conditioned_attribute",
+        "tick_rate": 1,
+        "modifier": {
+            "id": "plushie_toughness",
+            "attribute": "minecraft:generic.armor_toughness",
+            "amount": -1,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:voodoo/main_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "slowed": {
+        "type": "origins:conditioned_attribute",
+        "tick_rate": 1,
+        "modifier": {
+            "id": "plushie_slowed",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": -0.4,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:voodoo/main_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "airslowed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:voodoo/main_toggle",
+            "comparison": "==",
+            "compare_to": 1
         }
     },
     "glow": {

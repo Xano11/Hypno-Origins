@@ -4,7 +4,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "power remove @s thallasion:jewel/blessed"
+            "command": "power revoke @s thallasion:jewel/blessed"
         },
         "interval": 1,
         "condition": {
