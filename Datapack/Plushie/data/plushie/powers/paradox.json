@@ -92,6 +92,20 @@
                 {
                     "type": "origins:execute_command",
                     "command": "function plushie:death/trigger_death"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:selector_action",
+                        "selector": "@n[tag=aj.plushie_totem.root]",
+                        "bientity_action": {
+                            "type": "origins:invert",
+                            "action": {
+                                "type": "origins:mount"
+                            }
+                        }
+                    }
                 }
             ]
         }
@@ -177,6 +191,30 @@
         "modifier": {
             "operation": "multiply_total_multiplicative",
             "amount": -1
+        }
+    },
+    "invis": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "feature_invis": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "held_item",
+            "stuck_objects",
+            "shoulder_parrot"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "name": "Perplexing Plush Paradox",

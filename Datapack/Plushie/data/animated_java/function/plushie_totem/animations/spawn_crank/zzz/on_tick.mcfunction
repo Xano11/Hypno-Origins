@@ -4,5 +4,5 @@ execute if score @s aj.tween_duration matches 1.. run return 1
 execute if score @s aj.tween_duration matches 0 on passengers run data modify entity @s interpolation_duration set value 1
 execute store result storage aj:temp frame int 1 run scoreboard players get @s aj.spawn_crank.frame
 function animated_java:plushie_totem/animations/spawn_crank/zzz/apply_frame with storage aj:temp
-execute if score @s aj.spawn_crank.frame matches 101 run return run function animated_java:plushie_totem/animations/spawn_crank/stop
+execute if score @s aj.spawn_crank.frame matches 100 run return run function animated_java:plushie_totem/animations/spawn_crank/stop
 scoreboard players add @s aj.spawn_crank.frame 1

@@ -108,6 +108,71 @@
             "type": "origins:custom_data",
             "nbt": "{Plushie_Cottons: 1b}"
         },
+        "item_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:custom_data",
+                "nbt": "{Plushie_Cotton: 1b}"
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:holder_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "plushie:paradox_health_reduction",
+                                    "change": -1
+                                },
+                                {
+                                    "type": "apoli:heal",
+                                    "amount": 2.0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:modify_item_cooldown",
+                        "modifier": {
+                            "operation": "set_total",
+                            "amount": 600
+                        }
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:holder_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "plushie:paradox_health_reduction",
+                                    "change": -2
+                                },
+                                {
+                                    "type": "apoli:heal",
+                                    "amount": 4.0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:modify_item_cooldown",
+                        "modifier": {
+                            "operation": "set_total",
+                            "amount": 900
+                        }
+                    }
+                ]
+            }
+        },
         "food_component": {
             "nutrition": 0,
             "saturation": 0,
@@ -122,7 +187,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/regeneration.png",
-            "text": "§a§lPlushlike 🐼§r§7\nYou do not require food and cannot heal naturally. Instead, you passively regenerate a heart every §r§esecond§r§7.\n\n§7§lPassive Ability"
+            "text": "§a§lPlushlike §r§a🐼§r§7\nYou do not require food and cannot heal naturally. Instead, you passively regenerate a heart every §r§esecond§r§7.\n\n§7§lPassive Ability"
         }
     ]
 }

@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"necron:soulless_metal",
+		"necron:necrodermis_frame",
+		"necron:forged_body",
+		"necron:energy_siphon",
+		"necron:atomizing_swings"
+	],
+	"icon": {
+        "id": "minecraft:skeleton_skull",
+		"components": {
+            "minecraft:custom_model_data": 1
+        }
+    },
+	"order": 1,
+	"impact": 3,
+	"name": "Necron Lychguard",
+	"description": "The Lychguard are the elite protectors and emissaries of the Necron nobility. In order to serve as a bulwark against those who would harm their charges, Lychguard were gifted with the highest quality living metal necrodermis bodies, equal in resilience and power to those inhabited by the Necron Lords and Overlords they protect."
+}

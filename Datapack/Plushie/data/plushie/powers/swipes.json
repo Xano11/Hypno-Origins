@@ -68,23 +68,35 @@
             "damage_type": "plushie:stab"
         }
     },
+    "cotton_hits":{
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:prevent_nullification",
+            "inverted": true
+        },
+        "modifier": {
+            "operation": "set_total",
+            "amount": 1
+        }
+    },
     "name": "Soft Swipes",
-    "description": "Shifting energy into your pickaxe is quite strong even without the piercing input of your nails",
+    "description": "Your cotton filled fists can't knock the stuffing out of anything, really.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/absorption.png",
-            "text": "§b§lShifting Cue §r§b🎯§r\n§fHolding the ability, you start channeling energy into your pickaxe.\n§7Once fully charged, your next hit deals additional magic damage and stronger knockback.\n\n§e⌛§r§7 Windup: §r§f1.75s\n§7§lActive Ability"
+            "sprite": "minecraft:textures/item/iron_sword.png",
+            "text": "§4§lSoft Swipes §r§4🔪§r\n§fMelee damage can't deal more than 1 dmg.\n§7Instead, you can use swords to stab yourself and deal damage to those Voodooed.\n\n§e⌛§r§7 Stabbing Cooldown: §r§f1s\n§7§lPassive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/active.png",
             "text": [
-                "§7Hold §r[",
+                "§7Press §r[",
                 {
-                    "keybind": "key.origins.secondary_active"
+                    "keybind": "key.use"
                 },
-                "]§7 to channel energy into your pickaxe!"
+                "]§7 whilst holding a sword to stab yourself!"
             ]
         }
     ]

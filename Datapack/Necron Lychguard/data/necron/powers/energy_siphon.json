@@ -1,0 +1,24 @@
+{
+	"type": "origins:multiple",
+    "food_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/food_empty": "hypno:necron/food_empty",
+            "minecraft:hud/food_empty_hunger": "hypno:necron/food_empty_hunger",
+            "minecraft:hud/food_full": "hypno:necron/food_full",
+            "minecraft:hud/food_full_hunger": "hypno:necron/food_full_hunger",
+            "minecraft:hud/food_half": "hypno:necron/food_half",
+            "minecraft:hud/food_half_hunger": "hypno:necron/food_half_hunger",
+            "appleskin:icons": "hypno:necron/appleskin"
+        }
+    },
+	"name": "Energy Siphon",
+    "description": "The necron siphons energy from specially crafted ingots in order to stay online.",
+    "badges": [
+      	{
+        	"type": "origins:tooltip",
+        	"sprite": "origins:textures/gui/badge/info.png",
+        	"text": "Unable to gain hunger/saturation from food"
+      	}
+    ]
+}

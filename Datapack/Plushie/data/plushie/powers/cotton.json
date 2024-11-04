@@ -56,12 +56,12 @@
         }
     },
     "name": "Soaked Cotton",
-    "description": "Shifting energy into your pickaxe is quite strong even without the piercing input of your nails",
+    "description": "Your articulated nightmare of a body isn't fan of water",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/water_bucket.png",
-            "text": "§9§lSoaked Cotton §r§9🎯§r\n§fOnce in contact with water, You become §9Soaked 🌧§7\n\n§9Soaked 🌧\nYou are 60% slower and sink instead of swim.\n\n§7§lPassive Ability"
+            "text": "§9§lSoaked Cotton §r§9🎯§r\n§fOnce in contact with water, You become §9Soaked 🌧§7\n\n§9Soaked 🌧\n§7You are 60% slower and sink instead of swim.\n\n§7§lPassive Ability"
         }
     ]
 }

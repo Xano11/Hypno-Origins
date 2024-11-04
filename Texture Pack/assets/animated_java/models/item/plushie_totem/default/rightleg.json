@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"0": "minecraft:item/totem_of_undying"
+		"0": "animated_java:item/plushie_totem/totem_of_undying"
 	},
 	"display": {
 		"head": {

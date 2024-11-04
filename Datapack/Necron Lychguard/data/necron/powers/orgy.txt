@@ -1,0 +1,66 @@
+Necron Lychguard
+
+Abilities
+
+Dynastic Domain : Using primary constructs an blackstone monolith. The monolith can be destroyed when it has taken a certain amount of damage. 
+Blackstone Monolith
+ 
+40 health points
+Duration : 30 seconds
+Cooldown : 90 seconds
+Radius : 16 blocks
+While inside the area of effect of the blackstone monolith, the Necron receives:
+ 
+Magic Protection
+Reduces cooldown of "Atomizing Strikes" to a 1 second cooldown
+Increases Necrodermis Frame regen to 2 hp every 5 seconds
+Anyone else inside the area of effect of the blackstone monolith receives debuffs. These include:
+ 
+Clearing of all potion effects, positive and negative
+
+Hyperphasic Recall - Once during the uptime of the blackstone monolith, the necron can teleport to the monolith by clicking primary left click
+
+Blackstone Dampeners - Clicking primary right click sends out a wave of weakness. Can either come from the necron or the blackstone monolith, with varying effects
+ 
+Radius : 16 blocks
+From necron, the wave gives entities -1 damage.
+From monolith, the waves gives entities -3 damage. 
+
+
+Dimensional Corridor : Secondary right click teleports the user to an eternity gate. The necron can set up one eternity gate by clicking secondary.
+Eternity Gate
+ 
+Can be crafted by Necron
+The Necron teleports to the closest person holding an eternity gate.
+Crafting Recipe: 1 Respawn Anchor / 6 Blackstone / 2 Emerald blocks
+
+Passives
+Forged body - The necrodermis frame of a necron makes it immune to extreme temperatures up to a point. ✔️ 
+ 
+Immune to fire/lava and frostbite ✔️ 
+water sink, 40% less movement in water, no drown ✔️  
+
+Atomizing Swings - The necron's tools cut through the triarch's enemies and blocks like butter.
+ 
+Any hits dealt with a sword or axe will do 1 true damage
+All tools mine 20% faster ✔️  
+
+Energy Siphon - The necron siphons energy from specially crafted ingots in order to stay online.
+ 
+Unable to gain hunger/saturation from food
+Energy Ingot
+ 
+Can be crafted by Necron
+Right click to consume for "energy".
+Crafting Recipe: 3 copper, 4 gold, 2 iron
+
+Soulless Metal - The necron’s necrodermis frame lacks a soul, leaving it vulnerable to the arcane and unable to teleport. ✔️
+ 
+Unable to be affected by potions ✔️
+Protection does not reduce magic damage ✔️ 
+Cannot use ender pearls/chorus fruit ✔️ 
+
+Necrodermis Frame - The living metal of a necron slowly repairs any damage. ✔️
+ 
+Regen 1 hp every 5 seconds ✔️
+After 20 seconds without taking damage, regen is increased to 2 hp every second. ✔️

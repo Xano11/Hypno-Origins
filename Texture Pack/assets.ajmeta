@@ -11,6 +11,7 @@
 	"plushie_totem": {
 		"files": [
 			"assets/animated_java/models/empty.json",
+			"assets/animated_java/textures/item/plushie_totem/totem_of_undying.png",
 			"assets/animated_java/textures/item/plushie_totem/texture.png",
 			"assets/animated_java/textures/item/transparent.png",
 			"assets/animated_java/models/item/plushie_totem/default/leftleg.json",

@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"rat:pounce"
+	],
+	"icon": {
+		"id": "minecraft:gold_nugget",
+		"components": {
+			"minecraft:custom_model_data": 1
+		}
+	},
+	"order": 1,
+	"impact": 2,
+	"name": "Rat",
+	"description": "WE ARE THE RATS"
+}

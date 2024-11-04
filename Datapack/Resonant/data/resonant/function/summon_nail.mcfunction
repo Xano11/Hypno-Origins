@@ -1,3 +1,5 @@
+resource set @s resonant:resonance/main_delay 0 
+resource set @s resonant:resonance/main_recharge 0
 resource change @s resonant:resonance/main_nails -1
 summon armor_stand ~ ~ ~ {Silent:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,Tags:["resonant_nail"],Passengers:[{id:"minecraft:interaction",Silent:1b,width:0.7f,height:0.7f,Tags:["resonant_nail"]}]}
 execute as @n[tag=resonant_nail,type=armor_stand] run power grant @s resonant:resonance/nail

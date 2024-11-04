@@ -1,4 +1,6 @@
 tag @s add resonant_double
+resource set @s resonant:resonance/main_delay 0
+resource set @s resonant:resonance/main_recharge 0
 resource set @s resonant:resonance/main_double_check 0
 resource change @s resonant:resonance/main_nails -3
 tag @s remove resonant_double

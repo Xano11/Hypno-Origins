@@ -1,0 +1,1 @@
+resource set @s rat:pounce_double 0

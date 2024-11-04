@@ -1,0 +1,368 @@
+{
+	"meta": {
+		"format": "animated_java_blueprint",
+		"format_version": "1.4.2",
+		"uuid": "de33a9d3-f7c4-430c-8d96-9e9abad107c5",
+		"save_location": "",
+		"last_used_export_namespace": "angler_cod"
+	},
+	"blueprint_settings": {
+		"export_namespace": "angler_cod",
+		"show_bounding_box": false,
+		"auto_bounding_box": true,
+		"bounding_box": [48, 48],
+		"enable_plugin_mode": false,
+		"resource_pack_export_mode": "raw",
+		"data_pack_export_mode": "raw",
+		"display_item": "minecraft:white_dye",
+		"custom_model_data_offset": 0,
+		"enable_advanced_resource_pack_settings": false,
+		"enable_advanced_resource_pack_folders": false,
+		"resource_pack": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\Texture Pack",
+		"display_item_path": "",
+		"model_folder": "",
+		"texture_folder": "",
+		"enable_advanced_data_pack_settings": false,
+		"data_pack": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\Datapack\\Angler",
+		"summon_commands": "",
+		"ticking_commands": "",
+		"interpolation_duration": 1,
+		"teleportation_duration": 1,
+		"use_storage_for_animation": false,
+		"baked_animations": true,
+		"json_file": ""
+	},
+	"resolution": {
+		"width": 16,
+		"height": 16
+	},
+	"elements": [
+		{
+			"name": "fish",
+			"position": [0, 75, 0],
+			"rotation": [0, 0, 0],
+			"scale": [6.25, 6.25, 6.25],
+			"visibility": true,
+			"item": "minecraft:cod",
+			"item_display": "none",
+			"config": {},
+			"block": "minecraft:stone",
+			"text": "\"Hello World!\"",
+			"lineWidth": 200,
+			"backgroundColor": "#000000",
+			"backgroundAlpha": 0.25,
+			"align": "center",
+			"shadow": false,
+			"seeThrough": false,
+			"uuid": "0c28a8f6-7586-ff37-6c70-26b247bca4ea",
+			"type": "animated_java:vanilla_item_display"
+		},
+		{
+			"name": "particle",
+			"position": [98, 78, 0],
+			"rotation": [0, 0, 0],
+			"ignore_inherited_scale": false,
+			"visibility": true,
+			"locked": false,
+			"config": {
+				"use_entity": false,
+				"entity_type": "minecraft:pig",
+				"summon_commands": "",
+				"ticking_commands": "particle minecraft:splash ~ ~ ~ 0 0 0 0 2"
+			},
+			"uuid": "920a3e61-d2a0-ff72-6f6b-7bef13bf8798",
+			"type": "locator"
+		},
+		{
+			"name": "particle2",
+			"position": [-98, 78, 0],
+			"rotation": [0, 0, 0],
+			"ignore_inherited_scale": false,
+			"visibility": true,
+			"locked": false,
+			"config": {
+				"use_entity": false,
+				"entity_type": "minecraft:pig",
+				"summon_commands": "",
+				"ticking_commands": "particle minecraft:splash ~ ~ ~ 0 0 0 0 2"
+			},
+			"uuid": "4b29a7b4-fb2c-d573-6e26-3a149a4ba2f4",
+			"type": "locator"
+		}
+	],
+	"outliner": [
+		{
+			"name": "main",
+			"origin": [0, 75, 0],
+			"color": 0,
+			"configs": {
+				"variants": {}
+			},
+			"uuid": "71f55aa0-8f86-acb8-2928-e586a7693092",
+			"export": true,
+			"mirror_uv": false,
+			"isOpen": true,
+			"locked": false,
+			"visibility": true,
+			"autouv": 0,
+			"children": ["0c28a8f6-7586-ff37-6c70-26b247bca4ea", "920a3e61-d2a0-ff72-6f6b-7bef13bf8798", "4b29a7b4-fb2c-d573-6e26-3a149a4ba2f4"]
+		}
+	],
+	"textures": [],
+	"variants": {
+		"default": {
+			"name": "default",
+			"display_name": "Default",
+			"uuid": "b2918039-a572-dd85-4178-d184b314c2d2",
+			"texture_map": {},
+			"excluded_nodes": [],
+			"is_default": true
+		},
+		"list": []
+	},
+	"animations": [
+		{
+			"uuid": "5ef217a1-2699-58b6-0319-57e22170dde2",
+			"name": "pop",
+			"loop": "once",
+			"override": false,
+			"length": 2,
+			"snapping": 20,
+			"selected": false,
+			"saved": false,
+			"path": "",
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "0",
+			"excluded_nodes": [],
+			"animators": {
+				"71f55aa0-8f86-acb8-2928-e586a7693092": {
+					"name": "main",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "55269862-ce7c-dec2-565a-ea8c8bdcb756",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": -347.5,
+									"z": 0
+								}
+							],
+							"uuid": "190e7a22-877b-f14e-6f95-255fd4ccd717",
+							"time": 0.5,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": -707.5,
+									"z": 0
+								}
+							],
+							"uuid": "2a6e01ff-cc7d-ddde-c0db-c754736261ef",
+							"time": 1,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": -1070,
+									"z": 0
+								}
+							],
+							"uuid": "cea79af4-1146-abc7-6ac5-537d23af28cb",
+							"time": 1.5,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": -1440,
+									"z": 0
+								}
+							],
+							"uuid": "c45cfe10-1ea9-a8d7-3915-6582696d0514",
+							"time": 2,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "easeInOutCirc",
+							"easingArgs": [1]
+						},
+						{
+							"channel": "position",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "17318e44-3f62-3057-7cb9-7da77ebd2cbe",
+							"time": 1.5,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "position",
+							"data_points": [
+								{
+									"x": 0,
+									"y": -76,
+									"z": 0
+								}
+							],
+							"uuid": "90c19382-5bca-2696-303d-943159e50461",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "scale",
+							"data_points": [
+								{
+									"x": "0.2",
+									"y": "0.2",
+									"z": "0.2"
+								}
+							],
+							"uuid": "6921046d-ba68-7637-33a4-a57a709501ae",
+							"time": 0,
+							"color": -1,
+							"uniform": false,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "scale",
+							"data_points": [
+								{
+									"x": "1",
+									"y": "1",
+									"z": "1"
+								}
+							],
+							"uuid": "90bf76db-f5fb-d144-418b-9d0fa743988e",
+							"time": 2,
+							"color": -1,
+							"uniform": false,
+							"interpolation": "linear",
+							"easing": "easeInOutQuart",
+							"easingArgs": [1]
+						}
+					]
+				}
+			}
+		},
+		{
+			"uuid": "12c46a04-2fe1-dc23-d5f2-9afb3ee7d8e0",
+			"name": "idle",
+			"loop": "loop",
+			"override": false,
+			"length": 1,
+			"snapping": 20,
+			"selected": true,
+			"saved": false,
+			"path": "",
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "0",
+			"excluded_nodes": [],
+			"animators": {
+				"71f55aa0-8f86-acb8-2928-e586a7693092": {
+					"name": "main",
+					"type": "bone",
+					"keyframes": [
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": "0",
+									"y": "0",
+									"z": "0"
+								}
+							],
+							"uuid": "05b21bdf-9ecb-71f4-c8b8-3d721b1a643c",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": -180,
+									"z": 0
+								}
+							],
+							"uuid": "30d1ce65-ceec-dc62-8dbd-833bf36fe1ce",
+							"time": 0.5,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "easeInCirc",
+							"easingArgs": []
+						},
+						{
+							"channel": "rotation",
+							"data_points": [
+								{
+									"x": 0,
+									"y": -360,
+									"z": 0
+								}
+							],
+							"uuid": "279149d7-428a-5115-1aba-5961f0298a4e",
+							"time": 1,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "easeOutElastic",
+							"easingArgs": [1]
+						}
+					]
+				}
+			}
+		}
+	],
+	"animation_controllers": []
+}

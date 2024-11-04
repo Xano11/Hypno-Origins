@@ -1,5 +1,17 @@
 {
     "type": "origins:multiple",
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add clown"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove clown"
+        },
+        "execute_chosen_when_orb": false
+    },
     "prevent_render": {
         "type": "origins:prevent_entity_render",
         "bientity_condition": {
@@ -38,7 +50,7 @@
                 "type": "origins:target_action",
                 "action": {
                     "type": "origins:execute_command",
-                    "command": "execute anchored eyes run particle minecraft:raid_omen ^ ^ ^ 0 0 0 0 1 force @a"
+                    "command": "execute anchored eyes run particle minecraft:raid_omen ^ ^ ^ 0 0 0 0 1 force @a[tag=clown]"
                 }
             },
             "bientity_condition": {
@@ -97,7 +109,7 @@
                 "type": "origins:target_action",
                 "action": {
                     "type": "origins:execute_command",
-                    "command": "execute anchored eyes run particle minecraft:trial_omen ^ ^ ^ 0 0 0 0 1 force @a"
+                    "command": "execute anchored eyes run particle minecraft:trial_omen ^ ^ ^ 0 0 0 0 1 force @a[tag=clown]"
                 }
             },
             "bientity_condition": {

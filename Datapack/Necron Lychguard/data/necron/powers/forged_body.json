@@ -1,0 +1,54 @@
+{
+	"type": "origins:multiple",
+  
+	"fire_and_ice_immunity": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:is_fire"
+				},
+				{      
+					"type": "origins:in_tag",
+					"tag": "minecraft:is_freezing"
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:is_drowning"
+				}
+			]
+		}
+	},
+
+	"water_shit_1": {
+		"type": "origins:ignore_water"
+	},	
+
+	"water_shit_2": {
+		"type": "origins:modify_velocity",
+		"condition": {
+    		"type": "origins:submerged_in",
+    		"fluid": "minecraft:water"
+		},
+		"modifier": {
+		  "amount": -0.4,
+		  "operation": "multiply_total_multiplicative"
+		},
+		"axes": [
+		  "x",
+		  "z"
+		]
+	},
+
+	"name": "Forged Body",
+    "description": "The necrodermis frame of a necron makes it immune to extreme temperatures up to a point.",
+    "badges": [
+      	{
+        	"type": "origins:tooltip",
+        	"sprite": "origins:textures/gui/badge/info.png",
+        	"text": "You are immune to FIRE, FREEZING, and DROWNING damage types, and you sink in water as if it was never there"
+      	}
+    ]
+}

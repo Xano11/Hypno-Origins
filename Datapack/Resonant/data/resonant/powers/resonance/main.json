@@ -17,19 +17,56 @@
             "bar_index": 15
         }
     },
-    "recharge": {
+    "delay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50
+    },
+    "delay_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "resonant:resonance/main_nails",
+            "resource": "resonant:resonance/main_delay",
             "change": 1
         },
-        "interval": 60,
+        "interval": 1
+    },
+    "recharge": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "resonant:resonance/main_nails",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "resonant:resonance/main_recharge",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "recharge_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "resonant:resonance/main_recharge",
+            "change": 1
+        },
+        "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "resonant:resonance/main_nails",
-            "comparison": "<",
-            "compare_to": 9
+            "resource": "resonant:resonance/main_delay",
+            "comparison": "==",
+            "compare_to": 50
         }
     },
     "double_check": {
@@ -494,7 +531,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/particle/sonic_boom_9.png",
-            "text": "§b§lResonance §l§b🌻§r\n§fYou can use Soul-infused nails in many ways.\n§7Once hit, they will start flying in the direction you're looking; dealing damage to all entities it passes through.\n\nUsing the other ability key, all nails that have been hit will explode, dealing damage in a small radius and pushing entities back. §8(You are immune to it's damage)\n\n§7Blocks hit by the explosion will be highlighted and become weakened; increasing the speed at which they break by 40% for 2.5s\n\n§b§l📌§r§7 Nails: §r§f9 Max§r§8\n§e⌛§r§7 Recharge: §r§f1/3s\n§7§lActive Ability"
+            "text": "§b§lResonance §l§b🌻§r\n§fYou can use Soul-infused nails in many ways.\n§7Once hit, they will start flying in the direction you're looking; dealing damage to all entities it passes through.\n\nUsing the other ability key, all nails that have been hit will explode, dealing damage in a small radius and pushing entities back. §8(You are immune to it's damage)\n\n§7Blocks hit by the explosion will be highlighted and become weakened; increasing the speed at which they break by 40% for 2.5s\n\n§b§l📌§r§7 Nails: §r§f9 Max§r§8\n§e⌛§r§7 Recharge: §r§f1/4s\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
