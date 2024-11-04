@@ -37,8 +37,8 @@ file = "config/openloader/data/eelektross_0.24.zip"
 hash = "837bc6db1491a9f828f20a6c1b85a52be3cc8cbce36bcd30ab07bc2c078d0e08"
 
 [[files]]
-file = "config/openloader/data/global_0.27.zip"
-hash = "4d8022eace8754cfcbc9fbcc860897bdf9271c89d1e848668f51e0044fe2ce1b"
+file = "config/openloader/data/global_0.28.zip"
+hash = "c43e5a47e8950137ee9f412b9d89e61058af4397293d5e982391bb74295a46ee"
 
 [[files]]
 file = "config/openloader/data/kalogero_0.24.zip"
@@ -53,8 +53,12 @@ file = "config/openloader/data/neon_0.23.zip"
 hash = "ddfc70135c90f3a3f965e4e7e2a2499ebcbe248e0c2e4dcc80d854fcd59945c7"
 
 [[files]]
-file = "config/openloader/data/resonant_0.21.zip"
-hash = "c5a81d254d49e63905d122846a42cf0da4054282c362a47e97b137cde11bd569"
+file = "config/openloader/data/plushie_0.20.zip"
+hash = "d36e31d07ecc0ccdc695409ff897d08ed600bfaa6c1db1eda18666987d2ac689"
+
+[[files]]
+file = "config/openloader/data/resonant_0.22.zip"
+hash = "842c3778c3c6d1da09e15a7195f22dd5ae2eb9bde095e52cf9167784d1fdaf08"
 
 [[files]]
 file = "config/openloader/data/thallasion_0.20.zip"
@@ -69,8 +73,8 @@ file = "config/openloader/data/zephyrite_0.21.zip"
 hash = "5c93c59163c55f07bd3fee29f2980c4158939a37e4fcee5c19fd2c0c8f2cbc7b"
 
 [[files]]
-file = "config/openloader/resources/pack_0.42.zip"
-hash = "9cb189ee15293c6cfab5b7aaa75f9cd8199f8f8b452ceb35f9961b48592152f5"
+file = "config/openloader/resources/pack_0.51.zip"
+hash = "1623cb307d25501cb255bdeff9201c10004f7292c079cc04244f528b9f80bef2"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"
