@@ -1,0 +1,1 @@
+execute on passengers run function animated_java:necron_domain/animations/shoot_wave/play

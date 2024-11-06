@@ -1,0 +1,302 @@
+{
+	"meta": {
+		"format": "animated_java_blueprint",
+		"format_version": "1.5.2",
+		"uuid": "e6309988-34af-0f78-b298-e44545a975af",
+		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\AnimatedJava\\necron_wave.ajblueprint",
+		"last_used_export_namespace": "necron_wave"
+	},
+	"blueprint_settings": {
+		"export_namespace": "necron_wave",
+		"show_bounding_box": false,
+		"auto_bounding_box": true,
+		"bounding_box": [48, 48],
+		"enable_plugin_mode": false,
+		"resource_pack_export_mode": "raw",
+		"data_pack_export_mode": "raw",
+		"target_minecraft_version": "1.21.0",
+		"display_item": "minecraft:white_dye",
+		"custom_model_data_offset": 0,
+		"enable_advanced_resource_pack_settings": false,
+		"enable_advanced_resource_pack_folders": false,
+		"resource_pack": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\Texture Pack",
+		"display_item_path": "",
+		"model_folder": "",
+		"texture_folder": "",
+		"enable_advanced_data_pack_settings": false,
+		"data_pack": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\Datapack\\Necron Lychguard",
+		"summon_commands": "",
+		"ticking_commands": "",
+		"interpolation_duration": 1,
+		"teleportation_duration": 1,
+		"use_storage_for_animation": false,
+		"show_function_errors": true,
+		"show_outdated_warning": true,
+		"baked_animations": true,
+		"json_file": ""
+	},
+	"resolution": {
+		"width": 16,
+		"height": 16
+	},
+	"elements": [
+		{
+			"name": "wave",
+			"position": [0, 0, 0],
+			"rotation": [90, 0, 0],
+			"scale": [0.25, 0.25, 0.25],
+			"visibility": true,
+			"item": "minecraft:lime_candle",
+			"item_display": "none",
+			"config": {
+				"override_brightness": true,
+				"brightness_override": 15
+			},
+			"block": "minecraft:stone",
+			"text": "\"Hello World!\"",
+			"lineWidth": 200,
+			"backgroundColor": "#000000",
+			"backgroundAlpha": 0.25,
+			"align": "center",
+			"shadow": false,
+			"seeThrough": false,
+			"uuid": "8ad8ea78-cf10-724f-fd37-e82ae27ffb9c",
+			"type": "animated_java:vanilla_item_display"
+		}
+	],
+	"outliner": ["8ad8ea78-cf10-724f-fd37-e82ae27ffb9c"],
+	"textures": [],
+	"variants": {
+		"default": {
+			"name": "default",
+			"display_name": "Default",
+			"uuid": "f354a2fe-2fde-0e6a-4b3b-485ff7b0baff",
+			"texture_map": {},
+			"excluded_nodes": [],
+			"is_default": true
+		},
+		"list": []
+	},
+	"animations": [
+		{
+			"uuid": "c679ff71-6ce7-9193-beaa-5d0c96977176",
+			"name": "shoot_wave",
+			"loop": "once",
+			"override": false,
+			"length": 1,
+			"snapping": 20,
+			"selected": true,
+			"saved": false,
+			"path": "",
+			"anim_time_update": "",
+			"blend_weight": "",
+			"start_delay": "",
+			"loop_delay": "0",
+			"excluded_nodes": [],
+			"animators": {
+				"ec669d8e-e758-f189-0593-ef14487f2538": {
+					"name": "wave1",
+					"type": "locator",
+					"keyframes": [
+						{
+							"channel": "commands",
+							"data_points": [
+								{
+									"x": 0,
+									"y": 0,
+									"z": 0,
+									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
+									"execute_condition": "",
+									"repeat": true,
+									"repeat_frequency": 1
+								}
+							],
+							"uuid": "1cb4c8d5-a9c8-1495-565f-f41643fc4c3d",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				},
+				"34798c80-980e-9164-f8b7-7f56938d9a46": {
+					"name": "wave2",
+					"type": "locator",
+					"keyframes": [
+						{
+							"channel": "commands",
+							"data_points": [
+								{
+									"x": 0,
+									"y": 0,
+									"z": 0,
+									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
+									"execute_condition": "",
+									"repeat": true,
+									"repeat_frequency": 1
+								}
+							],
+							"uuid": "f7e32805-cd14-115f-2745-e41415290902",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				},
+				"f80d4a5d-3c53-01de-0f26-fcef12c114ab": {
+					"name": "wave3",
+					"type": "locator",
+					"keyframes": [
+						{
+							"channel": "commands",
+							"data_points": [
+								{
+									"x": 0,
+									"y": 0,
+									"z": 0,
+									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
+									"execute_condition": "",
+									"repeat": true,
+									"repeat_frequency": 1
+								}
+							],
+							"uuid": "af69647e-da93-4f43-426f-c2a5b4542d89",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				},
+				"6ed14d9c-190f-2c7a-0a9d-f4f9b5b0db97": {
+					"name": "wave4",
+					"type": "locator",
+					"keyframes": [
+						{
+							"channel": "commands",
+							"data_points": [
+								{
+									"x": 0,
+									"y": 0,
+									"z": 0,
+									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
+									"execute_condition": "",
+									"repeat": true,
+									"repeat_frequency": 1
+								}
+							],
+							"uuid": "2687d2d7-0d4f-c6d0-e9c0-cd3eb5d139e1",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				},
+				"8ad8ea78-cf10-724f-fd37-e82ae27ffb9c": {
+					"name": "wave",
+					"type": "animated_java:vanilla_item_display",
+					"keyframes": [
+						{
+							"channel": "scale",
+							"data_points": [
+								{
+									"x": "40",
+									"y": "40",
+									"z": "0.1"
+								}
+							],
+							"uuid": "5248afeb-07fa-2e2c-b4e4-4551edc8ad90",
+							"time": 1,
+							"color": -1,
+							"uniform": false,
+							"interpolation": "linear",
+							"easing": "easeInOutBack",
+							"easingArgs": [0.6]
+						},
+						{
+							"channel": "scale",
+							"data_points": [
+								{
+									"x": "0.1",
+									"y": "0.1",
+									"z": "0.1 "
+								}
+							],
+							"uuid": "6f7b92ac-cdb1-5925-e54b-2151426a95d9",
+							"time": 0,
+							"color": -1,
+							"uniform": false,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				},
+				"effects": {
+					"name": "Effects",
+					"type": "effect",
+					"keyframes": [
+						{
+							"channel": "commands",
+							"data_points": [
+								{
+									"commands": "playsound minecraft:entity.evoker.prepare_summon player @a ~ ~ ~ 1 0.8",
+									"execute_condition": "",
+									"repeat": false,
+									"repeat_frequency": 1
+								}
+							],
+							"uuid": "94b17c6b-dcf3-db70-4ccd-a33d8a16e5d0",
+							"time": 0,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "commands",
+							"data_points": [
+								{
+									"commands": "playsound minecraft:entity.illusioner.prepare_mirror player @a ~ ~ ~ 1 1.4",
+									"execute_condition": "",
+									"repeat": false,
+									"repeat_frequency": 1
+								}
+							],
+							"uuid": "49aeb21d-7435-3747-1bd9-3d8f35b92087",
+							"time": 0.3,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						},
+						{
+							"channel": "commands",
+							"data_points": [
+								{
+									"commands": "function animated_java:necron_wave/remove/this",
+									"execute_condition": "",
+									"repeat": false,
+									"repeat_frequency": 1
+								}
+							],
+							"uuid": "fdc88afa-b067-7772-bcf4-699882d763ba",
+							"time": 1,
+							"color": -1,
+							"interpolation": "linear",
+							"easing": "linear",
+							"easingArgs": []
+						}
+					]
+				}
+			}
+		}
+	],
+	"animation_controllers": []
+}

@@ -1,9 +1,9 @@
 {
 	"meta": {
 		"format": "animated_java_blueprint",
-		"format_version": "1.4.2",
+		"format_version": "1.5.2",
 		"uuid": "d441e124-cb92-6afe-8757-d2973635e989",
-		"save_location": "",
+		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\AnimatedJava\\resonant_nail.ajblueprint",
 		"last_used_export_namespace": "resonant_nail"
 	},
 	"blueprint_settings": {
@@ -14,6 +14,7 @@
 		"enable_plugin_mode": false,
 		"resource_pack_export_mode": "raw",
 		"data_pack_export_mode": "raw",
+		"target_minecraft_version": "1.21.0",
 		"display_item": "minecraft:white_dye",
 		"custom_model_data_offset": 0,
 		"enable_advanced_resource_pack_settings": false,
@@ -29,6 +30,8 @@
 		"interpolation_duration": 1,
 		"teleportation_duration": 1,
 		"use_storage_for_animation": false,
+		"show_function_errors": true,
+		"show_outdated_warning": true,
 		"baked_animations": true,
 		"json_file": ""
 	},
@@ -119,7 +122,7 @@
 		"default": {
 			"name": "default",
 			"display_name": "Default",
-			"uuid": "feef0bb0-5df8-1c02-38ce-bd7dd4b4ba0e",
+			"uuid": "6f154c1f-b98f-55bb-1e77-933176b6f210",
 			"texture_map": {},
 			"excluded_nodes": [],
 			"is_default": true

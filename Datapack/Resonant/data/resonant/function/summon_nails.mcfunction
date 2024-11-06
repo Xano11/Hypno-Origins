@@ -14,13 +14,12 @@ execute as @n[type=armor_stand,tag=resonant_nail] positioned ^1 ^ ^ store result
 execute as @e[type=armor_stand,tag=resonant_nail] if score @s nail_trios = @n[tag=main_resonant_nail,type=armor_stand] nail_trios at @s facing entity @n[type=marker,tag=nails_rotate] eyes run tp @s ~ ~ ~ ~ ~
 kill @n[type=marker,tag=nails_rotate]
 execute as @e[type=armor_stand,tag=resonant_nail] if score @s nail_trios = @n[tag=main_resonant_nail,type=armor_stand] nail_trios run power grant @s resonant:resonance/nail
-execute positioned ^-1 ^ ^ run function animated_java:resonant_nail/summon/default
-execute positioned ^ ^ ^ run function animated_java:resonant_nail/summon/default
-execute positioned ^1 ^ ^ run function animated_java:resonant_nail/summon/default
+execute positioned ^-1 ^ ^ run function animated_java:resonant_nail/summon {args:{animation:"idle",start_animation:1b}}
+execute positioned ^ ^ ^ run function animated_java:resonant_nail/summon {args:{animation:"idle",start_animation:1b}}
+execute positioned ^1 ^ ^ run function animated_java:resonant_nail/summon {args:{animation:"idle",start_animation:1b}}
 execute positioned ^-1 ^ ^ run ride @n[tag=aj.resonant_nail.root] mount @n[type=armor_stand,tag=resonant_nail]
 execute positioned ^ ^ ^ run ride @n[tag=aj.resonant_nail.root] mount @n[type=armor_stand,tag=resonant_nail]
 execute positioned ^1 ^ ^ run ride @n[tag=aj.resonant_nail.root] mount @n[type=armor_stand,tag=resonant_nail]
-execute as @n[type=armor_stand,tag=main_resonant_nail] at @s as @e[type=armor_stand,tag=resonant_nail] if score @s nail_trios = @n[tag=main_resonant_nail,type=armor_stand] nail_trios on passengers if entity @s[tag=aj.resonant_nail.root] run function animated_java:resonant_nail/animations/idle/play
 execute as @e[type=armor_stand,tag=resonant_nail] if score @s nail_trios = @n[tag=main_resonant_nail,type=armor_stand] nail_trios at @s on passengers if entity @s[tag=aj.resonant_nail.root] run data modify entity @s Rotation set from entity @n[tag=resonant_nail,type=armor_stand] Rotation
 playsound minecraft:block.vault.open_shutter player @s ~ ~ ~ 1 1.5
 particle minecraft:trial_spawner_detection_ominous ~ ~ ~ 0 0 0 0.4 3

@@ -37,11 +37,11 @@
             },
             "if_action": {
                 "type": "origins:heal",
-                "amount": 0.75
+                "amount": 0.5
             },
             "else_action": {
                 "type": "origins:heal",
-                "amount": 0.5
+                "amount": 0.25
             }
         },
         "interval": 10,
@@ -187,7 +187,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/regeneration.png",
-            "text": "§a§lPlushlike §r§a🐼§r§7\nYou do not require food and cannot heal naturally. Instead, you passively regenerate a heart every §r§esecond§r§7.\n\n§7§lPassive Ability"
+            "text": "§a§lPlushlike §r§a🐼§r§7\nYou do not require food and cannot heal naturally. Instead, you passively regenerate a heart every §r§e4s§r§7.\n\n§7§lPassive Ability"
         }
     ]
 }

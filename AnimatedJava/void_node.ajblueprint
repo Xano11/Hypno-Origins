@@ -1,9 +1,9 @@
 {
 	"meta": {
 		"format": "animated_java_blueprint",
-		"format_version": "1.4.2",
+		"format_version": "1.5.2",
 		"uuid": "b837685f-14b2-c844-66ef-78ffa407a00d",
-		"save_location": "",
+		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\AnimatedJava\\void_node.ajblueprint",
 		"last_used_export_namespace": "void_node"
 	},
 	"blueprint_settings": {
@@ -14,6 +14,7 @@
 		"enable_plugin_mode": false,
 		"resource_pack_export_mode": "raw",
 		"data_pack_export_mode": "raw",
+		"target_minecraft_version": "1.21.0",
 		"display_item": "minecraft:white_dye",
 		"custom_model_data_offset": 0,
 		"enable_advanced_resource_pack_settings": false,
@@ -29,6 +30,8 @@
 		"interpolation_duration": 1,
 		"teleportation_duration": 1,
 		"use_storage_for_animation": false,
+		"show_function_errors": true,
+		"show_outdated_warning": true,
 		"baked_animations": true,
 		"json_file": ""
 	},
@@ -105,10 +108,7 @@
 			"visibility": true,
 			"item": "minecraft:purple_stained_glass_pane",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -128,10 +128,7 @@
 			"visibility": true,
 			"item": "minecraft:purple_stained_glass_pane",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -151,10 +148,7 @@
 			"visibility": true,
 			"item": "minecraft:purple_stained_glass_pane",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -174,10 +168,7 @@
 			"visibility": true,
 			"item": "minecraft:purple_stained_glass_pane",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -197,10 +188,7 @@
 			"visibility": true,
 			"item": "minecraft:purple_stained_glass_pane",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -220,10 +208,7 @@
 			"visibility": true,
 			"item": "minecraft:purple_stained_glass_pane",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -243,10 +228,7 @@
 			"visibility": true,
 			"item": "minecraft:purple_stained_glass_pane",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -339,9 +321,9 @@
 	"textures": [],
 	"variants": {
 		"default": {
-			"name": "main",
-			"display_name": "main",
-			"uuid": "7d65d5b8-05c6-9942-759d-253642d27d8f",
+			"name": "default",
+			"display_name": "Default",
+			"uuid": "b18617bc-9e1a-7bea-f392-5cb1583d8f67",
 			"texture_map": {},
 			"excluded_nodes": [],
 			"is_default": true
@@ -1579,7 +1561,7 @@
 							"channel": "commands",
 							"data_points": [
 								{
-									"commands": "/playsound minecraft:block.vault.open_shutter player @a ~ ~ ~ 1 0.5",
+									"commands": "playsound minecraft:block.vault.open_shutter player @a ~ ~ ~ 1 0.5",
 									"execute_condition": "",
 									"repeat": false,
 									"repeat_frequency": 1

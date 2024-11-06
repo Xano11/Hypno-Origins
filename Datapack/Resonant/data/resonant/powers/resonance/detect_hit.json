@@ -21,7 +21,7 @@
                                 },
                                 {
                                     "type": "origins:damage",
-                                    "amount": 2,
+                                    "amount": 3,
                                     "damage_type": "resonant:nail_true"
                                 },
                                 {

@@ -310,6 +310,11 @@
                                                     "type": "origins:block_state",
                                                     "property": "facing",
                                                     "inverted": true
+                                                },
+                                                {
+                                                    "type": "origins:block_state",
+                                                    "property": "type",
+                                                    "inverted": true
                                                 }
                                             ]
                                         }
@@ -348,12 +353,6 @@
                                                 }
                                             }
                                         ]
-                                    },
-                                    "bientity_condition": {
-                                        "type": "origins:target_condition",
-                                        "condition": {
-                                            "type": "origins:living"
-                                        }
                                     }
                                 },
                                 {
@@ -377,20 +376,31 @@
                             {
                                 "type": "origins:if_else",
                                 "condition": {
-                                    "type": "origins:equal",
-                                    "inverted": true
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:equal",
+                                            "inverted": true
+                                        },
+                                        {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:living"
+                                            }
+                                        }
+                                    ]
                                 },
                                 "if_action": {
                                     "type": "origins:and",
                                     "actions": [
                                         {
                                             "type": "origins:damage",
-                                            "amount": 4,
+                                            "amount": 5,
                                             "damage_type": "resonant:nail"
                                         },
                                         {
                                             "type": "origins:damage",
-                                            "amount": 2,
+                                            "amount": 3,
                                             "damage_type": "resonant:nail_true"
                                         }
                                     ]
@@ -547,7 +557,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/enchanted_book.png",
-            "text": "§e§lResonant §r§e⛏§r\n§7Your nail damage is §edirectly§7 affected by the \"Resonant\" enchantment.\n\nNo Resonant: 2.5 + §l1§r§7\nResonant I: 3.75 + §l1.5§r§7\nResonant II: 5 + §l2§r§7\nResonant III: 6.25 + §l2.5§r§7\n\n§8(§lbold§r§8 values indicates damage that bypasses armor)"
+            "text": "§e§lResonant §r§e⛏§r\n§7Your nail damage is §edirectly§7 affected by the \"Resonant\" enchantment.\n\nNo Resonant: 2.5 + §l1.5§r§7\nResonant I: 3.75 + §l2.25§r§7\nResonant II: 5 + §l3§r§7\nResonant III: 6.25 + §l4.25§r§7\n\n§8(§lbold§r§8 values indicates damage that bypasses armor)"
         }
     ]
 }

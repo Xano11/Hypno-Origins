@@ -1,5 +1,5 @@
 {
-	"type": "origins:multiple",
+    "type": "origins:multiple",
     "food_texture": {
         "type": "origins:status_bar_texture",
         "texture_map": {
@@ -8,17 +8,175 @@
             "minecraft:hud/food_full": "hypno:necron/food_full",
             "minecraft:hud/food_full_hunger": "hypno:necron/food_full_hunger",
             "minecraft:hud/food_half": "hypno:necron/food_half",
-            "minecraft:hud/food_half_hunger": "hypno:necron/food_half_hunger",
-            "appleskin:icons": "hypno:necron/appleskin"
+            "minecraft:hud/food_half_hunger": "hypno:necron/food_half_hunger"
         }
     },
-	"name": "Energy Siphon",
+    "no_saturation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:exhaust",
+            "amount": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:saturation_level",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "no_food": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:food"
+        },
+        "name": "§4✖"
+    },
+    "craft_ingot": {
+        "type": "origins:modify_crafting",
+        "recipe": "necron:ingot",
+        "result": {
+            "id": "minecraft:iron_ingot",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Energy Ingot\",\"italic\":false}]",
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:custom_data": {
+                    "Necron_Energy_Ingot": true
+                }
+            }
+        }
+    },
+    "consume_ingot": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:custom_data",
+                    "nbt": "{Necron_Energy_Ingot: 1b}"
+                }
+            },
+            "if_action": {
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "mainhand",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:modify_item_cooldown",
+                            "modifier": {
+                                "operation": "set_total",
+                                "amount": 100
+                            }
+                        },
+                        {
+                            "type": "origins:holder_action",
+                            "action": {
+                                "type": "origins:feed",
+                                "nutrition": 8,
+                                "saturation": 0
+                            }
+                        },
+                        {
+                            "type": "origins:consume",
+                            "amount": 1
+                        }
+                    ]
+                }
+            },
+            "else_action": {
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "offhand",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:modify_item_cooldown",
+                            "modifier": {
+                                "operation": "set_total",
+                                "amount": 100
+                            }
+                        },
+                        {
+                            "type": "origins:holder_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:feed",
+                                        "nutrition": 8,
+                                        "saturation": 0
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.anvil.land player @a ~ ~ ~ 1 1.2"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "origins:consume",
+                            "amount": 1
+                        }
+                    ]
+                }
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.use",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:custom_data",
+                                "nbt": "{Necron_Energy_Ingot: 1b}"
+                            },
+                            {
+                                "type": "origins:item_cooldown",
+                                "compare_to": 0,
+                                "comparison": "=="
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:custom_data",
+                                "nbt": "{Necron_Energy_Ingot: 1b}"
+                            },
+                            {
+                                "type": "origins:item_cooldown",
+                                "compare_to": 0,
+                                "comparison": "=="
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Energy Siphon",
     "description": "The necron siphons energy from specially crafted ingots in order to stay online.",
     "badges": [
-      	{
-        	"type": "origins:tooltip",
-        	"sprite": "origins:textures/gui/badge/info.png",
-        	"text": "Unable to gain hunger/saturation from food"
-      	}
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Unable to gain hunger/saturation from food"
+        }
     ]
 }

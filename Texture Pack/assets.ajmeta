@@ -8,6 +8,9 @@
 	"necron_domain": {
 		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
 	},
+	"necron_wave": {
+		"files": ["assets/animated_java/models/empty.json", "assets/animated_java/textures/item/transparent.png"]
+	},
 	"plushie_totem": {
 		"files": [
 			"assets/animated_java/models/empty.json",

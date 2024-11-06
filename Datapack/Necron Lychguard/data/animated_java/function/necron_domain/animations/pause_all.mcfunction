@@ -2,3 +2,4 @@
 execute unless entity @s[type=item_display,tag=aj.necron_domain.root] run return run function animated_java:global/errors/function_not_executed_as_root_entity {'export_namespace': 'necron_domain', 'function_path': 'animated_java:necron_domain/animations/pause_all'}
 tag @s remove aj.necron_domain.animation.spin.playing
 tag @s remove aj.necron_domain.animation.spawn_in.playing
+tag @s remove aj.necron_domain.animation.shoot_wave.playing

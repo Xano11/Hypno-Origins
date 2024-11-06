@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "necron:ingot",
+    "pattern": [
+        "cgc",
+        "gcg",
+        "igi"
+    ],
+    "key": {
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }, 
+        "c": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "result": {
+        "id": "minecraft:iron_ingot"
+    }
+}

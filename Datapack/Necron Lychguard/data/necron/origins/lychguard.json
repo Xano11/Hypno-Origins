@@ -4,7 +4,8 @@
 		"necron:necrodermis_frame",
 		"necron:forged_body",
 		"necron:energy_siphon",
-		"necron:atomizing_swings"
+		"necron:atomizing_swings",
+		"necron:domain/main"
 	],
 	"icon": {
         "id": "minecraft:skeleton_skull",

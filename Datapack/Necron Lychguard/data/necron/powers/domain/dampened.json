@@ -1,0 +1,65 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 160,
+        "start_value": 160,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s necron:domain/dampened"
+        }
+    },
+    "duration_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "necron:domain/dampened_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "domain_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "weakened_player":{
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "necron:domain/dampened_domain_check",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "weakened_domain":{
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "add_base_early",
+            "amount": -4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "necron:domain/dampened_domain_check",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "model_color":{
+        "type": "origins:model_color",
+        "red": 0.6,
+        "green": 0.6,
+        "blue": 0.6,
+        "alpha": 1
+    },
+    "hidden": true
+}

@@ -1,7 +1,7 @@
 {
 	"meta": {
 		"format": "animated_java_blueprint",
-		"format_version": "1.4.2",
+		"format_version": "1.5.2",
 		"uuid": "cf65b1eb-153b-8082-3df3-877a5574a3c6",
 		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\AnimatedJava\\plushie_totem.ajblueprint",
 		"last_used_export_namespace": "plushie_totem"
@@ -14,6 +14,7 @@
 		"enable_plugin_mode": false,
 		"resource_pack_export_mode": "raw",
 		"data_pack_export_mode": "raw",
+		"target_minecraft_version": "1.21.0",
 		"display_item": "minecraft:white_dye",
 		"custom_model_data_offset": 0,
 		"enable_advanced_resource_pack_settings": false,
@@ -29,6 +30,8 @@
 		"interpolation_duration": 1,
 		"teleportation_duration": 1,
 		"use_storage_for_animation": false,
+		"show_function_errors": true,
+		"show_outdated_warning": true,
 		"baked_animations": true,
 		"json_file": ""
 	},
@@ -782,7 +785,7 @@
 		"default": {
 			"name": "default",
 			"display_name": "Default",
-			"uuid": "3eae387e-9ad8-4917-5fd3-f8bec6ecc146",
+			"uuid": "66a97f91-aadd-84f8-bb16-3793e5cef543",
 			"texture_map": {},
 			"excluded_nodes": [],
 			"is_default": true
@@ -1073,7 +1076,7 @@
 			"override": false,
 			"length": 10,
 			"snapping": 20,
-			"selected": false,
+			"selected": true,
 			"saved": false,
 			"path": "",
 			"anim_time_update": "",

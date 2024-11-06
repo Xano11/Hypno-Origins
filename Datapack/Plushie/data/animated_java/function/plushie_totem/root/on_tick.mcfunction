@@ -4,6 +4,5 @@ execute unless score @s aj.is_rig_loaded matches 1 run function #animated_java:g
 function #animated_java:plushie_totem/as_root/pre_tick
 execute if entity @s[tag=aj.plushie_totem.animation.spawn_crank.playing] run function animated_java:plushie_totem/animations/spawn_crank/zzz/on_tick
 execute if entity @s[tag=aj.plushie_totem.animation.crank.playing] run function animated_java:plushie_totem/animations/crank/zzz/on_tick
-execute on passengers if entity @s[tag=aj.plushie_totem.data] run function animated_java:plushie_totem/root/zzz/1
 execute at @s on passengers run tp @s ~ ~ ~ ~ ~
 function #animated_java:plushie_totem/as_root/post_tick

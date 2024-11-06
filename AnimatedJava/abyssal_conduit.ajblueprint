@@ -1,9 +1,9 @@
 {
 	"meta": {
 		"format": "animated_java_blueprint",
-		"format_version": "1.4.2",
+		"format_version": "1.5.2",
 		"uuid": "d85dfd22-c4a7-a68d-07dd-cdc50910ec85",
-		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\abyssal_conduit.ajblueprint",
+		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\AnimatedJava\\abyssal_conduit.ajblueprint",
 		"last_used_export_namespace": "abyssal_conduit"
 	},
 	"blueprint_settings": {
@@ -14,6 +14,7 @@
 		"enable_plugin_mode": false,
 		"resource_pack_export_mode": "raw",
 		"data_pack_export_mode": "raw",
+		"target_minecraft_version": "1.21.0",
 		"display_item": "minecraft:white_dye",
 		"custom_model_data_offset": 0,
 		"enable_advanced_resource_pack_settings": false,
@@ -29,6 +30,8 @@
 		"interpolation_duration": 1,
 		"teleportation_duration": 1,
 		"use_storage_for_animation": false,
+		"show_function_errors": true,
+		"show_outdated_warning": true,
 		"baked_animations": true,
 		"json_file": ""
 	},
@@ -109,7 +112,10 @@
 			"visibility": true,
 			"item": "minecraft:sea_lantern",
 			"item_display": "none",
-			"config": {},
+			"config": {
+				"override_brightness": true,
+				"brightness_override": 15
+			},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -129,7 +135,10 @@
 			"visibility": true,
 			"item": "minecraft:sea_lantern",
 			"item_display": "none",
-			"config": {},
+			"config": {
+				"override_brightness": true,
+				"brightness_override": 15
+			},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -149,7 +158,10 @@
 			"visibility": true,
 			"item": "minecraft:sea_lantern",
 			"item_display": "none",
-			"config": {},
+			"config": {
+				"override_brightness": true,
+				"brightness_override": 15
+			},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -169,7 +181,10 @@
 			"visibility": true,
 			"item": "minecraft:sea_lantern",
 			"item_display": "none",
-			"config": {},
+			"config": {
+				"override_brightness": true,
+				"brightness_override": 15
+			},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -268,9 +283,9 @@
 	"textures": [],
 	"variants": {
 		"default": {
-			"name": "abyssal_conduit",
-			"display_name": "abyssal_conduit",
-			"uuid": "25c4091c-9fec-dd51-483c-b4d032d056a3",
+			"name": "default",
+			"display_name": "Default",
+			"uuid": "10e7fbb5-1f39-6712-01ea-c3c7ee6cea53",
 			"texture_map": {},
 			"excluded_nodes": [],
 			"is_default": true
@@ -753,7 +768,8 @@
 							"time": 4,
 							"color": -1,
 							"interpolation": "linear",
-							"easing": "easeInQuad"
+							"easing": "easeInQuad",
+							"easingArgs": []
 						}
 					]
 				}

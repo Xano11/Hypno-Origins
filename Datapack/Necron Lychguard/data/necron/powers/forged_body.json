@@ -22,11 +22,11 @@
 		}
 	},
 
-	"water_shit_1": {
+	"ignore_water": {
 		"type": "origins:ignore_water"
 	},	
 
-	"water_shit_2": {
+	"water_slowed": {
 		"type": "origins:modify_velocity",
 		"condition": {
     		"type": "origins:submerged_in",

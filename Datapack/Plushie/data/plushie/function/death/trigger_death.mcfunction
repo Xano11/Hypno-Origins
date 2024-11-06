@@ -1,7 +1,5 @@
 #Setup death
-function animated_java:plushie_totem/summon/default
-execute as @n[tag=aj.plushie_totem.root] run function animated_java:plushie_totem/animations/spawn_crank/play
-execute as @n[tag=aj.plushie_totem.root] run data modify entity @s Rotation[1] set value 0f
+execute rotated ~ 0.0 run function animated_java:plushie_totem/summon {args:{animation:"spawn_crank",start_animation:1b}}
 scoreboard players set @s plushie_winding 15
 resource set @s plushie:voodoo/main_toggle 0
 execute store result storage plushie:head_rotation x float 1 run data get entity @s Rotation[0] 1

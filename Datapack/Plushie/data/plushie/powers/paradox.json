@@ -124,6 +124,24 @@
             "compare_to": 0
         }
     },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "hypno:plushie/dead",
+        "strength": 0.7,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 0.4,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "head": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -144,6 +162,38 @@
         "modifier": {
             "id": "plushie_movement",
             "attribute": "minecraft:generic.movement_speed",
+            "amount": -1,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death_block_reach": {
+        "type": "origins:conditioned_attribute",
+        "tick_rate": 1,
+        "modifier": {
+            "id": "plushie_block_range",
+            "attribute": "minecraft:player.block_interaction_range",
+            "amount": -1,
+            "operation": "add_multiplied_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death_entity_reach": {
+        "type": "origins:conditioned_attribute",
+        "tick_rate": 1,
+        "modifier": {
+            "id": "plushie_block_range",
+            "attribute": "minecraft:player.entity_interaction_range",
             "amount": -1,
             "operation": "add_multiplied_total"
         },
@@ -191,6 +241,24 @@
         "modifier": {
             "operation": "multiply_total_multiplicative",
             "amount": -1
+        }
+    },
+    "death_pickup":{
+        "type": "origins:prevent_item_pickup",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death_item_use":{
+        "type": "origins:prevent_item_use",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "plushie:paradox_death_timer",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "invis": {

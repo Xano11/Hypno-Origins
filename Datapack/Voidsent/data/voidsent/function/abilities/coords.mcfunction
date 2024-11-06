@@ -5,4 +5,4 @@ execute if dimension minecraft:overworld run data modify storage voidsent:dimens
 execute if dimension minecraft:the_nether run data modify storage voidsent:dimension dimension set value "Nether"
 execute if dimension minecraft:the_end run data modify storage voidsent:dimension dimension set value "End"
 execute unless dimension minecraft:overworld unless dimension minecraft:the_nether unless dimension minecraft:the_end run data modify storage voidsent:dimension dimension set value "???"
-title @a actionbar ["",{"text":"NODE","bold":true,"color":"dark_purple"},": ",{"score":{"name":"@s","objective":"NodeX"}}," ",{"score":{"name":"@s","objective":"NodeY"}}," ",{"score":{"name":"@s","objective":"NodeZ"}}," (",{"nbt":"dimension","storage":"voidsent:dimension","italic":true},")"]
+title @s actionbar ["",{"text":"NODE","bold":true,"color":"dark_purple"},": ",{"score":{"name":"@s","objective":"NodeX"}}," ",{"score":{"name":"@s","objective":"NodeY"}}," ",{"score":{"name":"@s","objective":"NodeZ"}}," (",{"nbt":"dimension","storage":"voidsent:dimension","italic":true},")"]

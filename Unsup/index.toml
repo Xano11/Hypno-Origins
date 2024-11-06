@@ -73,8 +73,8 @@ file = "config/openloader/data/zephyrite_0.21.zip"
 hash = "5c93c59163c55f07bd3fee29f2980c4158939a37e4fcee5c19fd2c0c8f2cbc7b"
 
 [[files]]
-file = "config/openloader/resources/pack_0.51.zip"
-hash = "1623cb307d25501cb255bdeff9201c10004f7292c079cc04244f528b9f80bef2"
+file = "config/openloader/resources/pack_0.52.zip"
+hash = "a7a19fb8c7b6e556a7f0606e67f800b6a85a5cef8385a56a35f9216d1c79d5cf"
 
 [[files]]
 file = "mods/OpenLoader-Fabric-1.21-22.1.0.jar"

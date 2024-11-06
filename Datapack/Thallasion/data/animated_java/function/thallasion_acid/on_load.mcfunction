@@ -2,4 +2,3 @@
 scoreboard objectives add aj.shot.frame dummy
 scoreboard objectives add aj.main.frame dummy
 scoreboard objectives add aj.explode.frame dummy
-execute as @e[type=item_display,tag=aj.thallasion_acid.root] unless score @s aj.is_rig_loaded matches 1 at @s run function animated_java:thallasion_acid/root/on_load

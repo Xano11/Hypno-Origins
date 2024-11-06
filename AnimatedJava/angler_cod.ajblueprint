@@ -1,9 +1,9 @@
 {
 	"meta": {
 		"format": "animated_java_blueprint",
-		"format_version": "1.4.2",
+		"format_version": "1.5.2",
 		"uuid": "de33a9d3-f7c4-430c-8d96-9e9abad107c5",
-		"save_location": "",
+		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\AnimatedJava\\angler_cod.ajblueprint",
 		"last_used_export_namespace": "angler_cod"
 	},
 	"blueprint_settings": {
@@ -14,6 +14,7 @@
 		"enable_plugin_mode": false,
 		"resource_pack_export_mode": "raw",
 		"data_pack_export_mode": "raw",
+		"target_minecraft_version": "1.21.0",
 		"display_item": "minecraft:white_dye",
 		"custom_model_data_offset": 0,
 		"enable_advanced_resource_pack_settings": false,
@@ -29,6 +30,8 @@
 		"interpolation_duration": 1,
 		"teleportation_duration": 1,
 		"use_storage_for_animation": false,
+		"show_function_errors": true,
+		"show_outdated_warning": true,
 		"baked_animations": true,
 		"json_file": ""
 	},
@@ -113,7 +116,7 @@
 		"default": {
 			"name": "default",
 			"display_name": "Default",
-			"uuid": "b2918039-a572-dd85-4178-d184b314c2d2",
+			"uuid": "cba996b4-dedf-ac0f-0af9-13fee84cc393",
 			"texture_map": {},
 			"excluded_nodes": [],
 			"is_default": true
