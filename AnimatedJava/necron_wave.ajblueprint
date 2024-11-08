@@ -70,7 +70,7 @@
 		"default": {
 			"name": "default",
 			"display_name": "Default",
-			"uuid": "f354a2fe-2fde-0e6a-4b3b-485ff7b0baff",
+			"uuid": "b802d29d-340d-43c5-539b-c230466dfbdf",
 			"texture_map": {},
 			"excluded_nodes": [],
 			"is_default": true
@@ -94,110 +94,6 @@
 			"loop_delay": "0",
 			"excluded_nodes": [],
 			"animators": {
-				"ec669d8e-e758-f189-0593-ef14487f2538": {
-					"name": "wave1",
-					"type": "locator",
-					"keyframes": [
-						{
-							"channel": "commands",
-							"data_points": [
-								{
-									"x": 0,
-									"y": 0,
-									"z": 0,
-									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
-									"execute_condition": "",
-									"repeat": true,
-									"repeat_frequency": 1
-								}
-							],
-							"uuid": "1cb4c8d5-a9c8-1495-565f-f41643fc4c3d",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"easing": "linear",
-							"easingArgs": []
-						}
-					]
-				},
-				"34798c80-980e-9164-f8b7-7f56938d9a46": {
-					"name": "wave2",
-					"type": "locator",
-					"keyframes": [
-						{
-							"channel": "commands",
-							"data_points": [
-								{
-									"x": 0,
-									"y": 0,
-									"z": 0,
-									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
-									"execute_condition": "",
-									"repeat": true,
-									"repeat_frequency": 1
-								}
-							],
-							"uuid": "f7e32805-cd14-115f-2745-e41415290902",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"easing": "linear",
-							"easingArgs": []
-						}
-					]
-				},
-				"f80d4a5d-3c53-01de-0f26-fcef12c114ab": {
-					"name": "wave3",
-					"type": "locator",
-					"keyframes": [
-						{
-							"channel": "commands",
-							"data_points": [
-								{
-									"x": 0,
-									"y": 0,
-									"z": 0,
-									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
-									"execute_condition": "",
-									"repeat": true,
-									"repeat_frequency": 1
-								}
-							],
-							"uuid": "af69647e-da93-4f43-426f-c2a5b4542d89",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"easing": "linear",
-							"easingArgs": []
-						}
-					]
-				},
-				"6ed14d9c-190f-2c7a-0a9d-f4f9b5b0db97": {
-					"name": "wave4",
-					"type": "locator",
-					"keyframes": [
-						{
-							"channel": "commands",
-							"data_points": [
-								{
-									"x": 0,
-									"y": 0,
-									"z": 0,
-									"commands": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0 1 force @a",
-									"execute_condition": "",
-									"repeat": true,
-									"repeat_frequency": 1
-								}
-							],
-							"uuid": "2687d2d7-0d4f-c6d0-e9c0-cd3eb5d139e1",
-							"time": 0,
-							"color": -1,
-							"interpolation": "linear",
-							"easing": "linear",
-							"easingArgs": []
-						}
-					]
-				},
 				"8ad8ea78-cf10-724f-fd37-e82ae27ffb9c": {
 					"name": "wave",
 					"type": "animated_java:vanilla_item_display",

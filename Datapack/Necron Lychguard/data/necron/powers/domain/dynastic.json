@@ -99,12 +99,60 @@
                             "command": "execute if data entity @s active_effects",
                             "comparison": ">=",
                             "compare_to": 1
+                        },
+                        {
+                            "type": "origins:status_effect",
+                            "effect": "minecraft:raid_omen",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:status_effect",
+                            "effect": "minecraft:bad_omen",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:status_effect",
+                            "effect": "minecraft:trial_omen",
+                            "inverted": true
                         }
                     ]
                 }
             }
         },
         "interval": 5
+    },
+    "slow_projectiles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 16,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:add_velocity",
+                            "z": -0.2,
+                            "space": "velocity"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:end_rod"
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:impact_projectiles"
+                }
+            }
+        },
+        "interval": 1
     },
     "hidden": true
 }

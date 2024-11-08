@@ -90,12 +90,6 @@
             ]
         },
         "cooldown": 1,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "voidsent:displace_cooldown",
-            "comparison": "==",
-            "compare_to": 100
-        },
         "key": {
             "key": "key.origins.primary_active",
             "continuous": true

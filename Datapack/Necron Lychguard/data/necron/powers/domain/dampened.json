@@ -10,7 +10,7 @@
         },
         "min_action": {
             "type": "origins:execute_command",
-            "command": "power remove @s necron:domain/dampened"
+            "command": "power revoke @s necron:domain/dampened"
         }
     },
     "duration_tick": {

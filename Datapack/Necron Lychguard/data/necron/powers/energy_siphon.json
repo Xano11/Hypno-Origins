@@ -1,14 +1,10 @@
 {
     "type": "origins:multiple",
-    "food_texture": {
-        "type": "origins:status_bar_texture",
-        "texture_map": {
-            "minecraft:hud/food_empty": "hypno:necron/food_empty",
-            "minecraft:hud/food_empty_hunger": "hypno:necron/food_empty_hunger",
-            "minecraft:hud/food_full": "hypno:necron/food_full",
-            "minecraft:hud/food_full_hunger": "hypno:necron/food_full_hunger",
-            "minecraft:hud/food_half": "hypno:necron/food_half",
-            "minecraft:hud/food_half_hunger": "hypno:necron/food_half_hunger"
+    "exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "amount": -0.6
         }
     },
     "no_saturation": {

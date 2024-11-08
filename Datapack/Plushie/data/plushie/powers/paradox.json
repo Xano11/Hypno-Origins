@@ -230,6 +230,46 @@
             "compare_to": 0
         }
     },
+    "death_fluid": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "plushie:paradox_death_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:water",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:lava",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    },
     "death_invuln": {
         "type": "origins:modify_damage_taken",
         "condition": {
@@ -243,7 +283,7 @@
             "amount": -1
         }
     },
-    "death_pickup":{
+    "death_pickup": {
         "type": "origins:prevent_item_pickup",
         "condition": {
             "type": "origins:resource",
@@ -252,7 +292,7 @@
             "compare_to": 0
         }
     },
-    "death_item_use":{
+    "death_item_use": {
         "type": "origins:prevent_item_use",
         "condition": {
             "type": "origins:resource",

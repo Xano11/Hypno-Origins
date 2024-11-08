@@ -1,0 +1,57 @@
+{
+    "type": "origins:multiple",
+    "check_anchors": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function necron:gate/break"
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if block ~ ~-1 ~ #minecraft:replaceable",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if block ~ ~-1 ~1 #minecraft:replaceable",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if block ~ ~-1 ~-1 #minecraft:replaceable",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if block ~1 ~-1 ~ #minecraft:replaceable",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if block ~-1 ~-1 ~ #minecraft:replaceable",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "invisibility": {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "shulker_head": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "shulker_head"
+        ]
+    },
+    "hidden": true
+}

@@ -45,16 +45,52 @@
 			"type": "origins:and",
 			"actions": [
 				{
-					"type": "origins:execute_command",
-    				"command": "playsound minecraft:entity.blaze.ambient player @s ~ ~ ~ 0.1 0.1"
-				},
-				{
-					"type": "origins:execute_command",
-    				"command": "execute at @s anchored eyes run particle minecraft:reverse_portal ^ ^ ^-0.2 0.2 0.2 0.2 0.5 5 normal @a"
-				},
-				{    
-					"type": "origins:heal",
-    				"amount": 1
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:entity_in_radius",
+						"shape": "sphere",
+						"radius": 16,
+						"comparison": ">=",
+						"compare_to": 1,
+						"bientity_condition": {
+							"type": "origins:in_entity_set",
+							"set": "necron:domain/main_binded"
+						}
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "playsound minecraft:entity.blaze.ambient player @s ~ ~ ~ 0.1 0.1"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute at @s anchored eyes run particle minecraft:reverse_portal ^ ^ ^-0.2 0.2 0.2 0.2 0.5 5 normal @a"
+							},
+							{    
+								"type": "origins:heal",
+								"amount": 2
+							}
+						]
+					},
+					"else_action":  {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "playsound minecraft:entity.blaze.ambient player @s ~ ~ ~ 0.1 0.1"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute at @s anchored eyes run particle minecraft:reverse_portal ^ ^ ^-0.2 0.2 0.2 0.2 0.5 5 normal @a"
+							},
+							{    
+								"type": "origins:heal",
+								"amount": 1
+							}
+						]
+					}
 				}
 			]
 		},

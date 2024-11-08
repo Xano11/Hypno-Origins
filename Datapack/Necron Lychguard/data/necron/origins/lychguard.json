@@ -5,7 +5,8 @@
 		"necron:forged_body",
 		"necron:energy_siphon",
 		"necron:atomizing_swings",
-		"necron:domain/main"
+		"necron:domain/main",
+		"necron:gate/open"
 	],
 	"icon": {
         "id": "minecraft:skeleton_skull",
