@@ -198,7 +198,7 @@
                                 {
                                     "type": "origins:spawn_entity",
                                     "entity_type": "minecraft:armor_stand",
-                                    "tag": "{NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"node_main\",\"node_placement\"],Passengers:[{id:\"minecraft:interaction\",NoGravity:1b,Silent:1b,width:1f,height:1f,Tags:[\"node_interaction\",\"node_set\"]}]}",
+                                    "tag": "{NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"node_main\",\"node_placement\",\"forceload_check\"],Passengers:[{id:\"minecraft:interaction\",NoGravity:1b,Silent:1b,width:1f,height:1f,Tags:[\"node_interaction\",\"node_set\"]}]}",
                                     "entity_action": {
                                         "type": "origins:and",
                                         "actions": [
@@ -245,7 +245,7 @@
                                 {
                                     "type": "origins:spawn_entity",
                                     "entity_type": "minecraft:armor_stand",
-                                    "tag": "{NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"node_main\",\"node_placement\"],Passengers:[{id:\"minecraft:interaction\",NoGravity:1b,Silent:1b,width:1f,height:1f,Tags:[\"node_interaction\",\"node_set\"]}]}",
+                                    "tag": "{NoGravity:1b,Marker:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"node_main\",\"node_placement\",\"forceload_check\"],Passengers:[{id:\"minecraft:interaction\",NoGravity:1b,Silent:1b,width:1f,height:1f,Tags:[\"node_interaction\",\"node_set\"]}]}",
                                     "entity_action": {
                                         "type": "origins:and",
                                         "actions": [

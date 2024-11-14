@@ -30,31 +30,6 @@
         },
         "interval": 1
     },
-    "load": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:command",
-                "command": "forceload query ~ ~",
-                "comparison": "==",
-                "compare_to": 1
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "power revoke @s voidsent:nodes/node_load"
-            },
-            "else_action": {
-                "type": "origins:execute_command",
-                "command": "forceload add ~ ~ ~ ~"
-            }
-        },
-        "entity_action_lost": {
-            "type": "origins:execute_command",
-            "command": "forceload remove ~ ~ ~ ~"
-        },
-        "execute_chosen_when_orb": false
-    },
     "teleport": {
         "type": "origins:action_over_time",
         "entity_action": {
