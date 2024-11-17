@@ -1,0 +1,37 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function bonlo:hollow_vanish"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "bonlo:hollow_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "moving": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": false,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "command_along_ray": "function bonlo:hollow_move",
+            "command_step": 1
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

@@ -4,7 +4,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "kill @s"
+            "command": "function chosen:campfire_broken"
         },
         "interval": 1,
         "condition": {

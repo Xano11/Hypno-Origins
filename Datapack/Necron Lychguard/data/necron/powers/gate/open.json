@@ -34,6 +34,13 @@
                 "type": "origins:and",
                 "actions": [
                     {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "function necron:gate/link_gate"
+                        }
+                    },
+                    {
                         "type": "origins:add_to_entity_set",
                         "set": "necron:gate/open_binded"
                     },
@@ -47,6 +54,9 @@
                 ]
             }
         },
+        "usage_phases": [
+            "block"
+        ],
         "block_condition": {
             "type": "origins:and",
             "conditions": [
@@ -72,28 +82,32 @@
                 {
                     "type": "origins:offset",
                     "condition": {
-                        "type": "origins:movement_blocking"
+                        "type": "origins:block",
+                        "block": "minecraft:obsidian"
                     },
                     "x": 1
                 },
                 {
                     "type": "origins:offset",
                     "condition": {
-                        "type": "origins:movement_blocking"
+                        "type": "origins:block",
+                        "block": "minecraft:obsidian"
                     },
                     "x": -1
                 },
                 {
                     "type": "origins:offset",
                     "condition": {
-                        "type": "origins:movement_blocking"
+                        "type": "origins:block",
+                        "block": "minecraft:obsidian"
                     },
                     "z": 1
                 },
                 {
                     "type": "origins:offset",
                     "condition": {
-                        "type": "origins:movement_blocking"
+                        "type": "origins:block",
+                        "block": "minecraft:obsidian"
                     },
                     "z": -1
                 }
@@ -103,10 +117,21 @@
             "up"
         ],
         "condition": {
-            "type": "origins:resource",
-            "resource": "necron:gate/open_holding_key",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "necron:gate/open_holding_key",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:entity_set_size",
+                    "set": "necron:gate/open_binded",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "holding_key": {
@@ -126,6 +151,60 @@
         },
         "interval": 1
     },
+    "title": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:entity_set_size",
+                        "set": "necron:gate/open_binded",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:has_command_tag",
+                            "command_tag": "player_eternity_gate"
+                        },
+                        "if_action": {
+                            "type": "origins:execute_command",
+                            "command": "function necron:gate/indicator_player_gate"
+                        },
+                        "else_action": {
+                            "type": "origins:execute_command",
+                            "command": "function necron:gate/indicator_gate"
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:has_command_tag",
+                            "command_tag": "player_eternity_gate"
+                        },
+                        "if_action": {
+                            "type": "origins:execute_command",
+                            "command": "function necron:gate/indicator_player_gate"
+                        },
+                        "else_action": {
+                            "type": "origins:execute_command",
+                            "command": "function necron:gate/indicator_no_gate"
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "necron:gate/open_holding_key",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "use": {
         "type": "origins:active_self",
         "entity_action": {
@@ -143,16 +222,121 @@
             "should_render": false
         }
     },
-    "crosshair": {
-        "type": "origins:status_bar_texture",
-        "texture_map": {
-            "minecraft:hud/crosshair": "hypno:necron/crosshair"
+    "teleport": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:entity_set_size",
+                "set": "necron:gate/open_binded",
+                "comparison": ">",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:has_command_tag",
+                    "command_tag": "player_eternity_gate"
+                },
+                "if_action": {
+                    "type": "origins:execute_command",
+                    "command": "function necron:gate/player_tp"
+                },
+                "else_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add gate_teleport"
+                        },
+                        {
+                            "type": "origins:action_on_entity_set",
+                            "set": "necron:gate/open_binded",
+                            "bientity_action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function necron:gate/gate_tp"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove gate_teleport"
+                        }
+                    ]
+                }
+            },
+            "else_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:has_command_tag",
+                    "command_tag": "player_eternity_gate"
+                },
+                "if_action": {
+                    "type": "origins:execute_command",
+                    "command": "function necron:gate/player_tp"
+                }
+            }
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.attack"
+        },
+        "hud_render": {
+            "should_render": false
         },
         "condition": {
             "type": "origins:resource",
             "resource": "necron:gate/open_holding_key",
             "comparison": ">",
             "compare_to": 0
+        }
+    },
+    "crosshair": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "hypno:necron/crosshair_secondary"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "necron:gate/open_holding_key",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "detect_gate": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s add player_eternity_gate"
+        },
+        "falling_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove player_eternity_gate"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[predicate=necron:holding_gate]",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "craft_gate": {
+        "type": "origins:modify_crafting",
+        "recipe": "necron:eternity_gate",
+        "result": {
+            "id": "minecraft:lime_dye",
+            "components": {
+                "minecraft:custom_name": "[{\"text\":\"Eternity Gate\",\"italic\":false}]",
+                "minecraft:max_stack_size": 1,
+                "minecraft:rarity": "uncommon",
+                "minecraft:custom_model_data": 2,
+                "minecraft:custom_data": {
+                    "Eternity_Gate": true
+                }
+            }
         }
     },
     "name": "Dynastic Domain",

@@ -3,7 +3,7 @@
 		"format": "animated_java_blueprint",
 		"format_version": "1.5.2",
 		"uuid": "5d2457d1-7d37-cf13-85a0-f572771d59a3",
-		"save_location": "",
+		"save_location": "C:\\Users\\Xao\\Documents\\GitHub\\HypnoRevival\\Hypno-origins\\AnimatedJava\\necron_eternity_gate.ajblueprint",
 		"last_used_export_namespace": "necron_eternity_gate"
 	},
 	"blueprint_settings": {
@@ -42,7 +42,7 @@
 	"elements": [
 		{
 			"name": "frame2",
-			"position": [-26, 0, -20],
+			"position": [-26, -2, -20],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -62,7 +62,7 @@
 		},
 		{
 			"name": "frame3",
-			"position": [-18, 0, -20],
+			"position": [-18, -2, -20],
 			"rotation": [0, -27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -82,7 +82,7 @@
 		},
 		{
 			"name": "frame5",
-			"position": [-12, 0, -20],
+			"position": [-12, -2, -20],
 			"rotation": [0, -47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -102,7 +102,7 @@
 		},
 		{
 			"name": "frame7",
-			"position": [0, 0, -11],
+			"position": [0, -2, -11],
 			"rotation": [0, -90, 0],
 			"scale": [1.4375, 2.88125, 0.6875],
 			"visibility": true,
@@ -122,7 +122,7 @@
 		},
 		{
 			"name": "frame6",
-			"position": [-20, 0, 13],
+			"position": [-20, -2, 13],
 			"rotation": [0, 47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -142,7 +142,7 @@
 		},
 		{
 			"name": "frame4",
-			"position": [-24, 0, 11],
+			"position": [-24, -2, 11],
 			"rotation": [0, 27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -162,7 +162,7 @@
 		},
 		{
 			"name": "frame1",
-			"position": [-26, 0, 9.75],
+			"position": [-26, -2, 9.75],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -182,7 +182,7 @@
 		},
 		{
 			"name": "frame8",
-			"position": [-23, 35, -2],
+			"position": [-23, 33, -2],
 			"rotation": [0, 47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -202,7 +202,7 @@
 		},
 		{
 			"name": "frame9",
-			"position": [-17, 35, -2],
+			"position": [-17, 33, -2],
 			"rotation": [0, -47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -222,7 +222,7 @@
 		},
 		{
 			"name": "frame12",
-			"position": [-24, 39, -4],
+			"position": [-24, 37, -4],
 			"rotation": [0, 0, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -242,7 +242,7 @@
 		},
 		{
 			"name": "frame10",
-			"position": [-11.1, 50, 8],
+			"position": [-11.1, 48, 8],
 			"rotation": [0, 90, -45],
 			"scale": [1, 0.6875, 0.7],
 			"visibility": true,
@@ -262,7 +262,7 @@
 		},
 		{
 			"name": "frame11",
-			"position": [0.2, 50, -7],
+			"position": [0.2, 48, -7],
 			"rotation": [0, -90, -45],
 			"scale": [1, 0.6875, 0.71875],
 			"visibility": true,
@@ -282,7 +282,7 @@
 		},
 		{
 			"name": "frame13",
-			"position": [10, 0, 25.75],
+			"position": [10, -2, 25.75],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -302,7 +302,7 @@
 		},
 		{
 			"name": "frame14",
-			"position": [10, 0, -4],
+			"position": [10, -2, -4],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -322,7 +322,7 @@
 		},
 		{
 			"name": "frame15",
-			"position": [18, 0, -4],
+			"position": [18, -2, -4],
 			"rotation": [0, -27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -342,7 +342,7 @@
 		},
 		{
 			"name": "frame16",
-			"position": [12, 0, 27],
+			"position": [12, -2, 27],
 			"rotation": [0, 27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -362,7 +362,7 @@
 		},
 		{
 			"name": "frame17",
-			"position": [24, 0, -4],
+			"position": [24, -2, -4],
 			"rotation": [0, -47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -382,7 +382,7 @@
 		},
 		{
 			"name": "frame18",
-			"position": [16, 0, 29],
+			"position": [16, -2, 29],
 			"rotation": [0, 47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -402,7 +402,7 @@
 		},
 		{
 			"name": "frame19",
-			"position": [36, 0, 5],
+			"position": [36, -2, 5],
 			"rotation": [0, -90, 0],
 			"scale": [1.4375, 2.88125, 0.6875],
 			"visibility": true,
@@ -422,7 +422,7 @@
 		},
 		{
 			"name": "frame20",
-			"position": [13, 35, 14],
+			"position": [13, 33, 14],
 			"rotation": [0, 47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -442,7 +442,7 @@
 		},
 		{
 			"name": "frame21",
-			"position": [19, 35, 14],
+			"position": [19, 33, 14],
 			"rotation": [0, -47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -462,7 +462,7 @@
 		},
 		{
 			"name": "frame22",
-			"position": [24.9, 50, 24],
+			"position": [24.9, 48, 24],
 			"rotation": [0, 90, -45],
 			"scale": [1, 0.6875, 0.7],
 			"visibility": true,
@@ -482,7 +482,7 @@
 		},
 		{
 			"name": "frame23",
-			"position": [36.2, 50, 9],
+			"position": [36.2, 48, 9],
 			"rotation": [0, -90, -45],
 			"scale": [1, 0.6875, 0.71875],
 			"visibility": true,
@@ -502,7 +502,7 @@
 		},
 		{
 			"name": "frame24",
-			"position": [12, 39, 12],
+			"position": [12, 37, 12],
 			"rotation": [0, 0, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -522,7 +522,7 @@
 		},
 		{
 			"name": "frame25",
-			"position": [-9, 0, -26.25],
+			"position": [-9, -2, -26.25],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -542,7 +542,7 @@
 		},
 		{
 			"name": "frame26",
-			"position": [-9, 0, -56],
+			"position": [-9, -2, -56],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -562,7 +562,7 @@
 		},
 		{
 			"name": "frame27",
-			"position": [-1, 0, -56],
+			"position": [-1, -2, -56],
 			"rotation": [0, -27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -582,7 +582,7 @@
 		},
 		{
 			"name": "frame28",
-			"position": [-7, 0, -25],
+			"position": [-7, -2, -25],
 			"rotation": [0, 27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -602,7 +602,7 @@
 		},
 		{
 			"name": "frame29",
-			"position": [5, 0, -56],
+			"position": [5, -2, -56],
 			"rotation": [0, -47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -622,7 +622,7 @@
 		},
 		{
 			"name": "frame30",
-			"position": [-3, 0, -23],
+			"position": [-3, -2, -23],
 			"rotation": [0, 47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -642,7 +642,7 @@
 		},
 		{
 			"name": "frame31",
-			"position": [17, 0, -47],
+			"position": [17, -2, -47],
 			"rotation": [0, -90, 0],
 			"scale": [1.4375, 2.88125, 0.6875],
 			"visibility": true,
@@ -662,7 +662,7 @@
 		},
 		{
 			"name": "frame32",
-			"position": [-6, 35, -38],
+			"position": [-6, 33, -38],
 			"rotation": [0, 47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -682,7 +682,7 @@
 		},
 		{
 			"name": "frame33",
-			"position": [0, 35, -38],
+			"position": [0, 33, -38],
 			"rotation": [0, -47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -702,7 +702,7 @@
 		},
 		{
 			"name": "frame34",
-			"position": [5.9, 50, -28],
+			"position": [5.9, 48, -28],
 			"rotation": [0, 90, -45],
 			"scale": [1, 0.6875, 0.7],
 			"visibility": true,
@@ -722,7 +722,7 @@
 		},
 		{
 			"name": "frame35",
-			"position": [17.2, 50, -43],
+			"position": [17.2, 48, -43],
 			"rotation": [0, -90, -45],
 			"scale": [1, 0.6875, 0.71875],
 			"visibility": true,
@@ -742,7 +742,7 @@
 		},
 		{
 			"name": "frame36",
-			"position": [-7, 39, -40],
+			"position": [-7, 37, -40],
 			"rotation": [0, 0, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -762,7 +762,7 @@
 		},
 		{
 			"name": "frame37",
-			"position": [26, 0, -9.75],
+			"position": [26, -2, -9.75],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -782,7 +782,7 @@
 		},
 		{
 			"name": "frame38",
-			"position": [26, 0, -39.5],
+			"position": [26, -2, -39.5],
 			"rotation": [0, 0, 0],
 			"scale": [0.8125, 1, 0.6875],
 			"visibility": true,
@@ -802,7 +802,7 @@
 		},
 		{
 			"name": "frame39",
-			"position": [34, 0, -39.5],
+			"position": [34, -2, -39.5],
 			"rotation": [0, -27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -822,7 +822,7 @@
 		},
 		{
 			"name": "frame40",
-			"position": [28, 0, -8.5],
+			"position": [28, -2, -8.5],
 			"rotation": [0, 27.5, 0],
 			"scale": [0.8125, 1.25625, 0.6875],
 			"visibility": true,
@@ -842,7 +842,7 @@
 		},
 		{
 			"name": "frame41",
-			"position": [40, 0, -39.5],
+			"position": [40, -2, -39.5],
 			"rotation": [0, -47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -862,7 +862,7 @@
 		},
 		{
 			"name": "frame42",
-			"position": [32, 0, -6.5],
+			"position": [32, -2, -6.5],
 			"rotation": [0, 47.5, 0],
 			"scale": [0.8125, 2.00625, 0.6875],
 			"visibility": true,
@@ -882,7 +882,7 @@
 		},
 		{
 			"name": "frame43",
-			"position": [52, 0, -30.5],
+			"position": [52, -2, -30.5],
 			"rotation": [0, -90, 0],
 			"scale": [1.4375, 2.88125, 0.6875],
 			"visibility": true,
@@ -902,7 +902,7 @@
 		},
 		{
 			"name": "frame44",
-			"position": [29, 35, -21.5],
+			"position": [29, 33, -21.5],
 			"rotation": [0, 47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -922,7 +922,7 @@
 		},
 		{
 			"name": "frame45",
-			"position": [35, 35, -21.5],
+			"position": [35, 33, -21.5],
 			"rotation": [0, -47.5, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -942,7 +942,7 @@
 		},
 		{
 			"name": "frame46",
-			"position": [40.9, 50, -11.5],
+			"position": [40.9, 48, -11.5],
 			"rotation": [0, 90, -45],
 			"scale": [1, 0.6875, 0.7],
 			"visibility": true,
@@ -962,7 +962,7 @@
 		},
 		{
 			"name": "frame47",
-			"position": [52.2, 50, -26.5],
+			"position": [52.2, 48, -26.5],
 			"rotation": [0, -90, -45],
 			"scale": [1, 0.6875, 0.71875],
 			"visibility": true,
@@ -982,7 +982,7 @@
 		},
 		{
 			"name": "frame48",
-			"position": [28, 39, -23.5],
+			"position": [28, 37, -23.5],
 			"rotation": [0, 0, -45],
 			"scale": [1, 0.6875, 0.625],
 			"visibility": true,
@@ -1002,16 +1002,13 @@
 		},
 		{
 			"name": "portal",
-			"position": [-12, 16, 0],
+			"position": [-12, 14, 0],
 			"rotation": [0, -90, 0],
 			"scale": [1, 2.2, 1],
 			"visibility": true,
 			"item": "minecraft:slime_ball",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -1025,16 +1022,13 @@
 		},
 		{
 			"name": "portal1",
-			"position": [24, 16, 16],
+			"position": [24, 14, 16],
 			"rotation": [0, -90, 0],
 			"scale": [1, 2.2, 1],
 			"visibility": true,
 			"item": "minecraft:slime_ball",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -1048,16 +1042,13 @@
 		},
 		{
 			"name": "portal2",
-			"position": [5, 16, -35],
+			"position": [5, 14, -35],
 			"rotation": [0, 90, 0],
 			"scale": [1, 2.2, 1],
 			"visibility": true,
 			"item": "minecraft:slime_ball",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -1071,16 +1062,13 @@
 		},
 		{
 			"name": "portal3",
-			"position": [40, 16, -19],
+			"position": [40, 14, -19],
 			"rotation": [0, -90, 0],
 			"scale": [1, 2.2, 1],
 			"visibility": true,
 			"item": "minecraft:slime_ball",
 			"item_display": "none",
-			"config": {
-				"override_brightness": true,
-				"brightness_override": 15
-			},
+			"config": {},
 			"block": "minecraft:stone",
 			"text": "\"Hello World!\"",
 			"lineWidth": 200,
@@ -1105,7 +1093,7 @@
 		},
 		{
 			"name": "frame49",
-			"position": [-25.75, 0, -9.5],
+			"position": [-25.75, -2, -9.5],
 			"rotation": [0, 0, 0],
 			"scale": [0.9375, 0.0625, 1.25],
 			"visibility": true,
@@ -1125,7 +1113,7 @@
 		},
 		{
 			"name": "frame50",
-			"position": [26.25, 0, -28.5],
+			"position": [26.25, -2, -28.5],
 			"rotation": [0, 0, 0],
 			"scale": [0.9375, 0.0625, 1.25],
 			"visibility": true,
@@ -1145,7 +1133,7 @@
 		},
 		{
 			"name": "frame52",
-			"position": [25.25, 0, 26.5],
+			"position": [25.25, -2, 26.5],
 			"rotation": [0, -180, 0],
 			"scale": [0.9375, 0.0625, 1.25],
 			"visibility": true,
@@ -1165,7 +1153,7 @@
 		},
 		{
 			"name": "frame51",
-			"position": [-8.75, 0, -45.5],
+			"position": [-8.75, -2, -45.5],
 			"rotation": [0, 0, 0],
 			"scale": [0.9375, 0.0625, 1.25],
 			"visibility": true,
@@ -1185,7 +1173,7 @@
 		},
 		{
 			"name": "locator2",
-			"position": [-13, 15, 0],
+			"position": [-13, 13, 0],
 			"rotation": [0, 0, 0],
 			"ignore_inherited_scale": false,
 			"visibility": true,
@@ -1196,7 +1184,7 @@
 		},
 		{
 			"name": "locator3",
-			"position": [23, 15, 16],
+			"position": [23, 13, 16],
 			"rotation": [0, 0, 0],
 			"ignore_inherited_scale": false,
 			"visibility": true,
@@ -1207,7 +1195,7 @@
 		},
 		{
 			"name": "locator4",
-			"position": [4, 15, -35],
+			"position": [4, 13, -35],
 			"rotation": [0, 0, 0],
 			"ignore_inherited_scale": false,
 			"visibility": true,
@@ -1218,7 +1206,7 @@
 		},
 		{
 			"name": "locator5",
-			"position": [39, 15, -19],
+			"position": [39, 13, -19],
 			"rotation": [0, 0, 0],
 			"ignore_inherited_scale": false,
 			"visibility": true,
@@ -1231,7 +1219,7 @@
 	"outliner": [
 		{
 			"name": "main",
-			"origin": [-26, 0, 10],
+			"origin": [-26, -2, 10],
 			"color": 0,
 			"configs": {
 				"variants": {},
@@ -1247,7 +1235,7 @@
 			"children": [
 				{
 					"name": "side1",
-					"origin": [-26, 0, 10],
+					"origin": [-26, -2, 10],
 					"color": 0,
 					"configs": {
 						"variants": {},
@@ -1284,7 +1272,7 @@
 				},
 				{
 					"name": "side2",
-					"origin": [10, 0, 26],
+					"origin": [10, -2, 26],
 					"rotation": [0, 90, 0],
 					"color": 0,
 					"configs": {
@@ -1322,7 +1310,7 @@
 				},
 				{
 					"name": "side3",
-					"origin": [-9, 0, -26],
+					"origin": [-9, -2, -26],
 					"rotation": [0, -90, 0],
 					"color": 0,
 					"configs": {
@@ -1360,7 +1348,7 @@
 				},
 				{
 					"name": "side4",
-					"origin": [26, 0, -9.5],
+					"origin": [26, -2, -9.5],
 					"rotation": [0, -180, 0],
 					"color": 0,
 					"configs": {
@@ -1405,7 +1393,7 @@
 		"default": {
 			"name": "default",
 			"display_name": "Default",
-			"uuid": "76b32cd9-e26d-5e81-2ea6-3bb3b2b25cf2",
+			"uuid": "d844418e-ddf3-543b-efe3-561a18b6ad88",
 			"texture_map": {},
 			"excluded_nodes": [],
 			"is_default": true

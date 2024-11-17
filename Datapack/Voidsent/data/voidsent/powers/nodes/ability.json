@@ -251,6 +251,10 @@
                                         "actions": [
                                             {
                                                 "type": "origins:execute_command",
+                                                "command": "execute as @p at @s anchored eyes run tp @n[tag=node_placement] ^ ^ ^9"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
                                                 "command": "function voidsent:abilities/display_node"
                                             },
                                             {
@@ -283,10 +287,6 @@
                                             }
                                         ]
                                     }
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute anchored eyes run tp @n[tag=node_placement] ^ ^ ^9"
                                 }
                             ]
                         },

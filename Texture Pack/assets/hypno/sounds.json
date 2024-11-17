@@ -3,5 +3,15 @@
     "sounds": [
       "misc/ahmimi"
     ]
+  },
+  "hollow_purple": {
+    "sounds": [
+      "misc/hollow_purple"
+    ]
+  },
+  "honored_one": {
+    "sounds": [
+      "misc/honored_one"
+    ]
   }
 }

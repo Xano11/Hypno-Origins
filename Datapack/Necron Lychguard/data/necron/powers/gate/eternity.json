@@ -12,31 +12,31 @@
             "conditions": [
                 {
                     "type": "origins:command",
-                    "command": "execute if block ~ ~-1 ~ #minecraft:replaceable",
+                    "command": "execute unless block ~ ~-1 ~ minecraft:obsidian",
                     "comparison": ">=",
                     "compare_to": 1
                 },
                 {
                     "type": "origins:command",
-                    "command": "execute if block ~ ~-1 ~1 #minecraft:replaceable",
+                    "command": "execute unless block ~ ~-1 ~1 minecraft:obsidian",
                     "comparison": ">=",
                     "compare_to": 1
                 },
                 {
                     "type": "origins:command",
-                    "command": "execute if block ~ ~-1 ~-1 #minecraft:replaceable",
+                    "command": "execute unless block ~ ~-1 ~-1 minecraft:obsidian",
                     "comparison": ">=",
                     "compare_to": 1
                 },
                 {
                     "type": "origins:command",
-                    "command": "execute if block ~1 ~-1 ~ #minecraft:replaceable",
+                    "command": "execute unless block ~1 ~-1 ~ minecraft:obsidian",
                     "comparison": ">=",
                     "compare_to": 1
                 },
                 {
                     "type": "origins:command",
-                    "command": "execute if block ~-1 ~-1 ~ #minecraft:replaceable",
+                    "command": "execute unless block ~-1 ~-1 ~ minecraft:obsidian",
                     "comparison": ">=",
                     "compare_to": 1
                 }

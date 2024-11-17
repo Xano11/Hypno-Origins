@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "necron:ingot",
+    "pattern": [
+        "brb",
+        "beb",
+        "beb"
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:blackstone"
+        },
+        "e": {
+            "item": "minecraft:emerald_block"
+        }, 
+        "r": {
+            "item": "minecraft:respawn_anchor"
+        }
+    },
+    "result": {
+        "id": "minecraft:lime_dye"
+    }
+}

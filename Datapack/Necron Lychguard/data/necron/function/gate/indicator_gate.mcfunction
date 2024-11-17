@@ -1,0 +1,6 @@
+execute at @e[type=shulker,tag=necron_eternity_gate] if score @n[type=shulker,tag=necron_eternity_gate] necron_gate_link = @s necron_gate_link store result score @s necron_gateX run data get entity @n[type=shulker,tag=necron_eternity_gate] Pos[0] 1
+execute at @e[type=shulker,tag=necron_eternity_gate] if score @n[type=shulker,tag=necron_eternity_gate] necron_gate_link = @s necron_gate_link store result score @s necron_gateY run data get entity @n[type=shulker,tag=necron_eternity_gate] Pos[1] 1
+execute at @e[type=shulker,tag=necron_eternity_gate] if score @n[type=shulker,tag=necron_eternity_gate] necron_gate_link = @s necron_gate_link store result score @s necron_gateZ run data get entity @n[type=shulker,tag=necron_eternity_gate] Pos[2] 1
+title @s times 1t 5t 1t
+title @s actionbar ["",{"text":"G4T3 D3T3CT3D | ","bold":true,"color":"green"},{"text":"X:","bold":true,"color":"dark_gray"},{"score":{"name":"@s","objective":"necron_gateX"},"bold":true},{"text":" Y:","bold":true,"color":"dark_gray"},{"score":{"name":"@s","objective":"necron_gateY"},"bold":true},{"text":" Z:","bold":true,"color":"dark_gray"},{"score":{"name":"@s","objective":"necron_gateZ"},"bold":true}]
+title @s clear

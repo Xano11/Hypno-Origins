@@ -9,6 +9,12 @@
                 "custom_model_data": 1
             },
             "model": "hypno:item/angler/treasure"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "hypno:item/necron/gate"
         }
     ]
 }

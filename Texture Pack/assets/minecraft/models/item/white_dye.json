@@ -51,11 +51,49 @@
 				"custom_model_data": 8
 			},
 			"model": "animated_java:item/plushie_totem/default/crank"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 9
+			},
+			"model": "animated_java:item/bonlo/default/leftleg"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 10
+			},
+			"model": "animated_java:item/bonlo/default/rightleg"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 11
+			},
+			"model": "animated_java:item/bonlo/default/leftarm"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 12
+			},
+			"model": "animated_java:item/bonlo/default/rightarm"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 13
+			},
+			"model": "animated_java:item/bonlo/default/body"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 14
+			},
+			"model": "animated_java:item/bonlo/default/head"
 		}
 	],
 	"animated_java": {
 		"abyssal_conduit": [1],
 		"angler_cod": [],
+		"bonlo": [9, 10, 11, 12, 13, 14],
+		"hollow_bonlo": [],
 		"necron_domain": [],
 		"necron_eternity_gate": [],
 		"necron_wave": [],
